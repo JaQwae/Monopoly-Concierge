@@ -1,1 +1,6 @@
-
+:root {
+    --primary-color: #FFFDF5;
+    --secondary-color: #000000;
+    --footer-text-color: #676767;
+    --translucent-color: rgba(0,0,0,0.4);
+}

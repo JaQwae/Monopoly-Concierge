@@ -1,0 +1,95 @@
+#upper-nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+    
+    #nav-logo{
+        height: 5em;
+        width: 12em;
+    }
+    
+    button {
+      /* opacity: 0.6; */
+      
+      position: absolute;
+      right: 3%;
+      background-color: black;
+      color: white;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: .25em;
+      box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+      box-sizing: border-box;
+      cursor: pointer;
+      display: inline-flex;
+      font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      justify-content: center;
+      line-height: 1.25;
+      margin: 0;
+      min-height: 3rem;
+      padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+    /*   position: relative; */
+      text-decoration: none;
+      transition: all 250ms;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      vertical-align: baseline;
+      width: auto;
+      letter-spacing: 0.2em;
+    }
+    
+    button:hover,
+    button:focus {
+      border-color: rgba(0, 0, 0, 0.15);
+      box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+      color: black;
+      background-color: white;
+    }
+    
+    button:hover {
+      transform: translateY(-1px);
+    }
+    
+    button:active {
+      background-color: #F0F0F1;
+      border-color: rgba(0, 0, 0, 0.15);
+      box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+      color: rgba(0, 0, 0, 0.65);
+      transform: translateY(0);
+    }
+    
+    #nav-tab-container{
+      display: flex;
+      justify-content: space-around;
+      background-color: var(--translucent-color);
+      margin: 0;
+    }
+    
+    .nav-tabs {
+      list-style: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+      font-size: 1em;
+      padding: 1em;
+    }
+
+    .nav-links{
+        text-decoration: none;
+        color: var(--primary-color);
+    }
+    
+    .nav-tabs:hover,
+    .nav-tabs:focus {
+      cursor: pointer;
+      scale: 1.03;
+    }
+
+    .nav-links:hover,
+    .nav-links:focus {
+      color: var(--secondary-color)
+    }

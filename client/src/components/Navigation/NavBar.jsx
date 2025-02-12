@@ -1,39 +1,47 @@
 import React, { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom'
-
+import primaryLogo from '../../assets/navbar/primary-logo.png'
 const Home = lazy(() => import('../Pages/home/Home.jsx'));
 const Properties = lazy(() => import('../Pages/properties/Properties.jsx'));
 const JetCharters = lazy(() => import('../Pages/jet-charters/JetCharters.jsx'));
 const CarRentals = lazy(() => import('../Pages/car-rentals/CarRentals.jsx'));
 const Services = lazy(() => import('../Pages/services/Services.jsx'));
 const ConciergeChronicles = lazy(() => import('../Pages/concierge-chronicles/ConciergeChronicles.jsx'));
+import './NavBar.css'
 
 const NavBar = () => {
     return (
         <BrowserRouter>
             <nav>
-                <ul>
-                    <li>
-                        <NavLink to="/">Home</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/properties">Properties</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/charters">Jet Charters</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/rentals'>Car Rentals</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/services'>Services</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/chronicles">Concierge Chronicles</NavLink>
-                    </li>
+                <div id='upper-nav-container'>
+                    <NavLink to="/">
+                        <img
+                            id='nav-logo'
+                            src={primaryLogo}
+                            alt='The word Monopoly Concierge with a top over it'
+                        />
+                    </NavLink>
+                    <button>BOOK</button>
+                </div>
+                <ul id='nav-tab-container'>                   
+                    <NavLink to="/properties" className='nav-links'>
+                        <li className='nav-tabs'>Properties</li>
+                    </NavLink>
+                    <NavLink to="/charters" className='nav-links'>
+                        <li className='nav-tabs'>Jet Charters</li>
+                    </NavLink>
+                    <NavLink to='/rentals' className='nav-links'>
+                        <li className='nav-tabs'>Car Rentals</li>
+                    </NavLink>
+                    <NavLink to='/services' className='nav-links'>
+                        <li className='nav-tabs'>Services</li>
+                    </NavLink>
+                    <NavLink to="/chronicles" className='nav-links'>
+                        <li className='nav-tabs'>Concierge Chronicles</li>
+                    </NavLink>
                 </ul>
             </nav>
-            
+
             <Suspense fallback={<div>Loading...</div>}>
                 <Routes>
                     <Route path="/" element={<Home />} />
