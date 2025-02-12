@@ -1,13 +1,15 @@
 import React, { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom'
 import primaryLogo from '../../assets/navbar/primary-logo.png'
+import Button from '../Buttons/Button.jsx';
+import './NavBar.css'
 const Home = lazy(() => import('../Pages/home/Home.jsx'));
 const Properties = lazy(() => import('../Pages/properties/Properties.jsx'));
 const JetCharters = lazy(() => import('../Pages/jet-charters/JetCharters.jsx'));
 const CarRentals = lazy(() => import('../Pages/car-rentals/CarRentals.jsx'));
 const Services = lazy(() => import('../Pages/services/Services.jsx'));
 const ConciergeChronicles = lazy(() => import('../Pages/concierge-chronicles/ConciergeChronicles.jsx'));
-import './NavBar.css'
+
 
 const NavBar = () => {
     return (
@@ -21,7 +23,7 @@ const NavBar = () => {
                             alt='The word Monopoly Concierge with a top over it'
                         />
                     </NavLink>
-                    <button>BOOK</button>
+                    <Button btnIdName={'nav-cta-btn'}/>
                 </div>
                 <ul id='nav-tab-container'>                   
                     <NavLink to="/properties" className='nav-links'>
