@@ -5,6 +5,19 @@
     position: relative;
 }
 
+/* Here */
+#nav-toggle-btn {
+  display: none;
+  color: black;
+  position: absolute;
+  left: 3%;
+  font-size: 2em;
+  background: none;
+  outline: inherit;
+  border: none;
+  cursor: pointer;
+}
+
 #nav-logo{
   height: 5em;
   width: 12em;
@@ -26,6 +39,7 @@
     #nav-tab-container{
       display: flex;
       justify-content: space-around;
+      align-items: center;
       background-color: var(--translucent-color);
       margin: 0;
     }
@@ -54,3 +68,31 @@
     .nav-links:focus {
       color: var(--secondary-color)
     }
+
+/* tablet styling */
+
+@media screen and (max-width: 1024px) {
+  #nav-tab-container{
+    /* background-color: black; */
+    display: none;
+    padding: 0em;
+    flex-direction:column;
+  }
+  .nav-tabs {
+    /* background-color: red; */
+    /* padding:0.3em 0em; */
+  }
+
+  /* Here */
+  #nav-toggle-btn {
+    display: flex;
+    color: black;
+    position: absolute;
+    left: 3%;
+    font-size: 2em;
+    background: none;
+    outline: inherit;
+    border: none;
+    cursor: pointer;
+  }
+}

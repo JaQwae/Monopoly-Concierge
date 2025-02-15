@@ -1,8 +1,10 @@
-import React, { lazy, Suspense } from 'react'
-import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom'
-import primaryLogo from '../../assets/navbar/primary-logo.png'
+import React, { lazy, Suspense, useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
+import primaryLogo from '../../assets/navbar/primary-logo.png';
 import Button from '../Buttons/Button.jsx';
-import './NavBar.css'
+import './NavBar.css';
+
+// Lazy-loaded components
 const Home = lazy(() => import('../Pages/home/Home.jsx'));
 const Properties = lazy(() => import('../Pages/properties/Properties.jsx'));
 const JetCharters = lazy(() => import('../Pages/jet-charters/JetCharters.jsx'));
@@ -10,40 +12,82 @@ const CarRentals = lazy(() => import('../Pages/car-rentals/CarRentals.jsx'));
 const Services = lazy(() => import('../Pages/services/Services.jsx'));
 const ConciergeChronicles = lazy(() => import('../Pages/concierge-chronicles/ConciergeChronicles.jsx'));
 
-
+// NavBar Component
 const NavBar = () => {
+    const [toggleDisplay, setToggleDisplay] = useState(false); // Navbar toggle state
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth); // Track window width
+
+    // Effect to monitor window size and handle navbar display
+    useEffect(() => {
+        const handleResize = () => {
+            const currentWidth = window.innerWidth;
+            const isMobileView = window.innerHeight <= 1024;
+
+            setWindowWidth(currentWidth); // Update window width state
+            setToggleDisplay(isMobileView); // Toggle navbar display for mobile view
+        };
+
+        // Attach resize event listener
+        window.addEventListener('resize', handleResize);
+
+        // Initial call to handle the current window size
+        handleResize();
+
+        // Cleanup: Remove the resize event listener on component unmount
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []); // Empty dependency array ensures the effect runs once on mount
+
     return (
         <BrowserRouter>
             <nav>
-                <div id='upper-nav-container'>
+                {/* Upper Navbar */}
+                <div id="upper-nav-container">
+                    {/* Navbar Toggle Button */}
+                    <button id="nav-toggle-btn" onClick={() => setToggleDisplay(!toggleDisplay)}>
+                        <i className="fa-solid fa-bars"></i>
+                    </button>
+
+                    {/* Logo */}
                     <NavLink to="/">
                         <img
-                            id='nav-logo'
+                            id="nav-logo"
                             src={primaryLogo}
-                            alt='The word Monopoly Concierge with a top over it'
+                            alt="The word Monopoly Concierge with a top over it"
                         />
                     </NavLink>
-                    <Button btnIdName={'nav-cta-btn'}/>
+
+                    {/* Call-to-Action Button */}
+                    <Button btnIdName={'nav-cta-btn'} />
                 </div>
-                <ul id='nav-tab-container'>                   
-                    <NavLink to="/properties" className='nav-links'>
-                        <li className='nav-tabs'>Properties</li>
+
+                {/* Navbar Tabs */}
+                <ul
+                    id="nav-tab-container"
+                    style={{
+                        display: toggleDisplay ? 'flex' : 'none', // Dynamic display based on toggle state
+                    }}
+                >
+                    <NavLink to="/properties" className="nav-links">
+                        <li className="nav-tabs">Properties</li>
                     </NavLink>
-                    <NavLink to="/charters" className='nav-links'>
-                        <li className='nav-tabs'>Jet Charters</li>
+                    <NavLink to="/charters" className="nav-links">
+                        <li className="nav-tabs">Jet Charters</li>
                     </NavLink>
-                    <NavLink to='/rentals' className='nav-links'>
-                        <li className='nav-tabs'>Car Rentals</li>
+                    <NavLink to="/rentals" className="nav-links">
+                        <li className="nav-tabs">Car Rentals</li>
                     </NavLink>
-                    <NavLink to='/services' className='nav-links'>
-                        <li className='nav-tabs'>Services</li>
+                    <NavLink to="/services" className="nav-links">
+                        <li className="nav-tabs">Services</li>
                     </NavLink>
-                    <NavLink to="/chronicles" className='nav-links'>
-                        <li className='nav-tabs'>Concierge Chronicles</li>
+                    <NavLink to="/chronicles" className="nav-links">
+                        <li className="nav-tabs">Concierge Chronicles</li>
                     </NavLink>
                 </ul>
             </nav>
 
+            {/* Routes for Lazy-loaded Pages */}
             <Suspense fallback={<div>Loading...</div>}>
                 <Routes>
                     <Route path="/" element={<Home />} />
@@ -55,7 +99,7 @@ const NavBar = () => {
                 </Routes>
             </Suspense>
         </BrowserRouter>
-    )
-}
+    );
+};
 
-export default NavBar
+export default NavBar;
