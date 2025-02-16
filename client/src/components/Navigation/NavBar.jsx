@@ -39,6 +39,15 @@ const NavBar = () => {
         };
     }, []); // Empty dependency array ensures the effect runs once on mount
 
+    // Automatically closes nav bar when navigating to a new tab    
+    const closeMobileNav = () => {
+        const isMobileView = window.innerWidth <= 1024;
+
+        if(isMobileView) {
+            setToggleDisplay(!toggleDisplay)
+        }
+    }
+
     return (
         <BrowserRouter>
             <nav>
@@ -50,7 +59,7 @@ const NavBar = () => {
                     </button>
 
                     {/* Logo */}
-                    <NavLink to="/">
+                    <NavLink to="/" onClick={() => closeMobileNav()}>
                         <img
                             id="nav-logo"
                             src={primaryLogo}
@@ -69,19 +78,19 @@ const NavBar = () => {
                         display: toggleDisplay ? 'flex' : 'none', // Dynamic display based on toggle state
                     }}
                 >
-                    <NavLink to="/properties" className="nav-links">
+                    <NavLink to="/properties" className="nav-links" onClick={() => closeMobileNav()}>
                         <li className="nav-tabs">Properties</li>
                     </NavLink>
-                    <NavLink to="/charters" className="nav-links">
+                    <NavLink to="/charters" className="nav-links" onClick={() => closeMobileNav()}>
                         <li className="nav-tabs">Jet Charters</li>
                     </NavLink>
-                    <NavLink to="/rentals" className="nav-links">
+                    <NavLink to="/rentals" className="nav-links" onClick={() => closeMobileNav()}>
                         <li className="nav-tabs">Car Rentals</li>
                     </NavLink>
-                    <NavLink to="/services" className="nav-links">
+                    <NavLink to="/services" className="nav-links" onClick={() => closeMobileNav()}>
                         <li className="nav-tabs">Services</li>
                     </NavLink>
-                    <NavLink to="/chronicles" className="nav-links">
+                    <NavLink to="/chronicles" className="nav-links" onClick={() => closeMobileNav()}>
                         <li className="nav-tabs">Concierge Chronicles</li>
                     </NavLink>
                 </ul>
