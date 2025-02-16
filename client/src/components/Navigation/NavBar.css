@@ -1,0 +1,132 @@
+nav {
+  position: fixed;
+  top:0;
+  width: 100%
+}
+
+#upper-nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#nav-toggle-btn {
+  display: none;
+  color: black;
+  position: absolute;
+  left: 3%;
+  font-size: 2em;
+  background: none;
+  outline: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+#nav-logo{
+  height: 5em;
+  width: 12em;
+}
+
+#nav-cta-btn{
+  background-color: var(--translucent-color);
+  color: var(--primary-color);
+  position: absolute;
+  right: 3%;
+}
+
+#nav-cta-btn:hover,
+#nav-cta-btn:focus {
+    color: black;
+    background-color: white;
+}
+
+    #nav-tab-container{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: var(--translucent-color);
+      margin: 0;
+    }
+    
+    .nav-tabs {
+      list-style: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+      font-size: 1em;
+      padding: 1em;
+    }
+
+    .nav-links{
+        text-decoration: none;
+        color: var(--primary-color);
+    }
+    
+    .nav-tabs:hover,
+    .nav-tabs:focus {
+      cursor: pointer;
+      scale: 1.03;
+    }
+
+    .nav-links:hover,
+    .nav-links:focus {
+      color: var(--secondary-color)
+    }
+
+/* tablet styling */
+@media screen and (max-width: 1024px) {
+  #nav-logo{
+    height: 7em;
+    width: 16em;
+  }
+
+  #nav-tab-container{
+    padding: 0em;
+    flex-direction:column;
+    display: none;
+  }
+  .nav-tabs {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5em 0em;
+    border-bottom: 2px solid var(--primary-color);
+  }
+
+  .nav-links {
+    width: 100%;
+    font-size: 1em;
+    font-size: 1.2em;
+  }
+
+  #nav-toggle-btn {
+    display: flex;
+    color: black;
+    position: absolute;
+    left: 3%;
+    font-size: 2em;
+    background: none;
+    outline: inherit;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+/* mobile styling */
+@media screen and (max-width: 767px) {
+  #nav-toggle-btn {
+    left: 2%;
+    font-size: 1.7em;
+  }
+
+  #nav-logo{
+    height: 4.5em;
+    width: 9.5em;
+  }
+
+  #nav-cta-btn{
+    right: 1%;
+  }
+}
