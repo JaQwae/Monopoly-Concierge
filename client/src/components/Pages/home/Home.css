@@ -6,30 +6,30 @@
 
 .overlay-screen {
     height: 100vh;
-    width:100vw;
+    width: 100vw;
     background-color: rgba(0, 0, 0, 0.45);
     position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-  
-  #homepage-hero-content {
+}
+
+#homepage-hero-content {
     position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 4em 6em;
     height: 8em;
-  }
-  
-  #slogan {
-    font-size: 2em;
+}
+
+#slogan {
+    font-size: 3em;
     color: white;
-  }
-  
-  #cta-hero-btn {
+}
+
+#cta-hero-btn {
     text-align: center;
     cursor: pointer;
     text-transform: uppercase;
@@ -41,18 +41,18 @@
     font-weight: bold;
     font-size: 1em;
     background: transparent;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.20);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.20);
     border: 2px solid white;
     padding: 0.6em 1.2em;
     transition: all 0.7s;
-  }
-  
-  #cta-hero-btn span {
-    position: relative; 
+}
+
+#cta-hero-btn span {
+    position: relative;
     z-index: 1;
-  }
-  
-  #cta-hero-btn:after {
+}
+
+#cta-hero-btn:after {
     content: "";
     position: absolute;
     left: 0;
@@ -64,24 +64,45 @@
     transition: all .5s ease-in-out;
     -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
     transform: translateX(-98%) translateY(-25%) rotate(45deg);
-  }
-  
-  #cta-hero-btn:hover,
-  #cta-hero-btn:focus {
-    border-color:black;
-    background:white;
-  }
-  
-  #cta-hero-btn:hover:after,
-  #cta-hero-btn:focus:after {
+}
+
+#cta-hero-btn:hover,
+#cta-hero-btn:focus {
+    border-color: black;
+    background: white;
+}
+
+#cta-hero-btn:hover:after,
+#cta-hero-btn:focus:after {
     -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
     transform: translateX(-9%) translateY(-25%) rotate(45deg);
-  }
-  
-  .fa-angle-down{
+}
+
+#home-auto-scroll-container {
+    color: white;
+    font-size: 2em;
+    z-index: 1;
+    position: relative;
+    top: 39%;
+    background: none;
+	border: none;
+}
+
+#video-control-container {
     color: white;
     font-size: 1.5em;
     z-index: 1;
     position: relative;
-    top:42%
-  }
+    top: 47%;
+    left: -46%;
+    background: none;
+	border: none;
+}
+
+#home-auto-scroll-container:hover ,#home-auto-scroll-container:focus,
+#video-control-container:hover, #video-control-container:focus{
+    color: var(--secondary-color);
+    scale: 1.2;
+    transition: 0.3 ease-in-out;
+    text-shadow: var(--primary-color) 1px 0 10px;
+}
