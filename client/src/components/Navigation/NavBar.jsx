@@ -28,7 +28,6 @@ const NavBar = () => {
             // Determines what the initial state of the navbar would look like on different orientations
             if (isMobileView) {
                 setToggleDisplay(false);
-                console.log('mobile')
             } else {
                 setToggleDisplay(true);
             }
@@ -46,11 +45,21 @@ const NavBar = () => {
         };
     }, []); // Empty dependency array ensures the effect runs once on mount
 
+
+    const toggleMobileNav = () => {
+        setToggleDisplay(!toggleDisplay);
+        // const pageBehindNav = document.getElementsByClassName('pages');
+        // console.log(pageBehindNav[0]);
+
+        
+    }
+    
+
     // Automatically closes nav bar when navigating to a new tab    
     const closeMobileNav = () => {
         const isMobileView = window.innerWidth <= 1024;
 
-        if(isMobileView) {
+        if(isMobileView && toggleDisplay) {
             setToggleDisplay(!toggleDisplay)
         }
     }
@@ -61,7 +70,7 @@ const NavBar = () => {
                 {/* Upper Navbar */}
                 <div id="upper-nav-container">
                     {/* Navbar Toggle Button */}
-                    <button id="nav-toggle-btn" onClick={() => setToggleDisplay(!toggleDisplay)}>
+                    <button id="nav-toggle-btn" onClick={() => toggleMobileNav()}>
                         {toggleDisplay ? <i className="fa-solid fa-xmark"></i> :<i className="fa-solid fa-bars"></i>}
                     </button>
 
