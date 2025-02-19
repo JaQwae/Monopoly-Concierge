@@ -20,11 +20,18 @@ const NavBar = () => {
     // Effect to monitor window size and handle navbar display
     useEffect(() => {
         const handleResize = () => {
-            const currentWidth = window.innerWidth;
-            const isMobileView = window.innerHeight <= 1024;
+            const currentWidth = windowWidth;
+            const isMobileView = window.innerWidth <= 1024;
 
             setWindowWidth(currentWidth); // Update window width state
-            setToggleDisplay(isMobileView); // Toggle navbar display for mobile view
+
+            // Determines what the initial state of the navbar would look like on different orientations
+            if (isMobileView) {
+                setToggleDisplay(false);
+                console.log('mobile')
+            } else {
+                setToggleDisplay(true);
+            }
         };
 
         // Attach resize event listener
@@ -55,7 +62,7 @@ const NavBar = () => {
                 <div id="upper-nav-container">
                     {/* Navbar Toggle Button */}
                     <button id="nav-toggle-btn" onClick={() => setToggleDisplay(!toggleDisplay)}>
-                        <i className="fa-solid fa-bars"></i>
+                        {toggleDisplay ? <i className="fa-solid fa-xmark"></i> :<i className="fa-solid fa-bars"></i>}
                     </button>
 
                     {/* Logo */}
