@@ -4,11 +4,12 @@ import './Button.css'
 
 const Button = (props) => {
     return (
-        <button id={props.btnIdName}>BOOK</button>
+        <button id={props.btnIdName}>{props.displayName}</button>
     )
 }
 
 Button.propTypes = {
+    displayName: PropTypes.string.isRequired,
     btnIdName: PropTypes.string
 }
 

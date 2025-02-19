@@ -68,7 +68,7 @@ const NavBar = () => {
                     </NavLink>
 
                     {/* Call-to-Action Button */}
-                    <Button btnIdName={'nav-cta-btn'} />
+                    <Button btnIdName={'nav-cta-btn'} displayName='BOOK' />
                 </div>
 
                 {/* Navbar Tabs */}
