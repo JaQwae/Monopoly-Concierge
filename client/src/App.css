@@ -10,11 +10,9 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background-color: green; */
 }
 
 .page-sections{
-    /* background-color: purple; */
     width: 100%;
     display: flex;
     flex-direction: column;
