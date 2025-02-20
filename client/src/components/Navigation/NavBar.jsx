@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useState, useEffect } from 'react';
+import React, { lazy, Suspense, useState, useEffect, useRef } from 'react';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import primaryLogo from '../../assets/navbar/primary-logo.png';
 import Button from '../Buttons/Button.jsx';
@@ -15,47 +15,69 @@ const ConciergeChronicles = lazy(() => import('../Pages/concierge-chronicles/Con
 // NavBar Component
 const NavBar = () => {
     const [toggleDisplay, setToggleDisplay] = useState(false); // Navbar toggle state
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth); // Track window width
+    // const [windowWidth, setWindowWidth] = useState(window.innerWidth); // Track window width
+    const navRef = useRef(null);
 
     // Effect to monitor window size and handle navbar display
     useEffect(() => {
         const handleResize = () => {
-            const currentWidth = window.innerWidth;
-            const isMobileView = window.innerHeight <= 1024;
-
-            setWindowWidth(currentWidth); // Update window width state
-            setToggleDisplay(isMobileView); // Toggle navbar display for mobile view
+            const currentWidth = window.innerWidth; // Use window.innerWidth directly
+            // setWindowWidth(currentWidth); // Update window width state
+    
+            // Dynamically determine if it's a mobile view
+            if (currentWidth <= 1024) {
+                setToggleDisplay(false);
+            } else {
+                setToggleDisplay(true);
+            }
         };
-
+    
         // Attach resize event listener
         window.addEventListener('resize', handleResize);
-
+    
         // Initial call to handle the current window size
         handleResize();
-
+    
         // Cleanup: Remove the resize event listener on component unmount
         return () => {
             window.removeEventListener('resize', handleResize);
         };
     }, []); // Empty dependency array ensures the effect runs once on mount
 
+    // Close navbar when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            const currentWidth = window.innerWidth;
+
+            if (currentWidth <= 1024 && toggleDisplay && navRef.current && !navRef.current.contains(event.target)) {
+                setToggleDisplay(false); // Close the navbar
+            }
+        };
+
+        document.addEventListener('click', handleClickOutside);
+        return () => document.removeEventListener('click', handleClickOutside);
+    });
+
     // Automatically closes nav bar when navigating to a new tab    
     const closeMobileNav = () => {
         const isMobileView = window.innerWidth <= 1024;
 
-        if(isMobileView) {
+        if (isMobileView && toggleDisplay) {
             setToggleDisplay(!toggleDisplay)
         }
     }
 
+
+
+
     return (
         <BrowserRouter>
-            <nav>
+            <nav ref={navRef}>
                 {/* Upper Navbar */}
                 <div id="upper-nav-container">
                     {/* Navbar Toggle Button */}
                     <button id="nav-toggle-btn" onClick={() => setToggleDisplay(!toggleDisplay)}>
-                        <i className="fa-solid fa-bars"></i>
+                        {toggleDisplay ? <i className="fa-solid fa-xmark"></i> : <i className="fa-solid fa-bars"></i>}
                     </button>
 
                     {/* Logo */}

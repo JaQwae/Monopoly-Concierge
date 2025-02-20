@@ -94,6 +94,7 @@ nav {
     align-items: center;
     padding: 1.5em 0em;
     border-bottom: 2px solid var(--primary-color);
+    background-color: #000000a1;
   }
 
   .nav-links {
@@ -112,6 +113,7 @@ nav {
     outline: inherit;
     border: none;
     cursor: pointer;
+    text-shadow: var(--primary-color) 3px 1.5px;
   }
 }
 
