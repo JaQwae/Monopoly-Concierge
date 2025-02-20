@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useState, useEffect } from 'react';
+import React, { lazy, Suspense, useState, useEffect, useRef } from 'react';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import primaryLogo from '../../assets/navbar/primary-logo.png';
 import Button from '../Buttons/Button.jsx';
@@ -16,6 +16,7 @@ const ConciergeChronicles = lazy(() => import('../Pages/concierge-chronicles/Con
 const NavBar = () => {
     const [toggleDisplay, setToggleDisplay] = useState(false); // Navbar toggle state
     const [windowWidth, setWindowWidth] = useState(window.innerWidth); // Track window width
+    const navRef = useRef(null)
 
     // Effect to monitor window size and handle navbar display
     useEffect(() => {
@@ -43,35 +44,40 @@ const NavBar = () => {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, []); // Empty dependency array ensures the effect runs once on mount
+    }, [windowWidth]); // Empty dependency array ensures the effect runs once on mount
 
+    // Close navbar when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (navRef.current && !navRef.current.contains(event.target)) {
+                setToggleDisplay(false); // Close the navbar
+            }
+        };
 
-    const toggleMobileNav = () => {
-        setToggleDisplay(!toggleDisplay);
-        // const pageBehindNav = document.getElementsByClassName('pages');
-        // console.log(pageBehindNav[0]);
-
-        
-    }
-    
+        document.addEventListener('click', handleClickOutside);
+        return () => document.removeEventListener('click', handleClickOutside);
+    }, []);
 
     // Automatically closes nav bar when navigating to a new tab    
     const closeMobileNav = () => {
         const isMobileView = window.innerWidth <= 1024;
 
-        if(isMobileView && toggleDisplay) {
+        if (isMobileView && toggleDisplay) {
             setToggleDisplay(!toggleDisplay)
         }
     }
 
+
+
+
     return (
         <BrowserRouter>
-            <nav>
+            <nav ref={navRef}>
                 {/* Upper Navbar */}
                 <div id="upper-nav-container">
                     {/* Navbar Toggle Button */}
-                    <button id="nav-toggle-btn" onClick={() => toggleMobileNav()}>
-                        {toggleDisplay ? <i className="fa-solid fa-xmark"></i> :<i className="fa-solid fa-bars"></i>}
+                    <button id="nav-toggle-btn" onClick={() => setToggleDisplay(!toggleDisplay)}>
+                        {toggleDisplay ? <i className="fa-solid fa-xmark"></i> : <i className="fa-solid fa-bars"></i>}
                     </button>
 
                     {/* Logo */}
