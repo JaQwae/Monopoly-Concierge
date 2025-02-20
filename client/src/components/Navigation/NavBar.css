@@ -113,6 +113,7 @@ nav {
     outline: inherit;
     border: none;
     cursor: pointer;
+    text-shadow: var(--primary-color) 3px 1.5px;
   }
 }
 

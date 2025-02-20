@@ -16,47 +16,47 @@ const ConciergeChronicles = lazy(() => import('../Pages/concierge-chronicles/Con
 const NavBar = () => {
     const [toggleDisplay, setToggleDisplay] = useState(false); // Navbar toggle state
     const [windowWidth, setWindowWidth] = useState(window.innerWidth); // Track window width
-    const navRef = useRef(null)
+    const navRef = useRef(null);
 
     // Effect to monitor window size and handle navbar display
     useEffect(() => {
         const handleResize = () => {
-            const currentWidth = windowWidth;
-            const isMobileView = window.innerWidth <= 1024;
-
+            const currentWidth = window.innerWidth; // Use window.innerWidth directly
             setWindowWidth(currentWidth); // Update window width state
-
-            // Determines what the initial state of the navbar would look like on different orientations
-            if (isMobileView) {
+    
+            // Dynamically determine if it's a mobile view
+            if (currentWidth <= 1024) {
                 setToggleDisplay(false);
             } else {
                 setToggleDisplay(true);
             }
         };
-
+    
         // Attach resize event listener
         window.addEventListener('resize', handleResize);
-
+    
         // Initial call to handle the current window size
         handleResize();
-
+    
         // Cleanup: Remove the resize event listener on component unmount
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, [windowWidth]); // Empty dependency array ensures the effect runs once on mount
+    }, []); // Empty dependency array ensures the effect runs once on mount
 
     // Close navbar when clicking outside
     useEffect(() => {
         const handleClickOutside = (event) => {
-            if (navRef.current && !navRef.current.contains(event.target)) {
+            const currentWidth = window.innerWidth;
+
+            if (currentWidth <= 1024 && toggleDisplay && navRef.current && !navRef.current.contains(event.target)) {
                 setToggleDisplay(false); // Close the navbar
             }
         };
 
         document.addEventListener('click', handleClickOutside);
         return () => document.removeEventListener('click', handleClickOutside);
-    }, []);
+    });
 
     // Automatically closes nav bar when navigating to a new tab    
     const closeMobileNav = () => {
