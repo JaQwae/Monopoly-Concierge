@@ -15,14 +15,14 @@ const ConciergeChronicles = lazy(() => import('../Pages/concierge-chronicles/Con
 // NavBar Component
 const NavBar = () => {
     const [toggleDisplay, setToggleDisplay] = useState(false); // Navbar toggle state
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth); // Track window width
+    // const [windowWidth, setWindowWidth] = useState(window.innerWidth); // Track window width
     const navRef = useRef(null);
 
     // Effect to monitor window size and handle navbar display
     useEffect(() => {
         const handleResize = () => {
             const currentWidth = window.innerWidth; // Use window.innerWidth directly
-            setWindowWidth(currentWidth); // Update window width state
+            // setWindowWidth(currentWidth); // Update window width state
     
             // Dynamically determine if it's a mobile view
             if (currentWidth <= 1024) {
