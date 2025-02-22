@@ -2,7 +2,7 @@ import conciergeMomentsTitle from '../../../../assets/home/concierge-moments-tit
 import './ConciergeMoments.css'
 
 const ConciergeMoments = () => {
-    const speed = 15000;
+    const speed = 33000;
     const images = [
         "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80",
         "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80",

@@ -17,15 +17,15 @@
 
 #polaroid-track {
     position: absolute;
-    top: 50%;
+    top: 43%;
     display: flex;
     justify-content: center;
 }
 
 .polaroid {
-    width: 14em;
-    height: 16em;
-    padding: 0 15px;
+    width: 19em;
+    height: 21em;
+    padding: 0 1.9em;
     object-fit: cover;
 }
 
@@ -45,5 +45,58 @@
 
     100% {
         transform: translate(-100%);
+    }
+}
+
+/* large tablet styling: start here w/ landscape mobile styling*/
+@media screen and (max-width: 1024px) {
+    #concierge-moments-title {
+        top: 85%;
+        left: 40%;
+        height: 9.5em;
+    }
+
+    #polaroid-track {
+        top: 32%;
+    }
+    
+    .polaroid {
+        width: 28em;
+        height: 33em;
+        padding: 0 2.9em;
+    }
+}
+
+/* small tablet styling */
+@media screen and (max-width: 910px) {
+    #concierge-moments-title {
+        left: 35%;
+        height: 8em;
+    }
+
+    #polaroid-track {
+        top: 28%;
+    }
+    
+    .polaroid {
+        width: 24em;
+        height: 28em;
+    }
+}
+
+/* mobile styling */
+@media screen and (max-width: 767px) {
+    #concierge-moments-title {
+        left: 31%;
+        height: 4.2em;
+    }
+
+    #polaroid-track {
+        top: 26%;
+    }
+    
+    .polaroid {
+        width: 19em;
+        height: 21em;
     }
 }
