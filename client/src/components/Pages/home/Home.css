@@ -37,7 +37,8 @@
     font-weight: 900;
 }
 
-#cta-hero-btn:hover, #cta-hero-btn:focus{
+#cta-hero-btn:hover,
+#cta-hero-btn:focus {
     background-color: var(--primary-color);
     color: var(--secondary-color);
 }
@@ -49,7 +50,7 @@
     position: relative;
     top: 39%;
     background: none;
-	border: none;
+    border: none;
 }
 
 #video-control-container {
@@ -60,16 +61,106 @@
     top: 47%;
     left: -46%;
     background: none;
-	border: none;
+    border: none;
 }
 
-#home-auto-scroll-container:hover ,#home-auto-scroll-container:focus,
-#video-control-container:hover, #video-control-container:focus{
+#home-auto-scroll-container:hover,
+#home-auto-scroll-container:focus,
+#video-control-container:hover,
+#video-control-container:focus {
     color: var(--secondary-color);
     scale: 1.2;
     transition: 0.3 ease-in-out;
     text-shadow: var(--primary-color) 1px 0 10px;
 }
+
+/* Concierge Moments Section */
+/* #concierge-moments-section {
+    background-image: url('../../../assets/home/concierge-moments-bg-image.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    overflow-x: hidden;
+} */
+
+
+/* #concierge-moments-title {
+    position: absolute;
+    top: 80%;
+    left: 45%;
+} */
+
+/* .scroll-container {
+    height: 30%;
+    width: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+} */
+
+/* .carousel-primary,
+.carousel-secondary {
+    top: 26%;
+    left: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+} */
+
+/* .carousel-primary img {
+    width: 14em;
+    height: 16em;
+    margin-left: 0.5em;
+    border-radius: 0px;
+} */
+
+/* .carousel-primary {
+    display: flex;
+    justify-content: space-around;
+    animation: scroll-horizontal 20s linear infinite;
+} */
+
+/* .carousel-secondary {
+    animation: scroll-horizontal 20s linear infinite;
+    animation-delay: 10s;
+} */
+
+/* @keyframes scroll-horizontal {
+    0% {
+        left: 100%;
+    }
+
+    100% {
+        left: -100%;
+    }
+} */
+
+/* .carousel-primary:hover,
+.carousel-primary:hover~.carousel-secondary {
+    -webkit-animation-play-state: paused;
+    -moz-animation-play-state: paused;
+    -o-animation-play-state: paused;
+    animation-play-state: paused;
+} */
+
+/* .carousel-secondary:hover {
+    -webkit-animation-play-state: paused;
+    -moz-animation-play-state: paused;
+    -o-animation-play-state: paused;
+    animation-play-state: paused;
+} */
+
+
+/* .scroll-container:hover>.carousel-primary:not(:hover) {
+    -webkit-animation-play-state: paused;
+    -moz-animation-play-state: paused;
+    -o-animation-play-state: paused;
+    animation-play-state: paused;
+} */
 
 /* tablet styling */
 @media screen and (max-width: 1024px) {

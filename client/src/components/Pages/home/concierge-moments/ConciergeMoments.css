@@ -1,0 +1,49 @@
+#concierge-moments-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url(../../../../assets/home/concierge-moments-bg-image.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#concierge-moments-title {
+    position: absolute;
+    top: 22%;
+    left: 2%;
+}
+
+#polaroid-track {
+    position: absolute;
+    top: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.polaroid {
+    width: 14em;
+    height: 16em;
+    padding: 0 15px;
+    object-fit: cover;
+}
+
+.polaroid:last-of-type {
+    padding-left: 0;
+}
+
+.polaroid-track-sections {
+    display: flex;
+    animation: swipe var(--speed) linear infinite backwards;
+}
+
+@keyframes swipe {
+    0% {
+        transform: translate(0);
+    }
+
+    100% {
+        transform: translate(-100%);
+    }
+}
