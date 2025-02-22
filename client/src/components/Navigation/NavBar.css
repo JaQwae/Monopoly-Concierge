@@ -96,12 +96,11 @@ nav {
     align-items: center;
     padding: 1.5em 0em;
     border-bottom: 2px solid var(--primary-color);
-    background-color: #000000a1;
+    background-color: #000000cd;
   }
 
   .nav-links {
     width: 100%;
-    font-size: 1em;
     font-size: 1.2em;
   }
 
@@ -132,6 +131,33 @@ nav {
   }
 
   #nav-cta-btn{
-    right: 1%;
+    right: 2%;
+    font-size: 0.9em;
+    min-height: 0rem;
+    padding: 0.9em;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 450px) {
+  nav {
+    padding-top: 0.5em;
+  }
+  
+  #upper-nav-container {
+    padding-bottom: 0em;
+  }
+
+  #nav-logo{
+    height: 4.5em;
+    width: 9.5em;
+  }
+
+  .nav-tabs {
+    padding: 1em 0em;
+  }
+  
+  .nav-links {
+    font-size: 1em;
+
   }
 }
