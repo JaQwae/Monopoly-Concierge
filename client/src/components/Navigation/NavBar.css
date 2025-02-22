@@ -3,6 +3,7 @@ nav {
   top:0;
   width: 100%;
   z-index: 100;
+  padding-top: 0.5em;
 }
 
 #upper-nav-container {
@@ -10,6 +11,7 @@ nav {
     justify-content: center;
     align-items: center;
     position: relative;
+    padding-bottom: 0.5em;
 }
 
 #nav-toggle-btn {

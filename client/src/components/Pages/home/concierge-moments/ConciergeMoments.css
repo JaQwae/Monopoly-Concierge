@@ -1,0 +1,134 @@
+#concierge-moments-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url(../../../../assets/home/concierge-moments-bg-image.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#concierge-moments-title {
+    position: absolute;
+    top: 22%;
+    left: 2%;
+}
+
+#polaroid-track {
+    position: absolute;
+    top: 43%;
+    display: flex;
+    justify-content: center;
+}
+
+.polaroid {
+    width: 19em;
+    height: 21em;
+    padding: 0 1.9em;
+    object-fit: cover;
+}
+
+.polaroid:last-of-type {
+    padding-left: 0;
+}
+
+.polaroid-track-sections {
+    display: flex;
+    animation: swipe var(--speed) linear infinite backwards;
+}
+
+@keyframes swipe {
+    0% {
+        transform: translate(0);
+    }
+
+    100% {
+        transform: translate(-100%);
+    }
+}
+
+/* large tablet styling: start here*/
+@media screen and (max-width: 1024px) {
+    #concierge-moments-title {
+        top: 85%;
+        left: 40%;
+        height: 9.5em;
+    }
+
+    #polaroid-track {
+        top: 32%;
+    }
+    
+    .polaroid {
+        width: 28em;
+        height: 33em;
+        padding: 0 2.9em;
+    }
+}
+
+/* small tablet styling */
+@media screen and (max-width: 910px) {
+    #concierge-moments-title {
+        left: 35%;
+        height: 8em;
+    }
+
+    #polaroid-track {
+        top: 28%;
+    }
+    
+    .polaroid {
+        width: 24em;
+        height: 28em;
+    }
+}
+
+@media (orientation: landscape) and (max-width: 1024px) {
+    #concierge-moments-title {
+        left: 45%;
+        height: 8em;
+    }
+
+    #polaroid-track {
+        top: 24%;
+    }
+    
+    .polaroid {
+        width: 22em;
+        height: 26em;
+    }
+}
+
+/* mobile styling */
+@media screen and (max-width: 767px) {
+    #concierge-moments-title {
+        left: 31%;
+        height: 4.2em;
+    }
+
+    #polaroid-track {
+        top: 26%;
+    }
+    
+    .polaroid {
+        width: 19em;
+        height: 21em;
+    }
+}
+
+@media (orientation: landscape) and (max-width: 950px) {
+    #concierge-moments-title {
+        left: 60%;
+        height: 4.5em;
+    }
+
+    #polaroid-track {
+        top: 30%;
+    }
+    
+    .polaroid {
+        width: 10em;
+        height: 12em;
+    }
+}
