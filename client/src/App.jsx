@@ -1,11 +1,9 @@
 import './App.css'
-// import NavBar from './components/Navigation/NavBar'
-import Loading from './components/Loading/Loading'
+import NavBar from './components/Navigation/NavBar'
 
 function App() {
   return (
-    // <NavBar/>
-    <Loading/>
+    <NavBar/>
   )
 }
 

@@ -1,3 +1,4 @@
+import Loading from '../Loading/Loading.jsx'
 import React, { lazy, Suspense, useState, useEffect, useRef } from 'react';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import primaryLogo from '../../assets/navbar/primary-logo.png';
@@ -119,7 +120,7 @@ const NavBar = () => {
             </nav>
 
             {/* Routes for Lazy-loaded Pages */}
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Loading/>}>
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/properties" element={<Properties />} />
