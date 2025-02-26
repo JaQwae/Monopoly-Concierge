@@ -48,7 +48,7 @@
     }
 }
 
-/* large tablet styling: start here*/
+/* large tablet styling */
 @media screen and (max-width: 1024px) {
     #concierge-moments-title {
         top: 85%;

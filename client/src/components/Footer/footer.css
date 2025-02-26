@@ -1,0 +1,244 @@
+footer {
+    height: 50vh;
+    border-top: 0.15em solid grey;
+    display: flex;
+    color: grey;
+}
+
+#footer-contact-container {
+    min-width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-contact-sections {
+    display: flex;
+    align-items: center;
+    min-height: 33%;
+}
+
+h3 {
+    font-size: 2.5em;
+}
+
+#footer-contact-btn {
+    background-color: black;
+    color: white;
+    font-size: 1em;
+    font-weight: 700;
+    padding: 1em;
+    border: none;
+    border-radius: 5px
+}
+
+#footer-contact-btn:hover,
+#footer-contact-btn:focus {
+    color: black;
+    background-color: white;
+    border: 2px solid black;
+}
+
+#social-media-container {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+}
+
+.social-media-links {
+    font-size: 2em;
+    padding: 0.7em;
+    transition: 0.3s ease-in-out;
+}
+
+.social-media-links:hover,
+.social-media-links:focus {
+    color: black;
+    scale: 1.15;
+}
+
+/* Subscriber section */
+#footer-subscribe-container {
+    min-height: 70%;
+    min-width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+#footer-subscribe-heading-section {
+    height: 40%;
+    margin-left: 2em;
+}
+
+#footer-subscribe-header {
+    font-size: 2em;
+    margin: 0.5em 0em;
+}
+
+#footer-subscribe-heading-section p {
+    font-size: 1.2em;
+    margin: 0em
+}
+
+#footer-subscribe-header em {
+    color: black;
+}
+
+#footer-form-container {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 0em 2em;
+}
+
+.form-split-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-input-field {
+    height: 3em;
+}
+
+.footer-input-field::placeholder {
+    padding-left: 1em;
+}
+
+#firstName,
+#lastName {
+    width: 47%;
+}
+
+#city,
+#state,
+#footer-subscribe-btn {
+    width: 30%;
+}
+
+#footer-subscribe-btn {
+    height: 3em;
+    padding: 0.3em;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#footer-subscribe-btn:hover,
+#footer-subscribe-btn:focus {
+    background-color: white;
+    color: black;
+    border: 0.5px solid black;
+}
+
+/* large tablet styling: start here*/
+@media screen and (max-width: 1024px) {
+    footer {
+        height: 60vh;
+        flex-direction: column;
+        justify-content: center;
+        padding: 1em 0em;
+    }
+
+    #footer-subscribe-container {
+        min-height: 50%;
+        order: 0;
+        margin: 0em 4em;
+    }
+
+    #footer-subscribe-heading-section {
+        height: auto;
+        margin-bottom: 0.8em;
+    }
+    
+    #footer-subscribe-header {
+        font-size: 2.3em;
+    }
+    
+    #footer-subscribe-heading-section p {
+        font-size: 1.3em;
+    }
+
+    #footer-form-container {
+        height: 60%;
+        justify-content: space-around;
+    }
+    
+    .footer-input-field {
+        height: 2.5em;
+    }
+    
+    #footer-contact-container {
+        margin-top: 1em;
+        order: 1;
+    }
+}
+
+/* small tablet styling */
+/* @media screen and (max-width: 910px) {
+    #concierge-moments-title {
+        left: 35%;
+        height: 8em;
+    }
+
+    #polaroid-track {
+        top: 28%;
+    }
+    
+    .polaroid {
+        width: 24em;
+        height: 28em;
+    }
+} */
+
+/* @media (orientation: landscape) and (max-width: 1024px) {
+    #concierge-moments-title {
+        left: 45%;
+        height: 8em;
+    }
+
+    #polaroid-track {
+        top: 24%;
+    }
+    
+    .polaroid {
+        width: 22em;
+        height: 26em;
+    }
+} */
+
+/* mobile styling */
+/* @media screen and (max-width: 767px) {
+    #concierge-moments-title {
+        left: 31%;
+        height: 4.2em;
+    }
+
+    #polaroid-track {
+        top: 26%;
+    }
+    
+    .polaroid {
+        width: 19em;
+        height: 21em;
+    }
+} */
+
+/* @media (orientation: landscape) and (max-width: 950px) {
+    #concierge-moments-title {
+        left: 60%;
+        height: 4.5em;
+    }
+
+    #polaroid-track {
+        top: 30%;
+    }
+    
+    .polaroid {
+        width: 10em;
+        height: 12em;
+    }
+} */
