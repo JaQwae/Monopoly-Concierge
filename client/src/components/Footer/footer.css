@@ -15,11 +15,23 @@ footer {
 .footer-contact-sections {
     display: flex;
     align-items: center;
-    min-height: 33%;
+    min-height: 30%;
 }
 
-h3 {
+.footer-contact-sections h3 {
     font-size: 2.5em;
+}
+
+#footer-contact-cta-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 40%;
+}
+
+#footer-contact-cta-section p{
+    font-weight: 500;
+    font-size: 1.4em;
 }
 
 #footer-contact-btn {
@@ -71,13 +83,13 @@ h3 {
 }
 
 #footer-subscribe-header {
-    font-size: 2em;
-    margin: 0.5em 0em;
+    font-size: 2.2em;
+    margin: 0.5em 0em 0.2em;
 }
 
 #footer-subscribe-heading-section p {
-    font-size: 1.2em;
-    margin: 0em
+    font-size: 1.3em;
+    margin: 0em 1em 0em 0em;
 }
 
 #footer-subscribe-header em {
@@ -100,10 +112,14 @@ h3 {
 
 .footer-input-field {
     height: 3em;
+    background-color: transparent;
+    border-color: black;
 }
 
 .footer-input-field::placeholder {
     padding-left: 1em;
+    letter-spacing: 0.2em;
+    font-weight: bold;
 }
 
 #firstName,
@@ -140,7 +156,7 @@ h3 {
         height: 60vh;
         flex-direction: column;
         justify-content: center;
-        padding: 1em 0em;
+        padding: 1.5em 0em;
     }
 
     #footer-subscribe-container {
@@ -178,67 +194,133 @@ h3 {
 }
 
 /* small tablet styling */
-/* @media screen and (max-width: 910px) {
-    #concierge-moments-title {
-        left: 35%;
-        height: 8em;
+@media screen and (max-width: 910px) {
+    footer {
+        height: 65vh;
+        padding: 3em 0em;
     }
 
-    #polaroid-track {
-        top: 28%;
+
+    #footer-contact-cta-section {
+        padding: 0.5em;
     }
     
-    .polaroid {
-        width: 24em;
-        height: 28em;
-    }
-} */
+}
 
-/* @media (orientation: landscape) and (max-width: 1024px) {
-    #concierge-moments-title {
-        left: 45%;
-        height: 8em;
+@media (orientation: landscape) and (max-width: 1024px) {
+    footer {
+        height: 80vh;
+        padding: 1em 0em;
     }
 
-    #polaroid-track {
-        top: 24%;
+    #footer-contact-container,
+    #footer-subscribe-container {
+        min-height: 50%
     }
     
-    .polaroid {
-        width: 22em;
-        height: 26em;
+    .footer-contact-sections {
+        min-height: 25%;
     }
-} */
+    
+    h3 {
+        font-size: 2em;
+    }
+    
+    #footer-contact-cta-section {
+        min-height: 50%;
+    }
+    
+    #footer-contact-cta-section p{
+        font-size: 1.2em;
+    }
+    
+    #footer-contact-btn {
+        font-size: 0.8em;
+        padding: calc(.3rem - 1px) calc(0.5rem - 1px);
+        line-height: 3em
+    }
+}
 
 /* mobile styling */
-/* @media screen and (max-width: 767px) {
-    #concierge-moments-title {
-        left: 31%;
-        height: 4.2em;
+@media screen and (max-width: 767px) {
+    footer {
+        height: auto;
+        padding: 1em 0em;
+        align-items: center;
     }
 
-    #polaroid-track {
-        top: 26%;
+    #footer-contact-container,
+    #footer-subscribe-container {
+        width: 95%;
+        margin: 0em;
+        align-items: center;
+    }
+
+    #footer-subscribe-heading-section {
+        height: auto;
+        margin: 0.5em 0em;
+    }
+
+    #footer-subscribe-header {
+        font-size: 2.2em;
+        margin: 0em;
+        text-align: center;
+        width: 100%;
+    }
+
+    #footer-subscribe-heading-section p {
+        font-size: 1.3em;
+        margin: 0em 0em 0.4em;
+        text-align: center;
+    }
+
+    #footer-form-container {
+        margin: 0em;
+        width: 90%;
+    }
+
+    .footer-input-field {
+        margin-bottom: 1.5em;
     }
     
-    .polaroid {
-        width: 19em;
-        height: 21em;
-    }
-} */
-
-/* @media (orientation: landscape) and (max-width: 950px) {
-    #concierge-moments-title {
-        left: 60%;
-        height: 4.5em;
-    }
-
-    #polaroid-track {
-        top: 30%;
+    .footer-contact-sections h3 {
+        font-size: 2em;
+        text-align: center;
     }
     
-    .polaroid {
-        width: 10em;
-        height: 12em;
+    #footer-contact-cta-section p{
+        text-align: center;
     }
-} */
+    
+    #footer-contact-btn {
+        font-size: 0.8em;
+        padding: calc(.3rem - 1px) calc(0.7rem - 1px);
+        line-height: 3em;
+    }
+    
+    #social-media-container {
+        width: 90%;
+    }
+}
+
+@media (orientation: landscape) and (max-width: 950px) {
+    footer {
+        height: auto;
+        padding: 1em 0em;
+        align-items: center;
+    }
+    
+    #footer-contact-container,
+    #footer-subscribe-container {
+        width: 95%;
+        margin: 0em;
+    }
+
+    .footer-input-field {
+        margin-bottom: 1.5em;
+    }
+
+    #footer-contact-cta-section p{
+        font-size: 1.5em;
+    }
+}

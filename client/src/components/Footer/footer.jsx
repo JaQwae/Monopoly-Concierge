@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '../Buttons/Button';
 import './footer.css'
 
 const footer = () => {
@@ -8,8 +9,10 @@ const footer = () => {
                 <div className='footer-contact-sections'>
                     <h3>Have A Special Request?</h3>
                 </div>
-                <div className='footer-contact-sections'>
-                    <button id="footer-contact-btn">CONTACT US</button>
+                <div id="footer-contact-cta-section" className='footer-contact-sections'>
+                    <Button btnIdName="footer-contact-btn" displayName="CONTACT US"/>
+                    <p>Own a property? Let us earn you more.</p>
+                    <Button btnIdName="footer-contact-btn" displayName="EARN MORE"/>
                 </div>
                 <div id='social-media-container' className='footer-contact-sections'>
                     <i className="fa-brands fa-instagram social-media-links"></i>
@@ -21,7 +24,7 @@ const footer = () => {
             <section id='footer-subscribe-container'>
                 <div id='footer-subscribe-heading-section'>
                     <h3 id="footer-subscribe-header">Sign up for <em>Concierge Chronicles</em></h3>
-                    <p>Stay up to date with the lastest trends.</p>
+                    <p>Your gateway to exclusive travel inspiration, curated luxury experiences, and insider tips.</p>
                 </div>
                 <form id='footer-form-container'>
                     <div className="form-split-section">
