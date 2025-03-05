@@ -22,6 +22,17 @@ const Home = () => {
     }
   }
 
+  const scrollToNextSection = () => {
+    const nextSection = document.getElementById('concierge-moments-section');
+    if (nextSection) {
+      window.scrollTo({
+        top: nextSection.offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  };
+  
+
   return (
     <div id='home-page' className='pages'>
       <section id="hero-section" className='page-sections'>
@@ -31,12 +42,12 @@ const Home = () => {
         <div className="overlay-screen">
           <div id='homepage-hero-content'>
             <h1 id="slogan"> &quot;Short Term Travel... Redefined.&quot;</h1>
-            <Button btnIdName={'cta-hero-btn'} displayName='BOOK YOUR JOURNEY' />
+            <Button btnIdName={'cta-hero-btn'} displayName='BOOK YOUR JOURNEY'/>
           </div>
           <button id="video-control-container" onClick={heroVideoControls}>
             {isVideoPlaying ? <i className="fa-solid fa-pause"></i> : <i className="fa-solid fa-play"></i>}
           </button>
-          <button id='home-auto-scroll-container'>
+          <button id='home-auto-scroll-container' onClick={scrollToNextSection}>
             <i className="fa-solid fa-angle-down"></i>
           </button>
         </div>
