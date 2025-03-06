@@ -58,13 +58,18 @@ footer {
 }
 
 .social-media-links {
+    text-decoration: none;
+    color: var(--footer-color);
+}
+
+.social-media-icons {
     font-size: 2em;
     padding: 0.7em;
     transition: 0.3s ease-in-out;
 }
 
-.social-media-links:hover,
-.social-media-links:focus {
+.social-media-icons:hover,
+.social-media-icons:focus {
     color: black;
     scale: 1.15;
 }
@@ -94,6 +99,7 @@ footer {
 
 #footer-subscribe-header em {
     color: black;
+    font-family:'Retrofunk', sans-serif;
 }
 
 #footer-form-container {
@@ -120,6 +126,7 @@ footer {
     padding-left: 1em;
     letter-spacing: 0.2em;
     font-weight: bold;
+    font-family:'Helvegen', sans-serif;
 }
 
 #firstName,
@@ -153,7 +160,7 @@ footer {
 /* large tablet styling: start here*/
 @media screen and (max-width: 1024px) {
     footer {
-        height: 60vh;
+        height: auto;
         flex-direction: column;
         justify-content: center;
         padding: 1.5em 0em;
@@ -185,6 +192,7 @@ footer {
     
     .footer-input-field {
         height: 2.5em;
+        margin-bottom: 1.5em;
     }
     
     #footer-contact-container {
@@ -209,7 +217,7 @@ footer {
 
 @media (orientation: landscape) and (max-width: 1024px) {
     footer {
-        height: 80vh;
+        height: auto;
         padding: 1em 0em;
     }
 
