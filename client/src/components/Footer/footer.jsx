@@ -15,10 +15,18 @@ const footer = () => {
                     <Button btnIdName="footer-contact-btn" displayName="EARN MORE"/>
                 </div>
                 <div id='social-media-container' className='footer-contact-sections'>
-                    <i className="fa-brands fa-instagram social-media-links"></i>
-                    <i className="fa-brands fa-tiktok social-media-links"></i>
-                    <i className="fa-brands fa-facebook-f social-media-links"></i>
-                    <i className="fa-brands fa-linkedin social-media-links"></i>
+                <a className='social-media-links' target="_blank" rel="noopener noreferrer" href='https://www.instagram.com/monopoly_concierge/'>
+                    <i className="fa-brands fa-instagram social-media-icons"></i>
+                </a>
+                <a className='social-media-links' target="_blank" rel="noopener noreferrer" href='https://www.tiktok.com/@monopolyconcierge'>
+                    <i className="fa-brands fa-tiktok social-media-icons"></i>
+                </a>
+                <a className='social-media-links' target="_blank" rel="noopener noreferrer" href='https://www.facebook.com/p/Monopoly-Concierge-61571499328755/?profile_tab_item_selected=mentions&_rdr'>
+                    <i className="fa-brands fa-facebook-f social-media-icons"></i>
+                </a>
+                <a className='social-media-links' target="_blank" rel="noopener noreferrer" href='https://www.linkedin.com/company/monopoly-concierge/about/'>
+                    <i className="fa-brands fa-linkedin social-media-icons"></i>
+                </a>
                 </div>
             </section>
             <section id='footer-subscribe-container'>

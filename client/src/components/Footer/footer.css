@@ -58,13 +58,18 @@ footer {
 }
 
 .social-media-links {
+    text-decoration: none;
+    color: var(--footer-color);
+}
+
+.social-media-icons {
     font-size: 2em;
     padding: 0.7em;
     transition: 0.3s ease-in-out;
 }
 
-.social-media-links:hover,
-.social-media-links:focus {
+.social-media-icons:hover,
+.social-media-icons:focus {
     color: black;
     scale: 1.15;
 }
