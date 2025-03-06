@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './Home.css'
-import heroVideo from '../../../assets/home/placeholder-hero.mp4'
+// import heroVideo from '../../../assets/home/placeholder-hero.mp4'
+import hv2 from '../../../assets/home/act-place.mp4'
 import Button from "../../Buttons/Button"
 import { ConciergeMoments } from './concierge-moments/ConciergeMoments'
 
@@ -37,7 +38,7 @@ const Home = () => {
     <div id='home-page' className='pages'>
       <section id="hero-section" className='page-sections'>
         <video autoPlay loop muted={true} id='homepage-hero-video'>
-          <source src={heroVideo} type="video/mp4" />
+          <source src={hv2} type="video/mp4" />
         </video>
         <div className="overlay-screen">
           <div id='homepage-hero-content'>
