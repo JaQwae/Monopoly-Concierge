@@ -1,7 +1,25 @@
+@font-face {
+    font-family: 'Retrofunk';
+    src: url('./fonts/retrofunk-font.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Helvegen';
+    src: url('./fonts/helvegen-inky-font.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Baskerville';
+    src: url('./fonts/baskerville-regular-font.ttf') format('truetype');
+}
+
+
+
 body {
     background-color: var(--primary-color);
     margin: 0;
     overflow-x: hidden;
+    font-family:'Baskerville', sans-serif;
 }
 
 .pages {
