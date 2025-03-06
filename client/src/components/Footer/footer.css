@@ -94,6 +94,7 @@ footer {
 
 #footer-subscribe-header em {
     color: black;
+    font-family:'Retrofunk', sans-serif;
 }
 
 #footer-form-container {
@@ -120,6 +121,7 @@ footer {
     padding-left: 1em;
     letter-spacing: 0.2em;
     font-weight: bold;
+    font-family:'Helvegen', sans-serif;
 }
 
 #firstName,
