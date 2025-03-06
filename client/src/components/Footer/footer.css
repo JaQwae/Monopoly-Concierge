@@ -155,7 +155,7 @@ footer {
 /* large tablet styling: start here*/
 @media screen and (max-width: 1024px) {
     footer {
-        height: 60vh;
+        height: auto;
         flex-direction: column;
         justify-content: center;
         padding: 1.5em 0em;
@@ -187,6 +187,7 @@ footer {
     
     .footer-input-field {
         height: 2.5em;
+        margin-bottom: 1.5em;
     }
     
     #footer-contact-container {
@@ -211,7 +212,7 @@ footer {
 
 @media (orientation: landscape) and (max-width: 1024px) {
     footer {
-        height: 80vh;
+        height: auto;
         padding: 1em 0em;
     }
 
