@@ -10,9 +10,9 @@ const footer = () => {
                     <h3>Have A Special Request?</h3>
                 </div>
                 <div id="footer-contact-cta-section" className='footer-contact-sections'>
-                    <Button btnIdName="footer-contact-btn" displayName="CONTACT US"/>
+                    <a href='mailto:info@monopolyservices.com'><Button btnIdName="footer-contact-btn" displayName="CONTACT US"/></a>
                     <p>Own a property? Let us earn you more.</p>
-                    <Button btnIdName="footer-contact-btn" displayName="EARN MORE"/>
+                    <a target="_blank" rel="noopener noreferrer" href='https://www.monopolyservices.com/'><Button btnIdName="footer-contact-btn" displayName="EARN MORE"/></a>
                 </div>
                 <div id='social-media-container' className='footer-contact-sections'>
                 <a className='social-media-links' target="_blank" rel="noopener noreferrer" href='https://www.instagram.com/monopoly_concierge/'>
