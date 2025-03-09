@@ -4,6 +4,7 @@ import { NavLink, useLocation} from 'react-router-dom';
 import primaryLogo from '../../assets/navbar/primary-logo-black.png';
 import primaryLogoWhite from '../../assets/navbar/primary-logo-white.png'
 import Button from '../Buttons/Button.jsx';
+import BookBtnSidebar from '../BookBtnSidebar/BookBtnSidebar.jsx'
 import './NavBar.css';
 
 
@@ -14,7 +15,8 @@ const NavBar = () => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth); // Track window width
     const navRef = useRef(null);
     const location = useLocation();
-    const [isHomePage, setIsHomePage] = useState(true)
+    const [isHomePage, setIsHomePage] = useState(true);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false); // State for BookBtnSidebar visibility
 
     // Effect to monitor window size and handle navbar display
     useEffect(() => {
@@ -40,7 +42,7 @@ const NavBar = () => {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, []); // Empty dependency array ensures the effect runs once on mount
+    }, []);
 
     // Close navbar when clicking outside
     useEffect(() => {
@@ -56,7 +58,7 @@ const NavBar = () => {
         return () => document.removeEventListener('click', handleClickOutside);
     });
 
-    // Runs every time a page is swapped
+    // Runs every time the user navigates to a different page
     useEffect(() => {
         closeMobileNav();
         verifyHomePage();
@@ -80,13 +82,16 @@ const NavBar = () => {
         }
     }
 
-
+     // Toggle the sidebar visibility for the nav book button
+    const toggleSidebar = () => {
+        setIsSidebarOpen(!isSidebarOpen);
+    };
 
 
     return (
             <nav ref={navRef}
             style={{
-                backgroundColor: isHomePage ? 'transparent' : '#FFFDF5', // Changes color of nav bar depend on page
+                backgroundColor: isHomePage ? 'transparent' : '#FFFDF5'
             }}
             >
                 {/* Upper Navbar */}
@@ -100,21 +105,20 @@ const NavBar = () => {
                     <NavLink to="/" onClick={() => closeMobileNav()}>
                         <img
                             id="nav-logo"
-                            // src = {primaryLogo}
                             src= {isHomePage ? primaryLogoWhite: primaryLogo}
                             alt="The word Monopoly Concierge with a top over it"
                         />
                     </NavLink>
 
                     {/* Call-to-Action Button */}
-                    <Button btnIdName={'nav-cta-btn'} displayName='BOOK' />
+                    <Button btnIdName={'nav-cta-btn'} displayName='BOOK' btnAction={toggleSidebar}/>
                 </div>
 
                 {/* Navbar Tabs */}
                 <ul
                     id="nav-tab-container"
                     style={{
-                        display: toggleDisplay ? 'flex' : 'none', // Dynamic display based on toggle state
+                        display: toggleDisplay ? 'flex' : 'none', // Dynamic display based on screen size
                     }}
                 >
                     <NavLink to="/properties" className="nav-links" onClick={() => closeMobileNav()}>
@@ -133,6 +137,7 @@ const NavBar = () => {
                         <li className="nav-tabs">Concierge Chronicles</li>
                     </NavLink>
                 </ul>
+                <BookBtnSidebar isOpen={isSidebarOpen} closeSidebar={toggleSidebar} />
             </nav>
     );
 };
