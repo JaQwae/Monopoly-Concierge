@@ -13,14 +13,17 @@ const BookBtnSidebar = ({ isOpen, closeSidebar }) => {
       onClose={closeSidebar}
     >
       <Box
-        sx={{ width: 600 }}
+        sx={{ width: 500 }}
         aria-hidden="true"
         onClick={closeSidebar}
         onKeyDown={closeSidebar}
         id='book-btn-services-tab'
       >
+        <div id='sidebar-heading'>
         <button onClick={closeSidebar}><CloseIcon id='sidebar-x-icon' /></button>
-        <h3>Change This To Question</h3>
+        <h3>Your Journey Starts Here</h3>
+        </div>
+        
 
         <section id='book-btn-services-container'>
           <div className='book-btn-services'>

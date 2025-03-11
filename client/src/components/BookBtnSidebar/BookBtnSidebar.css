@@ -1,5 +1,13 @@
 #book-btn-services-tab {
     padding: 1em;
+    height: 100%;
+    position: relative;
+}
+
+#sidebar-heading{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
 }
 
 /* Removes all styles of the button default */
@@ -9,44 +17,49 @@
     background: none;
     padding: 0em;
     line-height: 0em;
-    min-height: fit-content;
 }
 
 #sidebar-x-icon{
-    font-size: 4em;
+    font-size: 3em;
+}
+
+#sidebar-x-icon:hover {
+    filter: brightness(50%);
+    color: var(--primary-color);
 }
 
 #book-btn-services-tab h3{
-    font-size: 2em;
+    font-size: 2.5em;
     font-weight: 700;
+    align-self: center;
 }
 
 #book-btn-services-container {
-    /* background-color: blue; */
     display: grid;
     align-items: center;
     justify-items: center;
     grid-template-columns: repeat(2, 1fr);
-    /* padding: 1em; */
+    padding: 1em;
+    height: 70%;
 }
 
 .book-btn-services {
     display: flex;
     flex-direction: column;
     align-items: center;
-      /* background-color: blue; */
-
     transition: filter 0.3s ease;
+    height:15em;
+    width: 12em;
 }
 
 .book-btn-services:hover {
     filter: brightness(50%);
-    color: white;
+    color: var(--primary-color);
 }
 
 .book-btn-services img {
-    height: 12em;
-    width: 14em;
+    height: 10em;
+    width: 12em;
     background-repeat: no-repeat;
     object-fit: cover;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -54,7 +67,7 @@
 }
 
 .book-btn-services h4 {
-    font-size: 1.4em;
+    font-size: 1.1em;
     font-weight: 700;
     margin: 1em 0em;
     letter-spacing: 0.1em;
