@@ -137,7 +137,7 @@ const NavBar = () => {
                         <li className="nav-tabs">Concierge Chronicles</li>
                     </NavLink>
                 </ul>
-                <BookBtnSidebar isOpen={isSidebarOpen} closeSidebar={toggleSidebar} />
+                <BookBtnSidebar isOpen={isSidebarOpen} closeSidebar={toggleSidebar} screenSize={windowWidth}/>
             </nav>
     );
 };

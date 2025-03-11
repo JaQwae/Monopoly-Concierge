@@ -3,11 +3,11 @@ import './Home.css'
 // import heroVideo from '../../../assets/home/placeholder-hero.mp4'
 import hv2 from '../../../assets/home/act-place.mp4'
 import Button from "../../Buttons/Button"
-import BookBtnSidebar from '../../BookBtnSidebar/BookBtnSidebar'
+// import BookBtnSidebar from '../../BookBtnSidebar/BookBtnSidebar'
 import { ConciergeMoments } from './concierge-moments/ConciergeMoments'
 
 const Home = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // State for BookBtnSidebar visibility
+  // const [isSidebarOpen, setIsSidebarOpen] = useState(false); // State for BookBtnSidebar visibility
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
 
   const heroVideoControls = () => {
@@ -35,9 +35,9 @@ const Home = () => {
   };
 
    // Toggle the sidebar visibility for the nav book button
-   const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-};
+//    const toggleSidebar = () => {
+//     setIsSidebarOpen(!isSidebarOpen);
+// };
   
 
   return (
@@ -49,7 +49,7 @@ const Home = () => {
         <div className="overlay-screen">
           <div id='homepage-hero-content'>
             <h1 id="slogan"> &quot;Short Term Travel... Redefined.&quot;</h1>
-            <Button btnIdName={'cta-hero-btn'} displayName='BOOK YOUR JOURNEY' btnAction={toggleSidebar}/>
+            <Button btnIdName={'cta-hero-btn'} displayName='BOOK YOUR JOURNEY' /> 
           </div>
           <button id="video-control-container" onClick={heroVideoControls}>
             {isVideoPlaying ? <i className="fa-solid fa-pause"></i> : <i className="fa-solid fa-play"></i>}
@@ -60,7 +60,7 @@ const Home = () => {
         </div>
       </section>
       <ConciergeMoments id="pic-banner" />
-      <BookBtnSidebar isOpen={isSidebarOpen} closeSidebar={toggleSidebar} />
+      {/* <BookBtnSidebar isOpen={isSidebarOpen} closeSidebar={toggleSidebar} /> */}
     </div>
   )
 }
