@@ -1,0 +1,262 @@
+#book-btn-services-tab {
+    padding: 1em;
+    height: 100%;
+}
+
+#sidebar-heading{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+/* Removes all styles of the button default */
+#book-btn-services-tab button {
+    border: none;
+    box-shadow: none;
+    background: none;
+    padding: 0em;
+    line-height: 0em;
+}
+
+#sidebar-x-icon{
+    font-size: 3em;
+}
+
+#sidebar-x-icon:hover {
+    filter: brightness(50%);
+    color: var(--primary-color);
+}
+
+#book-btn-services-tab h3{
+    font-size: 2.5em;
+    font-weight: 700;
+    align-self: center;
+}
+
+#book-btn-services-container {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1em;
+    height: 70%;
+}
+
+.book-btn-services {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: filter 0.3s ease;
+    height:15em;
+    width: 12em;
+}
+
+.book-btn-services:hover {
+    filter: brightness(50%);
+    color: var(--primary-color);
+}
+
+.book-btn-services img {
+    height: 10em;
+    width: 12em;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 5%
+}
+
+.book-btn-services h4 {
+    font-size: 1.1em;
+    font-weight: 700;
+    margin: 1em 0em;
+    letter-spacing: 0.1em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* large tablet styling */
+@media screen and (max-width: 1024px) {
+    .MuiPaper-root{
+        width: 100%;
+    }
+
+    #book-btn-services-tab {
+        padding: 0em;
+        width: 100%;
+    }
+
+    #sidebar-heading{
+        padding: 2em 2em 0em;
+    }
+
+    #sidebar-x-icon{
+        font-size: 4em;
+    }
+    
+    #book-btn-services-tab h3{
+        font-size: 4em;
+    }
+
+    #book-btn-services-container {
+        padding: 0em;
+    }
+
+    .book-btn-services {
+        height:30em;
+        width: 18em;
+    }
+    
+    .book-btn-services img {
+        height: 22em;
+        width: 24em;
+    }
+
+    .book-btn-services h4 {
+        font-size: 2em;
+        margin: 0.5em 0em;
+    }
+}
+
+/* small tablet styling */
+@media screen and (max-width: 910px) {    
+    #book-btn-services-tab h3{
+        font-size: 3em;
+    }
+
+    #book-btn-services-container {
+        padding: 0em;
+    }
+
+    .book-btn-services {
+        
+        height:22em;
+        width: 18em;
+    }
+    
+    .book-btn-services img {
+        height: 16em;
+        width: 18em;
+    }
+
+    .book-btn-services h4 {
+        font-size: 1.5em;
+    }
+}
+
+/* small tablet styling: landscape */
+@media (orientation: landscape) and (max-width: 1024px) {
+    #sidebar-x-icon{
+        font-size: 4em;
+    }
+    
+    #book-btn-services-tab h3{
+        font-size: 3em;
+        margin-top: 0em;
+    }
+
+    #book-btn-services-container {
+        padding: 0em;
+    }
+
+    .book-btn-services {
+        height:17em;
+        width: 18em;
+    }
+    
+    .book-btn-services img {
+        height: 12em;
+        width: 18em;
+    }
+
+    .book-btn-services h4 {
+        font-size: 1.5em;
+    }
+}
+
+/* mobile styling */
+@media screen and (max-width: 767px) {
+    #book-btn-services-tab {
+        padding: 0em;
+        width: 100%;
+    }
+
+    #sidebar-heading{
+        padding: 1em 1em 0em;
+    }
+
+    #sidebar-x-icon{
+        font-size: 3em;
+    }
+    
+    #book-btn-services-tab h3{
+        font-size: 1.7em;
+        text-align: center;
+    }
+
+    .book-btn-services {
+        height:17em;
+        width: 10em;
+    }
+    
+    .book-btn-services img {
+        height: 10em;
+        width: 10em;
+    }
+
+    .book-btn-services h4 {
+        font-size: 1em;
+    }
+}
+
+/* large mobile styling: landscape devices*/
+@media (orientation: landscape) and (max-width: 950px) {
+    #sidebar-heading{
+        padding: 1em 1em 0em;
+    }
+
+    #sidebar-x-icon{
+        font-size: 3em;
+    }
+    
+    #book-btn-services-tab h3{
+        font-size: 1.7em;
+        margin-bottom: 0em;
+        text-align: center;
+    }
+
+    #book-btn-services-container {
+        display: flex;
+        justify-content: space-around;
+        grid-template-columns: none;
+        padding: 0em;
+    }
+
+    .book-btn-services {
+        display: flex;
+        justify-content: center;
+        height:100%;
+        width: 11em;
+    }
+    
+    .book-btn-services img {
+        height: 10em;
+        width: 11em;
+    }
+
+    .book-btn-services h4 {
+        font-size: 0.8em;
+    }
+}
+
+/* small mobile styling: landscape devices*/
+@media (orientation: landscape) and (max-width: 719px) {
+    .book-btn-services {
+        justify-content:start;
+        padding-top: 5em;
+        width: 8em;
+    }
+    
+    .book-btn-services img {
+        width: 8em;
+    }
+}

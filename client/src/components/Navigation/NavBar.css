@@ -32,8 +32,6 @@ nav {
 }
 
 #nav-cta-btn{
-  background-color: var(--translucent-color);
-  color: var(--primary-color);
   position: absolute;
   right: 3%;
 }
@@ -44,12 +42,31 @@ nav {
     background-color: white;
 }
 
+.cta-btn-home {
+  background-color: var(--translucent-color);
+  color: var(--primary-color)
+}
+
+.cta-btn-not-home{
+  background-color: var(--secondary-color);
+  color: var(--primary-color)
+}
+
     #nav-tab-container{
       display: flex;
       justify-content: space-around;
       align-items: center;
-      background-color: var(--translucent-color);
+      
       margin: 0;
+    }
+
+    .nav-tab-container-home {
+      background-color: var(--translucent-color);
+    }
+    
+    .nav-tab-container-not-home {
+      background-color: var(--primary-color);
+      border-bottom: 0.25em var(--secondary-color) solid;
     }
     
     .nav-tabs {
@@ -65,6 +82,15 @@ nav {
         text-decoration: none;
         color: var(--primary-color);
     }
+
+    .nav-links-home {
+      background-color: none;
+    }
+
+    .nav-links-not-home {
+      color: var(--secondary-color);
+    }
+
     
     .nav-tabs:hover,
     .nav-tabs:focus {
@@ -74,7 +100,7 @@ nav {
 
     .nav-links:hover,
     .nav-links:focus {
-      color: var(--secondary-color)
+      color: var(--footer-text-color)
     }
 
 /* tablet styling */
