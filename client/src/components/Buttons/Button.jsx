@@ -4,7 +4,11 @@ import './Button.css'
 
 const Button = (props) => {
     return (
-        <button id={props.btnIdName} onClick={props.btnAction}>
+        <button 
+            id={props.btnIdName}
+            className={props.btnClassName}
+            onClick={props.btnAction}
+        >
             {props.displayName}
         </button>
     )
@@ -13,7 +17,8 @@ const Button = (props) => {
 Button.propTypes = {
     displayName: PropTypes.string.isRequired,
     btnIdName: PropTypes.string,
-    btnAction: PropTypes.func
+    btnAction: PropTypes.func,
+    btnClassName: PropTypes.string
 }
 
 export default Button

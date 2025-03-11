@@ -1,6 +1,6 @@
 // import Loading from '../Loading/Loading.jsx'
-import React, { useState, useEffect, useRef} from 'react';
-import { NavLink, useLocation} from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 import primaryLogo from '../../assets/navbar/primary-logo-black.png';
 import primaryLogoWhite from '../../assets/navbar/primary-logo-white.png'
 import Button from '../Buttons/Button.jsx';
@@ -23,7 +23,7 @@ const NavBar = () => {
         const handleResize = () => {
             const currentWidth = window.innerWidth; // Use window.innerWidth directly
             setWindowWidth(currentWidth); // Update window width state
-    
+
             // Dynamically determine if it's a mobile view
             if (currentWidth <= 1024) {
                 setToggleDisplay(false);
@@ -31,13 +31,13 @@ const NavBar = () => {
                 setToggleDisplay(true);
             }
         };
-    
+
         // Attach resize event listener
         window.addEventListener('resize', handleResize);
-    
+
         // Initial call to handle the current window size
         handleResize();
-    
+
         // Cleanup: Remove the resize event listener on component unmount
         return () => {
             window.removeEventListener('resize', handleResize);
@@ -82,63 +82,90 @@ const NavBar = () => {
         }
     }
 
-     // Toggle the sidebar visibility for the nav book button
+    // Toggle the sidebar visibility for the nav book button
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
     };
 
 
     return (
-            <nav ref={navRef}
+        <nav ref={navRef}
             style={{
                 backgroundColor: isHomePage ? 'transparent' : '#FFFDF5'
             }}
+        >
+            {/* Upper Navbar */}
+            <div id="upper-nav-container">
+                {/* Navbar Toggle Button */}
+                <button id="nav-toggle-btn" onClick={() => setToggleDisplay(!toggleDisplay)}>
+                    {toggleDisplay ? <i className="fa-solid fa-xmark"></i> : <i className="fa-solid fa-bars"></i>}
+                </button>
+
+                {/* Logo */}
+                <NavLink to="/" onClick={() => closeMobileNav()}>
+                    <img
+                        id="nav-logo"
+                        src={isHomePage ? primaryLogoWhite : primaryLogo}
+                        alt="The word Monopoly Concierge with a top over it"
+                    />
+                </NavLink>
+
+                {/* Call-to-Action Button */}
+                <Button
+                    btnIdName={'nav-cta-btn'}
+                    displayName='BOOK'
+                    btnAction={toggleSidebar}
+                    btnClassName={isHomePage ? "cta-btn-home" : "cta-btn-not-home"}
+                />
+            </div>
+
+            {/* Navbar Tabs */}
+            <ul
+                id="nav-tab-container"
+                style={{
+                    display: toggleDisplay ? 'flex' : 'none', // Dynamic display based on screen size
+                    // backgroundColor: isHomePage ? 'transparent' : '#FFFDF5'
+                }}
+                className={isHomePage ? "nav-tab-container-home" : "nav-tab-container-not-home"}
             >
-                {/* Upper Navbar */}
-                <div id="upper-nav-container">
-                    {/* Navbar Toggle Button */}
-                    <button id="nav-toggle-btn" onClick={() => setToggleDisplay(!toggleDisplay)}>
-                        {toggleDisplay ? <i className="fa-solid fa-xmark"></i> : <i className="fa-solid fa-bars"></i>}
-                    </button>
-
-                    {/* Logo */}
-                    <NavLink to="/" onClick={() => closeMobileNav()}>
-                        <img
-                            id="nav-logo"
-                            src= {isHomePage ? primaryLogoWhite: primaryLogo}
-                            alt="The word Monopoly Concierge with a top over it"
-                        />
-                    </NavLink>
-
-                    {/* Call-to-Action Button */}
-                    <Button btnIdName={'nav-cta-btn'} displayName='BOOK' btnAction={toggleSidebar}/>
-                </div>
-
-                {/* Navbar Tabs */}
-                <ul
-                    id="nav-tab-container"
-                    style={{
-                        display: toggleDisplay ? 'flex' : 'none', // Dynamic display based on screen size
-                    }}
+                <NavLink
+                    to="/properties"
+                    onClick={() => closeMobileNav()}
+                    className={isHomePage ? "nav-links nav-links-home" : "nav-links nav-links-not-home"}
                 >
-                    <NavLink to="/properties" className="nav-links" onClick={() => closeMobileNav()}>
-                        <li className="nav-tabs">Properties</li>
-                    </NavLink>
-                    <NavLink to="/charters" className="nav-links" onClick={() => closeMobileNav()}>
-                        <li className="nav-tabs">Jet Charters</li>
-                    </NavLink>
-                    <NavLink to="/rentals" className="nav-links" onClick={() => closeMobileNav()}>
-                        <li className="nav-tabs">Car Rentals</li>
-                    </NavLink>
-                    <NavLink to="/services" className="nav-links" onClick={() => closeMobileNav()}>
-                        <li className="nav-tabs">Services</li>
-                    </NavLink>
-                    <NavLink to="/chronicles" className="nav-links" onClick={() => closeMobileNav()}>
-                        <li className="nav-tabs">Concierge Chronicles</li>
-                    </NavLink>
-                </ul>
-                <BookBtnSidebar isOpen={isSidebarOpen} closeSidebar={toggleSidebar} screenSize={windowWidth}/>
-            </nav>
+                    <li className="nav-tabs">Properties</li>
+                </NavLink>
+                <NavLink
+                    to="/charters"
+                    onClick={() => closeMobileNav()}
+                    className={isHomePage ? "nav-links nav-links-home" : "nav-links nav-links-not-home"}
+                >
+                    <li className="nav-tabs">Jet Charters</li>
+                </NavLink>
+                <NavLink
+                    to="/rentals"
+                    onClick={() => closeMobileNav()}
+                    className={isHomePage ? "nav-links nav-links-home" : "nav-links nav-links-not-home"}
+                >
+                    <li className="nav-tabs">Car Rentals</li>
+                </NavLink>
+                <NavLink
+                    to="/services"
+                    onClick={() => closeMobileNav()}
+                    className={isHomePage ? "nav-links nav-links-home" : "nav-links nav-links-not-home"}
+                >
+                    <li className="nav-tabs">Services</li>
+                </NavLink>
+                <NavLink 
+                    to="/chronicles" 
+                    onClick={() => closeMobileNav()}
+                    className={isHomePage ? "nav-links nav-links-home" : "nav-links nav-links-not-home"}
+                >
+                    <li className="nav-tabs">Concierge Chronicles</li>
+                </NavLink>
+            </ul>
+            <BookBtnSidebar isOpen={isSidebarOpen} closeSidebar={toggleSidebar} screenSize={windowWidth} />
+        </nav>
     );
 };
 
