@@ -1,4 +1,3 @@
-// import Loading from '../Loading/Loading.jsx'
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import primaryLogo from '../../assets/navbar/primary-logo-black.png';

@@ -7,7 +7,7 @@ nav {
 }
 
 .nav-bar-container-not-home{
-  border-bottom: 0.25em var(--secondary-color) solid
+  border-bottom: 0.2em var(--secondary-color) solid
 }
 
 #upper-nav-container {
@@ -15,7 +15,7 @@ nav {
     justify-content: center;
     align-items: center;
     position: relative;
-    padding-bottom: 0.5em;
+    padding-bottom: 0.2em;
 }
 
 #nav-toggle-btn {
@@ -70,7 +70,7 @@ nav {
     
     .nav-tab-container-not-home {
       background-color: var(--primary-color);
-      border-bottom: 0.25em var(--secondary-color) solid;
+      /* border-bottom: 0.01em var(--secondary-color) solid; */
     }
     
     .nav-tabs {
