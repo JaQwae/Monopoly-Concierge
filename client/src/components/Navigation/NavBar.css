@@ -6,6 +6,10 @@ nav {
   padding-top: 0.5em;
 }
 
+.nav-bar-container-not-home{
+  border-bottom: 0.25em var(--secondary-color) solid
+}
+
 #upper-nav-container {
     display: flex;
     justify-content: center;
