@@ -74,9 +74,17 @@
     line-height: 1.4em;
 }
 
+#properties-partnership-container a {
+    text-decoration: none;
+}
+
 #properties-partnership-container button {
     font-size: 1.5em;
     background-color: var(--secondary-color);
     color: var(--primary-color);
     margin: 1.5em;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -22,13 +22,10 @@
     object-fit: cover;
 }
 
-/* .property-information-container {
-    background-color: aqua;
-} */
-
 .property-information-container h3 {
     font-size: 2.5em;
     margin: 0;
+    font-family:'Retrofunk', 'Times New Roman', Times, serif;
 }
 
 .property-information-container p {
