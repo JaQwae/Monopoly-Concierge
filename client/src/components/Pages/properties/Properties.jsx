@@ -26,8 +26,25 @@ const Properties = ({ navHeight }) => {
           ensuring meticulous upkeep, exceptional guest experiences, and unmatched attention to detail.
         </p>
       </section>
-      <SingleProperty navHeight={navHeight} propertyIndex={0}/>
-      <SingleProperty navHeight={navHeight} propertyIndex={1}/>
+      <section>
+        <SingleProperty navHeight={navHeight} propertyIndex={0}/>
+        <SingleProperty navHeight={navHeight} propertyIndex={1}/>
+      </section>
+      <section id='properties-partnership-container'>
+        <p>
+          Ready to turn your property into a Monopoly
+          Concierge branded property?
+        </p>
+        <a 
+            href='https://www.monopolyservices.com'
+            target="_blank" rel="noopener noreferrer"
+          >
+            <button 
+              className= 'property-cta-btn'
+              >Learn More
+            </button>
+        </a>
+      </section>
     </div>
   )
 }
