@@ -2,6 +2,12 @@
     display:flex;
 }
 
+.property-container-odd {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    flex-direction: row-reverse;
+}
+
 .property-section {
     width: 50%;
     display: flex;
@@ -27,10 +33,10 @@
 
 .property-information-container p {
     margin: 0;
-    padding: 2em 2.5em;
+    padding: 1.2em 2.5em;
     font-size: 1.7em;
     text-align: center;
-    font-weight:400
+    font-weight:400;
 }
 
 .property-information-container p b {
@@ -42,8 +48,27 @@
     color: var(--primary-color);
 }
 
+.property-cta-btn-odd {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
 .property-cta-btn:hover,
 .property-cta-btn:focus {
     background-color: var(--primary-color);
     color: var(--secondary-color);
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.property-cta-btn-odd:hover,
+.property-cta-btn-odd:focus {
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    border-color: rgba(254, 254, 254, 0.15);
+    box-shadow: rgba(253, 249, 249, 0.1) 0 4px 12px;
+}
+
+.property-cta-btn a {
+    text-decoration: none;
 }

@@ -26,7 +26,8 @@ const Properties = ({ navHeight }) => {
           ensuring meticulous upkeep, exceptional guest experiences, and unmatched attention to detail.
         </p>
       </section>
-      <SingleProperty navHeight={navHeight}/>
+      <SingleProperty navHeight={navHeight} propertyIndex={0}/>
+      <SingleProperty navHeight={navHeight} propertyIndex={1}/>
     </div>
   )
 }
@@ -34,5 +35,5 @@ const Properties = ({ navHeight }) => {
 export default Properties
 
 Properties.propTypes = {
-  navHeight: PropTypes.number
+  navHeight: PropTypes.number,
 }
