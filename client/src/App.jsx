@@ -7,6 +7,7 @@ import './App.css'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [navHeight, setNavHeight] = useState(0);
 
   useEffect(() => {
     const handleLoad = () => setIsLoading(false);
@@ -30,15 +31,15 @@ function App() {
 
   return (
         <BrowserRouter>
-          <NavBar />
+          <NavBar setNavHeight={setNavHeight} />
             <Suspense fallback={<Loading/>}>
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/properties" element={<Properties />} />
-                    <Route path="/charters" element={<JetCharters />} />
-                    <Route path="/rentals" element={<CarRentals />} />
-                    <Route path="/services" element={<Services />} />
-                    <Route path="/chronicles" element={<ConciergeChronicles />} />
+                    <Route path="/properties" element={<Properties navHeight={navHeight} />} />
+                    <Route path="/charters" element={<JetCharters navHeight={navHeight}/>} />
+                    <Route path="/rentals" element={<CarRentals navHeight={navHeight}/>} />
+                    <Route path="/services" element={<Services navHeight={navHeight}/>} />
+                    <Route path="/chronicles" element={<ConciergeChronicles navHeight={navHeight}/>} />
                 </Routes>
             </Suspense>
             <Footer />

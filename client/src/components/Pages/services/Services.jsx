@@ -1,9 +1,21 @@
 import React from 'react'
+// import './Properties.css'
 
-const Services = () => {
+import PropTypes from 'prop-types'
+
+const Services = ({ navHeight }) => {
   return (
-    <h1>Services</h1>
+    <div 
+      style={{ marginTop: `${navHeight}px` }}
+      className='pages'
+    >
+      <h1>Services</h1>
+    </div>
   )
 }
 
 export default Services
+
+Services.propTypes = {
+  navHeight: PropTypes.number
+}

@@ -1,16 +1,17 @@
-// import Loading from '../Loading/Loading.jsx'
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import primaryLogo from '../../assets/navbar/primary-logo-black.png';
 import primaryLogoWhite from '../../assets/navbar/primary-logo-white.png'
 import Button from '../Buttons/Button.jsx';
-import BookBtnSidebar from '../BookBtnSidebar/BookBtnSidebar.jsx'
+import BookBtnSidebar from '../BookBtnSidebar/BookBtnSidebar.jsx';
 import './NavBar.css';
+
+import PropTypes from 'prop-types';
 
 
 
 // NavBar Component
-const NavBar = () => {
+const NavBar = ({ setNavHeight }) => {
     const [toggleDisplay, setToggleDisplay] = useState(false); // Navbar toggle state
     const [windowWidth, setWindowWidth] = useState(window.innerWidth); // Track window width
     const navRef = useRef(null);
@@ -87,9 +88,26 @@ const NavBar = () => {
         setIsSidebarOpen(!isSidebarOpen);
     };
 
+    // Set the height of the navbar to use as margin-top number on non homepage numbers
+    useEffect(() => {
+        const updateNavHeight = () => {
+            if (navRef.current) {
+                setNavHeight(navRef.current.offsetHeight);
+            }
+        };
+    
+        updateNavHeight(); // Set height immediately
+        window.addEventListener('resize', updateNavHeight);
+    
+        return () => window.removeEventListener('resize', updateNavHeight);
+    }, [toggleDisplay, windowWidth, setNavHeight]);
+
 
     return (
-        <nav ref={navRef}
+        <nav 
+            ref={navRef}
+            id='nav-bar-container'
+            className={isHomePage ? "nav-bar-container-home" : "nav-bar-container-not-home"}
             style={{
                 backgroundColor: isHomePage ? 'transparent' : '#FFFDF5'
             }}
@@ -124,7 +142,6 @@ const NavBar = () => {
                 id="nav-tab-container"
                 style={{
                     display: toggleDisplay ? 'flex' : 'none', // Dynamic display based on screen size
-                    // backgroundColor: isHomePage ? 'transparent' : '#FFFDF5'
                 }}
                 className={isHomePage ? "nav-tab-container-home" : "nav-tab-container-not-home"}
             >
@@ -170,3 +187,7 @@ const NavBar = () => {
 };
 
 export default NavBar;
+
+NavBar.propTypes = {
+    setNavHeight: PropTypes.func
+} 
