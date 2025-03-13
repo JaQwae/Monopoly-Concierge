@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from '../../Buttons/Button'
+import SingleProperty from '../properties/single-property/SingleProperty'
 import './Properties.css'
 
 import PropTypes from 'prop-types'
@@ -26,6 +27,7 @@ const Properties = ({ navHeight }) => {
           ensuring meticulous upkeep, exceptional guest experiences, and unmatched attention to detail.
         </p>
       </section>
+      <SingleProperty navHeight={navHeight}/>
     </div>
   )
 }

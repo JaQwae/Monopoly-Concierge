@@ -189,5 +189,5 @@ const NavBar = ({ setNavHeight }) => {
 export default NavBar;
 
 NavBar.propTypes = {
-    setNavHeight: PropTypes.number
-}
+    setNavHeight: PropTypes.func
+} 
