@@ -20,10 +20,9 @@ const Properties = ({ navHeight }) => {
       </section>
       <section id='intro-text-container'>
         <p>
-          Experience the distinct style, quality, and care of our Monopoly Concierge-branded properties.
-          Each property is thoughtfully curated and expertly managed by <a
+        Experience the distinct style, quality, and care of our Monopoly Concierge-branded properties. In partnership with <a
             target="_blank" rel="noopener noreferrer" href='https://www.monopolyservices.com'
-          >Monopoly Property Services</a>,
+          >Monopoly Property Services</a>, each property is thoughtfully curated by Monsieur Concierge and expertly managed by Monopoly Manager, 
           ensuring meticulous upkeep, exceptional guest experiences, and unmatched attention to detail.
         </p>
       </section>
