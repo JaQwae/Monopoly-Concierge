@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '../../Buttons/Button'
+import FormModal from '../../Forms/FormModal'
 import SingleProperty from '../properties/single-property/SingleProperty'
 import './Properties.css'
 
@@ -13,7 +13,8 @@ const Properties = ({ navHeight }) => {
     >
       <section id='properties-title-filter-btn-container'>
         <h1>Branded Properties</h1>
-        <Button
+        <FormModal
+          pageForm='properties'
           btnIdName='prive-btn'
           displayName='Experience Priv&#233;'
         />
