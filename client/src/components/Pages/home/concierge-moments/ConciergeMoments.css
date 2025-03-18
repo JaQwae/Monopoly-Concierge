@@ -11,8 +11,12 @@
 
 #concierge-moments-title {
     position: absolute;
-    top: 22%;
+    top: 25%;
     left: 2%;
+    font-family: "Retrofunk", sans-serif;
+    font-size: 4.5em;
+    margin: 0em;
+    text-shadow: 10px 3px 2px var(--tertiary-color);
 }
 
 #polaroid-track {
@@ -52,9 +56,9 @@
 /* large tablet styling */
 @media screen and (max-width: 1024px) {
     #concierge-moments-title {
-        top: 85%;
-        left: 40%;
-        height: 9.5em;
+        top: 80%;
+        left: 55%;
+        font-size: 5em;
     }
 
     #polaroid-track {
@@ -71,8 +75,8 @@
 /* small tablet styling */
 @media screen and (max-width: 910px) {
     #concierge-moments-title {
-        left: 35%;
-        height: 8em;
+        left: 55%;
+        font-size: 4em;
     }
 
     #polaroid-track {
@@ -88,7 +92,8 @@
 @media (orientation: landscape) and (max-width: 1024px) {
     #concierge-moments-title {
         left: 45%;
-        height: 8em;
+        top: 85%;
+        font-size: 3.5em;
     }
 
     #polaroid-track {
@@ -104,8 +109,9 @@
 /* mobile styling */
 @media screen and (max-width: 767px) {
     #concierge-moments-title {
-        left: 31%;
-        height: 4.2em;
+        left: 35%;
+        top: 80%;
+        font-size: 3em;
     }
 
     #polaroid-track {
