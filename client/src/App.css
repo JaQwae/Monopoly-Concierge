@@ -22,6 +22,11 @@ body {
     font-family:'Baskerville', sans-serif;
 }
 
+a {
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
 .pages {
     width: 100%;
     display: flex;
