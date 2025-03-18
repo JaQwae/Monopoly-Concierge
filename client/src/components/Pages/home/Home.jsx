@@ -1,28 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState, lazy, Suspense } from 'react'
 import './Home.css'
 // import heroVideo from '../../../assets/home/placeholder-hero.mp4'
 import hv2 from '../../../assets/home/act-place.mp4'
 import Button from "../../Buttons/Button"
-import BookBtnSidebar from '../../BookBtnSidebar/BookBtnSidebar'
 import { ConciergeMoments } from './concierge-moments/ConciergeMoments'
 
+// Lazy load BookBtnSidebar
+const BookBtnSidebar = lazy(() => import('../../BookBtnSidebar/BookBtnSidebar'));
+
 const Home = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // State for BookBtnSidebar visibility
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
 
   const heroVideoControls = () => {
     const heroVideo = document.getElementById('homepage-hero-video');
 
-    // Switches between the start and pause icon;
     setIsVideoPlaying(!isVideoPlaying);
 
-    // Handles video start and pause functionality
     if (isVideoPlaying) {
-      heroVideo.pause()
+      heroVideo.pause();
     } else {
       heroVideo.play();
     }
-  }
+  };
 
   const scrollToNextSection = () => {
     const nextSection = document.getElementById('concierge-moments-section');
@@ -34,11 +34,9 @@ const Home = () => {
     }
   };
 
-  //  Toggle the sidebar visibility for the nav book button
-   const toggleSidebar = () => {
+  const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
-};
-  
+  };
 
   return (
     <div id='home-page' className='pages'>
@@ -49,7 +47,7 @@ const Home = () => {
         <div className="overlay-screen">
           <div id='homepage-hero-content'>
             <h1 id="slogan"> &quot;Short Term Travel... Redefined.&quot;</h1>
-            <Button btnIdName={'cta-hero-btn'} displayName='BOOK YOUR JOURNEY' btnAction={toggleSidebar}/> 
+            <Button btnIdName={'cta-hero-btn'} displayName='BOOK YOUR JOURNEY' btnAction={toggleSidebar} /> 
           </div>
           <button id="video-control-container" onClick={heroVideoControls}>
             {isVideoPlaying ? <i className="fa-solid fa-pause"></i> : <i className="fa-solid fa-play"></i>}
@@ -60,9 +58,13 @@ const Home = () => {
         </div>
       </section>
       <ConciergeMoments id="pic-banner" />
-      <BookBtnSidebar isOpen={isSidebarOpen} closeSidebar={toggleSidebar} />
+      
+      {/* Lazy load BookBtnSidebar */}
+      <Suspense fallback={null}>
+        {isSidebarOpen && <BookBtnSidebar isOpen={isSidebarOpen} closeSidebar={toggleSidebar} />}
+      </Suspense>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;

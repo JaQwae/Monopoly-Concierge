@@ -1,14 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, lazy, Suspense } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import primaryLogo from '../../assets/navbar/primary-logo-black.png';
 import primaryLogoWhite from '../../assets/navbar/primary-logo-white.png'
 import Button from '../Buttons/Button.jsx';
-import BookBtnSidebar from '../BookBtnSidebar/BookBtnSidebar.jsx';
 import './NavBar.css';
 
-import PropTypes from 'prop-types';
-
-
+const BookBtnSidebar = lazy(() => import('../BookBtnSidebar/BookBtnSidebar.jsx'));
 
 // NavBar Component
 const NavBar = ({ setNavHeight }) => {
@@ -181,7 +179,9 @@ const NavBar = ({ setNavHeight }) => {
                     <li className="nav-tabs">Concierge Chronicles</li>
                 </NavLink>
             </ul>
-            <BookBtnSidebar isOpen={isSidebarOpen} closeSidebar={toggleSidebar} screenSize={windowWidth} />
+            <Suspense fallback={null}>
+                <BookBtnSidebar isOpen={isSidebarOpen} closeSidebar={toggleSidebar} screenSize={windowWidth} />
+            </Suspense>
         </nav>
     );
 };
