@@ -29,11 +29,6 @@ const ConciergeMoments = () => {
 
     return (
         <div id="concierge-moments-section">
-            {/* <img
-                src={conciergeMomentsTitle}
-                alt="polaroid pictures of guest on a mable surface"
-                id="concierge-moments-title"
-            /> */}
             <h2 id="concierge-moments-title">Concierge Moments</h2>
             <div id='polaroid-track'>
                 <section className='polaroid-track-sections' style={{ "--speed": `${speed}ms` }}>
