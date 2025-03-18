@@ -61,6 +61,7 @@ const NavBar = ({ setNavHeight }) => {
     useEffect(() => {
         closeMobileNav();
         verifyHomePage();
+        window.scrollTo(0, 0); // Scroll webpage to the top
     }, [location.pathname]);
 
     // Automatically closes nav bar when navigating to a new tab    
