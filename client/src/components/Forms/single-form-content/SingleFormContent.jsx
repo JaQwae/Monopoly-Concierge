@@ -13,8 +13,6 @@ const SingleFormContent = ({ pageForm }) => {
         }
     }, [pageForm])
 
-
-
     return (
         <>
             {isPriveFrom ? <PriveIntro priveIntroVisible={setIsPriveFrom} /> :
