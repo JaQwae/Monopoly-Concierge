@@ -59,7 +59,6 @@
 
 #properties-partnership-container {
     width: 100%;
-    /* height: 20vh; */
     background-color: var(--tertiary-color);
     display: flex;
     justify-content: space-between;
@@ -68,8 +67,8 @@
 
 #properties-partnership-container p {
     width: 50%;
-    font-size: 2.5em;
-    margin: 1.5em;
+    font-size: 2em;
+    margin-left: 2em;
     font-weight: 900;
     line-height: 1.4em;
 }
@@ -79,12 +78,99 @@
 }
 
 #properties-partnership-container button {
-    font-size: 1.5em;
+    font-size: 1.2em;
     background-color: var(--secondary-color);
     color: var(--primary-color);
-    margin: 1.5em;
+    margin-right: 2em;
     padding: 1em;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* large tablet styling */
+@media screen and (max-width: 1024px) {
+    #properties-title-filter-btn-container {
+        /* flex-direction: column; */
+        height: auto;
+        padding: 3em;
+        text-align: center;
+    }
+
+    #properties-title-filter-btn-container h1 {
+        font-size: clamp(2em, 4vw, 3em);
+        margin: 0em 0.5em;
+    }
+
+    #intro-text-container {
+        padding: 2em;
+    }
+
+    #properties-partnership-container p {
+        font-size: 1.8em;
+    }
+
+    #properties-partnership-container a {
+        margin-right: 2em;
+    }
+
+    #properties-partnership-container button {
+        margin: 0;
+    }
+}
+
+/* small tablet styling */
+@media screen and (max-width: 910px) {
+    #properties-title-filter-btn-container {
+        padding: 3em 0em;
+    }
+}
+
+/* mobile styling */
+@media screen and (max-width: 767px) {
+    #properties-title-filter-btn-container {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #properties-title-filter-btn-container h1 {
+        /* font-size: 2.5em; */
+        padding: 0em 0em 1em;
+    }
+    
+    #prive-btn {
+        margin-right: 0em;
+    }
+
+    #intro-text-container {
+        padding: 0em;
+    }
+
+    #intro-text-container p{
+        padding: 1em;
+        font-size: 1.7em;
+    }
+
+    #properties-partnership-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5em 0em;
+    }
+
+    #properties-partnership-container p {
+        width: 90%;
+        margin: 0;
+        padding: 0em 1em 1em;
+        font-size: 1.6em;
+    }
+
+    #properties-partnership-container a {
+        margin-right: 0em;
+    }
+
+    #properties-partnership-container button {
+        margin: 0;
+        padding: 0.5em;
+        font-size: 1em;
+    }
 }
