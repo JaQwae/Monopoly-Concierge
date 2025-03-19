@@ -1,5 +1,5 @@
 footer {
-    height: 50vh;
+    height: auto;
     border-top: 0.15em solid grey;
     display: flex;
     color: grey;
@@ -25,7 +25,7 @@ footer {
 #footer-contact-cta-section {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     min-height: 40%;
 }
 
@@ -160,7 +160,6 @@ footer {
 /* large tablet styling: start here*/
 @media screen and (max-width: 1024px) {
     footer {
-        height: auto;
         flex-direction: column;
         justify-content: center;
         padding: 1.5em 0em;
