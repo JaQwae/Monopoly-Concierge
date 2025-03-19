@@ -1,6 +1,5 @@
 import React, { useState, lazy, Suspense } from 'react'
 import './Home.css'
-// import heroVideo from '../../../assets/home/placeholder-hero.mp4'
 import hv2 from '../../../assets/home/act-place.mp4'
 import Button from "../../Buttons/Button"
 import { ConciergeMoments } from './concierge-moments/ConciergeMoments'

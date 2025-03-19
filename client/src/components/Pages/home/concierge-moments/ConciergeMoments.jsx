@@ -1,5 +1,6 @@
-import conciergeMomentsTitle from '../../../../assets/home/concierge-moments-title.gif'
 import './ConciergeMoments.css'
+
+// Polaroid photos
 import elevenPolaroid from "../../../../assets/home/concierge-moments/eleventhPolaroid.jpg"
 import fifthPolaroid from "../../../../assets/home/concierge-moments/fifthPolaroid.jpg"
 import firstPolaroid from "../../../../assets/home/concierge-moments/firstPolaroid.jpg"
