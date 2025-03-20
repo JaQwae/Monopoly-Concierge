@@ -1,7 +1,3 @@
-/**
- * Defines the steps in the multi-step form.
- * Each step contains multiple fields and a title.
- */
 export const baseSteps = [
     { 
         key: 'contactInfo', 
@@ -42,17 +38,32 @@ export const baseSteps = [
         title: 'Trip Details',
         fields: [
             { 
-                key: 'email', 
-                label: 'Email', 
-                type: 'email',
-                autoComplete: 'email'
+                key: 'preferred-destination', 
+                label: 'Preferred Destination', 
+                type: 'text',
+                autoComplete: 'off'
             },
             { 
-                key: 'phone', 
-                label: 'Phone Number', 
-                type: 'tel',
-                autoComplete: 'tel'
-            }
+                key: 'number-of-guests', 
+                label: 'Number of Guests', 
+                type: 'select',
+                options: [
+                    { label: '1-2 Guest', value: '1-2 guests' },
+                    { label: '3-5 Guests', value: '3-5 guests' },
+                    { label: '6-10 Guests', value: '6-10 guests' },
+                    { label: '10+ Guests', value: '10+ guests' }
+                ]
+            },
+            { 
+                key: 'check-in-date', 
+                label: 'Check-in Date', 
+                type: 'date'
+            },
+            { 
+                key: 'check-out-date', 
+                label: 'Check-out Date', 
+                type: 'date'
+            },
         ] 
     },
     { 
