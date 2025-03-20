@@ -4,12 +4,11 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import Button from '../Buttons/Button';
-import './FormModal.css'
-
+import './FormModal.css';
 import PropTypes from 'prop-types';
-import primaryLogo from '../../assets/navbar/primary-logo-black.png'
-import bentleyFormImage from '../../assets/form/form-image-bentley.jpg'
-import SingleFormContent from './single-form-content/singleFormContent';
+import primaryLogo from '../../assets/navbar/primary-logo-black.png';
+import bentleyFormImage from '../../assets/form/form-image-bentley.jpg';
+import SingleFormContent from './single-form-content/SingleFormContent';
 
 const style = {
   position: 'absolute',
@@ -20,18 +19,18 @@ const style = {
   boxShadow: 24,
 };
 
-function MultiPageForm({pageForm, btnIdName, displayName}) {
+function MultiPageForm({ pageForm, btnIdName, displayName }) {
   const [open, setOpen] = React.useState(false);
+
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleClose = () => {
+    setOpen(false);
+    sessionStorage.removeItem(pageForm); // Clear session storage when closing
+  };
 
   return (
     <div>
-      <Button
-        displayName={displayName}
-        btnIdName={btnIdName}
-        btnAction={handleOpen}
-      />
+      <Button displayName={displayName} btnIdName={btnIdName} btnAction={handleOpen} />
 
       <Modal
         aria-labelledby="transition-modal-title"
@@ -47,30 +46,14 @@ function MultiPageForm({pageForm, btnIdName, displayName}) {
         }}
       >
         <Fade in={open}>
-          <Box
-            sx={style}
-            className='modal-form-container'
-          >
+          <Box sx={style} className='modal-form-container'>
             <div className='modal-form-image-container'>
-              <img
-                className="modal-form-logo"
-                src={primaryLogo}
-                alt=""
-              />
-              <img
-                className='modal-form-image'
-                src={bentleyFormImage}
-                alt=''
-              />
+              <img className="modal-form-logo" src={primaryLogo} alt="" />
+              <img className='modal-form-image' src={bentleyFormImage} alt='' />
             </div>
 
-            <Box
-              component="form"
-              noValidate
-              autoComplete="off"
-              id="modal-form-container"
-            >
-              <SingleFormContent pageForm={pageForm}/>
+            <Box component="form" noValidate autoComplete="off" id="modal-form-container">
+              <SingleFormContent pageForm={pageForm} />
             </Box>
           </Box>
         </Fade>
@@ -83,7 +66,8 @@ MultiPageForm.propTypes = {
   pageForm: PropTypes.string.isRequired,
   displayName: PropTypes.string.isRequired,
   btnIdName: PropTypes.string,
-}
+};
 
 export default MultiPageForm;
+
 

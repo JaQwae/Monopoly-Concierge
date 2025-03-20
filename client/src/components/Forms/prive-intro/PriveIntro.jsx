@@ -7,7 +7,7 @@ const PriveIntro = ({priveIntroVisible}) => {
 
     const handleContinueClick = (event) => {
         event.preventDefault();
-        priveIntroVisible(false)
+        priveIntroVisible()
     };
 
 
