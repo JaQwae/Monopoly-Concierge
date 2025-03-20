@@ -4,26 +4,42 @@
  */
 export const baseSteps = [
     { 
-        key: 'personalInfo', 
-        title: 'Personal Information',
+        key: 'contactInfo', 
+        title: 'Contact Info',
         fields: [
             { 
-                key: 'given-name', 
-                label: 'First Name', 
+                key: 'full-name', 
+                label: 'Full Name', 
                 type: 'text',
-                autoComplete: 'given-name'
+                autoComplete: 'name'
             },
             { 
-                key: 'lastName', 
-                label: 'Last Name', 
-                type: 'text',
-                autoComplete: 'family-name'
-            }
+                key: 'preferred-contact', 
+                label: 'Preferred Contact Method', 
+                type: 'radio',
+                defaultValue: 'email',
+                options: [
+                    { label: 'Email', value: 'email' },
+                    { label: 'Phone', value: 'phone' }
+                ]
+            },
+            { 
+                key: 'email', 
+                label: 'Email', 
+                type: 'email',
+                autoComplete: 'email'
+            },
+            { 
+                key: 'phoneNumber', 
+                label: 'Phone Number', 
+                type: 'text', 
+                autoComplete: 'tel'
+            },
         ] 
     },
     { 
-        key: 'contactInfo', 
-        title: 'Contact Information',
+        key: 'tripDetails', 
+        title: 'Trip Details',
         fields: [
             { 
                 key: 'email', 
