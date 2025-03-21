@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import PriveIntro from '../prive-intro/PriveIntro';
-import { TextField, Typography, LinearProgress, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, MenuItem, Select } from '@mui/material';
+import { 
+    TextField, Typography, LinearProgress, FormControl, FormLabel, 
+    RadioGroup, FormControlLabel, Radio, MenuItem, Select, Checkbox, FormGroup 
+} from '@mui/material';
 import useMultiStepForm from '../../../hooks/useMultiStepForm';
 import { baseSteps } from '../formSteps';
 import Button from '../../Buttons/Button';
@@ -27,7 +30,6 @@ const SingleFormContent = ({ pageForm }) => {
                     id='progress-bar'
                     variant="determinate" 
                     value={progress} 
-                    sx={{ '& .MuiLinearProgress-bar': { backgroundColor: '#F1C7C8' }}}
                 />
                 <output id='progress-percentage'>{progress}%</output>
             </div>
@@ -39,8 +41,10 @@ const SingleFormContent = ({ pageForm }) => {
             {steps[step].fields.map((field) => {
                 if (field.type === 'radio') {
                     return (
-                        <FormControl key={field.key} component="fieldset" sx={{ marginBottom: 2 }}>
-                            <FormLabel sx={{ color: 'white' }}>{field.label}</FormLabel>
+                        <FormControl key={field.key} component="fieldset" className="radio-group-input-container">
+                            <FormLabel className="radio-group-input-title">
+                                {field.label}
+                            </FormLabel>
                             <RadioGroup
                                 row
                                 name={field.key}
@@ -53,10 +57,41 @@ const SingleFormContent = ({ pageForm }) => {
                                         value={option.value} 
                                         control={<Radio sx={{ color: 'white' }} />} 
                                         label={option.label} 
-                                        sx={{ color: 'white' }} 
+                                        className="radio-group-input-options"
                                     />
                                 ))}
                             </RadioGroup>
+                        </FormControl>
+                    );
+                }
+
+                if (field.type === 'checkbox') {
+                    return (
+                        <FormControl key={field.key} component="fieldset" sx={{ marginBottom: 2 }}>
+                            <FormLabel sx={{ color: 'white' }}>{field.label}</FormLabel>
+                            <FormGroup>
+                                {field.options.map((option) => (
+                                    <FormControlLabel
+                                        key={option.value}
+                                        control={
+                                            <Checkbox
+                                                checked={formData[field.key]?.includes(option.value) || false}
+                                                onChange={(e) => {
+                                                    const newValues = formData[field.key] || [];
+                                                    if (e.target.checked) {
+                                                        updateFormData(field.key, [...newValues, option.value]);
+                                                    } else {
+                                                        updateFormData(field.key, newValues.filter((v) => v !== option.value));
+                                                    }
+                                                }}
+                                                sx={{ color: 'white' }}
+                                            />
+                                        }
+                                        label={option.label}
+                                        sx={{ color: 'white' }}
+                                    />
+                                ))}
+                            </FormGroup>
                         </FormControl>
                     );
                 }

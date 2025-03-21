@@ -24,7 +24,10 @@
     background-color: var(--primary-color);
     width: 85%;
     height: 0.5em;
+}
 
+#progress-bar .MuiLinearProgress-bar { /* progress-color */
+    background-color: var(--tertiary-color);
 }
 
 #progress-percentage {
@@ -34,3 +37,35 @@
     font-family: 'Retrofunk', 'Times New Roman', Times, serif;
     font-size: 1.5em
 }
+
+
+/* Radio Input */
+.radio-group-input-container{    
+    /* background-color: green; */
+}
+
+.radio-group-input-title {
+    color: var(--primary-color);
+}
+
+.radio-group-input-title.Mui-focused { /* Keep the original color when user tabs */
+    color: var(--primary-color); 
+}
+
+.radio-group-input-options{ /*Labels options */
+    color: var(--primary-color);
+}
+
+.radio-group-input-options .MuiRadio-root { /* Non selected option */
+    color: var(--primary-color) 
+}
+
+.radio-group-input-options .Mui-checked { /* Selected option */
+    color: var(--tertiary-color); 
+}
+
+.radio-group-input-options .MuiRadio-root:hover { /*Hover effect for radio buttons */
+    background-color: rgba(241, 199, 200, 0.1); 
+}
+
+/* Text Input */
