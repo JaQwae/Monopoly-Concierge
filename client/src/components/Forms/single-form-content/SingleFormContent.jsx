@@ -41,7 +41,7 @@ const SingleFormContent = ({ pageForm }) => {
             {steps[step].fields.map((field) => {
                 if (field.type === 'radio') {
                     return (
-                        <FormControl key={field.key} component="fieldset" className="radio-group-input-container">
+                        <FormControl key={field.key} component="fieldset" className="all-form-inputs radio-group-input-container">
                             <FormLabel className="radio-group-input-title">
                                 {field.label}
                             </FormLabel>
@@ -67,7 +67,7 @@ const SingleFormContent = ({ pageForm }) => {
 
                 if (field.type === 'checkbox') {
                     return (
-                        <FormControl key={field.key} component="fieldset" sx={{ marginBottom: 2 }}>
+                        <FormControl key={field.key} component="fieldset" className="all-form-inputs" sx={{ marginBottom: 2 }}>
                             <FormLabel sx={{ color: 'white' }}>{field.label}</FormLabel>
                             <FormGroup>
                                 {field.options.map((option) => (
@@ -105,6 +105,7 @@ const SingleFormContent = ({ pageForm }) => {
                             InputLabelProps={{ shrink: true }}
                             value={formData[field.key] || ''}
                             onChange={(e) => updateFormData(field.key, e.target.value)}
+                            className="all-form-inputs"
                             sx={{
                                 backgroundColor: "black",
                                 input: { color: "white" },
@@ -124,7 +125,7 @@ const SingleFormContent = ({ pageForm }) => {
 
                 if (field.type === 'select') {
                     return (
-                        <FormControl key={field.key} fullWidth margin="normal" sx={{ backgroundColor: 'black' }}>
+                        <FormControl key={field.key} fullWidth margin="normal" className="all-form-inputs" sx={{ backgroundColor: 'black' }}>
                             <FormLabel sx={{ color: 'white' }}>{field.label}</FormLabel>
                             <Select
                                 value={formData[field.key] || ''}
@@ -154,9 +155,8 @@ const SingleFormContent = ({ pageForm }) => {
                         value={formData[field.key] || ''}
                         onChange={(e) => updateFormData(field.key, e.target.value)}
                         autoComplete={field.autoComplete}
+                        className='all-form-inputs text-input-container'
                         sx={{
-                            backgroundColor: "black",
-                            input: { color: "white" },
                             "& .MuiOutlinedInput-root": {
                                 "& fieldset": { borderColor: "white" },
                                 "&:hover fieldset": { borderColor: "gray" },

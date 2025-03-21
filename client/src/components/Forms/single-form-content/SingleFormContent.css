@@ -38,10 +38,15 @@
     font-size: 1.5em
 }
 
+.all-form-inputs {
+    color: var(--primary-color);
+    width: 90%;
+}
+
 
 /* Radio Input */
 .radio-group-input-container{    
-    /* background-color: green; */
+    background-color: green;
 }
 
 .radio-group-input-title {
@@ -69,3 +74,6 @@
 }
 
 /* Text Input */
+/* .text-input-container {
+
+} */
