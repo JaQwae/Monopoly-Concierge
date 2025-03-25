@@ -15,9 +15,9 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    position: absolute;
-    top: 0;
-    margin-top: 0.5em;
+    /* position: absolute;
+    top: 2%; */
+    height: 10%;
 }
 
 #progress-bar {
@@ -36,6 +36,19 @@
     text-align: center;
     font-family: 'Retrofunk', 'Times New Roman', Times, serif;
     font-size: 1.5em
+}
+
+#form-title{
+    height: 10%;
+}
+
+#form-input-container{
+    height: 70%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .all-form-inputs {
@@ -80,3 +93,42 @@
 /* .text-input-container {
 
 } */
+
+#form-navigation {
+    min-height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-btn {
+    margin: 0em 2em;
+}
+
+/* Date Picker */
+.date-picker-input label{ /* Placeholder label color */
+    color: var(--primary-color);  
+}
+
+.date-picker-input .MuiInputLabel-root.Mui-focused { /* Prevent blue highlight */
+    color: var(--primary-color); 
+}
+
+.date-picker-input .MuiOutlinedInput-notchedOutline { /* Border Color */
+    border-color: var(--primary-color); 
+}
+
+.date-picker-input:hover .MuiOutlinedInput-notchedOutline,
+.date-picker-input .Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: var(--footer-text-color);
+}
+
+.date-picker-input .MuiSvgIcon-root{ /* Calendar icon */
+    color: var(--primary-color);  
+}
+
+.date-picker-input .MuiSvgIcon-root:hover,
+.date-picker-input .MuiSvgIcon-root:focus {
+    color: var(--footer-text-color);
+}

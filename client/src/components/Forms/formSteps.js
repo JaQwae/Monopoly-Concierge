@@ -90,6 +90,12 @@ export const baseSteps = [
                 className: 'input-text',
                 id: 'other-trip-description'
             },
+        ]
+    },
+    {
+        key: 'tripPreferences2',
+        title: 'Trip Preferences',
+        fields: [
             {
                 key: 'exclusivity-level',
                 label: 'What level of exclusivity do you prefer?',
@@ -107,7 +113,7 @@ export const baseSteps = [
         ]
     },
     {
-        key: 'tripPreferences2',
+        key: 'tripPreferences3',
         title: 'Trip Preferences',
         fields: [
             {
