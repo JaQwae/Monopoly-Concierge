@@ -39,7 +39,7 @@ const SingleFormContent = ({ pageForm }) => {
                 <output id='progress-percentage'>{progress}%</output>
             </div>
 
-            <Typography className='form-title' variant="h5" gutterBottom sx={{ color: 'white' }}>
+            <Typography className='form-title' variant="h5">
                 {steps[step].title}
             </Typography>
 
@@ -73,14 +73,16 @@ const SingleFormContent = ({ pageForm }) => {
 
                     if (field.type === 'checkbox') {
                         return (
-                            <FormControl key={field.key} component="fieldset" className="all-form-inputs" sx={{ marginBottom: 2 }}>
-                                <FormLabel sx={{ color: 'white' }}>{field.label}</FormLabel>
+                            <FormControl key={field.key} component="fieldset" className="all-form-inputs checkbox-input-container" sx={{ marginBottom: 2 }}>
+                                <FormLabel className='checkbox-input-title'>{field.label}</FormLabel>
                                 <FormGroup>
                                     {field.options.map((option) => (
                                         <FormControlLabel
+                                            className='checkbox-option-container'
                                             key={option.value}
                                             control={
                                                 <Checkbox
+                                                    className='checkboxes'
                                                     checked={formData[field.key]?.includes(option.value) || false}
                                                     onChange={(e) => {
                                                         const newValues = formData[field.key] || [];
@@ -90,7 +92,7 @@ const SingleFormContent = ({ pageForm }) => {
                                                             updateFormData(field.key, newValues.filter((v) => v !== option.value));
                                                         }
                                                     }}
-                                                    sx={{ color: 'white' }}
+                                                    // sx={{ color: 'white' }}
                                                 />
                                             }
                                             label={option.label}

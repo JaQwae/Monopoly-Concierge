@@ -15,8 +15,6 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    /* position: absolute;
-    top: 2%; */
     height: 10%;
 }
 
@@ -38,17 +36,20 @@
     font-size: 1.5em
 }
 
-#form-title{
+.form-title{
+    display: flex;
+    align-items: center;
+    color: var(--primary-color);
     height: 10%;
 }
 
 #form-input-container{
-    height: 70%;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 70%;
 }
 
 .all-form-inputs {
@@ -94,17 +95,7 @@
 
 } */
 
-#form-navigation {
-    min-height: 10%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.form-btn {
-    margin: 0em 2em;
-}
 
 /* Date Picker */
 .date-picker-input label{ /* Placeholder label color */
@@ -156,4 +147,35 @@
 
 .dropdown-options {
     border-bottom: 2px solid var(--secondary-color);
+}
+
+/* Checkbox Input*/
+.checkbox-input-container {
+    margin: 0em
+}
+
+.checkbox-input-title {
+    color: var(--primary-color)
+}
+
+.checkbox-option-container{
+    margin-left: 0.5em;
+}
+
+.checkboxes {
+    color: var(--primary-color);
+    
+}
+
+/* Action btns container */
+#form-navigation {
+    min-height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-btn {
+    margin: 0em 2em;
 }

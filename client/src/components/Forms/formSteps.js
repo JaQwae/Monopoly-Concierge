@@ -78,7 +78,7 @@ export const baseSteps = [
                     { label: 'Business Travel', value: 'business' },
                     { label: 'Touring & Group Housing (For music artists, entourages, or crews)', value: 'touring' },
                     { label: 'Romantic Escape', value: 'romantic' },
-                    { label: 'Celebration (Birthday, Anniversary, Bachelor/Bachelorette, etc.)', value: 'celebration' },
+                    { label: 'Celebration (Birthday, Anniversary, Bachelor / Bachelorette, etc.)', value: 'celebration' },
                     { label: 'Other', value: 'other' }
                 ]
             },
