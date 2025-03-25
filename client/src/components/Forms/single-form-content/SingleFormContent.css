@@ -132,3 +132,28 @@
 .date-picker-input .MuiSvgIcon-root:focus {
     color: var(--footer-text-color);
 }
+
+/* Select Input */
+.dropdown-input-container{
+    color: white
+}
+.dropdown-input-title {
+    color: white;
+}
+
+.dropdown-input-container .MuiOutlinedInput-notchedOutline {
+    border-color: var(--primary-color)
+}
+
+.dropdown-input-container:hover .MuiOutlinedInput-notchedOutline,
+.dropdown-input-container .Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: var(--footer-text-color);
+}
+
+.dropdown-input-container .MuiSvgIcon-root{ /* Dropdown icon */
+    color: var(--primary-color);  
+}    
+
+.dropdown-options {
+    border-bottom: 2px solid var(--secondary-color);
+}

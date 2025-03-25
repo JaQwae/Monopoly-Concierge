@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import PriveIntro from '../prive-intro/PriveIntro';
 import {
     TextField, Typography, LinearProgress, FormControl, FormLabel,
-    RadioGroup, FormControlLabel, Radio, MenuItem, Select, Checkbox, FormGroup
+    RadioGroup, FormControlLabel, Radio, MenuItem, Select, Checkbox, FormGroup, InputLabel
 } from '@mui/material';
 import useMultiStepForm from '../../../hooks/useMultiStepForm';
 import { baseSteps } from '../formSteps';
@@ -135,25 +135,48 @@ const SingleFormContent = ({ pageForm }) => {
 
                     if (field.type === 'select') {
                         return (
-                            <FormControl key={field.key} fullWidth margin="normal" className="all-form-inputs" sx={{ backgroundColor: 'black' }}>
-                                <FormLabel sx={{ color: 'white' }}>{field.label}</FormLabel>
-                                <Select
-                                    value={formData[field.key] || ''}
-                                    onChange={(e) => updateFormData(field.key, e.target.value)}
-                                    sx={{
-                                        color: 'white',
-                                        '.MuiOutlinedInput-notchedOutline': { borderColor: 'white' },
-                                        '&:hover .MuiOutlinedInput-notchedOutline': { borderColor: 'gray' },
-                                        '&.Mui-focused .MuiOutlinedInput-notchedOutline': { borderColor: 'white' },
-                                    }}
-                                >
-                                    {field.options.map((option) => (
-                                        <MenuItem key={option.value} value={option.value}>
-                                            {option.label}
-                                        </MenuItem>
-                                    ))}
-                                </Select>
-                            </FormControl>
+                            <FormControl
+                            key={field.key}
+                            fullWidth
+                            margin="normal"
+                            className="all-form-inputs dropdown-input-container"
+                        >
+                            <InputLabel
+                                className="dropdown-input-title"
+                                sx={{
+                                    "&.Mui-focused": { color: '#FFFDF5' },
+                                }}
+                            >
+                                {field.label}
+                            </InputLabel>
+                            <Select
+                                value={formData[field.key] || ''}
+                                onChange={(e) => updateFormData(field.key, e.target.value)}
+                                label={field.label}
+                                sx={{
+                                    color: "#FFFDF5", // Makes selected text white
+                                }}
+                                MenuProps={{
+                                    PaperProps: {
+                                        sx: {
+                                            "& .MuiList-root": {
+                                                padding: 0, // Removes padding from the dropdown menu
+                                            },
+                                        },
+                                    },
+                                }}
+                            >
+                                {field.options.map((option) => (
+                                    <MenuItem 
+                                        key={option.value} 
+                                        value={option.value}
+                                        className="dropdown-options"
+                                    >
+                                        {option.label}
+                                    </MenuItem>
+                                ))}
+                            </Select>
+                        </FormControl>
                         );
                     }
 
