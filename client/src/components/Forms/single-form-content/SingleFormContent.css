@@ -94,11 +94,9 @@
 }
 
 /* Text Input */
-/* .text-input-container {
+.text-input-container .MuiOutlinedInput-root {
     color: var(--primary-color)
-} */
-
-
+}
 
 /* Date Picker */
 .date-picker-input label{ /* Placeholder label color */
@@ -162,6 +160,14 @@
     font-size: 1.2em
 }
 
+.checkbox-input-title.Mui-focused { /* Prevent Blue highlight when focused on  */
+    color: var(--primary-color);
+}
+
+.checkbox-input-title.MuiFormLabel-root { /* Prevent Blue highlight when focused on*/
+    color: var(--primary-color);
+}
+
 .checkbox-option-container{
     margin-left: 0.5em;
     font-size: 0.5em;
@@ -169,7 +175,6 @@
 
 .checkboxes {
     color: var(--primary-color);
-    
 }
 
 /* Action btns container */

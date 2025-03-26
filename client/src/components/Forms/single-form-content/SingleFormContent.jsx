@@ -92,11 +92,14 @@ const SingleFormContent = ({ pageForm }) => {
                                                             updateFormData(field.key, newValues.filter((v) => v !== option.value));
                                                         }
                                                     }}
-                                                    // sx={{ color: 'white' }}
                                                 />
                                             }
                                             label={option.label}
-                                            sx={{ color: 'white' }}
+                                            sx={{
+                                                color: "white", // Ensures the label text stays white
+                                                "&.Mui-focused": { color: "white" }, // Overrides focus color
+                                                "&.MuiFormControlLabel-label": { color: "white" }, // Ensures label stays white in all states
+                                            }}
                                         />
                                     ))}
                                 </FormGroup>
