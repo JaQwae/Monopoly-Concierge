@@ -69,6 +69,11 @@
     text-align: center;
 }
 
+.radio-group-input-container.not-centered{    
+    align-items: start;
+    text-align:start
+}
+
 .radio-group-input-title {
     color: var(--primary-color);
 }

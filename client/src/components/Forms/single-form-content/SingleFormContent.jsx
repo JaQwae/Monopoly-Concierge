@@ -47,7 +47,11 @@ const SingleFormContent = ({ pageForm }) => {
                 {steps[step].fields.map((field) => {
                     if (field.type === 'radio') {
                         return (
-                            <FormControl key={field.key} component="fieldset" className="all-form-inputs radio-group-input-container">
+                            <FormControl 
+                                key={field.key} 
+                                component="fieldset" 
+                                className={`all-form-inputs radio-group-input-container ${field.className || ''}`}
+                            >
                                 <FormLabel className="radio-group-input-title">
                                     {field.label}
                                 </FormLabel>

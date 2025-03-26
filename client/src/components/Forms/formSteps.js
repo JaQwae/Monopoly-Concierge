@@ -101,7 +101,7 @@ export const baseSteps = [
                 label: 'What level of exclusivity do you prefer?',
                 type: 'radio',
                 defaultValue: 'no-preference',
-                className: 'input-radio',
+                className: 'not-centered',
                 id: 'exclusivity-level',
                 options: [
                     { label: 'Iconic Luxury (5-star hotels, top-tier brands like Four Seasons, Aman, etc.)', value: 'iconic-luxury' },
