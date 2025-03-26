@@ -1,5 +1,6 @@
 .modal-form-container {
-    width: 60%;
+    width: 70%;
+    height: 60%;
     border-radius: 15px;
     box-shadow: rgba(255, 255, 255, 0.256) 0px 7px 29px 0px;
 }

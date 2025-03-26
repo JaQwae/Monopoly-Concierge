@@ -41,6 +41,9 @@
     align-items: center;
     color: var(--primary-color);
     height: 10%;
+    font-size: 2em;
+    font-family: 'Retrofunk';
+    /* background-color: aqua; */
 }
 
 #form-input-container{
@@ -92,7 +95,7 @@
 
 /* Text Input */
 /* .text-input-container {
-
+    color: var(--primary-color)
 } */
 
 
@@ -155,11 +158,13 @@
 }
 
 .checkbox-input-title {
-    color: var(--primary-color)
+    color: var(--primary-color);
+    font-size: 1.2em
 }
 
 .checkbox-option-container{
     margin-left: 0.5em;
+    font-size: 0.5em;
 }
 
 .checkboxes {
@@ -173,7 +178,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
 }
 
 .form-btn {
