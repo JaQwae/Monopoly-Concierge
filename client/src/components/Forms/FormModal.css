@@ -1,12 +1,10 @@
 .modal-form-container {
-    height: 70%;
     width: 60%;
     border-radius: 15px;
-    box-shadow: rgba(255, 255, 255, 0.327) 0px 5px 15px;
+    box-shadow: rgba(255, 255, 255, 0.256) 0px 7px 29px 0px;
 }
 
 .modal-form-image-container {
-    height: 100%;
     width: 40%;
     position: relative;
 }

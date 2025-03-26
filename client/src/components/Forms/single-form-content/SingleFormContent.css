@@ -7,4 +7,201 @@
     align-items: center;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
+    position: relative;
+}
+
+#progress-bar-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 10%;
+}
+
+#progress-bar {
+    background-color: var(--primary-color);
+    width: 85%;
+    height: 0.5em;
+}
+
+#progress-bar .MuiLinearProgress-bar { /* progress-color */
+    background-color: var(--tertiary-color);
+}
+
+#progress-percentage {
+    color: var(--tertiary-color);
+    width: 15%;
+    text-align: center;
+    font-family: 'Retrofunk', 'Times New Roman', Times, serif;
+    font-size: 1.5em
+}
+
+.form-title{
+    display: flex;
+    align-items: center;
+    color: var(--primary-color);
+    height: 10%;
+    font-size: 2em;
+    font-family: 'Retrofunk';
+    /* background-color: aqua; */
+}
+
+#form-input-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
+}
+
+.all-form-inputs {
+    color: var(--primary-color);
+    width: 90%;
+}
+
+
+/* Radio Input */
+.radio-group-input-container{    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.radio-group-input-container.not-centered {    
+    align-items: start;
+    text-align:start
+}
+
+.radio-group-input-title {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.radio-group-input-container.not-centered .radio-group-input-title{ 
+    font-size: 1.3em;   
+    padding-bottom: 0.5em;
+    /* font-family:'Baskerville', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+    
+}
+
+.radio-group-input-title.Mui-focused { /* Keep the original color when user tabs */
+    color: var(--primary-color); 
+}
+
+.radio-group-input-options{ /*Labels options */
+    color: var(--primary-color);
+}
+
+.radio-group-input-options .MuiRadio-root { /* Non selected option */
+    color: var(--primary-color) 
+}
+
+.radio-group-input-options .Mui-checked { /* Selected option */
+    color: var(--tertiary-color); 
+}
+
+.radio-group-input-options .MuiRadio-root:hover { /*Hover effect for radio buttons */
+    background-color: rgba(241, 199, 200, 0.1); 
+}
+
+/* Text Input */
+.text-input-container .MuiOutlinedInput-root {
+    color: var(--primary-color)
+}
+
+/* Date Picker */
+.date-picker-input label{ /* Placeholder label color */
+    color: var(--primary-color);  
+}
+
+.date-picker-input .MuiInputLabel-root.Mui-focused { /* Prevent blue highlight */
+    color: var(--primary-color); 
+}
+
+.date-picker-input .MuiOutlinedInput-notchedOutline { /* Border Color */
+    border-color: var(--primary-color); 
+}
+
+.date-picker-input:hover .MuiOutlinedInput-notchedOutline,
+.date-picker-input .Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: var(--footer-text-color);
+}
+
+.date-picker-input .MuiSvgIcon-root{ /* Calendar icon */
+    color: var(--primary-color);  
+}
+
+.date-picker-input .MuiSvgIcon-root:hover,
+.date-picker-input .MuiSvgIcon-root:focus {
+    color: var(--footer-text-color);
+}
+
+/* Select Input */
+.dropdown-input-container{
+    color: white
+}
+.dropdown-input-title {
+    color: var(--primary-color);
+}
+
+.dropdown-input-container .MuiOutlinedInput-notchedOutline {
+    border-color: var(--primary-color)
+}
+
+.dropdown-input-container:hover .MuiOutlinedInput-notchedOutline,
+.dropdown-input-container .Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: var(--footer-text-color);
+}
+
+.dropdown-input-container .MuiSvgIcon-root{ /* Dropdown icon */
+    color: var(--primary-color);  
+}    
+
+.dropdown-options {
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+/* Checkbox Input*/
+.checkbox-input-container {
+    margin: 0em;
+}
+
+.checkbox-input-title {
+    color: var(--primary-color);
+    font-size: 1.2em;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    /* font-family:'Baskerville', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+}
+
+.checkbox-input-title.Mui-focused { /* Prevent Blue highlight when focused on  */
+    color: var(--primary-color);
+}
+
+.checkbox-input-title.MuiFormLabel-root { /* Prevent Blue highlight when focused on*/
+    color: var(--primary-color);
+}
+
+.checkbox-option-container{
+    margin-left: 0.5em;
+    font-size: 0.5em;
+}
+
+.checkboxes {
+    color: var(--primary-color);
+}
+
+/* Action btns container */
+#form-navigation {
+    min-height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+.form-btn {
+    margin: 0em 2em;
 }
