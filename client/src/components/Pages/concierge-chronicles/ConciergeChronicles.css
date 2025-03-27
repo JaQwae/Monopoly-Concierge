@@ -8,10 +8,27 @@
 }
 
 /* Filter Btns */
-.filter-buttons {
+.filter-buttons-container {
     display: flex;
     gap: 1em;
+    width:100%;
+    /* background-color: green; */
 }
+
+#filter-button-modal-container{
+    display: flex;
+    justify-content: center;
+    width: 20%;
+    /* background-color: blue; */
+}
+
+.filter-buttons {
+    width: 80%;
+    /* background-color: yellow; */
+    display: flex;
+    justify-content: space-around;
+}
+
 
 .filter-buttons button,
 .modal-categories button {

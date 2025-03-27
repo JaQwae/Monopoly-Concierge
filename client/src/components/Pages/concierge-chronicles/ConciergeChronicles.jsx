@@ -31,16 +31,20 @@ const ConciergeChronicles = ({ navHeight }) => {
             <h1>Concierge Chronicles</h1>
 
             {/* Filter Buttons */}
-            <div className="filter-buttons">
-                <Buttons displayName={<FilterAltIcon />} btnAction={handleOpen}>Open modal</Buttons>
-                {mainCategories.map(category => (
-                    <Buttons
-                        key={category}
-                        displayName={category}
-                        btnClassName={selectedCategory === category ? 'active' : ''}
-                        btnAction={() => setSelectedCategory(category)}
-                    />
-                ))}
+            <div className="filter-buttons-container">
+                <div id="filter-button-modal-container">
+                    <Buttons displayName={<FilterAltIcon />} btnAction={handleOpen}>Open modal</Buttons>
+                </div>
+                <div className="filter-buttons">
+                    {mainCategories.map(category => (
+                        <Buttons
+                            key={category}
+                            displayName={category}
+                            btnClassName={selectedCategory === category ? 'active' : ''}
+                            btnAction={() => setSelectedCategory(category)}
+                        />
+                    ))}
+                </div>
             </div>
 
             {/* Display Filtered Articles */}
