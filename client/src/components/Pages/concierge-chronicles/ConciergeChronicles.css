@@ -1,0 +1,125 @@
+/* Grid container */
+.chronicles-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+    padding: 2em;
+    justify-content: center;
+}
+
+/* Card styling */
+.chronicle-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: var(--primary-color);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    height: 28em;
+}
+
+/* .chronicle-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+} */
+
+/* Image styling */
+.chronicle-image {
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+}
+
+/* Content styling */
+.chronicle-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 40%;
+    padding: 0em 0.7em;
+}
+
+/* Title */
+.chronicle-title {
+    font-size: 1.4em;
+    margin: 0.5em 0em;
+    font-weight: bold;
+    color: var(--secondary-color);
+    height: 33%;
+    display: flex;
+    align-items: center;
+    font-family: 'Helvegen', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* Description */
+.chronicle-description {
+    font-size: 1.1em;
+    color: var(--secondary-color);
+    margin: 0em;
+    height: 33%;
+    display: flex;
+    align-items: center;
+}
+
+/* Read More Link */
+.chronicle-link {
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: var(--footer-text-color);
+    transition: 0.3s ease-in-out;
+    height: 33%;
+    display: flex;
+    align-items: center;
+}
+
+.chronicle-link:hover {
+    color: var(--secondary-color);
+    scale: 1.1
+}
+
+/* large tablet styling */
+@media screen and (max-width: 1024px) {
+    .chronicles-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .chronicle-card {
+        height: 30em;
+    }
+}
+
+/* mobile styling */
+@media screen and (max-width: 767px) {
+    .chronicles-container {
+        grid-template-columns: repeat(1, 1fr);
+        width: 90%
+    }
+
+    .chronicle-content {
+        padding: 0em 0.5em;
+    }
+
+    .chronicle-description {
+        margin: 0.7em 0em;
+    }
+}
+
+/* large mobile styling: landscape devices*/
+@media (orientation: landscape) and (max-width: 950px) {
+    .chronicle-card {
+        height: 20em;
+    }
+    
+    /* Image styling */
+    .chronicle-image {
+        height: 50%;
+    }
+    
+    /* Content styling */
+    .chronicle-content {
+        height: 50%;
+    }
+}
