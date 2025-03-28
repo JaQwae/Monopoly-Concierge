@@ -6,6 +6,7 @@ import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import './ConciergeChronicles.css';
+import altLogo2  from '../../../assets/concierge-chronicles/alt-logo-1-black.png'
 
 const ConciergeChronicles = ({ navHeight }) => {
     const [selectedCategory, setSelectedCategory] = useState('All');
@@ -51,7 +52,14 @@ const ConciergeChronicles = ({ navHeight }) => {
             <div className="chronicles-container">
                 {filteredArticles.map((article) => (
                     <div className="chronicle-card" key={article.title}>
-                        <img src={article.image} alt={article.alt} className="chronicle-image" />
+                        <div className='chronicle-image-container'>
+                            <img 
+                                src={altLogo2} 
+                                alt='a top hat in the middle of a circle with monopoly concierge around it'
+                                className='chronicle-logo'    
+                            />
+                            <img src={article.image} alt={article.alt} className="chronicle-image" />
+                        </div>
                         <div className="chronicle-content">
                             <h3 className="chronicle-title">{article.title}</h3>
                             <p className="chronicle-description">{article.description}</p>
