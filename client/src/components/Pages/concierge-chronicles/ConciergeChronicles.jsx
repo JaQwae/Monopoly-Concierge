@@ -6,6 +6,7 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import './ConciergeChronicles.css';
 import altLogo2 from '../../../assets/concierge-chronicles/alt-logo-1-black.png';
+import CloseIcon from '@mui/icons-material/Close';
 
 const ConciergeChronicles = ({ navHeight }) => {
     const [selectedCategory, setSelectedCategory] = useState('All');
@@ -87,8 +88,13 @@ const ConciergeChronicles = ({ navHeight }) => {
                 onClose={handleClose}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
+                sx={{
+                    backgroundColor: "rgba(0, 0, 0, 0.7)", // Change backdrop color
+                    backdropFilter: "blur(5px)" // Add blur effect
+                }}
             >
                 <Box className="modal-box">
+                <button id='modal-close-btn' onClick={handleClose}><CloseIcon id='modal-x-icon' /></button>
                     <div className="modal-categories">
                         {allCategories.map(category => (
                             <Buttons
