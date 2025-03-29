@@ -12,21 +12,21 @@
 .filter-buttons-container {
     display: flex;
     gap: 1em;
-    width:100%;
+    width: 100%;
     padding: 1em 0em;
     background: var(--translucent-color);
     background: linear-gradient(to bottom, #000000, #00000066);
     z-index: 99;
 }
 
-#filter-button-modal-container{
+#filter-button-modal-container {
     display: flex;
     align-items: center;
     width: 20%;
     padding-left: 2em;
 }
 
-#filter-button-modal{
+#filter-button-modal {
     background-color: var(--secondary-color);
     color: var(--primary-color);
     font-size: 1.5em;
@@ -34,11 +34,9 @@
 
 .filter-buttons {
     width: 80%;
-    /* background-color: yellow; */
     display: flex;
     justify-content: space-around;
 }
-
 
 .filter-buttons button,
 .modal-categories button {
@@ -77,7 +75,7 @@
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
 } */
 
-.chronicle-image-container{
+.chronicle-image-container {
     height: 60%;
     position: relative;
 }
@@ -89,7 +87,7 @@
     object-fit: cover;
 }
 
-.chronicle-logo{
+.chronicle-logo {
     position: absolute;
     height: 5em;
     bottom: 2%;
@@ -151,11 +149,36 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
+    /* Filter Btns */
+    .filter-buttons-container {
+        gap: 0em;
+    }
+
+    #filter-button-modal-container {
+        justify-content: start;
+        padding-left: 0em;
+        margin-left: 2em;
+        width: 10%;
+    }
+
+    .filter-buttons {
+        justify-content: flex-end;
+        gap: 1.2em;
+        width: 90%;
+        margin-right: 2em;
+    }
+
+
+    .filter-buttons button,
+    .modal-categories button {
+        font-size: 1.1em;
+    }
+
     .chronicle-card {
         height: 30em;
     }
-    
-    .chronicle-logo{
+
+    .chronicle-logo {
         bottom: 1%;
         right: 1%;
     }
@@ -166,6 +189,27 @@
     .chronicles-container {
         grid-template-columns: repeat(1, 1fr);
         width: 90%
+    }
+
+    .filter-buttons-container {
+        width: 90%;
+        background: transparent;
+    }
+
+    #filter-button-modal-container {
+        justify-content: end;
+        margin-left: 0em;
+        width: 100%;
+    }
+
+    #filter-button-modal {
+        font-size: 1.4em;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+    .filter-buttons {
+        display: none;
+        width: 0%;
     }
 
     .chronicle-content {
@@ -179,15 +223,36 @@
 
 /* large mobile styling: landscape devices*/
 @media (orientation: landscape) and (max-width: 950px) {
+    .filter-buttons-container {
+        width: 90%;
+        background: transparent;
+    }
+
+    #filter-button-modal-container {
+        justify-content: end;
+        margin-left: 0em;
+        width: 100%;
+    }
+
+    #filter-button-modal {
+        font-size: 1.4em;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+    .filter-buttons {
+        display: none;
+        width: 0%;
+    }
+
     .chronicle-card {
         height: 20em;
     }
 
-    .chronicle-image-container{
+    .chronicle-image-container {
         height: 50%;
         position: relative;
     }
-    
+
     /* Content styling */
     .chronicle-content {
         height: 50%;

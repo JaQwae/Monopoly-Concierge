@@ -15,6 +15,7 @@ const ConciergeChronicles = ({ navHeight }) => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+    // Calculate the height of the filter container
     useEffect(() => {
         const updateHeight = () => {
             if (filterRef.current) {
