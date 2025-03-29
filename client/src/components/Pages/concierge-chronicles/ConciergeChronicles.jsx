@@ -1,40 +1,49 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import ChroniclesData from './ChroniclesData';
-import Buttons from '../../Buttons/Button'
-import FilterAltIcon from '@mui/icons-material/FilterAlt';
+import Buttons from '../../Buttons/Button';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import './ConciergeChronicles.css';
-import altLogo2  from '../../../assets/concierge-chronicles/alt-logo-1-black.png'
+import altLogo2 from '../../../assets/concierge-chronicles/alt-logo-1-black.png';
 
 const ConciergeChronicles = ({ navHeight }) => {
     const [selectedCategory, setSelectedCategory] = useState('All');
-
-    const [open, setOpen] = React.useState(false);
+    const [filterHeight, setFilterHeight] = useState(0);
+    const filterRef = useRef(null);
+    const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-    // Extract unique categories for filtering options
+    useEffect(() => {
+        const updateHeight = () => {
+            if (filterRef.current) {
+                setFilterHeight(filterRef.current.offsetHeight);
+            }
+        };
+
+        updateHeight();
+        const observer = new ResizeObserver(updateHeight);
+        if (filterRef.current) observer.observe(filterRef.current);
+
+        return () => observer.disconnect();
+    }, []);
+
     const allCategories = ['All', ...[...new Set(ChroniclesData.map(article => article.category))].sort()];
-
-
-    // Main 4 buttons (adjust these to fit your needs)
     const mainCategories = ['All', 'TIPS', 'JOURNEYS', 'CULTURE'];
-
-    // Filter articles based on selected category
     const filteredArticles = selectedCategory === 'All'
         ? ChroniclesData
         : ChroniclesData.filter(article => article.category === selectedCategory);
 
     return (
         <div style={{ marginTop: `${navHeight}px` }} className='pages'>
-            <h1>Concierge Chronicles</h1>
-
             {/* Filter Buttons */}
-            <div className="filter-buttons-container">
+            <div ref={filterRef} className="filter-buttons-container" style={{ position: 'fixed', top: `${navHeight}px` }}>
                 <div id="filter-button-modal-container">
-                    <Buttons displayName={<FilterAltIcon />} btnAction={handleOpen}>Open modal</Buttons>
+                    <Buttons 
+                        displayName={<i className="fa-solid fa-sliders"></i>} 
+                        btnAction={handleOpen}
+                        btnIdName={'filter-button-modal'}>Open modal</Buttons>
                 </div>
                 <div className="filter-buttons">
                     {mainCategories.map(category => (
@@ -47,9 +56,9 @@ const ConciergeChronicles = ({ navHeight }) => {
                     ))}
                 </div>
             </div>
-
+            
             {/* Display Filtered Articles */}
-            <div className="chronicles-container">
+            <div className="chronicles-container" style={{ paddingTop: `${filterHeight}px` }}>
                 {filteredArticles.map((article) => (
                     <div className="chronicle-card" key={article.title}>
                         <div className='chronicle-image-container'>
