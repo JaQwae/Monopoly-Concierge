@@ -1,150 +1,152 @@
-/* Grid container */
-.chronicles-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2em;
-    padding: 2em;
-    justify-content: center;
-    margin-top: 1.5em;
-}
-
-/* Filter Btns */
-#chronicles-filter-btn-container {
-    display: flex;
-    gap: 1em;
+/* Hero Section */
+#car-rentals-hero-container {
+    background-image: url('../../../assets/car-rentals/carRentalHeroImage.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 75%;
+    height: 30vh;
     width: 100%;
-    padding: 1em 0em;
-    background: var(--translucent-color);
-    background: linear-gradient(to bottom, #000000, #00000066);
+    position: relative;
     z-index: 99;
 }
 
-#filter-button-modal-container {
+#car-rentals-title{
+    font-size: 3.5em;
+    font-family: 'Retrofunk', sans-serif;
+    text-shadow: var(--footer-text-color) 2px 5px;
+    position: absolute;
+    top: 5%;
+    left: 3%;
+    margin: 0em;
+    letter-spacing: 0.2em;
+}
+
+/* Filter Btns */
+#car-rentals-filter-buttons-container {
     display: flex;
-    align-items: center;
-    width: 20%;
-    padding-left: 2em;
+    position: absolute;
+    bottom: 5%;
+    left: 3%
 }
 
-#filter-button-modal {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    font-size: 1.5em;
-}
-
-#chronicles-filter-buttons {
-    width: 80%;
+#car-rentals-filter-buttons {
     display: flex;
-    justify-content: space-around;
 }
 
-#chronicles-filter-buttons button,
-.modal-categories button {
+#car-rentals-filter-buttons button{
+    display: flex;
+    flex-wrap: wrap;
+    width: 9em;
+    font-size: 1.2em;
     background-color: var(--secondary-color);
     color: var(--primary-color);
     transition: 0.3s;
-    font-size: 1.2em;
+    margin-right: 1em;
 }
 
 .filter-buttons button.active,
 .filter-buttons button:hover,
-.filter-buttons button:focus,
-.modal-categories button.active,
-.modal-categories button:hover,
-.modal-categories button:focus,
-#filter-button-modal:hover,
-#filter-button-modal:focus {
+.filter-buttons button:focus {
     background-color: var(--primary-color);
     color: var(--secondary-color);
+}
+
+
+/* Grid container */
+.car-rentals-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+    padding: 1em 2em;
+    justify-content: center;
 }
 
 /* Card styling */
-.chronicle-card {
+.car-card {
     display: flex;
     flex-direction: column;
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    height: 28em;
+    height: 19em;
 }
 
-/* .chronicle-card:hover {
+/* .car-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
 } */
 
-.chronicle-image-container {
-    height: 60%;
-    position: relative;
-}
-
-/* Image styling */
-.chronicle-image {
+.car-image {
     width: 100%;
-    height: 100%;
+    height: 60%;
     object-fit: cover;
 }
 
-.chronicle-logo {
-    position: absolute;
-    height: 5em;
-    bottom: 2%;
-    right: 2%;
-}
-
 /* Card Content styling */
-.chronicle-content {
-    text-align: center;
+.car-details {
+    padding: 0em 0.7em;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
     height: 40%;
-    padding: 0em 0.7em;
 }
 
-/* Title */
-.chronicle-title {
-    font-size: 1.6em;
+.car-title {
+    font-size: 1.4em;
     margin: 0.5em 0em;
-    font-weight: bold;
-    color: var(--secondary-color);
     height: 33%;
     display: flex;
     align-items: center;
     font-family: 'Helvegen', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-/* Description */
-.chronicle-description {
-    font-size: 1.1em;
-    color: var(--secondary-color);
-    margin: 0em;
-    height: 33%;
+.rental-description {
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    height: 66%;
 }
 
-/* Read More Link */
-.chronicle-link {
-    text-decoration: none;
+.price-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5em;
+}
+
+.price-label {
     font-size: 0.9em;
-    font-weight: bold;
     color: var(--footer-text-color);
-    transition: 0.3s ease-in-out;
-    height: 33%;
-    display: flex;
-    align-items: center;
+    margin: 0em;
 }
 
-.chronicle-link:hover {
-    color: var(--secondary-color);
-    scale: 1.1
+.price-value {
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0em;
+    font-family: 'Retrofunk', Verdana, Geneva, Tahoma, sans-serif;
 }
+
+.reserve-button {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-size: 0.9em;
+    padding: 0.6em 0.4em;
+    line-height: 1.9;
+    border-radius: 6px;
+    box-shadow: rgba(110, 109, 109, 0.24) 0px 3px 8px;
+}
+
+.reserve-button:hover,
+.reserve-button:focus {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
 
 /* Modal Screen */
-.modal-box {
+/* .modal-box {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -157,9 +159,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
+} */
 
-#modal-close-btn {
+/* #modal-close-btn {
     border: none;
     box-shadow: none;
     background: none;
@@ -168,25 +170,25 @@
     position: absolute;
     top: 2%;
     right: 2%
-}
+} */
 
-#modal-x-icon{
+/* #modal-x-icon{
     color: var(--primary-color);
     font-size: 3em;
-}
+} */
 
-#modal-x-icon:hover {
+/* #modal-x-icon:hover {
     filter: brightness(70%);
     color: var(--primary-color);
-}
+} */
 
-.modal-categories {
+/* .modal-categories {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
     justify-content: center;
     align-items: center;
-}
+} */
 
 
 /* large tablet styling */
