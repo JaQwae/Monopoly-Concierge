@@ -2,19 +2,16 @@ import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import CarRentalsData from './CarRentalsData';
 import Buttons from '../../Buttons/Button';
-// import Box from '@mui/material/Box';
-// import Modal from '@mui/material/Modal';
 import './CarRentals.css';
-// import altLogo2 from '../../../assets/concierge-chronicles/alt-logo-1-black.png';
-// import CloseIcon from '@mui/icons-material/Close';
-// import carRentalHeroImage from '../../../assets/car-rentals/carRentalHeroImage.jpg'
 
 const CarRentals = ({ navHeight }) => {
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [filterHeight, setFilterHeight] = useState(0);
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 767);
+    const [dropdownOpen, setDropdownOpen] = useState(false);
     const filterRef = useRef(null);
-    // const [open, setOpen] = useState(false);
-    // const handleClose = () => setOpen(false);
+    const carCardContainerRef = useRef(null); // Reference to the car card container
+    const dropdownRef = useRef(null); // Reference to the dropdown container
 
     // Calculate the height of the filter container
     useEffect(() => {
@@ -31,11 +28,43 @@ const CarRentals = ({ navHeight }) => {
         return () => observer.disconnect();
     }, []);
 
-    // const allCategories = ['All', ...[...new Set(CarRentalsData.map(article => article.category))].sort()];
+    // Detect screen size changes
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 767);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    // Close the dropdown when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setDropdownOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
     const mainCategories = ['Luxury Rentals', 'Chauffeur Rentals'];
     const filteredRentals = selectedCategory === 'All'
         ? CarRentalsData
         : CarRentalsData.filter(article => article.category === selectedCategory);
+
+    // Function to handle category selection and scrolling
+    const handleCategoryClick = (category) => {
+        setSelectedCategory(category);
+        setDropdownOpen(false); // Close dropdown when an option is selected
+
+        // Scroll into view when a category is selected
+        if (carCardContainerRef.current) {
+            const offsetTop = carCardContainerRef.current.offsetTop - filterHeight - navHeight;
+            window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+        }
+    };
 
     return (
         <div style={{ marginTop: `${navHeight}px` }} className='pages'>
@@ -45,27 +74,52 @@ const CarRentals = ({ navHeight }) => {
             >
                 <h1 id='car-rentals-title'>Car Rentals</h1>
                 {/* Filter Buttons */}
-                <div 
-                    id='car-rentals-filter-buttons-container' 
-                    className="filter-buttons-container" >
-                    <div 
-                        id='car-rentals-filter-buttons'
-                        className="filter-buttons"
-                    >
-                        {mainCategories.map(category => (
-                            <Buttons
-                                key={category}
-                                displayName={category}
-                                btnClassName={selectedCategory === category ? 'active' : ''}
-                                btnAction={() => setSelectedCategory(category)}
-                            />
-                        ))}
-                    </div>
+                <div id='car-rentals-filter-buttons-container' className="filter-buttons-container">
+                    {isMobile ? (
+                        // Dropdown for smaller screens
+                        <div 
+                            className={`dropdown ${dropdownOpen ? 'open' : ''}`} 
+                            ref={dropdownRef}
+                        >
+                            <button className="dropdown-button" onClick={() => setDropdownOpen(!dropdownOpen)}>
+                                {selectedCategory} ▼
+                            </button>
+                            {dropdownOpen && (
+                                <div className="dropdown-menu">
+                                    {mainCategories.map(category => (
+                                        <button 
+                                            key={category} 
+                                            className="dropdown-item" 
+                                            onClick={() => handleCategoryClick(category)}
+                                        >
+                                            {category}
+                                        </button>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    ) : (
+                        // Regular buttons for larger screens
+                        <div id='car-rentals-filter-buttons' className="filter-buttons">
+                            {mainCategories.map(category => (
+                                <Buttons
+                                    key={category}
+                                    displayName={category}
+                                    btnClassName={selectedCategory === category ? 'active' : ''}
+                                    btnAction={() => handleCategoryClick(category)}
+                                />
+                            ))}
+                        </div>
+                    )}
                 </div>
             </section>
 
             {/* Display Filtered Articles */}
-            <section className="car-rentals-container" style={{ paddingTop: `${filterHeight}px` }}>
+            <section 
+                ref={carCardContainerRef}
+                className="car-rentals-container" 
+                style={{ paddingTop: `${filterHeight}px` }}
+            >
                 <div className="car-rentals-grid">
                     {filteredRentals.map((car) => (
                         <div key={car.title} className="car-card">
@@ -87,35 +141,6 @@ const CarRentals = ({ navHeight }) => {
                     ))}
                 </div>
             </section>
-
-            {/* Filter Btn Modal */}
-            {/* <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-                sx={{
-                    backgroundColor: "rgba(0, 0, 0, 0.7)", // Change backdrop color
-                    backdropFilter: "blur(5px)" // Add blur effect
-                }}
-            >
-                <Box className="modal-box">
-                <button id='modal-close-btn' onClick={handleClose}><CloseIcon id='modal-x-icon' /></button>
-                    <div className="modal-categories">
-                        {allCategories.map(category => (
-                            <Buttons
-                                key={category}
-                                displayName={category}
-                                btnClassName={selectedCategory === category ? 'active' : ''}
-                                btnAction={() => {
-                                    setSelectedCategory(category);
-                                    handleClose();
-                                }}
-                            />
-                        ))}
-                    </div>
-                </Box>
-            </Modal> */}
         </div>
     );
 };
