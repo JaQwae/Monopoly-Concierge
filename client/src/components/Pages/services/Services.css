@@ -1,3 +1,4 @@
+/* Heading Section */
 #services-filter-btn-container{
     background-color: #fffdf5c3;
     z-index: 98;
@@ -7,7 +8,6 @@
     justify-content: space-between;
     padding: 1em;
 }
-
 
 #services-filter-btn-container h1 {
     font-size: 3.5em;
@@ -26,6 +26,7 @@
     background-color: var(--secondary-color);
 }
 
+/* Services Section */
 .services-container {
     margin: 1.5em;
     column-count: 3; 
@@ -55,6 +56,16 @@
     height: 18em;
 }
 
+/* Clock Icon */
+.service-card .fa-clock {
+    color: var(--tertiary-color);
+    position: absolute;
+    top: 3%;
+    right:3%;
+    font-size: 2em;
+    text-shadow: var(--tertiary-color) 1px 0 10px;
+}
+
 .service-title-before-hover{
     position: absolute;
     bottom: 0%;
@@ -78,11 +89,15 @@
     align-items: center;
 }
 
-.service-card:hover .service-title-before-hover{
+/* Hides card content when hover over it and focusing on it*/
+.service-card:hover .service-title-before-hover,
+.service-card:focus-within .service-title-before-hover {
     opacity: 0;
 }
 
-.service-card:hover .service-content {
+/* Shows card content when hover over it and focusing on it*/
+.service-card:hover .service-content,
+.service-card:focus-within .service-content {
     opacity: 1;
 }
 
@@ -94,17 +109,41 @@
 
 .service-description {
     font-size: 1.2em;
-    margin: 1.5em 0em;
+    margin: 1.5em 1em;
 }
 
 .service-link {
     display: inline-block;
-    color: #fff;
+    color: var(--primary-color);
     font-weight: bold;
     text-decoration: none;
     transition: color 0.3s;
 }
 
 .service-link:hover {
-    color: #ffcc00;
+    color: var(--tertiary-color);
+    scale: 1.1;
+    transition: ease-in-out 0.3s;
 }
+
+
+/* large tablet styling */
+@media screen and (max-width: 1024px) {
+    .services-container {
+        column-count: 2; 
+    }
+
+    .large-card {
+        height: 22em;
+    }
+    
+    .small-card {
+        height: 22em;
+    }
+}
+
+/* mobile styling */
+/* @media screen and (max-width: 767px) {} */
+
+/* large mobile styling: landscape devices*/
+/* @media (orientation: landscape) and (max-width: 950px) {} */

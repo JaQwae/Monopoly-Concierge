@@ -9,7 +9,7 @@
 }
 
 /* Filter Btns */
-.filter-buttons-container {
+#chronicles-filter-btn-container {
     display: flex;
     gap: 1em;
     width: 100%;
