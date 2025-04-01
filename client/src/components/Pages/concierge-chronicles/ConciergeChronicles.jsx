@@ -40,14 +40,21 @@ const ConciergeChronicles = ({ navHeight }) => {
     return (
         <div style={{ marginTop: `${navHeight}px` }} className='pages'>
             {/* Filter Buttons */}
-            <div ref={filterRef} className="filter-buttons-container" style={{ position: 'fixed', top: `${navHeight}px` }}>
+            <div 
+                ref={filterRef}
+                id='chronicles-filter-btn-container' 
+                className="filter-buttons-container" 
+                style={{ position: 'fixed', top: `${navHeight}px` }}
+            >
                 <div id="filter-button-modal-container">
                     <Buttons 
                         displayName={<i className="fa-solid fa-sliders"></i>} 
                         btnAction={handleOpen}
                         btnIdName={'filter-button-modal'}>Open modal</Buttons>
                 </div>
-                <div className="filter-buttons">
+                <div 
+                    id='chronicles-filter-buttons'
+                    className="filter-buttons">
                     {mainCategories.map(category => (
                         <Buttons
                             key={category}

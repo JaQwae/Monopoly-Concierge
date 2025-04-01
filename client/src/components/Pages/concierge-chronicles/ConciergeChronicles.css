@@ -9,7 +9,7 @@
 }
 
 /* Filter Btns */
-.filter-buttons-container {
+#chronicles-filter-btn-container {
     display: flex;
     gap: 1em;
     width: 100%;
@@ -32,13 +32,13 @@
     font-size: 1.5em;
 }
 
-.filter-buttons {
+#chronicles-filter-buttons {
     width: 80%;
     display: flex;
     justify-content: space-around;
 }
 
-.filter-buttons button,
+#chronicles-filter-buttons button,
 .modal-categories button {
     background-color: var(--secondary-color);
     color: var(--primary-color);
@@ -94,7 +94,7 @@
     right: 2%;
 }
 
-/* Content styling */
+/* Card Content styling */
 .chronicle-content {
     text-align: center;
     display: flex;

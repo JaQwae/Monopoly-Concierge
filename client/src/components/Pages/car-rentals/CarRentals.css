@@ -1,0 +1,269 @@
+/* Hero Section */
+#car-rentals-hero-container {
+    background-image: url('../../../assets/car-rentals/carRentalHeroImage.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 75%;
+    height: 30vh;
+    width: 100%;
+    position: relative;
+    z-index: 99;
+}
+
+#car-rentals-title {
+    font-size: 3.5em;
+    font-family: 'Retrofunk', sans-serif;
+    text-shadow: var(--footer-text-color) 2px 5px;
+    position: absolute;
+    top: 5%;
+    left: 3%;
+    margin: 0em;
+    letter-spacing: 0.2em;
+}
+
+/* Filter Btns */
+#car-rentals-filter-buttons-container {
+    display: flex;
+    position: absolute;
+    bottom: 5%;
+    left: 3%
+}
+
+#car-rentals-filter-buttons {
+    display: flex;
+}
+
+#car-rentals-filter-buttons button {
+    display: flex;
+    flex-wrap: wrap;
+    width: 9em;
+    font-size: 1em;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    margin-right: 2em;
+    height: 4em;
+}
+
+.filter-buttons button.active,
+.filter-buttons button:hover,
+.filter-buttons button:focus {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+
+/* Grid container */
+.car-rentals-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+    padding: 1em 2em;
+    justify-content: center;
+}
+
+/* Card styling */
+.car-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    height: 19em;
+}
+
+.car-image {
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+}
+
+/* Card Content styling */
+.car-details {
+    padding: 0em 0.7em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 40%;
+}
+
+.car-title {
+    font-size: 1.4em;
+    margin: 0.5em 0em;
+    height: 33%;
+    display: flex;
+    align-items: center;
+    font-family: 'Helvegen', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.rental-description {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 66%;
+}
+
+.price-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5em;
+}
+
+.price-label {
+    font-size: 0.9em;
+    color: var(--footer-text-color);
+    margin: 0em;
+}
+
+.price-value {
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0em;
+    font-family: 'Retrofunk', Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.reserve-button {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-size: 0.9em;
+    padding: 0.6em 0.4em;
+    line-height: 1.9;
+    border-radius: 6px;
+    box-shadow: rgba(110, 109, 109, 0.24) 0px 3px 8px;
+}
+
+.reserve-button:hover,
+.reserve-button:focus {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+
+/* large tablet styling */
+@media screen and (max-width: 1024px) {
+    .car-rentals-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* mobile styling */
+@media screen and (max-width: 767px) {
+    #car-rentals-title {
+        font-size: 2em;
+        letter-spacing: 0.1em;
+    }
+
+    #car-rentals-filter-buttons-container {
+        bottom: 8%;
+        left: 4%
+    }
+
+    .dropdown {
+        position: relative;
+    }
+
+    /* Dropdown button */
+    .dropdown-button {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+        padding: 0.9em;
+        font-size: 1em;
+        border: none;
+        border-radius: 6px;
+        width: 100%;
+        text-align: left;
+    }
+
+    /* Dropdown menu - hidden by default */
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--secondary-color);
+        border-radius: 6px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 2;
+        width: 15em;
+        margin-left: 0.5em;
+    }
+
+    /* Show the dropdown when it's open */
+    .dropdown.open .dropdown-menu {
+        display: block;
+    }
+
+    /* Styles for dropdown items */
+    .dropdown-item {
+        padding: 0.8em;
+        background-color: transparent;
+        color: var(--primary-color);
+        border-bottom: solid 1px var(--primary-color);
+        width: 100%;
+        text-align: left;
+        cursor: pointer;
+    }
+
+    .car-rentals-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+/* large mobile styling: landscape devices*/
+@media (orientation: landscape) and (max-width: 950px) {
+    #car-rentals-title {
+        font-size: 2.5em;
+        letter-spacing: 0.1em;
+    }
+
+    #car-rentals-filter-buttons-container {
+        bottom: -4%;
+        left: 4%
+    }
+
+    .dropdown {
+        position: relative;
+    }
+
+    .dropdown-button {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+        padding: 0.9em;
+        font-size: 1em;
+        border: none;
+        border-radius: 6px;
+        width: 100%;
+        text-align: left;
+    }
+
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--secondary-color);
+        border-radius: 6px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 2;
+        width: 15em;
+        margin-left: 0.5em;
+    }
+
+    .dropdown.open .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-item {
+        padding: 0.8em;
+        background-color: transparent;
+        color: var(--primary-color);
+        border-bottom: solid 1px var(--primary-color);
+        width: 100%;
+        text-align: left;
+        cursor: pointer;
+    }
+}
