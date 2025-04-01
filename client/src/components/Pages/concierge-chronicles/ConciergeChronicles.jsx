@@ -12,6 +12,7 @@ const ConciergeChronicles = ({ navHeight }) => {
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [filterHeight, setFilterHeight] = useState(0);
     const filterRef = useRef(null);
+    const chroniclesRef = useRef(null);
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -36,6 +37,11 @@ const ConciergeChronicles = ({ navHeight }) => {
     const filteredArticles = selectedCategory === 'All'
         ? ChroniclesData
         : ChroniclesData.filter(article => article.category === selectedCategory);
+
+    // Scroll to the top when category changes
+    useEffect(() => {
+        window.scrollTo({ top: chroniclesRef.current?.offsetTop - filterHeight - navHeight, behavior: 'smooth' });
+    }, [selectedCategory, filterHeight, navHeight]);
 
     return (
         <div style={{ marginTop: `${navHeight}px` }} className='pages'>
@@ -67,7 +73,7 @@ const ConciergeChronicles = ({ navHeight }) => {
             </div>
             
             {/* Display Filtered Articles */}
-            <div className="chronicles-container" style={{ paddingTop: `${filterHeight}px` }}>
+            <div ref={chroniclesRef} className="chronicles-container" style={{ paddingTop: `${filterHeight}px` }}>
                 {filteredArticles.map((article) => (
                     <div className="chronicle-card" key={article.title}>
                         <div className='chronicle-image-container'>
