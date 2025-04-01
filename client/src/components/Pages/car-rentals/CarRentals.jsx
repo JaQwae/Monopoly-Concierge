@@ -28,9 +28,16 @@ const CarRentals = ({ navHeight }) => {
         return () => observer.disconnect();
     }, []);
 
-    // Detect screen size changes
+    // Detect screen size changes (both portrait and landscape)
     useEffect(() => {
-        const handleResize = () => setIsMobile(window.innerWidth < 767);
+        const handleResize = () => {
+            const isPortraitMobile = window.innerWidth < 767;
+            const isLandscapeMobile = window.innerWidth < 950 && window.matchMedia("(orientation: landscape)").matches;
+
+            setIsMobile(isPortraitMobile || isLandscapeMobile);
+        };
+
+        handleResize(); // Run on mount to set the initial state
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
@@ -54,12 +61,11 @@ const CarRentals = ({ navHeight }) => {
         ? CarRentalsData
         : CarRentalsData.filter(article => article.category === selectedCategory);
 
-    // Function to handle category selection and scrolling
+    // Function to close dropdown menu options when category selection and container scrolling 
     const handleCategoryClick = (category) => {
         setSelectedCategory(category);
-        setDropdownOpen(false); // Close dropdown when an option is selected
+        setDropdownOpen(false);
 
-        // Scroll into view when a category is selected
         if (carCardContainerRef.current) {
             const offsetTop = carCardContainerRef.current.offsetTop - filterHeight - navHeight;
             window.scrollTo({ top: offsetTop, behavior: 'smooth' });
@@ -68,8 +74,8 @@ const CarRentals = ({ navHeight }) => {
 
     return (
         <div style={{ marginTop: `${navHeight}px` }} className='pages'>
-            <section 
-                ref={filterRef} id='car-rentals-hero-container' 
+            <section
+                ref={filterRef} id='car-rentals-hero-container'
                 style={{ position: 'fixed', top: `${navHeight}px` }}
             >
                 <h1 id='car-rentals-title'>Car Rentals</h1>
@@ -77,8 +83,8 @@ const CarRentals = ({ navHeight }) => {
                 <div id='car-rentals-filter-buttons-container' className="filter-buttons-container">
                     {isMobile ? (
                         // Dropdown for smaller screens
-                        <div 
-                            className={`dropdown ${dropdownOpen ? 'open' : ''}`} 
+                        <div
+                            className={`dropdown ${dropdownOpen ? 'open' : ''}`}
                             ref={dropdownRef}
                         >
                             <button className="dropdown-button" onClick={() => setDropdownOpen(!dropdownOpen)}>
@@ -87,9 +93,9 @@ const CarRentals = ({ navHeight }) => {
                             {dropdownOpen && (
                                 <div className="dropdown-menu">
                                     {mainCategories.map(category => (
-                                        <button 
-                                            key={category} 
-                                            className="dropdown-item" 
+                                        <button
+                                            key={category}
+                                            className="dropdown-item"
                                             onClick={() => handleCategoryClick(category)}
                                         >
                                             {category}
@@ -115,9 +121,9 @@ const CarRentals = ({ navHeight }) => {
             </section>
 
             {/* Display Filtered Articles */}
-            <section 
+            <section
                 ref={carCardContainerRef}
-                className="car-rentals-container" 
+                className="car-rentals-container"
                 style={{ paddingTop: `${filterHeight}px` }}
             >
                 <div className="car-rentals-grid">
