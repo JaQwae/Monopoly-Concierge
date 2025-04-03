@@ -2,11 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import services from './ServicesData';
 import Buttons from '../../Buttons/Button';
-import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
-import './Services.css';
-import CloseIcon from '@mui/icons-material/Close';
 import Tooltip from '@mui/material/Tooltip';
+import CategoryModal from '../../CategoryModal/CategoryModal';
+import './Services.css';
 
 const ConciergeServices = ({ navHeight }) => {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -67,7 +65,9 @@ const ConciergeServices = ({ navHeight }) => {
           >
             {service.requiresTwoWeekBooking && (
               <Tooltip title="2 week notice required " arrow>
-                <i className="fa-regular fa-clock" tabIndex="0"></i>
+                <button className='clock-container'>
+                  <i className="fa-regular fa-clock" ></i>
+                </button>
               </Tooltip>
             )}
             <p className='service-title-before-hover'>{service.title}</p>
@@ -75,40 +75,28 @@ const ConciergeServices = ({ navHeight }) => {
               <h3 className="service-title">{service.title}</h3>
               <p className="service-description">{service.description}</p>
               <a href={service.link} target="_blank" rel="noopener noreferrer" className="service-link">
-                Read More →
+                Book Now →
               </a>
             </div>
           </div>
         ))}
       </section>
 
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-        sx={{
-          backgroundColor: "rgba(0, 0, 0, 0.7)",
-          backdropFilter: "blur(5px)"
-        }}
-      >
-        <Box className="modal-box">
-          <button id='modal-close-btn' onClick={handleClose}><CloseIcon id='modal-x-icon' /></button>
-          <div className="modal-categories">
-            {allCategories.map(category => (
-              <Buttons
-                key={category}
-                displayName={category}
-                btnClassName={selectedCategory === category ? 'active' : ''}
-                btnAction={() => {
-                  setSelectedCategory(category);
-                  handleClose();
-                }}
-              />
-            ))}
-          </div>
-        </Box>
-      </Modal>
+      <CategoryModal open={open} handleClose={handleClose}>
+        <div className="modal-categories">
+          {allCategories.map(category => (
+            <Buttons
+              key={category}
+              displayName={category}
+              btnClassName={selectedCategory === category ? 'active' : ''}
+              btnAction={() => {
+                setSelectedCategory(category);
+                handleClose();
+              }}
+            />
+          ))}
+        </div>
+      </CategoryModal>
     </div>
   );
 };

@@ -57,11 +57,19 @@
 }
 
 /* Clock Icon */
-.service-card .fa-clock {
-    color: var(--tertiary-color);
+.clock-container {
+    border: none;
+    box-shadow: none;
+    background: none;
+    padding: 0em;
+    line-height: 0em;
     position: absolute;
     top: 3%;
     right:3%;
+    align-items: center;    
+}
+.service-card .fa-clock {
+    color: var(--tertiary-color);
     font-size: 2em;
     text-shadow: var(--tertiary-color) 1px 0 10px;
 }
@@ -125,6 +133,9 @@
     scale: 1.1;
     transition: ease-in-out 0.3s;
 }
+
+/* Modal */
+
 
 
 /* large tablet styling */
