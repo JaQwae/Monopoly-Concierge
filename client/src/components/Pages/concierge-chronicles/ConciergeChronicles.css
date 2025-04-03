@@ -9,7 +9,7 @@
 }
 
 /* Filter Btns */
-.filter-buttons-container {
+#chronicles-filter-btn-container {
     display: flex;
     gap: 1em;
     width: 100%;
@@ -19,27 +19,26 @@
     z-index: 99;
 }
 
-#filter-button-modal-container {
+#chronicles-filter-button-modal-container {
     display: flex;
     align-items: center;
     width: 20%;
     padding-left: 2em;
 }
 
-#filter-button-modal {
+#chronicles-filter-button-modal {
     background-color: var(--secondary-color);
     color: var(--primary-color);
     font-size: 1.5em;
 }
 
-.filter-buttons {
+#chronicles-filter-buttons {
     width: 80%;
     display: flex;
     justify-content: space-around;
 }
 
-.filter-buttons button,
-.modal-categories button {
+.filter-buttons button{
     background-color: var(--secondary-color);
     color: var(--primary-color);
     transition: 0.3s;
@@ -48,12 +47,7 @@
 
 .filter-buttons button.active,
 .filter-buttons button:hover,
-.filter-buttons button:focus,
-.modal-categories button.active,
-.modal-categories button:hover,
-.modal-categories button:focus,
-#filter-button-modal:hover,
-#filter-button-modal:focus {
+.filter-buttons button:focus{
     background-color: var(--primary-color);
     color: var(--secondary-color);
 }
@@ -69,11 +63,6 @@
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     height: 28em;
 }
-
-/* .chronicle-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
-} */
 
 .chronicle-image-container {
     height: 60%;
@@ -143,71 +132,24 @@
     scale: 1.1
 }
 
-/* Modal Screen */
-.modal-box {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.676);
-    padding: 4em;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-#modal-close-btn {
-    border: none;
-    box-shadow: none;
-    background: none;
-    padding: 0em;
-    line-height: 0em;
-    position: absolute;
-    top: 2%;
-    right: 2%
-}
-
-#modal-x-icon{
-    color: var(--primary-color);
-    font-size: 3em;
-}
-
-#modal-x-icon:hover {
-    filter: brightness(70%);
-    color: var(--primary-color);
-}
-
-.modal-categories {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    justify-content: center;
-    align-items: center;
-}
-
-
 /* large tablet styling */
 @media screen and (max-width: 1024px) {
     .chronicles-container {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    /* Filter Btns */
-    .filter-buttons-container {
+    #chronicles-filter-btn-container {
         gap: 0em;
     }
 
-    #filter-button-modal-container {
+    #chronicles-filter-button-modal-container {
         justify-content: start;
         padding-left: 0em;
         margin-left: 2em;
         width: 10%;
     }
 
-    .filter-buttons {
+    #chronicles-filter-buttons {
         justify-content: flex-end;
         gap: 1.2em;
         width: 90%;
@@ -215,8 +157,7 @@
     }
 
 
-    .filter-buttons button,
-    .modal-categories button {
+    .filter-buttons button {
         font-size: 1.1em;
     }
 
@@ -232,30 +173,25 @@
 
 /* mobile styling */
 @media screen and (max-width: 767px) {
-    .chronicles-container {
-        grid-template-columns: repeat(1, 1fr);
-        width: 90%
-    }
-
-    .filter-buttons-container {
+    #chronicles-filter-btn-container {
         width: 90%;
         background: transparent;
     }
 
-    #filter-button-modal-container {
+    #chronicles-filter-button-modal-container {
         justify-content: end;
         margin-left: 0em;
         width: 100%;
     }
 
-    #filter-button-modal {
-        font-size: 1.4em;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    }
-
-    .filter-buttons {
+    #chronicles-filter-buttons {
         display: none;
         width: 0%;
+    }
+    
+    .chronicles-container {
+        grid-template-columns: repeat(1, 1fr);
+        width: 90%
     }
 
     .chronicle-content {
@@ -265,37 +201,22 @@
     .chronicle-description {
         margin: 0.7em 0em;
     }
-    
-    #modal-close-btn {
-        top: 3%;
-        right: 3%
-    }
-    
-    .modal-categories {
-        grid-template-columns: repeat(1, 1fr);
-        gap: 0.5rem;
-    }
 }
 
 /* large mobile styling: landscape devices*/
 @media (orientation: landscape) and (max-width: 950px) {
-    .filter-buttons-container {
+    #chronicles-filter-btn-container {
         width: 90%;
         background: transparent;
     }
 
-    #filter-button-modal-container {
+    #chronicles-filter-button-modal-container {
         justify-content: end;
         margin-left: 0em;
         width: 100%;
     }
 
-    #filter-button-modal {
-        font-size: 1.4em;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    }
-
-    .filter-buttons {
+    #chronicles-filter-buttons {
         display: none;
         width: 0%;
     }
@@ -309,7 +230,6 @@
         position: relative;
     }
 
-    /* Content styling */
     .chronicle-content {
         height: 50%;
     }
