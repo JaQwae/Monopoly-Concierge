@@ -1,14 +1,15 @@
 #filter-button-modal-container {
     display: flex;
     align-items: center;
-    width: 20%;
-    padding-left: 2em;
 }
 
 #filter-button-modal {
     background-color: var(--secondary-color);
     color: var(--primary-color);
-    font-size: 1.5em;
+    display: block;
+    width: 3em;
+    padding: 0em;
+    line-height: 1;
 }
 
 .modal-box {
@@ -24,6 +25,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 #modal-close-btn {
@@ -63,4 +65,70 @@
     height: 4em;
     width: 15em;
     display: block;
+}
+
+/* large tablet styling */
+@media screen and (max-width: 1024px) {
+    .modal-box {
+        padding: 0em;
+        border-radius: 0px;
+        width: 100%;
+        height: 100%;
+    }
+
+    #modal-close-btn {
+        border: none;
+        box-shadow: none;
+        background: none;
+        padding: 0em;
+        line-height: 0em;
+        position: absolute;
+        top: 3%;
+        right: 3%
+    }
+
+    .modal-categories button {
+        font-size: 1.2em;
+        height: 4em;
+        width: 12em;
+        padding: 0em;
+    }
+}
+
+/* mobile styling */
+@media screen and (max-width: 767px) {
+    .modal-box {
+        overflow-y: auto;
+        padding: 1rem 0;
+        width: 100vw;
+        max-width: 100vw;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        position: fixed;
+    }
+
+    .modal-categories {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1.5rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-content {
+        max-height: 85%;
+        overflow-y: auto;
+        padding: 1rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .modal-categories button {
+        padding: 0em;
+    }
 }
