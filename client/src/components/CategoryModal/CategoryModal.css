@@ -132,3 +132,11 @@
         padding: 0em;
     }
 }
+
+/* large mobile styling: landscape devices*/
+@media (orientation: landscape) and (max-width: 950px) {
+    .modal-categories {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
