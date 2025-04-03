@@ -2,11 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import ChroniclesData from './ChroniclesData';
 import Buttons from '../../Buttons/Button';
-import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
+import CategoryModal from '../../CategoryModal/CategoryModal'; 
 import './ConciergeChronicles.css';
 import altLogo2 from '../../../assets/concierge-chronicles/alt-logo-1-black.png';
-import CloseIcon from '@mui/icons-material/Close';
 
 const ConciergeChronicles = ({ navHeight }) => {
     const [selectedCategory, setSelectedCategory] = useState('All');
@@ -14,10 +12,10 @@ const ConciergeChronicles = ({ navHeight }) => {
     const filterRef = useRef(null);
     const chroniclesRef = useRef(null);
     const [open, setOpen] = useState(false);
+
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-    // Calculate the height of the filter container
     useEffect(() => {
         const updateHeight = () => {
             if (filterRef.current) {
@@ -32,13 +30,12 @@ const ConciergeChronicles = ({ navHeight }) => {
         return () => observer.disconnect();
     }, []);
 
-    const allCategories = ['All', ...[...new Set(ChroniclesData.map(article => article.category))].sort()];
+    const allCategories = ['All', ...new Set(ChroniclesData.map(article => article.category))].sort();
     const mainCategories = ['All', 'TIPS', 'JOURNEYS', 'CULTURE'];
     const filteredArticles = selectedCategory === 'All'
         ? ChroniclesData
         : ChroniclesData.filter(article => article.category === selectedCategory);
 
-    // Scroll to the top when category changes
     useEffect(() => {
         window.scrollTo({ top: chroniclesRef.current?.offsetTop - filterHeight - navHeight, behavior: 'smooth' });
     }, [selectedCategory, filterHeight, navHeight]);
@@ -46,21 +43,17 @@ const ConciergeChronicles = ({ navHeight }) => {
     return (
         <div style={{ marginTop: `${navHeight}px` }} className='pages'>
             {/* Filter Buttons */}
-            <div 
-                ref={filterRef}
-                id='chronicles-filter-btn-container' 
-                className="filter-buttons-container" 
-                style={{ position: 'fixed', top: `${navHeight}px` }}
-            >
-                <div id="filter-button-modal-container">
+            <div ref={filterRef} id='chronicles-filter-btn-container' className="filter-buttons-container" style={{ position: 'fixed', top: `${navHeight}px` }}>
+                <div id="chronicles-filter-button-modal-container">
                     <Buttons 
                         displayName={<i className="fa-solid fa-sliders"></i>} 
-                        btnAction={handleOpen}
-                        btnIdName={'filter-button-modal'}>Open modal</Buttons>
+                        btnAction={handleOpen} 
+                        btnIdName={'chronicles-filter-button-modal'}
+                    >
+                        Open modal
+                    </Buttons>
                 </div>
-                <div 
-                    id='chronicles-filter-buttons'
-                    className="filter-buttons">
+                <div id='chronicles-filter-buttons' className="filter-buttons">
                     {mainCategories.map(category => (
                         <Buttons
                             key={category}
@@ -71,17 +64,13 @@ const ConciergeChronicles = ({ navHeight }) => {
                     ))}
                 </div>
             </div>
-            
+
             {/* Display Filtered Articles */}
             <div ref={chroniclesRef} className="chronicles-container" style={{ paddingTop: `${filterHeight}px` }}>
                 {filteredArticles.map((article) => (
                     <div className="chronicle-card" key={article.title}>
                         <div className='chronicle-image-container'>
-                            <img 
-                                src={altLogo2} 
-                                alt='a top hat in the middle of a circle with monopoly concierge around it'
-                                className='chronicle-logo'    
-                            />
+                            <img src={altLogo2} alt='Concierge Chronicles Logo' className='chronicle-logo' />
                             <img src={article.image} alt={article.alt} className="chronicle-image" />
                         </div>
                         <div className="chronicle-content">
@@ -95,40 +84,28 @@ const ConciergeChronicles = ({ navHeight }) => {
                 ))}
             </div>
 
-            {/* Filter Btn Modal */}
-            <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-                sx={{
-                    backgroundColor: "rgba(0, 0, 0, 0.7)", // Change backdrop color
-                    backdropFilter: "blur(5px)" // Add blur effect
-                }}
-            >
-                <Box className="modal-box">
-                <button id='modal-close-btn' onClick={handleClose}><CloseIcon id='modal-x-icon' /></button>
-                    <div className="modal-categories">
-                        {allCategories.map(category => (
-                            <Buttons
-                                key={category}
-                                displayName={category}
-                                btnClassName={selectedCategory === category ? 'active' : ''}
-                                btnAction={() => {
-                                    setSelectedCategory(category);
-                                    handleClose();
-                                }}
-                            />
-                        ))}
-                    </div>
-                </Box>
-            </Modal>
+            {/* Filter Button Modal */}
+            <CategoryModal open={open} handleClose={handleClose}>
+                <div className="modal-categories">
+                    {allCategories.map(category => (
+                        <Buttons
+                            key={category}
+                            displayName={category}
+                            btnClassName={selectedCategory === category ? 'active' : ''}
+                            btnAction={() => {
+                                setSelectedCategory(category);
+                                handleClose();
+                            }}
+                        />
+                    ))}
+                </div>
+            </CategoryModal>
         </div>
     );
 };
 
-export default ConciergeChronicles;
-
 ConciergeChronicles.propTypes = {
     navHeight: PropTypes.number
 };
+
+export default ConciergeChronicles;
