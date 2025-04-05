@@ -1,44 +1,54 @@
-import React from 'react'
-// import planeIcon from '../../../assets/jet-charters/plane-icon.png';
+import React from 'react';
 import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 import FlightLandIcon from '@mui/icons-material/FlightLand';
 import PersonIcon from '@mui/icons-material/Person';
-import './JetCharters.css'
-
-import PropTypes from 'prop-types'
+import Buttons from '../../Buttons/Button';
+import './JetCharters.css';
+import PropTypes from 'prop-types';
+import TextFieldInput from '../../Forms/FormInputs/TextFieldInput';
 
 const JetCharters = ({ navHeight }) => {
+  const fields = [
+    {
+      key: 'departure',
+      icon: <FlightTakeoffIcon className='widget-image' style={{ fontSize: '3em' }}/>,
+      label: 'Departure City',
+    },
+    {
+      key: 'arrival',
+      icon: <FlightLandIcon className='widget-image' style={{ fontSize: '3em' }} />,
+      label: 'Arrival City',
+    },
+    {
+      key: 'passengers',
+      icon: <PersonIcon className='widget-image' style={{ fontSize: '3em' }} />,
+      label: 'Number of Passengers',
+    }
+  ];
+
   return (
-    <div 
-      style={{ marginTop: `${navHeight}px` }}
-      className='pages'
-    >
+    <div style={{ marginTop: `${navHeight}px` }} className='pages'>
       <section id='charter-hero-container'>
-          <div id='jet-form-widget'>
-            <div className='widget-section'>
-              <FlightTakeoffIcon className='widget-image' style={{ fontSize: '2.5em' }}/>
-              {/* <img className='widget-image' src={planeIcon} alt='airplane icon'/> */}
-              <input className='widget-input'></input>
+        <div id='jet-form-widget'>
+          {fields.map((field) => (
+            <div key={field.key} className='widget-section'>
+              {field.icon}
+              <TextFieldInput
+                label={field.label}
+                placeHolder={field.placeholder}
+                className='widget-input'
+              />
             </div>
-            <div className='widget-section'>
-              <FlightLandIcon className='widget-image' style={{ fontSize: '2.5em' }}/>
-              {/* <img className='widget-image' src={planeIcon} alt='airplane icon'/> */}
-              <input className='widget-input'></input>
-            </div>
-            <div className='widget-section'>
-              <PersonIcon className='widget-image' style={{ fontSize: '2.5em' }}/>
-              {/* <img className='widget-image' src={planeIcon} alt='airplane icon'/> */}
-              <input className='widget-input'></input>
-            </div>
-            <button>Update</button>
-          </div>
+          ))}
+          <Buttons btnIdName='widget-button' displayName='Request A Jet' />
+        </div>
       </section>
     </div>
-  )
-}
-
-export default JetCharters
+  );
+};
 
 JetCharters.propTypes = {
   navHeight: PropTypes.number
-}
+};
+
+export default JetCharters;
