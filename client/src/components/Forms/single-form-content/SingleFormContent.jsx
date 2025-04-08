@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-    Typography, LinearProgress, FormControl, FormLabel,
-    RadioGroup, FormControlLabel, Radio, Checkbox, FormGroup
-} from '@mui/material';
+import { Typography, LinearProgress } from '@mui/material';
 import useMultiStepForm from '../../../hooks/useMultiStepForm';
 import { baseSteps } from '../formSteps';
 import Button from '../../Buttons/Button';
 import PriveIntro from '../prive-intro/PriveIntro';
 import './SingleFormContent.css';
+
 // Form Inputs
+import RadioFieldGroup from '../FormInputs/RadioFieldGroup.jsx';
 import SelectFieldInput from '../FormInputs/SelectFieldInput'
 import TextFieldInput from '../FormInputs/TextFieldInput'
 import DatePickerInput from '../FormInputs/DatePickerInput'
+import CheckboxFieldGroup from '../FormInputs/CheckFieldGroup.jsx'
 
 const SingleFormContent = ({ pageForm }) => {
     const isPriveForm = pageForm === 'properties';
@@ -46,79 +46,35 @@ const SingleFormContent = ({ pageForm }) => {
                 {steps[step].fields.map((field) => {
                     if (field.type === 'radio') {
                         return (
-                            <FormControl
+                            <RadioFieldGroup
                                 key={field.key}
-                                component="fieldset"
-                                className={`all-form-inputs radio-group-input-container ${field.className || ''}`}
-                            >
-                                <FormLabel className="radio-group-input-title">
-                                    {field.label}
-                                </FormLabel>
-                                <RadioGroup
-                                    row
-                                    name={field.key}
-                                    value={formData[field.key] || field.defaultValue}
-                                    onChange={(e) => updateFormData(field.key, e.target.value)}
-                                >
-                                    {field.options.map((option) => (
-                                        <FormControlLabel
-                                            key={option.value}
-                                            value={option.value}
-                                            control={<Radio />}
-                                            label={option.label}
-                                            className="radio-group-input-options"
-                                        />
-                                    ))}
-                                </RadioGroup>
-                            </FormControl>
+                                field={field}
+                                formData={formData}
+                                updateFormData={updateFormData}
+                            />
                         );
                     }
 
                     if (field.type === 'checkbox') {
                         return (
-                            <FormControl key={field.key} component="fieldset" className="all-form-inputs checkbox-input-container" sx={{ marginBottom: 2 }}>
-                                <FormLabel className='checkbox-input-title'>{field.label}</FormLabel>
-                                <FormGroup>
-                                    {field.options.map((option) => (
-                                        <FormControlLabel
-                                            className='checkbox-option-container'
-                                            key={option.value}
-                                            control={
-                                                <Checkbox
-                                                    className='checkboxes'
-                                                    checked={formData[field.key]?.includes(option.value) || false}
-                                                    onChange={(e) => {
-                                                        const newValues = formData[field.key] || [];
-                                                        if (e.target.checked) {
-                                                            updateFormData(field.key, [...newValues, option.value]);
-                                                        } else {
-                                                            updateFormData(field.key, newValues.filter((v) => v !== option.value));
-                                                        }
-                                                    }}
-                                                />
-                                            }
-                                            label={option.label}
-                                            sx={{
-                                                color: "white", // Ensures the label text stays white
-                                                "&.Mui-focused": { color: "white" }, // Overrides focus color
-                                                "&.MuiFormControlLabel-label": { color: "white" }, // Ensures label stays white in all states
-                                            }}
-                                        />
-                                    ))}
-                                </FormGroup>
-                            </FormControl>
+                            <CheckboxFieldGroup
+                                key={field.key}
+                                field={field}
+                                formData={formData}
+                                updateFormData={updateFormData}
+                            />
                         );
                     }
 
                     if (field.type === 'date') {
                         return (
                             <DatePickerInput
-        key={field.key}
-        label={field.label}
-        value={formData[field.key]}
-        onChange={(newValue) => updateFormData(field.key, newValue)}
-        className="date-picker-input-container"
-    />
+                                key={field.key}
+                                label={field.label}
+                                value={formData[field.key]}
+                                onChange={(newValue) => updateFormData(field.key, newValue)}
+                                className="date-picker-input-container"
+                            />
                         );
                     }
 
