@@ -2,7 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { TextField } from '@mui/material';
 
-const TetFieldInput = ({ label, type, value, onChange, autoComplete, className, fullWidth, margin }) => {
+const TextFieldInput = ({
+    label,
+    type,
+    value,
+    onChange,
+    autoComplete,
+    className,
+    fullWidth,
+    margin
+}) => {
     return (
         <TextField
             label={label}
@@ -15,22 +24,32 @@ const TetFieldInput = ({ label, type, value, onChange, autoComplete, className, 
             margin={margin}
             sx={{
                 "& .MuiOutlinedInput-root": {
-                    color: "white",
-                    "& fieldset": { borderColor: "white" },
-                    "&:hover fieldset": { borderColor: "gray" },
-                    "&.Mui-focused fieldset": { borderColor: "white" },
+                    color: 'var(--primary-color)',
+                    '& fieldset': {
+                        borderColor: 'var(--primary-color)',
+                    },
+                    '&:hover fieldset': {
+                        borderColor: 'var(--footer-text-color)',
+                    },
+                    '&.Mui-focused fieldset': {
+                        borderColor: 'var(--primary-color)',
+                    },
                 },
-                "& .MuiInputLabel-root": { color: "white" },
-                "& .MuiInputLabel-root.Mui-focused": { color: "white" },
+                '& .MuiInputLabel-root': {
+                    color: 'var(--primary-color)',
+                },
+                '& .MuiInputLabel-root.Mui-focused': {
+                    color: 'var(--primary-color)',
+                },
                 input: {
-                    color: "white", 
+                    color: 'var(--primary-color)',
                 },
             }}
         />
     );
 };
 
-TetFieldInput.propTypes = {
+TextFieldInput.propTypes = {
     label: PropTypes.string.isRequired,
     type: PropTypes.string,
     value: PropTypes.string,
@@ -38,13 +57,13 @@ TetFieldInput.propTypes = {
     autoComplete: PropTypes.string,
     className: PropTypes.string,
     fullWidth: PropTypes.bool,
-    margin: PropTypes.string
+    margin: PropTypes.string,
 };
 
-TetFieldInput.defaultProps = {
+TextFieldInput.defaultProps = {
     type: 'text',
     fullWidth: true,
-    margin: 'normal'
+    margin: 'normal',
 };
 
-export default TetFieldInput;
+export default TextFieldInput;

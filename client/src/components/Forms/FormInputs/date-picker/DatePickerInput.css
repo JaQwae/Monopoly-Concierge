@@ -1,0 +1,26 @@
+/* Date Picker */
+.date-picker-input label{ /* Placeholder label color */
+    color: var(--primary-color);  
+}
+
+.date-picker-input .MuiInputLabel-root.Mui-focused { /* Prevent blue highlight */
+    color: var(--primary-color); 
+}
+
+.date-picker-input .MuiOutlinedInput-notchedOutline { /* Border Color */
+    border-color: var(--primary-color); 
+}
+
+.date-picker-input:hover .MuiOutlinedInput-notchedOutline,
+.date-picker-input .Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: var(--footer-text-color);
+}
+
+.date-picker-input .MuiSvgIcon-root{ /* Calendar icon */
+    color: var(--primary-color);  
+}
+
+.date-picker-input .MuiSvgIcon-root:hover,
+.date-picker-input .MuiSvgIcon-root:focus {
+    color: var(--footer-text-color);
+}

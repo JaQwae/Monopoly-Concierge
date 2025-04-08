@@ -4,6 +4,7 @@ import { TextField } from '@mui/material';
 import { LocalizationProvider, DesktopDatePicker } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
+import './DatePickerInput.css'
 
 const DatePickerInput = ({ label, value, onChange, className }) => {
     return (

@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
+import './SelectFieldInput.css'
 
 const SelectFieldInput = ({ label, value, onChange, options, className, fullWidth, margin }) => {
     return (
         <FormControl fullWidth={fullWidth} margin={margin} className={className}>
             <InputLabel
                 sx={{
-                    color: '#FFFDF5', //Makes label text white before clicking
-                    "&.Mui-focused": { color: '#FFFDF5' },
+                    color: 'var(--primary-color)', //Makes label text white before clicking
+                    "&.Mui-focused": { color: 'var(--primary-color)' },
                 }}
             >
                 {label}
@@ -18,7 +19,7 @@ const SelectFieldInput = ({ label, value, onChange, options, className, fullWidt
                 onChange={onChange}
                 label={label}
                 sx={{
-                    color: "#FFFDF5", // Makes selected text white
+                    color: "var(--primary-color)", // Makes selected text white
                 }}
                 MenuProps={{
                     PaperProps: {

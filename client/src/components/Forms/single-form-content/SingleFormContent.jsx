@@ -8,11 +8,11 @@ import PriveIntro from '../prive-intro/PriveIntro';
 import './SingleFormContent.css';
 
 // Form Inputs
-import RadioFieldGroup from '../FormInputs/RadioFieldGroup.jsx';
-import SelectFieldInput from '../FormInputs/SelectFieldInput'
-import TextFieldInput from '../FormInputs/TextFieldInput'
-import DatePickerInput from '../FormInputs/DatePickerInput'
-import CheckboxFieldGroup from '../FormInputs/CheckFieldGroup.jsx'
+import RadioFieldGroup from '../FormInputs/radio-field/RadioFieldGroup.jsx';
+import SelectFieldInput from '../FormInputs/select-field/SelectFieldInput.jsx'
+import TextFieldInput from '../FormInputs/TextFieldInput.jsx'
+import DatePickerInput from '../FormInputs/date-picker/DatePickerInput.jsx'
+import CheckboxFieldGroup from '../FormInputs/check-field/CheckFieldGroup.jsx'
 
 const SingleFormContent = ({ pageForm }) => {
     const isPriveForm = pageForm === 'properties';

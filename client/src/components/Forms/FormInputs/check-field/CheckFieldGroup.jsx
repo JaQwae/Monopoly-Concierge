@@ -7,7 +7,7 @@ import {
     FormControlLabel,
     Checkbox,
 } from '@mui/material';
-// import './CheckboxFieldGroup.css';
+import './CheckFieldGroup.css';
 
 const CheckboxFieldGroup = ({ field, formData, updateFormData }) => {
     const handleChange = (value, checked) => {

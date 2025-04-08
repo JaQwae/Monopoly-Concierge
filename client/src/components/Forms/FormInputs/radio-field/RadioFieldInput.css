@@ -1,0 +1,42 @@
+/* Radio Input */
+.radio-group-input-container{    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.radio-group-input-container.not-centered {    
+    align-items: start;
+    text-align:start
+}
+
+.radio-group-input-title {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.radio-group-input-container.not-centered .radio-group-input-title{ 
+    font-size: 1.3em;   
+    padding-bottom: 0.5em;
+}
+
+.radio-group-input-title.Mui-focused { /* Keep the original color when user tabs */
+    color: var(--primary-color); 
+}
+
+.radio-group-input-options{ /*Labels options */
+    color: var(--primary-color);
+}
+
+.radio-group-input-options .MuiRadio-root { /* Non selected option */
+    color: var(--primary-color) 
+}
+
+.radio-group-input-options .Mui-checked { /* Selected option */
+    color: var(--tertiary-color); 
+}
+
+.radio-group-input-options .MuiRadio-root:hover { /*Hover effect for radio buttons */
+    background-color: rgba(241, 199, 200, 0.1); 
+}
