@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import TextFieldInput from '../../Forms/FormInputs/TextFieldInput';
 import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 import FlightLandIcon from '@mui/icons-material/FlightLand';
 import PersonIcon from '@mui/icons-material/Person';
 import Buttons from '../../Buttons/Button';
+import JetArticlesCarousel from './JetArticlesCarousel';
 import './JetCharters.css';
-import PropTypes from 'prop-types';
-import TextFieldInput from '../../Forms/FormInputs/TextFieldInput';
 
 const JetCharters = ({ navHeight }) => {
   const fields = [
@@ -42,6 +43,9 @@ const JetCharters = ({ navHeight }) => {
           ))}
           <Buttons btnIdName='widget-button' displayName='Request A Jet' />
         </div>
+      </section>
+      <section id="jet-page-carousel-container">
+        <JetArticlesCarousel/>
       </section>
     </div>
   );
