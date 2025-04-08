@@ -41,7 +41,7 @@ const JetCharters = ({ navHeight }) => {
               />
             </div>
           ))}
-          <Buttons btnIdName='widget-button' displayName='Request A Jet' />
+          <Buttons btnIdName='widget-button' displayName='REQUEST A JET' />
         </div>
       </section>
       <section id="jet-page-carousel-container">
