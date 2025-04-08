@@ -78,7 +78,72 @@ const articles = [
         alt: 'Modern sustainable architecture',
         link: 'https://www.istockphoto.com/photos/electric-vehicle-charging-station',
         category: 'ART'
+    },
+    {
+        title: 'Top 5 Productivity Hacks for Developers',
+        description: 'Simple strategies to improve focus and efficiency during coding sessions.',
+        image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&auto=format&fit=crop&q=60',
+        alt: 'Developer productivity tips',
+        link: 'https://www.freecodecamp.org/news/productivity-hacks-for-developers/',
+        category: 'TIPS'
+    },
+    {
+        title: 'Jet-Powered Travel: The Future of Supersonic Flights',
+        description: 'An in-depth look at how modern jets are making travel faster and more efficient.',
+        image: 'https://www.nasa.gov/wp-content/uploads/2015/05/supersonic_3_0.jpg',
+        alt: 'Supersonic jet in the sky',
+        link: 'https://www.britannica.com/technology/jet-airplane',
+        category: 'JETS'
+    },
+    {
+        title: 'Quick Tips to Level Up Your Tech Resume',
+        description: 'Easy wins that make your resume stand out to recruiters in the tech industry.',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsfo-kvxP1YbDUvkz_gd1vs2-K8lGgMNcCgw&s',
+        alt: 'Professional writing resume at desk',
+        link: 'https://www.coursera.org/articles/resume-tips',
+        category: 'TIPS'
+    },
+    {
+        title: 'Inside the World of Private Jets',
+        description: 'What it’s like to fly in luxury — a look at the design, speed, and perks of private jets.',
+        image: 'https://i.ytimg.com/vi/g_TztsBH9uc/mqdefault.jpg',
+        alt: 'Luxury private jet interior',
+        link: 'https://www.forbes.com/sites/forbestravelguide/2023/07/13/what-you-should-know-about-flying-private/',
+        category: 'JETS'
+    },
+    {
+        title: 'Mastering Work-Life Balance in Tech',
+        description: 'Tips for avoiding burnout while thriving in high-demand tech roles.',
+        image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&auto=format&fit=crop&q=60',
+        alt: 'Relaxing with coffee while working remotely',
+        link: 'https://www.linkedin.com/pulse/work-life-balance-tips-tech-industry/',
+        category: 'TIPS'
+    },
+    {
+        title: 'The Comeback of Supersonic Commercial Jets',
+        description: 'How companies are reviving ultra-fast air travel with cutting-edge jet designs.',
+        image: 'https://c.files.bbci.co.uk/AB9A/production/_118803934_united-boom.jpg',
+        alt: 'Futuristic supersonic jet prototype',
+        link: 'https://www.cnn.com/travel/article/boom-supersonic-overture-aircraft/index.html',
+        category: 'JETS'
+    },
+    {
+        title: 'Time Management Tips for Remote Workers',
+        description: 'Boost productivity while working from home with these proven strategies.',
+        image: 'https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?w=600&auto=format&fit=crop&q=60',
+        alt: 'Clock, planner, and laptop on desk',
+        link: 'https://asana.com/resources/time-management-tips',
+        category: 'TIPS'
+    },
+    {
+        title: 'Jet Engines 101: How They Work',
+        description: 'A beginner-friendly explanation of the mechanics behind jet propulsion.',
+        image: 'https://s44864.pcdn.co/wp-content/uploads/2021/05/xA100-GE-100.jpeg.optimal.jpeg',
+        alt: 'Jet engine close-up in hangar',
+        link: 'https://www.howstuffworks.com/jet-engine.htm',
+        category: 'JETS'
     }
+    
 ];
 
 export default articles;

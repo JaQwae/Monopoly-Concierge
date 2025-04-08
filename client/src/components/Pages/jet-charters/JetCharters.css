@@ -1,0 +1,133 @@
+#charter-hero-container {
+    background-image: url('https://www.lemaitre.com/themes/custom/lemaitre_theme/images/bg/map.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 75%;
+    height: 75vh;
+    width: 100%;
+    position: relative;
+    background-color: black;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#jet-form-widget {
+    background-color: rgba(0, 0, 0, 0.88);
+    width: 80%;
+    border-radius: 15px;
+    box-shadow: rgba(252, 252, 252, 0.108) 0px 1px 2px, 
+                rgba(252, 252, 252, 0.108) 0px 2px 4px, 
+                rgba(252, 252, 252, 0.108) 0px 4px 8px, 
+                rgba(252, 252, 252, 0.108) 0px 8px 16px, 
+                rgba(252, 252, 252, 0.108) 0px 16px 32px, 
+                rgba(252, 252, 252, 0.108) 0px 32px 64px;
+    display: flex;
+    align-items: center;
+    padding: 1.5em;
+}
+
+.widget-section{
+    width: 28%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1.5em;
+}
+
+.widget-image {
+    color: var(--primary-color);
+    margin-right: 0.3em;
+}
+
+.widget-input {
+    appearance: none;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    color: var(--primary-color);
+    font-size: 1.1em;
+    width: 100%;
+    margin-top: 0.5em;
+}
+
+#widget-button {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    width: 16%;
+    height: 100%;
+    padding: 0em 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#jet-page-carousel-container {
+    width: 100%;
+    background-color: var(--primary-color);
+}
+
+/* large tablet styling */
+@media screen and (max-width: 1024px) {
+    #charter-hero-container {
+        height: 55vh;
+        width: 100%;
+    }
+
+    #jet-form-widget {
+        width: 60%;
+        padding: 2.5em;
+        flex-direction: column;
+    }
+
+    .widget-section{
+        width: 80%;
+        margin: 0em 0em 0.5em;
+    }
+
+    .widget-input {
+        margin-top: 0em;
+    }
+
+    #widget-button {
+        margin-top: 0.8em;
+        width: 45%;
+        padding: 0em;
+    }
+}
+
+/* mobile styling */
+@media screen and (max-width: 767px) {
+    #charter-hero-container {
+        height: auto;
+        padding: 3em 0em;
+    }
+
+    #jet-form-widget {
+        width: 70%;
+        padding: 2em;
+    }
+
+    .widget-section{
+        width: 95%;
+        margin: 0em 0em 1em;
+    }
+
+    .widget-input {
+        margin-top: 0em;
+    }
+
+    #widget-button {
+        margin-top: 0em;
+        width: 95%;
+    }
+}
+
+/* large mobile styling: landscape devices*/
+@media (orientation: landscape) and (max-width: 950px) {
+    #charter-hero-container {
+        height: auto;
+        padding: 3em 0em;
+    }
+}

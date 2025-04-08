@@ -1,19 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import PriveIntro from '../prive-intro/PriveIntro';
 import {
-    TextField, Typography, LinearProgress, FormControl, FormLabel,
-    RadioGroup, FormControlLabel, Radio, MenuItem, Select, Checkbox, FormGroup, InputLabel
+    Typography, LinearProgress, FormControl, FormLabel,
+    RadioGroup, FormControlLabel, Radio, Checkbox, FormGroup
 } from '@mui/material';
 import useMultiStepForm from '../../../hooks/useMultiStepForm';
 import { baseSteps } from '../formSteps';
 import Button from '../../Buttons/Button';
+import PriveIntro from '../prive-intro/PriveIntro';
 import './SingleFormContent.css';
-
-import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import dayjs from 'dayjs';
+// Form Inputs
+import SelectFieldInput from '../FormInputs/SelectFieldInput'
+import TextFieldInput from '../FormInputs/TextFieldInput'
+import DatePickerInput from '../FormInputs/DatePickerInput'
 
 const SingleFormContent = ({ pageForm }) => {
     const isPriveForm = pageForm === 'properties';
@@ -47,9 +46,9 @@ const SingleFormContent = ({ pageForm }) => {
                 {steps[step].fields.map((field) => {
                     if (field.type === 'radio') {
                         return (
-                            <FormControl 
-                                key={field.key} 
-                                component="fieldset" 
+                            <FormControl
+                                key={field.key}
+                                component="fieldset"
                                 className={`all-form-inputs radio-group-input-container ${field.className || ''}`}
                             >
                                 <FormLabel className="radio-group-input-title">
@@ -113,102 +112,38 @@ const SingleFormContent = ({ pageForm }) => {
 
                     if (field.type === 'date') {
                         return (
-                            <LocalizationProvider key={field.key} dateAdapter={AdapterDayjs}>
-                                <DesktopDatePicker
-                                    label={field.label}
-                                    format="MM/DD/YYYY"
-                                    className="all-form-inputs date-picker-input-container"
-                                    value={formData[field.key] ? dayjs(formData[field.key]) : null}
-                                    onChange={(newValue) => updateFormData(field.key, newValue ? newValue.format("YYYY-MM-DD") : "")}
-                                    slots={{
-                                        textField: (props) => (
-                                            <TextField
-                                                {...props}
-                                                fullWidth
-                                                margin="normal"
-                                                className="all-form-inputs date-picker-input"
-                                            />
-                                        ),
-                                    }}
-                                    slotProps={{
-                                        textField: {
-                                            inputProps: {
-                                                style: { color: "white" }, // Ensures text inside input is white
-                                            },
-                                        },
-                                    }}
-                                />
-                            </LocalizationProvider>
+                            <DatePickerInput
+        key={field.key}
+        label={field.label}
+        value={formData[field.key]}
+        onChange={(newValue) => updateFormData(field.key, newValue)}
+        className="date-picker-input-container"
+    />
                         );
                     }
 
                     if (field.type === 'select') {
                         return (
-                            <FormControl
-                            key={field.key}
-                            fullWidth
-                            margin="normal"
-                            className="all-form-inputs dropdown-input-container"
-                        >
-                            <InputLabel
-                                className="dropdown-input-title"
-                                sx={{
-                                    "&.Mui-focused": { color: '#FFFDF5' },
-                                }}
-                            >
-                                {field.label}
-                            </InputLabel>
-                            <Select
+                            <SelectFieldInput
+                                key={field.key}
+                                label={field.label}
                                 value={formData[field.key] || ''}
                                 onChange={(e) => updateFormData(field.key, e.target.value)}
-                                label={field.label}
-                                sx={{
-                                    color: "#FFFDF5", // Makes selected text white
-                                }}
-                                MenuProps={{
-                                    PaperProps: {
-                                        sx: {
-                                            "& .MuiList-root": {
-                                                padding: 0, // Removes padding from the dropdown menu
-                                            },
-                                        },
-                                    },
-                                }}
-                            >
-                                {field.options.map((option) => (
-                                    <MenuItem 
-                                        key={option.value} 
-                                        value={option.value}
-                                        className="dropdown-options"
-                                    >
-                                        {option.label}
-                                    </MenuItem>
-                                ))}
-                            </Select>
-                        </FormControl>
+                                options={field.options}
+                                className="all-form-inputs dropdown-input-container"
+                            />
                         );
                     }
 
                     return (
-                        <TextField
+                        <TextFieldInput
                             key={field.key}
                             label={field.label}
                             type={field.type}
                             value={formData[field.key] || ''}
                             onChange={(e) => updateFormData(field.key, e.target.value)}
                             autoComplete={field.autoComplete}
-                            className='all-form-inputs text-input-container'
-                            sx={{
-                                "& .MuiOutlinedInput-root": {
-                                    "& fieldset": { borderColor: "white" },
-                                    "&:hover fieldset": { borderColor: "gray" },
-                                    "&.Mui-focused fieldset": { borderColor: "white" },
-                                },
-                                "& .MuiInputLabel-root": { color: "white" },
-                                "& .MuiInputLabel-root.Mui-focused": { color: "white" },
-                            }}
-                            fullWidth
-                            margin="normal"
+                            className="all-form-inputs text-input-container"
                         />
                     );
                 })}
