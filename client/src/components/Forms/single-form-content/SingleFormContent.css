@@ -16,6 +16,7 @@
     justify-content: space-around;
     align-items: center;
     height: 10%;
+    /* background-color: blue; */
 }
 
 #progress-bar {
@@ -39,10 +40,13 @@
 .form-title{
     display: flex;
     align-items: center;
+    justify-content: center;
     color: var(--primary-color);
     height: 10%;
+    width: 100%;
     font-size: 2em;
     font-family: 'Retrofunk', 'Times New Roman', Times, serif;
+    /* background-color: purple; */
 }
 
 #form-input-container{
@@ -52,6 +56,7 @@
     justify-content: center;
     align-items: center;
     height: 70%;
+    /* background-color: green; */
 }
 
 .all-form-inputs {
@@ -66,6 +71,7 @@
     display: flex;
     justify-content: center;
     align-items: start;
+    /* background-color: yellow; */
 }
 
 .form-btn {

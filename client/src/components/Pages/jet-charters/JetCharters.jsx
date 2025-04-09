@@ -4,7 +4,8 @@ import TextFieldInput from '../../Forms/FormInputs/TextFieldInput';
 import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 import FlightLandIcon from '@mui/icons-material/FlightLand';
 import PersonIcon from '@mui/icons-material/Person';
-import Buttons from '../../Buttons/Button';
+// import Buttons from '../../Buttons/Button';
+import FormModal from '../../Forms/FormModal'
 import JetArticlesCarousel from './JetArticlesCarousel';
 import './JetCharters.css';
 
@@ -12,7 +13,7 @@ const JetCharters = ({ navHeight }) => {
   const fields = [
     {
       key: 'departure',
-      icon: <FlightTakeoffIcon className='widget-image' style={{ fontSize: '3em' }}/>,
+      icon: <FlightTakeoffIcon className='widget-image' style={{ fontSize: '3em' }} />,
       label: 'Departure City',
     },
     {
@@ -41,11 +42,16 @@ const JetCharters = ({ navHeight }) => {
               />
             </div>
           ))}
-          <Buttons btnIdName='widget-button' displayName='REQUEST A JET' />
+          {/* <Buttons btnIdName='widget-button' displayName='REQUEST A JET' /> */}
+          <FormModal
+            pageForm='charters'
+            // btnIdName='widget-button'
+            displayName='REQUEST A JET'
+          />
         </div>
       </section>
       <section id="jet-page-carousel-container">
-        <JetArticlesCarousel/>
+        <JetArticlesCarousel />
       </section>
     </div>
   );

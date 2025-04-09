@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import CarRentalsData from './CarRentalsData';
 import Buttons from '../../Buttons/Button';
+import FormModal from '../../Forms/FormModal'
 import './CarRentals.css';
 
 const CarRentals = ({ navHeight }) => {
@@ -137,9 +138,10 @@ const CarRentals = ({ navHeight }) => {
                                         <p className="price-label">Price Starting At:</p>
                                         <p className="price-value">{car.price}</p>
                                     </div>
-                                    <Buttons
-                                        displayName={'Reserve Now'}
-                                        btnClassName={"reserve-button"}
+                                    <FormModal
+                                        pageForm='rentals'
+                                        // btnClassName='reserve-button'
+                                        displayName='Reserve'
                                     />
                                 </div>
                             </div>

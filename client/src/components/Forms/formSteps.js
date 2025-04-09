@@ -136,7 +136,7 @@ export const baseSteps = [
     },
     {
         key: 'referral',
-        title: 'How Did You Hear About Us?',
+        title: 'Referral',
         fields: [
             {
                 key: 'referralSource',
@@ -149,6 +149,350 @@ export const baseSteps = [
                     { label: 'TikTok', value: 'TikTok' },
                     { label: 'Referral', value: 'Referral' },
                     { label: 'Other', value: 'Other' }
+                ]
+            }
+        ]
+    }
+];
+
+export const serviceFormSteps = [
+    {
+        key: 'contactInfo',
+        title: 'Contact Info',
+        fields: [
+            {
+                key: 'full-name',
+                label: 'Full Name',
+                type: 'text',
+                autoComplete: 'name',
+                className: 'input-text',
+                id: 'full-name'
+            },
+            {
+                key: 'email',
+                label: 'Email',
+                type: 'email',
+                autoComplete: 'email',
+                required: true,
+                className: 'input-text',
+                id: 'email'
+            },
+            {
+                key: 'phone-number',
+                label: 'Phone Number',
+                type: 'text',
+                autoComplete: 'tel',
+                className: 'input-text',
+                id: 'phone-number'
+            }
+        ]
+    },
+    {
+        key: 'serviceDetails',
+        title: 'Service Details',
+        fields: [
+            {
+                key: 'service-interested',
+                label: 'Service Interested In',
+                type: 'text',
+                readOnly: true,
+                className: 'input-text',
+                id: 'service-interested'
+            },
+            {
+                key: 'preferred-date',
+                label: 'Preferred Date',
+                type: 'date',
+                required: true,
+                className: 'input-date',
+                id: 'preferred-date'
+            },
+            {
+                key: 'how-can-we-help',
+                label: 'How Can We Help?',
+                type: 'textarea',
+                className: 'input-textarea',
+                id: 'how-can-we-help'
+            },
+        ]
+    },
+    {
+        key: 'serviceDetails',
+        title: 'Service Details',
+        fields: [
+            {
+                key: 'booking-status',
+                label: 'Booking Status',
+                type: 'radio',
+                className: 'input-radio',
+                id: 'booking-status',
+                options: [
+                    { label: 'I have a reservation.', value: 'have-reservation' },
+                    { label: 'I am planning to book.', value: 'planning-to-book' }
+                ]
+            },
+            
+        ]
+    }
+];
+
+export const carReservationSteps = [
+    {
+        key: 'contactInfo',
+        title: 'Contact Info',
+        fields: [
+            {
+                key: 'full-name',
+                label: 'Full Name',
+                type: 'text',
+                autoComplete: 'name',
+                className: 'input-text',
+                id: 'full-name'
+            },
+            {
+                key: 'phone-number',
+                label: 'Phone Number',
+                type: 'text',
+                autoComplete: 'tel',
+                className: 'input-text',
+                id: 'phone-number'
+            },
+            {
+                key: 'email',
+                label: 'Email',
+                type: 'email',
+                autoComplete: 'email',
+                className: 'input-text',
+                id: 'email'
+            }
+        ]
+    },
+    {
+        key: 'reservationDetails',
+        title: 'Reservation Details',
+        fields: [
+            {
+                key: 'pickup-date',
+                label: 'Pick-Up Date',
+                type: 'date',
+                className: 'input-date',
+                id: 'pickup-date'
+            },
+            {
+                key: 'dropOff-date',
+                label: 'Drop-Off Date',
+                type: 'date',
+                className: 'input-date',
+                id: 'dropOff-date'
+            },
+            {
+                key: 'service-type',
+                label: 'Select Service',
+                type: 'select',
+                className: 'input-select',
+                id: 'service-type',
+                options: [
+                    { label: 'Car Rental', value: 'car-rental' },
+                    { label: 'Chauffeured Vehicles', value: 'chauffeured' }
+                ]
+            },
+            {
+                key: 'car-selection',
+                label: 'Choose Your Car',
+                type: 'select',
+                className: 'input-select',
+                id: 'car-selection',
+                autoSelectFrom: 'reserve-now', // this can be logic-triggered in the form code
+                options: [
+                    { label: 'Rolls-Royce Ghost', value: 'rolls-ghost' },
+                    { label: 'Mercedes-Benz S580', value: 'benz-s580' },
+                    { label: 'Cadillac Escalade', value: 'cadillac-escalade' },
+                    { label: 'Lamborghini Urus', value: 'lamborghini-urus' }
+                    // More cars can be added here
+                ]
+            }
+        ]
+    }
+];
+
+export const charterFormSteps = [
+    {
+        key: 'contactInfo',
+        title: 'Contact Info',
+        fields: [
+            {
+                key: 'full-name',
+                label: 'Full Name (First and Last)',
+                type: 'text',
+                autoComplete: 'name',
+                className: 'input-text',
+                id: 'full-name'
+            },
+            {
+                key: 'company-name',
+                label: 'Company Name (Tax Deductible, if no company write N/A)',
+                type: 'text',
+                className: 'input-text',
+                id: 'company-name'
+            },
+            {
+                key: 'contact-method',
+                label: 'How can we reach you?',
+                type: 'text',
+                className: 'input-text',
+                id: 'contact-method',
+                placeholder: 'Phone Number and Email Address'
+            }
+        ]
+    },
+    {
+        key: 'tripDetails',
+        title: 'Trip Details',
+        fields: [
+            {
+                key: 'departure-date',
+                label: 'Departure Date',
+                type: 'date',
+                className: 'input-date',
+                id: 'departure-date'
+            },
+            {
+                key: 'departure-time',
+                label: 'Departure Time',
+                type: 'time',
+                className: 'input-time',
+                id: 'departure-time'
+            },
+            {
+                key: 'return-date',
+                label: 'Return Date',
+                type: 'date',
+                className: 'input-date',
+                id: 'return-date'
+            },
+            {
+                key: 'return-time',
+                label: 'Return Time',
+                type: 'time',
+                className: 'input-time',
+                id: 'return-time'
+            },
+        ]
+    },
+    {
+        key: 'preferences',
+        title: 'Preferences & Requests',
+        fields: [
+            {
+                key: 'wifi-needed',
+                label: 'Do you need Wi-Fi?',
+                type: 'checkbox',
+                className: 'input-checkbox',
+                id: 'wifi-needed',
+                options: [
+                    { label: 'Yes', value: 'yes' },
+                    { label: 'No', value: 'no' }
+                ]
+            },
+            {
+                key: 'traveling-with-pets',
+                label: 'Are you traveling with pets?',
+                type: 'checkbox',
+                className: 'input-checkbox',
+                id: 'traveling-with-pets',
+                options: [
+                    { label: 'Yes', value: 'yes' },
+                    { label: 'No', value: 'no' }
+                ]
+            }
+        ]
+    },
+    {
+        key: 'preferences',
+        title: 'Preferences & Requests',
+        fields: [
+            {
+                key: 'transportation-needed',
+                label: 'Do you need transportation services for departure and/or arrival?',
+                type: 'checkbox',
+                className: 'input-checkbox',
+                id: 'transportation-needed',
+                options: [
+                    { label: 'Yes', value: 'yes' },
+                    { label: 'No', value: 'no' }
+                ]
+            },
+            {
+                key: 'catering-needed',
+                label: 'Do you need catering?',
+                type: 'checkbox',
+                className: 'input-checkbox',
+                id: 'catering-needed',
+                options: [
+                    { label: 'Yes', value: 'yes' },
+                    { label: 'No', value: 'no' }
+                ]
+            }
+        ]
+    },
+    {
+        key: 'preferences',
+        title: 'Preferences & Requests',
+        fields: [
+            {
+                key: 'chartered-before',
+                label: 'Have you chartered before?',
+                type: 'radio',
+                className: 'input-radio',
+                id: 'chartered-before',
+                options: [
+                    { label: 'Yes', value: 'yes' },
+                    { label: 'No', value: 'no' }
+                ]
+            },
+            {
+                key: 'budget',
+                label: 'Budget (Charter flights start around $10,000 one way, if you have not chartered before)',
+                type: 'text',
+                className: 'input-text',
+                id: 'budget'
+            }
+        ]
+    },
+    {
+        key: 'preferences',
+        title: 'Preferences & Requests',
+        fields: [
+            {
+                key: 'preferred-aircraft',
+                label: 'Have a preferred aircraft?',
+                type: 'text',
+                className: 'input-text',
+                id: 'preferred-aircraft'
+            },
+            {
+                key: 'additional-info',
+                label: 'Additional Information',
+                type: 'textarea',
+                className: 'input-textarea',
+                id: 'additional-info'
+            }
+        ]
+    },
+    
+    {
+        key: 'concierge',
+        title: 'Concierge Chronicles',
+        fields: [
+            {
+                key: 'concierge-opt-in',
+                label: 'Opt-in to Concierge Chronicles Newsletter',
+                type: 'checkbox',
+                defaultValue: 'yes',
+                className: 'input-checkbox',
+                id: 'concierge-opt-in',
+                options: [
+                    { label: 'Yes, I want to receive exclusive travel inspiration and luxury experiences.', value: 'yes' }
                 ]
             }
         ]

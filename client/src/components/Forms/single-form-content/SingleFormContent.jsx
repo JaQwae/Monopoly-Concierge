@@ -1,11 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Typography, LinearProgress } from '@mui/material';
-import useMultiStepForm from '../../../hooks/useMultiStepForm';
-import { baseSteps } from '../formSteps';
-import Button from '../../Buttons/Button';
-import PriveIntro from '../prive-intro/PriveIntro';
 import './SingleFormContent.css';
+
+// Form Content
+import { 
+    baseSteps, serviceFormSteps, 
+    carReservationSteps, charterFormSteps 
+} from '../formSteps';
+import PriveIntro from '../prive-intro/PriveIntro';
+
+// Form Controls
+import useMultiStepForm from '../../../hooks/useMultiStepForm';
+import Button from '../../Buttons/Button';
 
 // Form Inputs
 import RadioFieldGroup from '../FormInputs/radio-field/RadioFieldGroup.jsx';
@@ -16,7 +23,25 @@ import CheckboxFieldGroup from '../FormInputs/check-field/CheckFieldGroup.jsx'
 
 const SingleFormContent = ({ pageForm }) => {
     const isPriveForm = pageForm === 'properties';
-    const steps = isPriveForm ? [{ key: 'priveIntro', title: '', fields: [] }, ...baseSteps] : baseSteps;
+    let steps;
+
+    // Determines what form question to use depending on the page
+    switch (pageForm) {
+        case 'services':
+            steps = serviceFormSteps;
+            break;
+        case 'rentals':
+            steps = carReservationSteps;
+            break;
+        case 'charters':
+            steps = charterFormSteps;
+            break;
+        case 'properties':
+            steps = isPriveForm ? [{ key: 'priveIntro', title: '', fields: [] }, ...baseSteps] : baseSteps;
+            break;
+        default:
+            console.log('Unknown form type');
+    }
 
     const { step, nextStep, prevStep, formData, updateFormData } = useMultiStepForm(pageForm, steps);
 
@@ -107,12 +132,27 @@ const SingleFormContent = ({ pageForm }) => {
 
             <div id='form-navigation'>
                 {step > 0 && (
-                    <Button displayName='Back' btnIdName='prev-btn' btnClassName='form-btn' btnAction={(e) => { e.preventDefault(); prevStep(); }} />
+                    <Button 
+                        displayName='Back' 
+                        btnIdName='prev-btn' 
+                        btnClassName='form-btn' 
+                        btnAction={(e) => { e.preventDefault(); prevStep(); }} 
+                    />
                 )}
                 {step < steps.length - 1 ? (
-                    <Button displayName='Next' btnIdName='next-btn' btnClassName='form-btn' btnAction={(e) => { e.preventDefault(); nextStep(); }} />
+                    <Button 
+                        displayName='Next' 
+                        btnIdName='next-btn' 
+                        btnClassName='form-btn' 
+                        btnAction={(e) => { e.preventDefault(); nextStep(); }} 
+                    />
                 ) : (
-                    <Button displayName='Submit' btnIdName='submit-btn' btnClassName='form-btn' btnAction={(e) => { e.preventDefault(); console.log('Form Submitted', formData); }} />
+                    <Button 
+                        displayName='Submit' 
+                        btnIdName='submit-btn' 
+                        btnClassName='form-btn' 
+                        btnAction={(e) => { e.preventDefault(); console.log('Form Submitted', formData); }} 
+                    />
                 )}
             </div>
         </section>

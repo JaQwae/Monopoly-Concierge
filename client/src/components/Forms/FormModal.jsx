@@ -25,7 +25,7 @@ function MultiPageForm({ pageForm, btnIdName, displayName }) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
     setOpen(false);
-    sessionStorage.removeItem(pageForm); // Clear session storage when closing
+    sessionStorage.removeItem(pageForm);
   };
 
   return (
@@ -69,5 +69,3 @@ MultiPageForm.propTypes = {
 };
 
 export default MultiPageForm;
-
-
