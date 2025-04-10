@@ -115,4 +115,17 @@
     .form-content-container {
         border-radius: 0px;
     }
+
+    #modal-close-btn {
+        border: none;
+        box-shadow: none;
+        background: none;
+        padding: 0em;
+        line-height: 0em;
+    }
+    
+    #modal-x-icon{
+        color: var(--tertiary-color);
+        font-size: 3em;
+    }
 }

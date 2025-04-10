@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import CloseIcon from '@mui/icons-material/Close';
 import { Typography, LinearProgress } from '@mui/material';
@@ -23,10 +23,19 @@ import DatePickerInput from '../FormInputs/date-picker/DatePickerInput.jsx'
 import CheckboxFieldGroup from '../FormInputs/check-field/CheckFieldGroup.jsx'
 
 const SingleFormContent = ({ pageForm, handleClose }) => {
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 767);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 767);
+        };
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     const isPriveForm = pageForm === 'properties';
     let steps;
 
-    // Determines what form question to use depending on the page
     switch (pageForm) {
         case 'services':
             steps = serviceFormSteps;
@@ -55,26 +64,26 @@ const SingleFormContent = ({ pageForm, handleClose }) => {
 
     return (
         <section className='form-content-container'>
-            {window.innerWidth < 767 && (
-                <button
-                    type="button"
-                    id='modal-close-btn'
-                    onClick={(e) => {
-                        e.preventDefault();
-                        handleClose();
-                    }}
-                >
-                    <CloseIcon id='modal-x-icon' />
-                </button>
-
-            )}
             <div id='progress-bar-container'>
                 <LinearProgress
                     id='progress-bar'
                     variant="determinate"
                     value={progress}
                 />
-                <output id='progress-percentage'>{progress}%</output>
+                {isMobile ? (
+                    <button
+                        type="button"
+                        id='modal-close-btn'
+                        onClick={(e) => {
+                            e.preventDefault();
+                            handleClose();
+                        }}
+                    >
+                        <CloseIcon id='modal-x-icon' />
+                    </button>
+                ) : (
+                    <output id='progress-percentage'>{progress}%</output>
+                )}
             </div>
 
             <Typography className='form-title' variant="h5">
