@@ -15,7 +15,7 @@ const Button = (props) => {
 };
 
 Button.propTypes = {
-    displayName: PropTypes.node.isRequired, // PropTypes.node for strings or JSX elements
+    displayName: PropTypes.node.isRequired,
     btnIdName: PropTypes.string,
     btnAction: PropTypes.func,
     btnClassName: PropTypes.string

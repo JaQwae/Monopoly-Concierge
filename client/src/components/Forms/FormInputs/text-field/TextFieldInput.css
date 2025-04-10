@@ -1,0 +1,35 @@
+.text-input-container .MuiOutlinedInput-root,
+.widget-input .MuiOutlinedInput-root {
+    color: var(--primary-color);
+    width: 100%;
+}
+
+.text-input-container .MuiOutlinedInput-root fieldset,
+.widget-input .MuiOutlinedInput-root fieldset {
+    border-color: var(--primary-color);
+}
+
+.text-input-container .MuiOutlinedInput-root:hover fieldset,
+.widget-input .MuiOutlinedInput-root:hover fieldset {
+    border-color: var(--footer-text-color);
+}
+
+.text-input-container .MuiOutlinedInput-root.Mui-focused fieldset, 
+.widget-input .MuiOutlinedInput-root.Mui-focused fieldset {
+    border-color: var(--primary-color);
+}
+
+.text-input-container .MuiInputLabel-root,
+.widget-input .MuiInputLabel-root {
+    color: var(--primary-color);
+}
+
+.text-input-container .MuiInputLabel-root.Mui-focused,
+.widget-input .MuiInputLabel-root.Mui-focused {
+    color: var(--primary-color);
+}
+
+.text-input-container input,
+.widget-input input {
+    color: var(--primary-color);
+}

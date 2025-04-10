@@ -53,7 +53,10 @@ function MultiPageForm({ pageForm, btnIdName, displayName }) {
             </div>
 
             <Box component="form" noValidate autoComplete="off" id="modal-form-container">
-              <SingleFormContent pageForm={pageForm} />
+              <SingleFormContent 
+                pageForm={pageForm} 
+                handleClose={handleClose} // ✅ passed down here
+              />
             </Box>
           </Box>
         </Fade>

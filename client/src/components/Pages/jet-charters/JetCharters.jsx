@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TextFieldInput from '../../Forms/FormInputs/TextFieldInput';
+import TextFieldInput from '../../Forms/FormInputs/text-field/TextFieldInput';
 import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 import FlightLandIcon from '@mui/icons-material/FlightLand';
 import PersonIcon from '@mui/icons-material/Person';

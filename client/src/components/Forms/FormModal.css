@@ -28,3 +28,58 @@
 #modal-form-container {
     width: 60%;
 }
+
+/* large tablet styling */
+@media screen and (max-width: 1024px) {
+    .modal-form-container {
+        width: 80%;
+        height:70%;
+        position: relative;
+    }
+
+    .modal-form-image-container {
+        width: 100%;
+        height: 100%;
+        border-radius: 15px;
+        position: absolute;
+    }
+    
+    .modal-form-logo{
+        display: none;
+    }
+    
+    .modal-form-image {
+        height: 100%;
+        width: 100%;
+        border-radius: 15px;
+    }
+    
+    #modal-form-container {
+        width: 100%;
+        border-radius: 15px;
+        /* background-color: blue; */
+    }
+}
+
+/* mobile styling */
+@media screen and (max-width: 767px) {
+    .modal-form-container {
+        width: 100%;
+        height:100%;
+        border-radius: 0px;
+    }
+
+    .modal-form-image {
+        border-radius: 0px;
+    }
+}
+
+/* large mobile styling: landscape devices*/
+/* @media (orientation: landscape) and (max-width: 950px) {
+
+} */
+
+/* small mobile styling: landscape devices*/
+/* @media (orientation: landscape) and (max-width: 719px) {
+
+} */

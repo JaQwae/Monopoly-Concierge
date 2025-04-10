@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TextField } from '@mui/material';
+import './TextFieldInput.css'; // Import the new CSS file
 
 const TextFieldInput = ({
     label,
@@ -22,29 +23,6 @@ const TextFieldInput = ({
             className={className}
             fullWidth={fullWidth}
             margin={margin}
-            sx={{
-                "& .MuiOutlinedInput-root": {
-                    color: 'var(--primary-color)',
-                    '& fieldset': {
-                        borderColor: 'var(--primary-color)',
-                    },
-                    '&:hover fieldset': {
-                        borderColor: 'var(--footer-text-color)',
-                    },
-                    '&.Mui-focused fieldset': {
-                        borderColor: 'var(--primary-color)',
-                    },
-                },
-                '& .MuiInputLabel-root': {
-                    color: 'var(--primary-color)',
-                },
-                '& .MuiInputLabel-root.Mui-focused': {
-                    color: 'var(--primary-color)',
-                },
-                input: {
-                    color: 'var(--primary-color)',
-                },
-            }}
         />
     );
 };

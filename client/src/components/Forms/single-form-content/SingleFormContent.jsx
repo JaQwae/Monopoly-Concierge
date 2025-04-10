@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import CloseIcon from '@mui/icons-material/Close';
 import { Typography, LinearProgress } from '@mui/material';
 import './SingleFormContent.css';
 
 // Form Content
-import { 
-    baseSteps, serviceFormSteps, 
-    carReservationSteps, charterFormSteps 
+import {
+    baseSteps, serviceFormSteps,
+    carReservationSteps, charterFormSteps
 } from '../formSteps';
 import PriveIntro from '../prive-intro/PriveIntro';
 
@@ -17,11 +18,11 @@ import Button from '../../Buttons/Button';
 // Form Inputs
 import RadioFieldGroup from '../FormInputs/radio-field/RadioFieldGroup.jsx';
 import SelectFieldInput from '../FormInputs/select-field/SelectFieldInput.jsx'
-import TextFieldInput from '../FormInputs/TextFieldInput.jsx'
+import TextFieldInput from '../FormInputs/text-field/TextFieldInput.jsx'
 import DatePickerInput from '../FormInputs/date-picker/DatePickerInput.jsx'
 import CheckboxFieldGroup from '../FormInputs/check-field/CheckFieldGroup.jsx'
 
-const SingleFormContent = ({ pageForm }) => {
+const SingleFormContent = ({ pageForm, handleClose }) => {
     const isPriveForm = pageForm === 'properties';
     let steps;
 
@@ -54,6 +55,19 @@ const SingleFormContent = ({ pageForm }) => {
 
     return (
         <section className='form-content-container'>
+            {window.innerWidth < 767 && (
+                <button
+                    type="button"
+                    id='modal-close-btn'
+                    onClick={(e) => {
+                        e.preventDefault();
+                        handleClose();
+                    }}
+                >
+                    <CloseIcon id='modal-x-icon' />
+                </button>
+
+            )}
             <div id='progress-bar-container'>
                 <LinearProgress
                     id='progress-bar'
@@ -132,26 +146,26 @@ const SingleFormContent = ({ pageForm }) => {
 
             <div id='form-navigation'>
                 {step > 0 && (
-                    <Button 
-                        displayName='Back' 
-                        btnIdName='prev-btn' 
-                        btnClassName='form-btn' 
-                        btnAction={(e) => { e.preventDefault(); prevStep(); }} 
+                    <Button
+                        displayName='Back'
+                        btnIdName='prev-btn'
+                        btnClassName='form-btn'
+                        btnAction={(e) => { e.preventDefault(); prevStep(); }}
                     />
                 )}
                 {step < steps.length - 1 ? (
-                    <Button 
-                        displayName='Next' 
-                        btnIdName='next-btn' 
-                        btnClassName='form-btn' 
-                        btnAction={(e) => { e.preventDefault(); nextStep(); }} 
+                    <Button
+                        displayName='Next'
+                        btnIdName='next-btn'
+                        btnClassName='form-btn'
+                        btnAction={(e) => { e.preventDefault(); nextStep(); }}
                     />
                 ) : (
-                    <Button 
-                        displayName='Submit' 
-                        btnIdName='submit-btn' 
-                        btnClassName='form-btn' 
-                        btnAction={(e) => { e.preventDefault(); console.log('Form Submitted', formData); }} 
+                    <Button
+                        displayName='Submit'
+                        btnIdName='submit-btn'
+                        btnClassName='form-btn'
+                        btnAction={(e) => { e.preventDefault(); console.log('Form Submitted', formData); }}
                     />
                 )}
             </div>
@@ -159,6 +173,9 @@ const SingleFormContent = ({ pageForm }) => {
     );
 };
 
-SingleFormContent.propTypes = { pageForm: PropTypes.string.isRequired };
+SingleFormContent.propTypes = {
+    pageForm: PropTypes.string.isRequired,
+    handleClose: PropTypes.func.isRequired,
+};
 
 export default SingleFormContent;

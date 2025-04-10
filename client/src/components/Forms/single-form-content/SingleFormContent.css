@@ -61,7 +61,8 @@
 
 .all-form-inputs {
     color: var(--primary-color);
-    width: 90%;
+    width: 75%;
+    padding-bottom: 1.5em;
 }
 
 /* Action btns container */
@@ -76,4 +77,42 @@
 
 .form-btn {
     margin: 0em 2em;
+}
+
+/* large tablet styling */
+@media screen and (max-width: 1024px) {
+    .form-content-container {
+        background-color: #000000c1;
+        border-radius: 15px;
+    }
+
+    #progress-bar-container {
+        width: 95%;
+        padding: 1em;
+    }
+
+    #progress-bar {
+        height: 0.8em;
+        border-radius: 15px;
+    }
+
+    #progress-percentage {
+        font-size: 1.8em
+    }
+
+    .form-title{
+        font-size: 2em;
+        padding: 0.5em;
+    }
+
+    #form-navigation {
+        padding: 1em;
+    }
+}
+
+/* mobile styling */
+@media screen and (max-width: 767px) {
+    .form-content-container {
+        border-radius: 0px;
+    }
 }
