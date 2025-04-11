@@ -322,7 +322,7 @@ export const charterFormSteps = [
         fields: [
             {
                 key: 'full-name',
-                label: 'Full Name (First and Last)',
+                label: 'Full Name',
                 type: 'text',
                 autoComplete: 'name',
                 className: 'input-text',
@@ -330,19 +330,45 @@ export const charterFormSteps = [
             },
             {
                 key: 'company-name',
-                label: 'Company Name (Tax Deductible, if no company write N/A)',
+                label: 'Company Name',
                 type: 'text',
                 className: 'input-text',
                 id: 'company-name'
+            }
+        ]
+    },
+    {
+        key: 'contactInfo',
+        title: 'Contact Info',
+        fields: [
+            {
+                key: 'preferred-contact',
+                label: 'Preferred Contact Method',
+                type: 'radio',
+                defaultValue: 'email',
+                className: 'input-radio',
+                id: 'preferred-contact',
+                options: [
+                    { label: 'Email', value: 'email' },
+                    { label: 'Phone', value: 'phone' }
+                ]
             },
             {
-                key: 'contact-method',
-                label: 'How can we reach you?',
-                type: 'text',
+                key: 'email',
+                label: 'Email',
+                type: 'email',
+                autoComplete: 'email',
                 className: 'input-text',
-                id: 'contact-method',
-                placeholder: 'Phone Number and Email Address'
-            }
+                id: 'email'
+            },
+            { 
+                key: 'phoneNumber', 
+                label: 'Phone Number', 
+                type: 'text', 
+                autoComplete: 'tel', 
+                className: 'input-text', 
+                id: 'phoneNumber' 
+            },
         ]
     },
     {

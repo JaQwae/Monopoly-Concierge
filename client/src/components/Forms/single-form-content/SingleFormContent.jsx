@@ -20,7 +20,8 @@ import RadioFieldGroup from '../FormInputs/radio-field/RadioFieldGroup.jsx';
 import SelectFieldInput from '../FormInputs/select-field/SelectFieldInput.jsx'
 import TextFieldInput from '../FormInputs/text-field/TextFieldInput.jsx'
 import DatePickerInput from '../FormInputs/date-picker/DatePickerInput.jsx'
-import CheckboxFieldGroup from '../FormInputs/check-field/CheckFieldGroup.jsx'
+import CheckboxFieldGroup from '../FormInputs/check-field/CheckFieldGroup.jsx';
+import TimePickerInput from '../FormInputs/time-picker-input/TimePickerInput.jsx';
 
 const SingleFormContent = ({ pageForm, handleClose }) => {
     const [isMobile, setIsMobile] = useState(window.innerWidth < 767);
@@ -135,6 +136,18 @@ const SingleFormContent = ({ pageForm, handleClose }) => {
                                 onChange={(e) => updateFormData(field.key, e.target.value)}
                                 options={field.options}
                                 className="all-form-inputs dropdown-input-container"
+                            />
+                        );
+                    }
+
+                    if (field.type === 'time') {
+                        return (
+                            <TimePickerInput
+                                key={field.key}
+                                label={field.label}
+                                value={formData[field.key]}
+                                onChange={(newValue) => updateFormData(field.key, newValue)}
+                                className="time-picker-input-container"
                             />
                         );
                     }

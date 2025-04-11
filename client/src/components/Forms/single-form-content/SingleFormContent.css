@@ -47,7 +47,8 @@
     font-size: 2.7em;
     font-family: 'Retrofunk', 'Times New Roman', Times, serif;
     /* background-color: purple; */
-    text-shadow: 5px 3px 5px pink;
+    text-shadow: 5px 3px 5px var(--tertiary-color);
+    text-align: center;
 }
 
 #form-input-container{

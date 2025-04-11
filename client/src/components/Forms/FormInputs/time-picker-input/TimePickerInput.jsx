@@ -1,22 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TextField } from '@mui/material';
-import { LocalizationProvider, DesktopDatePicker } from '@mui/x-date-pickers';
+import { LocalizationProvider, DesktopTimePicker } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
-import './DatePickerInput.css';
+import './TimePickerInput.css'; // Reuse CSS for consistent styling
 
-const DatePickerInput = ({ label, value, onChange, className }) => {
+const TimePickerInput = ({ label, value, onChange, className }) => {
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DesktopDatePicker
+            <DesktopTimePicker
                 label={label}
-                format="MM/DD/YYYY"
-                className={`all-form-inputs date-picker-input-container ${className}`}
-                value={value ? dayjs(value) : null}
+                ampm={true}
+                className={`all-form-inputs time-picker-input-container ${className}`}
+                value={value ? dayjs(value, 'HH:mm') : null}
                 onChange={(newValue) => {
                     if (newValue?.isValid?.()) {
-                        onChange(newValue.format("YYYY-MM-DD"));
+                        onChange(newValue.format("HH:mm"));
                     }
                 }}
                 renderInput={(props) => (
@@ -24,7 +24,7 @@ const DatePickerInput = ({ label, value, onChange, className }) => {
                         {...props}
                         fullWidth
                         margin="normal"
-                        className="all-form-inputs date-picker-input"
+                        className="all-form-inputs time-picker-input"
                         InputLabelProps={{ shrink: true }}
                         InputProps={{
                             ...props.InputProps,
@@ -37,7 +37,7 @@ const DatePickerInput = ({ label, value, onChange, className }) => {
     );
 };
 
-DatePickerInput.propTypes = {
+TimePickerInput.propTypes = {
     label: PropTypes.string.isRequired,
     value: PropTypes.string,
     onChange: PropTypes.func.isRequired,
@@ -45,4 +45,4 @@ DatePickerInput.propTypes = {
     InputProps: PropTypes.object,
 };
 
-export default DatePickerInput;
+export default TimePickerInput;
