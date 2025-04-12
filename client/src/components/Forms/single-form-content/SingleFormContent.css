@@ -68,6 +68,12 @@
     padding-bottom: 1.5em;
 }
 
+.form-p-text{
+    color: var(--footer-text-color);
+    font-size: 1.2em;
+    font-weight:700;
+}
+
 /* Action btns container */
 #form-navigation {
     min-height: 10%;
@@ -110,6 +116,12 @@
 
     #form-navigation {
         padding: 1em;
+    }
+
+    .form-p-text{
+        color: var(--footer-text-color);
+        font-size: 1em;
+        font-weight:700;
     }
 }
 

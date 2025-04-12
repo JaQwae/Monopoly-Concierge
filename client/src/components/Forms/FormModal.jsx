@@ -19,7 +19,7 @@ const style = {
   boxShadow: 24,
 };
 
-function MultiPageForm({ pageForm, btnIdName, displayName }) {
+function MultiPageForm({ pageForm, btnIdName, displayName, widgetData }) {
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => setOpen(true);
@@ -46,16 +46,17 @@ function MultiPageForm({ pageForm, btnIdName, displayName }) {
         }}
       >
         <Fade in={open}>
-          <Box sx={style} className='modal-form-container'>
-            <div className='modal-form-image-container'>
+          <Box sx={style} className="modal-form-container">
+            <div className="modal-form-image-container">
               <img className="modal-form-logo" src={primaryLogo} alt="" />
-              <img className='modal-form-image' src={bentleyFormImage} alt='' />
+              <img className="modal-form-image" src={bentleyFormImage} alt="" />
             </div>
 
             <Box component="form" noValidate autoComplete="off" id="modal-form-container">
-              <SingleFormContent 
-                pageForm={pageForm} 
-                handleClose={handleClose} // ✅ passed down here
+              <SingleFormContent
+                pageForm={pageForm}
+                handleClose={handleClose}
+                prefillData={widgetData}
               />
             </Box>
           </Box>
@@ -69,6 +70,7 @@ MultiPageForm.propTypes = {
   pageForm: PropTypes.string.isRequired,
   displayName: PropTypes.string.isRequired,
   btnIdName: PropTypes.string,
+  widgetData: PropTypes.object,
 };
 
 export default MultiPageForm;

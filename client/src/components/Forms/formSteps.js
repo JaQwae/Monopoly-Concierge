@@ -341,18 +341,7 @@ export const charterFormSteps = [
         key: 'contactInfo',
         title: 'Contact Info',
         fields: [
-            {
-                key: 'preferred-contact',
-                label: 'Preferred Contact Method',
-                type: 'radio',
-                defaultValue: 'email',
-                className: 'input-radio',
-                id: 'preferred-contact',
-                options: [
-                    { label: 'Email', value: 'email' },
-                    { label: 'Phone', value: 'phone' }
-                ]
-            },
+  
             {
                 key: 'email',
                 label: 'Email',
@@ -368,6 +357,18 @@ export const charterFormSteps = [
                 autoComplete: 'tel', 
                 className: 'input-text', 
                 id: 'phoneNumber' 
+            },
+            {
+                key: 'preferred-contact',
+                label: 'Preferred Contact Method',
+                type: 'radio',
+                defaultValue: 'email',
+                className: 'input-radio',
+                id: 'preferred-contact',
+                options: [
+                    { label: 'Email', value: 'email' },
+                    { label: 'Phone', value: 'phone' }
+                ]
             },
         ]
     },
@@ -410,39 +411,42 @@ export const charterFormSteps = [
         title: 'Preferences & Requests',
         fields: [
             {
-                key: 'wifi-needed',
-                label: 'Do you need Wi-Fi?',
-                type: 'checkbox',
-                className: 'input-checkbox',
-                id: 'wifi-needed',
+                key: 'transportation-needed',
+                label: 'Do you need transportation services for departure and/or arrival?',
+                type: 'radio',
+                defaultValue: 'no',
+                className: 'input-radio',
+                id: 'transportation-needed',
                 options: [
                     { label: 'Yes', value: 'yes' },
                     { label: 'No', value: 'no' }
                 ]
             },
             {
-                key: 'traveling-with-pets',
-                label: 'Are you traveling with pets?',
-                type: 'checkbox',
-                className: 'input-checkbox',
-                id: 'traveling-with-pets',
+                key: 'wifi-needed',
+                label: 'Do you need Wi-Fi?',
+                type: 'radio',
+                defaultValue: 'no',
+                className: 'input-radio',
+                id: 'wifi-needed',
                 options: [
                     { label: 'Yes', value: 'yes' },
                     { label: 'No', value: 'no' }
                 ]
-            }
+            },
         ]
     },
     {
-        key: 'preferences',
+        key: 'preferences2',
         title: 'Preferences & Requests',
         fields: [
             {
-                key: 'transportation-needed',
-                label: 'Do you need transportation services for departure and/or arrival?',
-                type: 'checkbox',
-                className: 'input-checkbox',
-                id: 'transportation-needed',
+                key: 'traveling-with-pets',
+                label: 'Are you traveling with pets?',
+                type: 'radio',
+                defaultValue: 'no',
+                className: 'input-radio',
+                id: 'traveling-with-pets',
                 options: [
                     { label: 'Yes', value: 'yes' },
                     { label: 'No', value: 'no' }
@@ -451,8 +455,9 @@ export const charterFormSteps = [
             {
                 key: 'catering-needed',
                 label: 'Do you need catering?',
-                type: 'checkbox',
-                className: 'input-checkbox',
+                type: 'radio',
+                defaultValue: 'no',
+                className: 'input-radio',
                 id: 'catering-needed',
                 options: [
                     { label: 'Yes', value: 'yes' },
@@ -478,10 +483,9 @@ export const charterFormSteps = [
             },
             {
                 key: 'budget',
-                label: 'Budget (Charter flights start around $10,000 one way, if you have not chartered before)',
-                type: 'text',
-                className: 'input-text',
-                id: 'budget'
+                pTextValue: 'Charter flights start around $10,000 one way',
+                type: 'p',
+                className: 'form-p-text',
             }
         ]
     },

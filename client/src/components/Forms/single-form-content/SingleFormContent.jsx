@@ -23,8 +23,9 @@ import DatePickerInput from '../form-inputs/date-picker/DatePickerInput.jsx'
 import CheckboxFieldGroup from '../form-inputs/check-field/CheckFieldGroup.jsx';
 import TimePickerInput from '../form-inputs/time-picker-input/TimePickerInput.jsx';
 
-const SingleFormContent = ({ pageForm, handleClose }) => {
+const SingleFormContent = ({ pageForm, handleClose, prefillData }) => {
     const [isMobile, setIsMobile] = useState(window.innerWidth < 767);
+    const [formData, setFormData] = useState({});
 
     useEffect(() => {
         const handleResize = () => {
@@ -33,6 +34,16 @@ const SingleFormContent = ({ pageForm, handleClose }) => {
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
+
+    useEffect(() => {
+        // Prefill form data when prefillData is provided
+        if (prefillData) {
+            setFormData((prevData) => ({
+                ...prevData,
+                ...prefillData, // Merge the prefilled data with the existing formData
+            }));
+        }
+    }, [prefillData]);
 
     const isPriveForm = pageForm === 'properties';
     let steps;
@@ -54,7 +65,7 @@ const SingleFormContent = ({ pageForm, handleClose }) => {
             console.log('Unknown form type');
     }
 
-    const { step, nextStep, prevStep, formData, updateFormData } = useMultiStepForm(pageForm, steps);
+    const { step, nextStep, prevStep, updateFormData } = useMultiStepForm(pageForm, steps);
 
     if (isPriveForm && step === 0) {
         return <PriveIntro priveIntroVisible={nextStep} />;
@@ -62,6 +73,13 @@ const SingleFormContent = ({ pageForm, handleClose }) => {
 
     const totalSteps = isPriveForm ? steps.length - 1 : steps.length;
     const progress = Math.floor((step / totalSteps) * 100);
+
+    const handleChange = (key, value) => {
+        setFormData((prevData) => ({
+            ...prevData,
+            [key]: value,
+        }));
+    };
 
     return (
         <section className='form-content-container'>
@@ -93,13 +111,24 @@ const SingleFormContent = ({ pageForm, handleClose }) => {
 
             <div id='form-input-container'>
                 {steps[step].fields.map((field) => {
+                    if (field.type === 'p') {
+                        return (
+                            <p 
+                                key={field.key}
+                                className={field.className}
+                            >
+                                {field.pTextValue}
+                            </p>
+                        );
+                    }
+
                     if (field.type === 'radio') {
                         return (
                             <RadioFieldGroup
                                 key={field.key}
                                 field={field}
                                 formData={formData}
-                                updateFormData={updateFormData}
+                                updateFormData={handleChange}
                             />
                         );
                     }
@@ -110,7 +139,7 @@ const SingleFormContent = ({ pageForm, handleClose }) => {
                                 key={field.key}
                                 field={field}
                                 formData={formData}
-                                updateFormData={updateFormData}
+                                updateFormData={handleChange}
                             />
                         );
                     }
@@ -121,7 +150,7 @@ const SingleFormContent = ({ pageForm, handleClose }) => {
                                 key={field.key}
                                 label={field.label}
                                 value={formData[field.key]}
-                                onChange={(newValue) => updateFormData(field.key, newValue)}
+                                onChange={(newValue) => handleChange(field.key, newValue)}
                                 className="date-picker-input-container"
                             />
                         );
@@ -133,7 +162,7 @@ const SingleFormContent = ({ pageForm, handleClose }) => {
                                 key={field.key}
                                 label={field.label}
                                 value={formData[field.key] || ''}
-                                onChange={(e) => updateFormData(field.key, e.target.value)}
+                                onChange={(e) => handleChange(field.key, e.target.value)}
                                 options={field.options}
                                 className="all-form-inputs dropdown-input-container"
                             />
@@ -146,7 +175,7 @@ const SingleFormContent = ({ pageForm, handleClose }) => {
                                 key={field.key}
                                 label={field.label}
                                 value={formData[field.key]}
-                                onChange={(newValue) => updateFormData(field.key, newValue)}
+                                onChange={(newValue) => handleChange(field.key, newValue)}
                                 className="time-picker-input-container"
                             />
                         );
@@ -158,7 +187,7 @@ const SingleFormContent = ({ pageForm, handleClose }) => {
                             label={field.label}
                             type={field.type}
                             value={formData[field.key] || ''}
-                            onChange={(e) => updateFormData(field.key, e.target.value)}
+                            onChange={(e) => handleChange(field.key, e.target.value)}
                             autoComplete={field.autoComplete}
                             className="all-form-inputs text-input-container"
                         />
@@ -198,6 +227,7 @@ const SingleFormContent = ({ pageForm, handleClose }) => {
 SingleFormContent.propTypes = {
     pageForm: PropTypes.string.isRequired,
     handleClose: PropTypes.func.isRequired,
+    prefillData: PropTypes.object, // Accept prefillData prop
 };
 
 export default SingleFormContent;

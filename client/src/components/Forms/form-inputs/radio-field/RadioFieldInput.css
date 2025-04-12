@@ -4,6 +4,8 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    /* padding: 0em; */
+    margin: 1em;
 }
 
 .radio-group-input-container.not-centered {    
@@ -14,6 +16,8 @@
 .radio-group-input-title {
     color: var(--primary-color);
     font-weight: 600;
+    font-size: 1.7em; 
+    padding-bottom: 0.5em; 
 }
 
 .radio-group-input-container.not-centered .radio-group-input-title{ 
@@ -25,8 +29,9 @@
     color: var(--primary-color); 
 }
 
-.radio-group-input-options{ /*Labels options */
+.radio-group-input-options .MuiTypography-root { /*Labels options */
     color: var(--primary-color);
+    font-size: 1.7em;
 }
 
 .radio-group-input-options .MuiRadio-root { /* Non selected option */
