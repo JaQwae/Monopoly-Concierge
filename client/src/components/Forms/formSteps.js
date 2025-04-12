@@ -341,7 +341,6 @@ export const charterFormSteps = [
         key: 'contactInfo',
         title: 'Contact Info',
         fields: [
-  
             {
                 key: 'email',
                 label: 'Email',
@@ -415,7 +414,7 @@ export const charterFormSteps = [
                 label: 'Do you need transportation services for departure and/or arrival?',
                 type: 'radio',
                 defaultValue: 'no',
-                className: 'input-radio',
+                className: 'input-radio two-question-screen',
                 id: 'transportation-needed',
                 options: [
                     { label: 'Yes', value: 'yes' },
@@ -427,7 +426,7 @@ export const charterFormSteps = [
                 label: 'Do you need Wi-Fi?',
                 type: 'radio',
                 defaultValue: 'no',
-                className: 'input-radio',
+                className: 'input-radio two-question-screen',
                 id: 'wifi-needed',
                 options: [
                     { label: 'Yes', value: 'yes' },
@@ -445,7 +444,7 @@ export const charterFormSteps = [
                 label: 'Are you traveling with pets?',
                 type: 'radio',
                 defaultValue: 'no',
-                className: 'input-radio',
+                className: 'input-radio two-question-screen',
                 id: 'traveling-with-pets',
                 options: [
                     { label: 'Yes', value: 'yes' },
@@ -457,7 +456,7 @@ export const charterFormSteps = [
                 label: 'Do you need catering?',
                 type: 'radio',
                 defaultValue: 'no',
-                className: 'input-radio',
+                className: 'input-radio two-question-screen',
                 id: 'catering-needed',
                 options: [
                     { label: 'Yes', value: 'yes' },
