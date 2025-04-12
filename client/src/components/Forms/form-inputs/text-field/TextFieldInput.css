@@ -33,3 +33,13 @@
 .widget-input input {
     color: var(--primary-color);
 }
+
+/* Text fields that are grouped with checkboxes */
+.text-input-container.checkbox-text-input {
+    margin: 0em;
+    margin-left: 1.5em;
+}
+
+.text-input-container.checkbox-text-input .MuiInputBase-root input{
+    font-size: 0.7em;
+}

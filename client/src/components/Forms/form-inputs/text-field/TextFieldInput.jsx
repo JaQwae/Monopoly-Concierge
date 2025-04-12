@@ -38,7 +38,5 @@ TextFieldInput.propTypes = {
     margin: PropTypes.string,
 };
 
-// Removed defaultProps
-
 export default TextFieldInput;
 

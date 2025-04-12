@@ -31,13 +31,13 @@ export const baseSteps = [
                 className: 'input-text',
                 id: 'email'
             },
-            { 
-                key: 'phoneNumber', 
-                label: 'Phone Number', 
-                type: 'text', 
-                autoComplete: 'tel', 
-                className: 'input-text', 
-                id: 'phoneNumber' 
+            {
+                key: 'phoneNumber',
+                label: 'Phone Number',
+                type: 'text',
+                autoComplete: 'tel',
+                className: 'input-text',
+                id: 'phoneNumber'
             },
         ]
     },
@@ -87,7 +87,7 @@ export const baseSteps = [
                 label: 'If Other, please specify',
                 type: 'text',
                 condition: (formData) => formData['trip-description']?.includes('other'),
-                className: 'input-text',
+                className: 'input-text checkbox-text-input',
                 id: 'other-trip-description'
             },
         ]
@@ -131,7 +131,13 @@ export const baseSteps = [
                     { label: 'No Additional Services Needed', value: 'no-services' }
                 ]
             },
-            { key: 'special-requests', label: 'Any special requests or must-haves?', type: 'text', className: 'input-text', id: 'special-requests' },
+            {
+                key: 'special-requests',
+                label: 'Any special requests or must-haves?',
+                type: 'text',
+                className: 'input-text checkbox-text-input',
+                id: 'special-requests'
+            },
         ]
     },
     {
@@ -231,7 +237,7 @@ export const serviceFormSteps = [
                     { label: 'I am planning to book.', value: 'planning-to-book' }
                 ]
             },
-            
+
         ]
     }
 ];
@@ -349,13 +355,13 @@ export const charterFormSteps = [
                 className: 'input-text',
                 id: 'email'
             },
-            { 
-                key: 'phoneNumber', 
-                label: 'Phone Number', 
-                type: 'text', 
-                autoComplete: 'tel', 
-                className: 'input-text', 
-                id: 'phoneNumber' 
+            {
+                key: 'phoneNumber',
+                label: 'Phone Number',
+                type: 'text',
+                autoComplete: 'tel',
+                className: 'input-text',
+                id: 'phoneNumber'
             },
             {
                 key: 'preferred-contact',
@@ -508,7 +514,7 @@ export const charterFormSteps = [
             }
         ]
     },
-    
+
     {
         key: 'concierge',
         title: 'Concierge Chronicles',

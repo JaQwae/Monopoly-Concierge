@@ -114,7 +114,7 @@ const SingleFormContent = ({ pageForm, handleClose, prefillData }) => {
                 {steps[step].fields.map((field) => {
                     if (field.type === 'p') {
                         return (
-                            <p 
+                            <p
                                 key={field.key}
                                 className={field.className}
                             >
@@ -185,12 +185,12 @@ const SingleFormContent = ({ pageForm, handleClose, prefillData }) => {
                     if (field.type === 'textarea') {
                         return (
                             <TextAreaInput
-                            key={field.key}
-                            label={field.label}
-                            value={formData[field.key]}
-                            onChange={(e) => handleChange(field.key, e.target.value)}
-                            className="all-form-inputs text-area-container"
-                        />
+                                key={field.key}
+                                label={field.label}
+                                value={formData[field.key]}
+                                onChange={(e) => handleChange(field.key, e.target.value)}
+                                className="all-form-inputs text-area-container"
+                            />
                         );
                     }
 
@@ -202,7 +202,7 @@ const SingleFormContent = ({ pageForm, handleClose, prefillData }) => {
                             value={formData[field.key] || ''}
                             onChange={(e) => handleChange(field.key, e.target.value)}
                             autoComplete={field.autoComplete}
-                            className="all-form-inputs text-input-container"
+                            className={`all-form-inputs text-input-container ${field.className || ''}`}
                         />
                     );
                 })}
