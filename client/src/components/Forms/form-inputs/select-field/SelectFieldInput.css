@@ -1,6 +1,6 @@
 /* Select Input */
 .dropdown-input-container{
-    color: white
+    color: var(--primary-color)
 }
 .dropdown-input-title {
     color: var(--primary-color);

@@ -22,6 +22,7 @@ import TextFieldInput from '../form-inputs/text-field/TextFieldInput.jsx'
 import DatePickerInput from '../form-inputs/date-picker/DatePickerInput.jsx'
 import CheckboxFieldGroup from '../form-inputs/check-field/CheckFieldGroup.jsx';
 import TimePickerInput from '../form-inputs/time-picker-input/TimePickerInput.jsx';
+import TextAreaInput from '../form-inputs/text-area-field/TextAreaInput.jsx';
 
 const SingleFormContent = ({ pageForm, handleClose, prefillData }) => {
     const [isMobile, setIsMobile] = useState(window.innerWidth < 767);
@@ -92,13 +93,13 @@ const SingleFormContent = ({ pageForm, handleClose, prefillData }) => {
                 {isMobile ? (
                     <button
                         type="button"
-                        id='modal-close-btn'
+                        id='form-modal-close-btn'
                         onClick={(e) => {
                             e.preventDefault();
                             handleClose();
                         }}
                     >
-                        <CloseIcon id='modal-x-icon' />
+                        <CloseIcon id='form-modal-x-icon' />
                     </button>
                 ) : (
                     <output id='progress-percentage'>{progress}%</output>
@@ -178,6 +179,18 @@ const SingleFormContent = ({ pageForm, handleClose, prefillData }) => {
                                 onChange={(newValue) => handleChange(field.key, newValue)}
                                 className="time-picker-input-container"
                             />
+                        );
+                    }
+
+                    if (field.type === 'textarea') {
+                        return (
+                            <TextAreaInput
+                            key={field.key}
+                            label={field.label}
+                            value={formData[field.key]}
+                            onChange={(e) => handleChange(field.key, e.target.value)}
+                            className="all-form-inputs text-area-container"
+                        />
                         );
                     }
 

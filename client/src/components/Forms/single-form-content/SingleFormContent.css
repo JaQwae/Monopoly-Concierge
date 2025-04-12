@@ -131,7 +131,7 @@
         border-radius: 0px;
     }
 
-    #modal-close-btn {
+    #form-modal-close-btn {
         border: none;
         box-shadow: none;
         background: none;
@@ -139,7 +139,7 @@
         line-height: 0em;
     }
     
-    #modal-x-icon{
+    #form-modal-x-icon{
         color: var(--tertiary-color);
         font-size: 3em;
     }
