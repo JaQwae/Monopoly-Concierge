@@ -40,7 +40,7 @@ const Home = () => {
   return (
     <div id='home-page' className='pages'>
       <section id="hero-section" className='page-sections'>
-        <video autoPlay loop muted={true} id='homepage-hero-video'>
+        <video autoPlay loop muted={true} playsInline id='homepage-hero-video'>
           <source src={hv2} type="video/mp4" />
         </video>
         <div className="overlay-screen">
