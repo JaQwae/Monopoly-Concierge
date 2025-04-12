@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 import './SelectFieldInput.css'
 
-const SelectFieldInput = ({ label, value, onChange, options, className, fullWidth, margin }) => {
+const SelectFieldInput = ({ label, value, onChange, options, className}) => {
     return (
-        <FormControl fullWidth={fullWidth} margin={margin} className={className}>
+        <FormControl fullWidth={true} margin='normal' className={className}>
             <InputLabel
                 sx={{
                     color: 'var(--primary-color)', //Makes label text white before clicking
@@ -52,13 +52,8 @@ SelectFieldInput.propTypes = {
         })
     ).isRequired,
     className: PropTypes.string,
-    fullWidth: PropTypes.bool,
-    margin: PropTypes.string
 };
 
-SelectFieldInput.defaultProps = {
-    fullWidth: true,
-    margin: 'normal'
-};
+
 
 export default SelectFieldInput;

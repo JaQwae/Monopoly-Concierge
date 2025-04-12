@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TextField } from '@mui/material';
-import './TextFieldInput.css'; // Import the new CSS file
+import './TextFieldInput.css';
 
 const TextFieldInput = ({
     label,
-    type,
+    type = 'text',
     value,
     onChange,
     autoComplete,
     className,
-    fullWidth,
-    margin
+    fullWidth = true,
+    margin = 'normal',
 }) => {
     return (
         <TextField
@@ -38,10 +38,7 @@ TextFieldInput.propTypes = {
     margin: PropTypes.string,
 };
 
-TextFieldInput.defaultProps = {
-    type: 'text',
-    fullWidth: true,
-    margin: 'normal',
-};
+// Removed defaultProps
 
 export default TextFieldInput;
+

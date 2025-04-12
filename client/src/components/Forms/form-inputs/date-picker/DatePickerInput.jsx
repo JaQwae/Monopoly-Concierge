@@ -12,26 +12,28 @@ const DatePickerInput = ({ label, value, onChange, className }) => {
             <DesktopDatePicker
                 label={label}
                 format="MM/DD/YYYY"
-                className={`all-form-inputs date-picker-input-container ${className}`}
                 value={value ? dayjs(value) : null}
                 onChange={(newValue) => {
                     if (newValue?.isValid?.()) {
                         onChange(newValue.format("YYYY-MM-DD"));
                     }
                 }}
-                renderInput={(props) => (
-                    <TextField
-                        {...props}
-                        fullWidth
-                        margin="normal"
-                        className="all-form-inputs date-picker-input"
-                        InputLabelProps={{ shrink: true }}
-                        InputProps={{
-                            ...props.InputProps,
-                            readOnly: false, // Allow typing while keeping icon visible
-                        }}
-                    />
-                )}
+                slots={{
+                    textField: TextField, // Directly assign TextField to the textField slot
+                }}
+                slotProps={{
+                    textField: {
+                        fullWidth: true,
+                        margin: 'normal',
+                        className: `all-form-inputs date-picker-input ${className}`,
+                        InputProps: {
+                            readOnly: false,
+                        },
+                        InputLabelProps: {
+                            shrink: true, // Label should shrink when the field has value
+                        },
+                    }
+                }}
             />
         </LocalizationProvider>
     );
@@ -42,7 +44,6 @@ DatePickerInput.propTypes = {
     value: PropTypes.string,
     onChange: PropTypes.func.isRequired,
     className: PropTypes.string,
-    InputProps: PropTypes.object,
 };
 
 export default DatePickerInput;

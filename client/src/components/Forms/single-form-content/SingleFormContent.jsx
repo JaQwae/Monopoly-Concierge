@@ -16,12 +16,12 @@ import useMultiStepForm from '../../../hooks/useMultiStepForm';
 import Button from '../../Buttons/Button';
 
 // Form Inputs
-import RadioFieldGroup from '../FormInputs/radio-field/RadioFieldGroup.jsx';
-import SelectFieldInput from '../FormInputs/select-field/SelectFieldInput.jsx'
-import TextFieldInput from '../FormInputs/text-field/TextFieldInput.jsx'
-import DatePickerInput from '../FormInputs/date-picker/DatePickerInput.jsx'
-import CheckboxFieldGroup from '../FormInputs/check-field/CheckFieldGroup.jsx';
-import TimePickerInput from '../FormInputs/time-picker-input/TimePickerInput.jsx';
+import RadioFieldGroup from '../form-inputs/radio-field/RadioFieldGroup.jsx';
+import SelectFieldInput from '../form-inputs/select-field/SelectFieldInput.jsx'
+import TextFieldInput from '../form-inputs/text-field/TextFieldInput.jsx'
+import DatePickerInput from '../form-inputs/date-picker/DatePickerInput.jsx'
+import CheckboxFieldGroup from '../form-inputs/check-field/CheckFieldGroup.jsx';
+import TimePickerInput from '../form-inputs/time-picker-input/TimePickerInput.jsx';
 
 const SingleFormContent = ({ pageForm, handleClose }) => {
     const [isMobile, setIsMobile] = useState(window.innerWidth < 767);
