@@ -1,3 +1,19 @@
+#prive-close-btn {
+    border: none;
+    box-shadow: none;
+    background: none;
+    padding: 0em 0.0em 0em 0.4em;
+    line-height: 0em;
+    position: absolute;
+    top:1%;
+    right: 1%;
+}
+
+#prive-x-icon{
+    color: var(--tertiary-color);
+    font-size: 3em;
+}
+
 #prive-intro-container p {
     color: var(--primary-color);
     margin: 0;
@@ -5,7 +21,7 @@
     font-family: 'Courier New', monospace;
     font-weight: bold;
     font-size: 1.5em;
-    line-height: 2em;
+    line-height: 1.7em;
     text-align: center;
 }
 

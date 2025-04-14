@@ -69,7 +69,7 @@ const SingleFormContent = ({ pageForm, handleClose, prefillData }) => {
     const { step, nextStep, prevStep, updateFormData } = useMultiStepForm(pageForm, steps);
 
     if (isPriveForm && step === 0) {
-        return <PriveIntro priveIntroVisible={nextStep} />;
+        return <PriveIntro priveIntroVisible={nextStep} handleClose={handleClose}/>;
     }
 
     const totalSteps = isPriveForm ? steps.length - 1 : steps.length;
