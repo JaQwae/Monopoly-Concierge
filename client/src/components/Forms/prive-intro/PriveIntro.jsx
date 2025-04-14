@@ -30,7 +30,7 @@ const PriveIntro = ({priveIntroVisible, handleClose}) => {
                 and seamless reservations at some of the most prestigious properties. Simply choose your
                 destination, and let us redefine your travel experience.
             </p>
-            <Button btnIdName='prive-intro-btn' displayName='Begin My Prive Experience' btnAction={handleContinueClick} />
+            <Button btnIdName='prive-intro-btn' displayName='Begin My Priv&#233; Experience' btnAction={handleContinueClick} />
         </div>
     )
 }
