@@ -533,3 +533,49 @@ export const charterFormSteps = [
         ]
     }
 ];
+
+
+export const footerFormSteps = [
+    {
+        key: 'contactUs',
+        title: 'Contact Us',
+        fields: [
+            {
+                key: 'full-name',
+                label: 'Full Name',
+                type: 'text',
+                autoComplete: 'name',
+                className: 'input-text',
+                id: 'full-name'
+            },
+            {
+                key: 'email',
+                label: 'Email',
+                type: 'email',
+                autoComplete: 'email',
+                className: 'input-text',
+                id: 'email'
+            },
+            {
+                key: 'service-type',
+                label: 'Select Service',
+                type: 'select',
+                className: 'input-select',
+                id: 'service-type',
+                options: [
+                    { label: 'Properties', value: 'properties' },
+                    { label: 'Jet Charters', value: 'jet-charter' },
+                    { label: 'Car Rental', value: 'car-rental' },
+                    { label: 'Concierge Services', value: 'concierge-services' }
+                ]
+            },
+            {
+                key: 'how-can-we-help',
+                label: 'How Can We Help?',
+                type: 'textarea',
+                className: 'input-textarea',
+                id: 'how-can-we-help'
+            },
+        ]
+    },
+];

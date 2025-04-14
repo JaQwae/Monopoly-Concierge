@@ -10,6 +10,14 @@ import primaryLogo from '../../assets/navbar/primary-logo-black.png';
 import bentleyFormImage from '../../assets/form/form-image-bentley.jpg';
 import SingleFormContent from './single-form-content/SingleFormContent';
 
+import {
+  baseSteps,
+  serviceFormSteps,
+  carReservationSteps,
+  charterFormSteps,
+  footerFormSteps
+} from './formSteps';
+
 const style = {
   position: 'absolute',
   top: '50%',
@@ -28,6 +36,27 @@ function MultiPageForm({ pageForm, btnIdName, displayName, widgetData }) {
     sessionStorage.removeItem(pageForm);
   };
 
+  const isPriveForm = pageForm === 'properties';
+
+  let steps;
+
+  switch (pageForm) {
+    case 'services':
+      steps = serviceFormSteps;
+      break;
+    case 'rentals':
+      steps = carReservationSteps;
+      break;
+    case 'charters':
+      steps = charterFormSteps;
+      break;
+    case 'properties':
+      steps = isPriveForm ? [{ key: 'priveIntro', title: '', fields: [] }, ...baseSteps] : baseSteps;
+      break;
+    default:
+      steps = footerFormSteps;
+  }
+
   return (
     <div>
       <Button displayName={displayName} btnIdName={btnIdName} btnAction={handleOpen} />
@@ -39,11 +68,7 @@ function MultiPageForm({ pageForm, btnIdName, displayName, widgetData }) {
         onClose={handleClose}
         closeAfterTransition
         slots={{ backdrop: Backdrop }}
-        slotProps={{
-          backdrop: {
-            timeout: 500,
-          },
-        }}
+        slotProps={{ backdrop: { timeout: 500 } }}
       >
         <Fade in={open}>
           <Box sx={style} className="modal-form-container">
@@ -57,6 +82,7 @@ function MultiPageForm({ pageForm, btnIdName, displayName, widgetData }) {
                 pageForm={pageForm}
                 handleClose={handleClose}
                 prefillData={widgetData}
+                steps={steps}
               />
             </Box>
           </Box>

@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../Buttons/Button';
+import FormModal from '../Forms/FormModal';
 import './footer.css'
 
 const footer = () => {
@@ -10,23 +11,27 @@ const footer = () => {
                     <h3>Have A Special Request?</h3>
                 </div>
                 <div id="footer-contact-cta-section" className='footer-contact-sections'>
-                    <a href='mailto:info@monopolyservices.com'><Button btnIdName="footer-contact-btn" displayName="CONTACT US"/></a>
+                    <FormModal
+                        pageForm='footer'
+                        btnIdName='footer-contact-btn'
+                        displayName="Let's Arrange It"
+                    />
                     <p>Own a property? Let us earn you more.</p>
-                    <a target="_blank" rel="noopener noreferrer" href='https://www.monopolyservices.com/'><Button btnIdName="footer-contact-btn" displayName="EARN MORE"/></a>
+                    <a target="_blank" rel="noopener noreferrer" href='https://www.monopolyservices.com/'><Button btnIdName="footer-contact-btn" displayName="EARN MORE" /></a>
                 </div>
                 <div id='social-media-container' className='footer-contact-sections'>
-                <a className='social-media-links' target="_blank" rel="noopener noreferrer" href='https://www.instagram.com/monopoly_concierge/'>
-                    <i className="fa-brands fa-instagram social-media-icons"></i>
-                </a>
-                <a className='social-media-links' target="_blank" rel="noopener noreferrer" href='https://www.tiktok.com/@monopolyconcierge'>
-                    <i className="fa-brands fa-tiktok social-media-icons"></i>
-                </a>
-                <a className='social-media-links' target="_blank" rel="noopener noreferrer" href='https://www.facebook.com/p/Monopoly-Concierge-61571499328755/?profile_tab_item_selected=mentions&_rdr'>
-                    <i className="fa-brands fa-facebook-f social-media-icons"></i>
-                </a>
-                <a className='social-media-links' target="_blank" rel="noopener noreferrer" href='https://www.linkedin.com/company/monopoly-concierge/about/'>
-                    <i className="fa-brands fa-linkedin social-media-icons"></i>
-                </a>
+                    <a className='social-media-links' target="_blank" rel="noopener noreferrer" href='https://www.instagram.com/monopoly_concierge/'>
+                        <i className="fa-brands fa-instagram social-media-icons"></i>
+                    </a>
+                    <a className='social-media-links' target="_blank" rel="noopener noreferrer" href='https://www.tiktok.com/@monopolyconcierge'>
+                        <i className="fa-brands fa-tiktok social-media-icons"></i>
+                    </a>
+                    <a className='social-media-links' target="_blank" rel="noopener noreferrer" href='https://www.facebook.com/p/Monopoly-Concierge-61571499328755/?profile_tab_item_selected=mentions&_rdr'>
+                        <i className="fa-brands fa-facebook-f social-media-icons"></i>
+                    </a>
+                    <a className='social-media-links' target="_blank" rel="noopener noreferrer" href='https://www.linkedin.com/company/monopoly-concierge/about/'>
+                        <i className="fa-brands fa-linkedin social-media-icons"></i>
+                    </a>
                 </div>
             </section>
             <section id='footer-subscribe-container'>
