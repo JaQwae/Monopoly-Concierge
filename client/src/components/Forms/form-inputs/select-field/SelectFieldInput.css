@@ -1,24 +1,41 @@
-/* Select Input */
-.dropdown-input-container{
-    color: var(--primary-color)
-}
-.dropdown-input-title {
+/* Input Label */
+.dropdown-input-container .MuiInputLabel-root,
+.dropdown-input-container .MuiInputLabel-root.Mui-focused {
     color: var(--primary-color);
 }
 
-.dropdown-input-container .MuiOutlinedInput-notchedOutline {
-    border-color: var(--primary-color)
+/* Outlined border styling (also user clicks on element) */
+.dropdown-input-container .MuiOutlinedInput-notchedOutline,
+.dropdown-input-container .MuiOutlinedInput-root.Mui-focused fieldset {
+    border-color: var(--primary-color);
 }
 
-.dropdown-input-container:hover .MuiOutlinedInput-notchedOutline,
-.dropdown-input-container .Mui-focused .MuiOutlinedInput-notchedOutline {
+/* Outlined border styling (when user hovers or focuses) */
+.dropdown-input-container .MuiOutlinedInput-root:hover fieldset,
+.dropdown-input-container .MuiOutlinedInput-root fieldset.Mui-focused {
     border-color: var(--footer-text-color);
 }
 
-.dropdown-input-container .MuiSvgIcon-root{ /* Dropdown icon */
-    color: var(--primary-color);  
-}    
+/* Dropdown icon color */
+.dropdown-input-container .MuiSvgIcon-root {
+    color: var(--primary-color);
+}
 
-.dropdown-options {
+/* Options Container */
+/* .dropdown-menu-container {
+    max-width: 100% !important;
+} */
+
+.dropdown-menu-container .MuiList-root {
+    padding: 0em;
+}
+
+/* Menu item styles */
+.dropdown-menu-container .dropdown-menu-options {
+    padding: 0.5em;
     border-bottom: 2px solid var(--secondary-color);
+}
+
+.dropdown-menu-options:last-of-type {
+    border-bottom: none;
 }
