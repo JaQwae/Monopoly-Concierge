@@ -75,7 +75,7 @@ const SingleFormContent = ({ pageForm, handleClose, prefillData, steps }) => {
                 )}
             </div>
 
-            <Typography className='form-title' variant="h5">
+            <Typography className='form-title' >
                 {steps[step].title}
             </Typography>
 

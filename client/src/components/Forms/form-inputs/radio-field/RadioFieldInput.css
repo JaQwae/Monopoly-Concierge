@@ -7,36 +7,37 @@
     padding: 0em;
 }
 
-.radio-group-input-title {
+/* Radio title */
+.radio-group-input-container .radio-group-input-title {
     color: var(--primary-color);
     font-weight: 600;
-    font-size: 1.4em;
+    font-size: 1.3em;
     padding-bottom: 0.3em;
 }
 
-.radio-group-input-title.Mui-focused {
-    /* Keep the original color when user tabs */
+/* Keeps the title original color when user tabs */
+.radio-group-input-container .radio-group-input-title.Mui-focused {
     color: var(--primary-color);
 }
 
+/*Labels options text */
 .radio-group-input-options .MuiTypography-root {
-    /*Labels options text */
     color: var(--primary-color);
     font-size: 1.1em;
 }
 
+/* Non selected options */
 .radio-group-input-options .MuiRadio-root {
-    /* Non selected option */
     color: var(--primary-color)
 }
 
-.radio-group-input-options .Mui-checked {
-    /* Selected option */
+/* Selected option */
+.radio-group-input-options .MuiRadio-root.Mui-checked {
     color: var(--tertiary-color);
 }
 
+/*Hover effect for radio buttons */
 .radio-group-input-options .MuiRadio-root:hover {
-    /*Hover effect for radio buttons */
     background-color: rgba(241, 199, 200, 0.1);
 }
 
@@ -69,7 +70,6 @@
 
 /* large tablet styling */
 @media screen and (max-width: 1024px) {
-
     /* Radio Group when screen only display this input */
     .input-radio.two-question-screen {
         margin: 2em 0em;

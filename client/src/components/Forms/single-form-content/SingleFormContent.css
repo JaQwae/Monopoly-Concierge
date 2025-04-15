@@ -38,7 +38,7 @@
 }
 
 /* Title */
-.form-title{
+.form-content-container .form-title {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -108,7 +108,7 @@
         font-size: 1.8em
     }
 
-    .form-title{
+    .form-content-container .form-title{
         font-size: 2.2em;
         padding: 0.2em;
     }
@@ -143,7 +143,7 @@
         font-size: 3em;
     }
 
-    .form-title{
+    .form-content-container .form-title{
         font-size: 2.2em;
         padding: 0em 0em 0.5em;
     }
