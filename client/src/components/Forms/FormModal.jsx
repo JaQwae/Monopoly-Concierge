@@ -7,9 +7,16 @@ import Button from '../Buttons/Button';
 import './FormModal.css';
 import PropTypes from 'prop-types';
 import primaryLogo from '../../assets/navbar/primary-logo-black.png';
-import bentleyFormImage from '../../assets/form/form-image-bentley.jpg';
 import SingleFormContent from './single-form-content/SingleFormContent';
 
+// Form Images
+import propertyFormImage from '../../assets/form/placeholders/form-image-property.jpg';
+import carFormImage from '../../assets/form/form-image-bentley.jpg';
+import jetFormImage from '../../assets/form/placeholders/form-image-pj.jpg';
+import servicesFormImage from '../../assets/form/placeholders/form-image-women-products.jpg';
+import footerFormImage from '../../assets/form/placeholders/form-image-boat.jpg';
+
+// Form Content Data
 import {
   baseSteps,
   serviceFormSteps,
@@ -39,22 +46,34 @@ function MultiPageForm({ pageForm, btnIdName, displayName, widgetData }) {
   const isPriveForm = pageForm === 'properties';
 
   let steps;
+  let formImage;
+  let formImageAlt;
 
   switch (pageForm) {
     case 'services':
       steps = serviceFormSteps;
+      formImage = servicesFormImage;
+      formImageAlt = '';
       break;
     case 'rentals':
       steps = carReservationSteps;
+      formImage = carFormImage;
+      formImageAlt = '';
       break;
     case 'charters':
       steps = charterFormSteps;
+      formImage = jetFormImage;
+      formImageAlt = '';
       break;
     case 'properties':
       steps = isPriveForm ? [{ key: 'priveIntro', title: '', fields: [] }, ...baseSteps] : baseSteps;
+      formImage = propertyFormImage;
+      formImageAlt = '';
       break;
     default:
       steps = footerFormSteps;
+      formImage = footerFormImage;
+      formImageAlt = '';
   }
 
   return (
@@ -74,7 +93,7 @@ function MultiPageForm({ pageForm, btnIdName, displayName, widgetData }) {
           <Box sx={style} className="modal-form-container">
             <div className="modal-form-image-container">
               <img className="modal-form-logo" src={primaryLogo} alt="" />
-              <img className="modal-form-image" src={bentleyFormImage} alt="" />
+              <img className="modal-form-image" src={formImage} alt={`${formImageAlt}` }/>
             </div>
 
             <Box component="form" noValidate autoComplete="off" id="modal-form-container">
