@@ -6,10 +6,10 @@ import Fade from '@mui/material/Fade';
 import Button from '../Buttons/Button';
 import './FormModal.css';
 import PropTypes from 'prop-types';
-import primaryLogo from '../../assets/navbar/primary-logo-black.png';
 import SingleFormContent from './single-form-content/SingleFormContent';
 
-// Form Images
+// Form Images and Logo
+import formLogo from '../../assets/form/formLogo.png';
 import propertyFormImage from '../../assets/form/placeholders/form-image-property.jpg';
 import carFormImage from '../../assets/form/form-image-bentley.jpg';
 import jetFormImage from '../../assets/form/placeholders/form-image-pj.jpg';
@@ -98,7 +98,7 @@ function MultiPageForm({ pageForm, btnIdName, displayName, widgetData, selectedC
         <Fade in={open}>
           <Box sx={style} className="modal-form-container">
             <div className="modal-form-image-container">
-              <img className="modal-form-logo" src={primaryLogo} alt="" />
+              <img className="modal-form-logo" src={formLogo} alt="monopoly concierge with a top hat logo" />
               <img className="modal-form-image" src={formImage} alt={`${formImageAlt}` }/>
             </div>
 
