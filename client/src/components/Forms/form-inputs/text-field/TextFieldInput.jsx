@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { TextField } from '@mui/material';
 import './TextFieldInput.css';
@@ -12,12 +12,22 @@ const TextFieldInput = ({
     className,
     fullWidth = true,
     margin = 'normal',
+    prefillData
 }) => {
+
+    const [hasPrefillValue, setHasPrefillValue] = useState('')
+        
+        useEffect(() => {
+            if (label === 'Choose Your Car') {
+                setHasPrefillValue(true);
+            }
+        }, [label]);
+
     return (
         <TextField
             label={label}
             type={type}
-            value={value}
+            value={hasPrefillValue ? prefillData.carTitle: value}
             onChange={onChange}
             autoComplete={autoComplete}
             className={className}
@@ -36,6 +46,7 @@ TextFieldInput.propTypes = {
     className: PropTypes.string,
     fullWidth: PropTypes.bool,
     margin: PropTypes.string,
+    prefillData: PropTypes.object,
 };
 
 export default TextFieldInput;

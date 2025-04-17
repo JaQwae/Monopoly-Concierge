@@ -160,6 +160,7 @@ const SingleFormContent = ({ pageForm, handleClose, prefillData, steps }) => {
                                     onChange={(e) => handleChange(field.key, e.target.value)}
                                     autoComplete={field.autoComplete}
                                     className={`all-form-inputs text-input-container ${field.className || ''}`}
+                                    prefillData={prefillData}
                                 />
                             );
                     }
