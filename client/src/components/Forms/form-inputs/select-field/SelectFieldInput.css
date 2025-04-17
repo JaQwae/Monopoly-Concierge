@@ -21,11 +21,6 @@
     color: var(--primary-color);
 }
 
-/* Options Container */
-/* .dropdown-menu-container {
-    max-width: 100% !important;
-} */
-
 .dropdown-menu-container .MuiList-root {
     padding: 0em;
 }

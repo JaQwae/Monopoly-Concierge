@@ -36,8 +36,8 @@
 
 /* Text fields that are grouped with checkboxes */
 .text-input-container.checkbox-text-input {
-    margin: 0em;
-    margin-left: 1.5em;
+    margin: 0.7em 0em 0em 0em;
+    width: 90%;
 }
 
 .text-input-container.checkbox-text-input .MuiInputBase-root input{
