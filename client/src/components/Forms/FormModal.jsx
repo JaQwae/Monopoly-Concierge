@@ -34,7 +34,7 @@ const style = {
   boxShadow: 24,
 };
 
-function MultiPageForm({ pageForm, btnIdName, displayName, widgetData }) {
+function MultiPageForm({ pageForm, btnIdName, displayName, widgetData, selectedCarData }) {
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => setOpen(true);
@@ -49,6 +49,7 @@ function MultiPageForm({ pageForm, btnIdName, displayName, widgetData }) {
   let formImage;
   let formImageAlt;
 
+  // Determines form image and content
   switch (pageForm) {
     case 'services':
       steps = serviceFormSteps;
@@ -76,6 +77,11 @@ function MultiPageForm({ pageForm, btnIdName, displayName, widgetData }) {
       formImageAlt = '';
   }
 
+  const prefillData = {
+    ...widgetData,
+    ...selectedCarData,
+  };
+
   return (
     <div>
       <Button displayName={displayName} btnIdName={btnIdName} btnAction={handleOpen} />
@@ -100,7 +106,7 @@ function MultiPageForm({ pageForm, btnIdName, displayName, widgetData }) {
               <SingleFormContent
                 pageForm={pageForm}
                 handleClose={handleClose}
-                prefillData={widgetData}
+                prefillData={prefillData}
                 steps={steps}
               />
             </Box>
@@ -116,6 +122,7 @@ MultiPageForm.propTypes = {
   displayName: PropTypes.string.isRequired,
   btnIdName: PropTypes.string,
   widgetData: PropTypes.object,
+  selectedCarData: PropTypes.object,
 };
 
 export default MultiPageForm;

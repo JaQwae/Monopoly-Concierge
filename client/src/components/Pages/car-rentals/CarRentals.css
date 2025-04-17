@@ -36,7 +36,7 @@
 #car-rentals-filter-buttons button {
     display: flex;
     flex-wrap: wrap;
-    width: 9em;
+    width: 12em;
     font-size: 1em;
     background-color: var(--secondary-color);
     color: var(--primary-color);

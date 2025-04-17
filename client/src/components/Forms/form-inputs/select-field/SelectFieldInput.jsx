@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 import './SelectFieldInput.css';
 
-const SelectFieldInput = ({ label, value, onChange, options, className }) => {
+const SelectFieldInput = ({ label, value, onChange, options, className, prefillData }) => {
+
+    const [hasPrefillValue, setHasPrefillValue] = useState('')
+    
+    useEffect(() => {
+        if (label === 'Select Service') {
+            setHasPrefillValue(true);
+        }
+    }, [label]);
+
     return (
         <FormControl fullWidth margin='normal' className={`dropdown-input-container ${className || ''}`}>
             <InputLabel className="dropdown-input-title">
                 {label}
             </InputLabel>
             <Select
-                value={value}
+                value={hasPrefillValue ? prefillData.rentalCategory: value}
                 onChange={onChange}
                 label={label}
                 className="dropdown-input-select"
@@ -45,6 +54,7 @@ SelectFieldInput.propTypes = {
         })
     ).isRequired,
     className: PropTypes.string,
+    prefillData: PropTypes.object,
 };
 
 export default SelectFieldInput;

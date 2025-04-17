@@ -57,7 +57,7 @@ const CarRentals = ({ navHeight }) => {
         };
     }, []);
 
-    const mainCategories = ['Luxury Rentals', 'Chauffeur Rentals'];
+    const mainCategories = ['Luxury Rentals', 'Chauffeured Rentals'];
     const filteredRentals = selectedCategory === 'All'
         ? CarRentalsData
         : CarRentalsData.filter(article => article.category === selectedCategory);
@@ -140,8 +140,11 @@ const CarRentals = ({ navHeight }) => {
                                     </div>
                                     <FormModal
                                         pageForm='rentals'
-                                        // btnClassName='reserve-button'
                                         displayName='Reserve'
+                                        selectedCarData={{
+                                            rentalCategory: car.category,
+                                            carTitle: car.title,
+                                        }}
                                     />
                                 </div>
                             </div>

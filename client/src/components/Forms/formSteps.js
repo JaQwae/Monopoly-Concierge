@@ -298,24 +298,16 @@ export const carReservationSteps = [
                 className: 'input-select',
                 id: 'service-type',
                 options: [
-                    { label: 'Car Rental', value: 'car-rental' },
-                    { label: 'Chauffeured Vehicles', value: 'chauffeured' }
+                    { label: 'Luxury Rentals', value: 'Luxury Rentals' },
+                    { label: 'Chauffeured Rentals', value: 'Chauffeured Rentals' }
                 ]
             },
             {
                 key: 'car-selection',
                 label: 'Choose Your Car',
-                type: 'select',
-                className: 'input-select',
+                type: 'text',
+                className: 'input-text',
                 id: 'car-selection',
-                autoSelectFrom: 'reserve-now', // this can be logic-triggered in the form code
-                options: [
-                    { label: 'Rolls-Royce Ghost', value: 'rolls-ghost' },
-                    { label: 'Mercedes-Benz S580', value: 'benz-s580' },
-                    { label: 'Cadillac Escalade', value: 'cadillac-escalade' },
-                    { label: 'Lamborghini Urus', value: 'lamborghini-urus' }
-                    // More cars can be added here
-                ]
             }
         ]
     }

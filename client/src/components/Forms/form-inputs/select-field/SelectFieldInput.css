@@ -1,3 +1,9 @@
+/* Selected value text color inside the Select box */
+.dropdown-input-container .MuiSelect-select {
+    color: var(--primary-color);
+}
+
+
 /* Input Label */
 .dropdown-input-container .MuiInputLabel-root,
 .dropdown-input-container .MuiInputLabel-root.Mui-focused {

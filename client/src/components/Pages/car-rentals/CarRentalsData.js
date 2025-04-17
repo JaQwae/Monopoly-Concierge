@@ -3,13 +3,13 @@ const CarRentalsData = [
         title: "Rolls-Royce Phantom",
         price: "$ 1,500",
         imageUrl: "https://images.unsplash.com/photo-1659644604418-4ce52370c549?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHJvbGxzJTIwcm95Y2UlMjBwaGFudG9tfGVufDB8fDB8fHww",
-        category: 'Chauffeur Rentals'
+        category: 'Chauffeured Rentals'
     },
     {
         title: "Bentley Continental GT",
         price: "$ 1,200",
         imageUrl: "https://images.unsplash.com/photo-1471289549423-04adaecfa1f1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8QmVudGxleSUyMENvbnRpbmVudGFsJTIwR1R8ZW58MHx8MHx8fDA%3D",
-        category: 'Chauffeur Rentals'
+        category: 'Chauffeured Rentals'
     },
     {
         title: "Lamborghini Aventador",
@@ -51,7 +51,7 @@ const CarRentalsData = [
         title: "Mercedes-Benz G-Wagon",
         price: "$ 1,100",
         imageUrl: "https://www.mbusa.com/content/dam/mb-nafta/us/myco/my25/g-class/gallery/series/gallery-class/2025-G-SUV-GAL-013-E-FE-DR.jpg",
-        category: 'Chauffeur Rentals'
+        category: 'Chauffeured Rentals'
     },
     {
         title: "Bugatti Chiron",

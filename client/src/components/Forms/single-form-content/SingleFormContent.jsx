@@ -127,6 +127,7 @@ const SingleFormContent = ({ pageForm, handleClose, prefillData, steps }) => {
                                     onChange={(e) => handleChange(field.key, e.target.value)}
                                     options={field.options}
                                     className="all-form-inputs dropdown-input-container"
+                                    prefillData={prefillData}
                                 />
                             );
                         case 'time':
