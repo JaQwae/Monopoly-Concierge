@@ -4,9 +4,17 @@ import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import articles from '../concierge-chronicles/ChroniclesData';
 import altLogo2 from '../../../assets/concierge-chronicles/alt-logo-1-black.png';
+import CategoryModal from '../../CategoryModal/CategoryModal';
+import Buttons from '../../Buttons/Button';
 import './JetArticlesCarousel.css';
 
 const JetArticlesCarousel = () => {
+    const allowedCategories = ['JETS', 'TIPS'];
+    const [selectedCategory, setSelectedCategory] = useState('All');
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
     const [currentPage, setCurrentPage] = useState(0);
     const [slideDirection, setSlideDirection] = useState('left');
     const [cardsPerPage, setCardsPerPage] = useState(getCardsPerPage());
@@ -28,9 +36,17 @@ const JetArticlesCarousel = () => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    const filteredCards = articles.filter(
-        (card) => card.category === 'JETS' || card.category === 'TIPS'
+    const allCategories = ['All', ...allowedCategories];
+
+    // Only include articles with Jets or Tip category
+    const validArticles = articles.filter(article =>
+        allowedCategories.includes(article.category)
     );
+
+    const filteredCards =
+        selectedCategory === 'All'
+            ? validArticles
+            : validArticles.filter((card) => card.category === selectedCategory);
 
     const totalPages = Math.ceil(filteredCards.length / cardsPerPage);
 
@@ -49,6 +65,36 @@ const JetArticlesCarousel = () => {
 
     return (
         <Box className="carousel-container">
+            {/* Filter Button */}
+            <Box id="filter-button-wrapper">
+                <Buttons
+                    displayName={<i className="fa-solid fa-sliders"></i>}
+                    btnAction={handleOpen}
+                    btnIdName="filter-button-modal"
+                >
+                    Open Modal
+                </Buttons>
+            </Box>
+
+            {/* Category Modal */}
+            <CategoryModal open={open} handleClose={handleClose}>
+                <div className="modal-categories">
+                    {allCategories.map((category) => (
+                        <Buttons
+                            key={category}
+                            displayName={category}
+                            btnClassName={selectedCategory === category ? 'active' : ''}
+                            btnAction={() => {
+                                setSelectedCategory(category);
+                                setCurrentPage(0);
+                                handleClose();
+                            }}
+                        />
+                    ))}
+                </div>
+            </CategoryModal>
+
+            {/* Carousel Navigation */}
             <IconButton onClick={handleBack} className="carousel-nav-btn left">
                 <NavigateBeforeIcon className="carousel-icon" />
             </IconButton>
@@ -95,10 +141,9 @@ const JetArticlesCarousel = () => {
                 <NavigateNextIcon className="carousel-icon" />
             </IconButton>
 
-            {/* Conditional Pagination Display */}
+            {/* Pagination */}
             <Box className="carousel-pagination-container">
                 {isLargeScreen ? (
-                    // Ellipses for larger screens
                     <Box className="carousel-dots-container">
                         {Array.from({ length: totalPages }).map((_, index) => (
                             <Box
@@ -109,7 +154,6 @@ const JetArticlesCarousel = () => {
                         ))}
                     </Box>
                 ) : (
-                    // Page number format for smaller screens
                     <Box className="carousel-page-indicator">
                         <span>{currentPage + 1} / {totalPages}</span>
                     </Box>

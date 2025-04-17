@@ -6,6 +6,12 @@
     padding: 3.5em 0em 4em;
 }
 
+#filter-button-wrapper{
+    position: absolute;
+    right: 4%;
+    top: 4%;
+}
+
 .carousel-stack {
     padding: 1em 0em;
 }
@@ -125,6 +131,11 @@
 
 /* large tablet styling */
 @media screen and (max-width: 1024px) {
+    #filter-button-wrapper{
+        right: 2%;
+        top: 2%;
+    }
+
     .jet-article-card {
         width: 18em;
     }
