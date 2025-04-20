@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import services from './ServicesData';
+import services from '../../../data/servicesData';
 import Buttons from '../../Buttons/Button';
 import Tooltip from '@mui/material/Tooltip';
 import CategoryModal from '../../CategoryModal/CategoryModal';

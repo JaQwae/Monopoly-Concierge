@@ -4,6 +4,7 @@ import fishingCharter from './fishingCharter.jpg';
 import hotAirBallonRide from './hotAirBallonRide.jpg';
 import outdoorTheatre from './outdoorTheatre.jpg';
 import jetSkiOrBoatRentals from './jetSkiOrBoatRentals.jpg';
+import helicopterTour from './helicopterTour.jpg'
 
 
 export {
@@ -12,5 +13,6 @@ export {
     fishingCharter,
     hotAirBallonRide,
     jetSkiOrBoatRentals,
-    outdoorTheatre
+    outdoorTheatre,
+    helicopterTour
 };
