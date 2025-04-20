@@ -6,6 +6,10 @@ import Box from '@mui/material/Box';
 import CloseIcon from '@mui/icons-material/Close';
 import './BookBtnSidebar.css'
 
+// Images
+import propertySideBarImage from '../../assets/book-btn-sidebar/propertySideBarImage.jpeg'
+import servicesSideBarImage from '../../assets/book-btn-sidebar/servicesSideBarImage.jpg'
+
 const BookBtnSidebar = ({ isOpen, closeSidebar, screenSize }) => {
 
   return (
@@ -31,7 +35,7 @@ const BookBtnSidebar = ({ isOpen, closeSidebar, screenSize }) => {
         <section id='book-btn-services-container'>
           <NavLink to='/properties'>
             <div className='book-btn-services'>
-              <img src="https://th.bing.com/th/id/OIP.6biXsVHLMu8Zd7GHhviDRQHaCx?rs=1&pid=ImgDetMain" alt='property image placeholder' />
+              <img src={propertySideBarImage} alt='an orange chair in the corner in front of decor' />
               <h4>Properties</h4>
             </div>
           </NavLink>
@@ -49,7 +53,7 @@ const BookBtnSidebar = ({ isOpen, closeSidebar, screenSize }) => {
           </NavLink>
           <NavLink to='/services'>
             <div className='book-btn-services'>
-              <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt='concierge services image placeholder' />
+              <img src={servicesSideBarImage} alt='four people in a field doing yoga' />
               <h4>Concierge Services</h4>
             </div>
           </NavLink>
