@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef, lazy, Suspense } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import primaryLogo from '../../assets/navbar/primary-logo-black.png';
-import primaryLogoWhite from '../../assets/navbar/primary-logo-white.png'
+import primaryLogo from '../../assets/logos/primary-logo-black.png';
+import primaryLogoWhite from '../../assets/logos/primary-logo-white.png'
 import Button from '../Buttons/Button.jsx';
 import './NavBar.css';
 

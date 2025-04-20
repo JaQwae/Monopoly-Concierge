@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import ChroniclesData from './ChroniclesData';
+import ChroniclesData from '../../../data/ChroniclesData';
+import altLogo2 from '../../../assets/logos/alt-logo-1-black.png';
 import Buttons from '../../Buttons/Button';
 import CategoryModal from '../../CategoryModal/CategoryModal'; 
 import './ConciergeChronicles.css';
-import altLogo2 from '../../../assets/concierge-chronicles/alt-logo-1-black.png';
 
 const ConciergeChronicles = ({ navHeight }) => {
     const [selectedCategory, setSelectedCategory] = useState('All');

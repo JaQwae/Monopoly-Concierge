@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Box, IconButton, Slide, Stack } from '@mui/material';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import articles from '../concierge-chronicles/ChroniclesData';
-import altLogo2 from '../../../assets/concierge-chronicles/alt-logo-1-black.png';
-import CategoryModal from '../../CategoryModal/CategoryModal';
-import Buttons from '../../Buttons/Button';
+import articles from '../../../../data/ChroniclesData';
+import altLogo2 from '../../../../assets/logos/alt-logo-1-black.png';
+import CategoryModal from '../../../CategoryModal/CategoryModal';
+import Buttons from '../../../Buttons/Button';
 import './JetArticlesCarousel.css';
 
 const JetArticlesCarousel = () => {

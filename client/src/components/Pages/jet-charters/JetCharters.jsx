@@ -4,8 +4,8 @@ import TextFieldInput from '../../Forms/form-inputs/text-field/TextFieldInput';
 import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 import FlightLandIcon from '@mui/icons-material/FlightLand';
 import PersonIcon from '@mui/icons-material/Person';
+import JetArticlesCarousel from './jet-articles-carousel/JetArticlesCarousel';
 import FormModal from '../../Forms/FormModal';
-import JetArticlesCarousel from './JetArticlesCarousel';
 import './JetCharters.css';
 
 const JetCharters = ({ navHeight }) => {
