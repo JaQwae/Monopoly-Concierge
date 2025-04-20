@@ -61,9 +61,10 @@
     color: var(--secondary-color);
     transition: 0.3s;
     font-size: 1.2em;
-    height: 4em;
+    height: 4.5em;
     width: 15em;
     display: block;
+    padding: 0.5em
 }
 
 .modal-categories button:hover,
@@ -92,12 +93,9 @@
         top: 3%;
         right: 3%
     }
-
+    
     .modal-categories button {
-        font-size: 1.2em;
-        height: 4em;
         width: 12em;
-        padding: 0em;
     }
 }
 

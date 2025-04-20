@@ -94,6 +94,10 @@ function MultiPageForm({ pageForm, btnIdName, displayName, widgetData, selectedC
         closeAfterTransition
         slots={{ backdrop: Backdrop }}
         slotProps={{ backdrop: { timeout: 500 } }}
+        sx={{
+          backgroundColor: "rgba(0, 0, 0, 0.7)", // Change backdrop color
+          backdropFilter: "blur(15px)" // Add blur effect
+        }}
       >
         <Fade in={open}>
           <Box sx={style} className="modal-form-container">
