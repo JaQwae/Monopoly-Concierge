@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import CarRentalsData from './CarRentalsData';
+import CarRentalsData from '../../../data/CarRentalsData';
 import Buttons from '../../Buttons/Button';
 import FormModal from '../../Forms/FormModal'
 import './CarRentals.css';
