@@ -9,6 +9,8 @@ import './BookBtnSidebar.css'
 // Images
 import propertySideBarImage from '../../assets/book-btn-sidebar/propertySideBarImage.jpeg'
 import servicesSideBarImage from '../../assets/book-btn-sidebar/servicesSideBarImage.jpg'
+import carRentalSideBarImage from '../../assets/book-btn-sidebar/carRentalSideBarImage.jpg'
+import jetCharterSideBarImage from '../../assets/book-btn-sidebar/jetCharterSideBarImage.jpg'
 
 const BookBtnSidebar = ({ isOpen, closeSidebar, screenSize }) => {
 
@@ -41,13 +43,13 @@ const BookBtnSidebar = ({ isOpen, closeSidebar, screenSize }) => {
           </NavLink>
           <NavLink to='/charters'>
             <div className='book-btn-services'>
-              <img src="https://th.bing.com/th/id/OIP.Jh8daKibT-xEv_VtiQgVuQHaFj?rs=1&pid=ImgDetMain" alt='jet charter image placeholder' />
+              <img src={jetCharterSideBarImage} alt='front outside view of a private jet' />
               <h4>Jet Charters</h4>
             </div>
           </NavLink>
           <NavLink to='/rentals'>
             <div className='book-btn-services'>
-              <img src="https://static1.hotcarsimages.com/wordpress/wp-content/uploads/2022/11/2pic-7.jpg" alt='car rental image placeholder' />
+              <img src={carRentalSideBarImage} alt='dashboard interior of a lamborghini' />
               <h4>Car Rentals</h4>
             </div>
           </NavLink>
