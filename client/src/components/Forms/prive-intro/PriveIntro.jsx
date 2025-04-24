@@ -4,7 +4,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import Button from '../../Buttons/Button'
 import './PriveIntro.css'
 
-const PriveIntro = ({priveIntroVisible, handleClose}) => {
+const PriveIntro = ({ priveIntroVisible, handleClose }) => {
 
     const handleContinueClick = (event) => {
         event.preventDefault();
@@ -15,15 +15,15 @@ const PriveIntro = ({priveIntroVisible, handleClose}) => {
     return (
         <div id='prive-intro-container' className='form-content-container'>
             <button
-                        type="button"
-                        id='prive-close-btn'
-                        onClick={(e) => {
-                            e.preventDefault();
-                            handleClose();
-                        }}
-                    >
-                        <CloseIcon id='prive-x-icon' />
-                    </button>
+                type="button"
+                id='prive-close-btn'
+                onClick={(e) => {
+                    e.preventDefault();
+                    handleClose();
+                }}
+            >
+                <CloseIcon id='prive-x-icon' />
+            </button>
             <p>
                 Through our Privé Partners, we provide privileged access to luxury hotels, boutique
                 accommodations, and exclusive stays. Our trusted partnerships ensure unparalleled hospitality

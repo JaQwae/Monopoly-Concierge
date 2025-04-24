@@ -5,6 +5,7 @@ import Button from '../../Buttons/Button';
 import { Typography, LinearProgress } from '@mui/material';
 import useMultiStepForm from '../../../hooks/useMultiStepForm';
 import PriveIntro from '../prive-intro/PriveIntro';
+import SuccessfulSubmission from '../successful-submission/SuccessfulSubmission.jsx';
 import './SingleFormContent.css';
 
 // Form Inputs
@@ -19,6 +20,7 @@ import TextAreaInput from '../form-inputs/text-area-field/TextAreaInput.jsx';
 const SingleFormContent = ({ pageForm, handleClose, prefillData, steps }) => {
     const [isMobile, setIsMobile] = useState(window.innerWidth < 767);
     const [formData, setFormData] = useState({});
+    const [showFormContent, setShowFormContent] = useState(true); //state for from submission status 
 
     const isPriveForm = pageForm === 'properties';
 
@@ -57,6 +59,8 @@ const SingleFormContent = ({ pageForm, handleClose, prefillData, steps }) => {
 
     return (
         <section className='form-content-container'>
+            {showFormContent ? (
+                <>
             <div id='progress-bar-container'>
                 <LinearProgress id='progress-bar' variant="determinate" value={progress} />
                 {isMobile ? (
@@ -197,10 +201,15 @@ const SingleFormContent = ({ pageForm, handleClose, prefillData, steps }) => {
                         btnAction={(e) => {
                             e.preventDefault();
                             console.log('Form Submitted', formData);
+                            setShowFormContent(false)
                         }}
                     />
                 )}
             </div>
+            </>
+            ) : (
+                <SuccessfulSubmission handleClose={handleClose}/>
+            )}
         </section>
     );
 };

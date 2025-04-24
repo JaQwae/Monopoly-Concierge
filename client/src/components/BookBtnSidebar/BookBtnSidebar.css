@@ -1,6 +1,6 @@
 #book-btn-services-tab {
     padding: 1em;
-    height: 100%;
+    max-height: 100%;
 }
 
 #sidebar-heading{

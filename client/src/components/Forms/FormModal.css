@@ -16,7 +16,6 @@
     top: 4%;
     left: 50%;
     transform: translate(-50%, 0%);
-    /* background-color: green; */
 }
 
 .modal-form-image {
@@ -60,7 +59,6 @@
     #modal-form-container {
         width: 100%;
         border-radius: 15px;
-        /* background-color: blue; */
     }
 }
 
