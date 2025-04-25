@@ -15,7 +15,6 @@ export const baseSteps = [
                 key: 'preferred-contact',
                 label: 'Preferred Contact Method',
                 type: 'radio',
-                defaultValue: 'email',
                 className: 'input-radio',
                 id: 'preferred-contact',
                 options: [
@@ -100,7 +99,6 @@ export const baseSteps = [
                 key: 'exclusivity-level',
                 label: 'What level of exclusivity do you prefer?',
                 type: 'radio',
-                defaultValue: 'no-preference',
                 className: 'not-centered',
                 id: 'exclusivity-level',
                 options: [
@@ -359,7 +357,6 @@ export const charterFormSteps = [
                 key: 'preferred-contact',
                 label: 'Preferred Contact Method',
                 type: 'radio',
-                defaultValue: 'email',
                 className: 'input-radio',
                 id: 'preferred-contact',
                 options: [
@@ -411,7 +408,6 @@ export const charterFormSteps = [
                 key: 'transportation-needed',
                 label: 'Do you need transportation services for departure and/or arrival?',
                 type: 'radio',
-                defaultValue: 'no',
                 className: 'input-radio two-question-screen',
                 id: 'transportation-needed',
                 options: [
@@ -423,7 +419,6 @@ export const charterFormSteps = [
                 key: 'wifi-needed',
                 label: 'Do you need Wi-Fi?',
                 type: 'radio',
-                defaultValue: 'no',
                 className: 'input-radio two-question-screen',
                 id: 'wifi-needed',
                 options: [
@@ -441,7 +436,6 @@ export const charterFormSteps = [
                 key: 'traveling-with-pets',
                 label: 'Are you traveling with pets?',
                 type: 'radio',
-                defaultValue: 'no',
                 className: 'input-radio two-question-screen',
                 id: 'traveling-with-pets',
                 options: [
@@ -453,7 +447,6 @@ export const charterFormSteps = [
                 key: 'catering-needed',
                 label: 'Do you need catering?',
                 type: 'radio',
-                defaultValue: 'no',
                 className: 'input-radio two-question-screen',
                 id: 'catering-needed',
                 options: [
@@ -471,7 +464,6 @@ export const charterFormSteps = [
                 key: 'chartered-before',
                 label: 'Have you chartered before?',
                 type: 'radio',
-                defaultValue: 'no',
                 className: 'input-radio',
                 id: 'chartered-before',
                 options: [
@@ -516,7 +508,6 @@ export const charterFormSteps = [
                 key: 'concierge-opt-in',
                 label: 'Opt-in to Concierge Chronicles Newsletter',
                 type: 'checkbox',
-                defaultValue: 'yes',
                 className: 'input-checkbox',
                 id: 'concierge-opt-in',
                 options: [

@@ -25,7 +25,7 @@ const RadioFieldGroup = ({ field, formData, updateFormData }) => {
             <RadioGroup
                 row
                 name={field.key}
-                value={formData[field.key] || field.defaultValue}
+                value={formData[field.key] ?? field.defaultValue ?? ''}
                 onChange={handleChange}
             >
                 {field.options.map((option) => (
