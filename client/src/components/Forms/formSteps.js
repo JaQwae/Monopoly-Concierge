@@ -471,6 +471,7 @@ export const charterFormSteps = [
                 key: 'chartered-before',
                 label: 'Have you chartered before?',
                 type: 'radio',
+                defaultValue: 'no',
                 className: 'input-radio',
                 id: 'chartered-before',
                 options: [

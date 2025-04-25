@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { TextField } from '@mui/material';
+import { useInputValidation } from '../../../../hooks/useInputValidation.js';
 import './TextFieldInput.css';
 
 const TextFieldInput = ({
@@ -14,25 +15,30 @@ const TextFieldInput = ({
     margin = 'normal',
     prefillData
 }) => {
+    const [hasPrefillValue, setHasPrefillValue] = useState('');
+    const displayValue = hasPrefillValue ? prefillData.carTitle : value;
 
-    const [hasPrefillValue, setHasPrefillValue] = useState('')
-        
-        useEffect(() => {
-            if (label === 'Choose Your Car') {
-                setHasPrefillValue(true);
-            }
-        }, [label]);
+    const { error, helperText, validate } = useInputValidation(label, displayValue);
+
+    useEffect(() => {
+        if (label === 'Choose Your Car') {
+            setHasPrefillValue(true);
+        }
+    }, [label]);
 
     return (
         <TextField
             label={label}
             type={type}
-            value={hasPrefillValue ? prefillData.carTitle: value}
+            value={displayValue}
             onChange={onChange}
+            onBlur={validate}
             autoComplete={autoComplete}
             className={className}
             fullWidth={fullWidth}
             margin={margin}
+            error={error}
+            helperText={helperText}
         />
     );
 };
@@ -50,4 +56,3 @@ TextFieldInput.propTypes = {
 };
 
 export default TextFieldInput;
-
