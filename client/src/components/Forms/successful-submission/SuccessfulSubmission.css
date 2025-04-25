@@ -104,4 +104,15 @@
     }
 }
 
-/* Fix landspace styling */
+/* large mobile styling: landscape devices*/
+@media (orientation: landscape) and (max-width: 950px) {
+    #successful-submission-container p{
+        padding: 0em 1.5em;
+        line-height: 1.25;
+    }
+
+    #successful-submission-container img {
+        height: 6em;
+        width: 9em;
+    }
+}
