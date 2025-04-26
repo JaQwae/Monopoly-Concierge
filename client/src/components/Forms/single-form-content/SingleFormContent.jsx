@@ -4,8 +4,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import Button from '../../Buttons/Button';
 import { Typography, LinearProgress } from '@mui/material';
 import useMultiStepForm from '../../../hooks/useMultiStepForm';
-import PriveIntro from '../prive-intro/PriveIntro';
-import SuccessfulSubmission from '../successful-submission/SuccessfulSubmission.jsx';
+import validateFormFields from '../../../utils/validateFormFields';
 import './SingleFormContent.css';
 
 // Form Inputs
@@ -17,12 +16,15 @@ import CheckboxFieldGroup from '../form-inputs/check-field/CheckFieldGroup.jsx';
 import TimePickerInput from '../form-inputs/time-picker-input/TimePickerInput.jsx';
 import TextAreaInput from '../form-inputs/text-area-field/TextAreaInput.jsx';
 
+// Form Screens
+import PriveIntro from '../prive-intro/PriveIntro';
+import SuccessfulSubmission from '../successful-submission/SuccessfulSubmission.jsx';
+
 const SingleFormContent = ({ pageForm, handleClose, prefillData, steps }) => {
     const [isMobile, setIsMobile] = useState(window.innerWidth < 767);
     const [formData, setFormData] = useState({});
     const [showFormContent, setShowFormContent] = useState(true);
-    const [errorMessage, setErrorMessage] = useState(null); // State for error messages
-
+    const [errorMessage, setErrorMessage] = useState(null);
     const isPriveForm = pageForm === 'properties';
 
     useEffect(() => {
@@ -56,20 +58,8 @@ const SingleFormContent = ({ pageForm, handleClose, prefillData, steps }) => {
 
     // Validation function to check if all fields are filled
     const validateFields = () => {
-        const currentStepFields = steps[step].fields;
-        for (const field of currentStepFields) {
-            // console.log(field.key)
-            if (!formData[field.key] && !field.condition) {
-                if(field.key === 'service-type') {
-                    return true;
-                }
-                setErrorMessage(`${field.label} is required.`);
-                return false;
-            }
-        }
-        setErrorMessage(null); // Clear error message if validation passes
-        return true;
-    };
+        return validateFormFields(formData, setErrorMessage, steps[step].fields );
+      };
 
     const handleNextStep = (e) => {
         e.preventDefault();
