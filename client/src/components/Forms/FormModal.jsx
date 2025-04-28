@@ -25,6 +25,9 @@ import {
   footerFormSteps
 } from './formSteps';
 
+// Jet Charter Widget Form Validator
+import { validateJetWidgetInputs } from '../../utils/validateFormFields';
+
 const style = {
   position: 'absolute',
   top: '50%',
@@ -37,9 +40,17 @@ const style = {
 function MultiPageForm({ 
     pageForm, btnIdName, displayName, widgetData, selectedCarData, selectedServiceData
 }) {
+  // Open Modal
   const [open, setOpen] = React.useState(false);
+  const handleOpen = () => {
+    if (
+      pageForm === 'charters' && validateJetWidgetInputs(widgetData) || 
+      pageForm !== 'charters'
+    ) {
+      setOpen(true);
+    }
+  }
 
-  const handleOpen = () => setOpen(true);
   const handleClose = () => {
     setOpen(false);
     sessionStorage.removeItem(pageForm);

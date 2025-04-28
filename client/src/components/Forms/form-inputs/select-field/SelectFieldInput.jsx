@@ -6,7 +6,7 @@ import './SelectFieldInput.css';
 
 const SelectFieldInput = ({ label, value, onChange, options, className, prefillData }) => {
     const [hasPrefillValue, setHasPrefillValue] = useState('');
-    const displayValue = hasPrefillValue ? prefillData.rentalCategory : value;
+    const displayValue = (hasPrefillValue ? prefillData?.rentalCategory : value) || '';
 
     const { error, helperText, validate } = useInputValidation(label, displayValue);
 
