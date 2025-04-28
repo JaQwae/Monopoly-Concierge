@@ -34,7 +34,9 @@ const style = {
   boxShadow: 24,
 };
 
-function MultiPageForm({ pageForm, btnIdName, displayName, widgetData, selectedCarData }) {
+function MultiPageForm({ 
+    pageForm, btnIdName, displayName, widgetData, selectedCarData, selectedServiceData
+}) {
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => setOpen(true);
@@ -80,6 +82,7 @@ function MultiPageForm({ pageForm, btnIdName, displayName, widgetData, selectedC
   const prefillData = {
     ...widgetData,
     ...selectedCarData,
+    ...selectedServiceData
   };
 
   return (
@@ -127,6 +130,7 @@ MultiPageForm.propTypes = {
   btnIdName: PropTypes.string,
   widgetData: PropTypes.object,
   selectedCarData: PropTypes.object,
+  selectedServiceData: PropTypes.object
 };
 
 export default MultiPageForm;

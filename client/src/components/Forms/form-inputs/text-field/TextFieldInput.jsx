@@ -15,15 +15,26 @@ const TextFieldInput = ({
     margin = 'normal',
     prefillData
 }) => {
-    const [hasPrefillValue, setHasPrefillValue] = useState('');
-    const displayValue = hasPrefillValue ? prefillData.carTitle : value;
+    const [preFilledValue, setPreFilledValue] = useState('');
+    const [hasPrefillValue, setHasPrefillValue] = useState(false);
+    const displayValue = hasPrefillValue ? preFilledValue : value;
 
     const { error, helperText, validate } = useInputValidation(label, displayValue);
 
+    // Input questions that are based on what the user selects
     useEffect(() => {
-        if (label === 'Choose Your Car') {
-            setHasPrefillValue(true);
-        }
+        switch (label) {
+                case 'Choose Your Car':
+                    setPreFilledValue(prefillData.carTitle)
+                    setHasPrefillValue(true);
+                    break;
+                case 'Service Interested In':
+                    setPreFilledValue(prefillData.serviceTitle)
+                    setHasPrefillValue(true);
+                    break;
+                default:
+                    setPreFilledValue('')
+            }
     }, [label]);
 
     return (

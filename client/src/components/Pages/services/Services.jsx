@@ -80,6 +80,9 @@ const ConciergeServices = ({ navHeight }) => {
                 pageForm='services'
                 btnIdName='service-book-btn'
                 displayName='Book'
+                selectedServiceData={{
+                  serviceTitle: service.title
+              }}
               />
             </div>
           </div>
