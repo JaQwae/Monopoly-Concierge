@@ -10,11 +10,11 @@ import SingleFormContent from './single-form-content/SingleFormContent';
 
 // Form Images and Logo
 import formLogo from '../../assets/form/formLogo.png';
-import propertyFormImage from '../../assets/form/placeholders/form-image-property.jpg';
-import carFormImage from '../../assets/form/form-image-bentley.jpg';
-import jetFormImage from '../../assets/form/placeholders/form-image-pj.jpg';
-import servicesFormImage from '../../assets/form/placeholders/form-image-women-products.jpg';
-import footerFormImage from '../../assets/form/placeholders/form-image-boat.jpg';
+import propertyFormImage from '../../assets/form/properties-form-image.jpg';
+import carFormImage from '../../assets/form/rental-form-image.jpg';
+import jetFormImage from '../../assets/form/charter-form-image.jpg';
+import servicesFormImage from '../../assets/form/service-form-image.jpg';
+import footerFormImage from '../../assets/form/contact-form-image.jpg';
 
 // Form Content Data
 import {
