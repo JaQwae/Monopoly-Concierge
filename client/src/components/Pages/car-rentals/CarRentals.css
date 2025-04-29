@@ -1,6 +1,6 @@
 /* Hero Section */
 #car-rentals-hero-container {
-    background-image: url('../../../assets/car-rentals/carRentalHeroImage.jpg');
+    background-image: url('../../../assets/car-rentals/carRentalTemp.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 75%;
@@ -13,12 +13,11 @@
 #car-rentals-title {
     font-size: 3.5em;
     font-family: 'Retrofunk', sans-serif;
-    text-shadow: var(--footer-text-color) 2px 5px;
+    text-shadow: var(--primary-color) 2px 5px;
     position: absolute;
     top: 5%;
     left: 3%;
     margin: 0em;
-    letter-spacing: 0.2em;
 }
 
 /* Filter Btns */
