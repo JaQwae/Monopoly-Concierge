@@ -21,19 +21,10 @@ import PriveIntro from '../prive-intro/PriveIntro';
 import SuccessfulSubmission from '../successful-submission/SuccessfulSubmission.jsx';
 
 const SingleFormContent = ({ pageForm, handleClose, prefillData, steps }) => {
-    const [isMobile, setIsMobile] = useState(window.innerWidth < 767);
     const [formData, setFormData] = useState({});
     const [showFormContent, setShowFormContent] = useState(true);
     const [errorMessage, setErrorMessage] = useState(null);
     const isPriveForm = pageForm === 'properties';
-
-    useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth < 767);
-        };
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
 
     useEffect(() => {
         if (prefillData) {
@@ -58,8 +49,8 @@ const SingleFormContent = ({ pageForm, handleClose, prefillData, steps }) => {
 
     // Validation function to check if all fields are filled
     const validateFields = () => {
-        return validateFormFields(formData, setErrorMessage, steps[step].fields );
-      };
+        return validateFormFields(formData, setErrorMessage, steps[step].fields);
+    };
 
     const handleNextStep = (e) => {
         e.preventDefault();
@@ -78,20 +69,16 @@ const SingleFormContent = ({ pageForm, handleClose, prefillData, steps }) => {
                 <>
                     <div id='progress-bar-container'>
                         <LinearProgress id='progress-bar' variant="determinate" value={progress} />
-                        {isMobile ? (
-                            <button
-                                type="button"
-                                id='form-modal-close-btn'
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    handleClose();
-                                }}
-                            >
-                                <CloseIcon id='form-modal-x-icon' />
-                            </button>
-                        ) : (
-                            <output id='progress-percentage'>{progress}%</output>
-                        )}
+                        <button
+                            type="button"
+                            id='form-modal-close-btn'
+                            onClick={(e) => {
+                                e.preventDefault();
+                                handleClose();
+                            }}
+                        >
+                            <CloseIcon id='form-modal-x-icon' />
+                        </button>
                     </div>
 
                     <Typography className='form-title'>

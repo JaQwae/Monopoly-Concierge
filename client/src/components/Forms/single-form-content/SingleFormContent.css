@@ -17,6 +17,7 @@
     justify-content: space-around;
     align-items: center;
     height: 10%;
+    position: relative;
 }
 
 #progress-bar {
@@ -35,6 +36,24 @@
     text-align: center;
     font-family: 'Retrofunk', 'Times New Roman', Times, serif;
     font-size: 1.5em
+}
+
+/* Modal close button */
+#form-modal-close-btn {
+    border: none;
+    box-shadow: none;
+    background: none;
+    padding: 0em;
+    line-height: 0em;
+}
+
+#form-modal-x-icon{
+    color: var(--primary-color);
+    font-size: 3em;
+}
+
+#form-modal-x-icon:hover {
+    filter: brightness(70%);
 }
 
 /* Title */

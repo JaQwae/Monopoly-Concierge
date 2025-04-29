@@ -84,12 +84,6 @@
     }
 
     #modal-close-btn {
-        border: none;
-        box-shadow: none;
-        background: none;
-        padding: 0em;
-        line-height: 0em;
-        position: absolute;
         top: 3%;
         right: 3%
     }
