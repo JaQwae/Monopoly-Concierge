@@ -19,7 +19,7 @@ const TextFieldInput = ({
     const [hasPrefillValue, setHasPrefillValue] = useState(false);
     const displayValue = hasPrefillValue ? preFilledValue : value;
 
-    const { error, helperText, validate } = useInputValidation(label, displayValue);
+    const { error, helperText, validate } = useInputValidation(label, displayValue, type);
 
     // Input questions that are based on what the user selects
     useEffect(() => {

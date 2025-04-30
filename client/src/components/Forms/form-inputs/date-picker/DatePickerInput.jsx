@@ -12,7 +12,7 @@ const DatePickerInput = ({ label, value, onChange, className }) => {
 
     const handleDateChange = (newValue) => {
         if (newValue?.isValid?.()) {
-            onChange(newValue.format("YYYY-MM-DD"));
+            onChange(newValue.format("MM/DD/YYYY"));
         }
     };
 

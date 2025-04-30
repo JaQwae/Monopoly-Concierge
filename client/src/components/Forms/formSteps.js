@@ -33,7 +33,7 @@ export const baseSteps = [
             {
                 key: 'phoneNumber',
                 label: 'Phone Number',
-                type: 'text',
+                type: 'tel',
                 autoComplete: 'tel',
                 className: 'input-text',
                 id: 'phoneNumber'
@@ -182,9 +182,9 @@ export const serviceFormSteps = [
                 id: 'email'
             },
             {
-                key: 'phone-number',
+                key: 'phoneNumber',
                 label: 'Phone Number',
-                type: 'text',
+                type: 'tel',
                 autoComplete: 'tel',
                 className: 'input-text',
                 id: 'phone-number'
@@ -254,9 +254,9 @@ export const carReservationSteps = [
                 id: 'full-name'
             },
             {
-                key: 'phone-number',
+                key: 'phoneNumber',
                 label: 'Phone Number',
-                type: 'text',
+                type: 'tel',
                 autoComplete: 'tel',
                 className: 'input-text',
                 id: 'phone-number'
@@ -348,10 +348,10 @@ export const charterFormSteps = [
             {
                 key: 'phoneNumber',
                 label: 'Phone Number',
-                type: 'text',
+                type: 'tel',
                 autoComplete: 'tel',
                 className: 'input-text',
-                id: 'phoneNumber'
+                id: 'phone-number'
             },
             {
                 key: 'preferred-contact',
