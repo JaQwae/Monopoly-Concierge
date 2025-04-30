@@ -542,7 +542,7 @@ export const footerFormSteps = [
             },
             {
                 key: 'service-type',
-                label: 'Select Service',
+                label: 'Select Category',
                 type: 'select',
                 className: 'input-select',
                 id: 'service-type',
