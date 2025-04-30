@@ -2,7 +2,7 @@
 const nonRequiredFields = [
     'other-trip-description', 'special-requests', 'referralSource',
     'company-name', 'service-type', 'budget', 'preferred-aircraft',
-    'additional-info', 'concierge-opt-in', 'how-can-we-help'
+    'additional-info', 'concierge-opt-in', 'selected-service','how-can-we-help'
 ];
 
 // Field validator for all form inputs

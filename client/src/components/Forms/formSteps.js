@@ -196,12 +196,12 @@ export const serviceFormSteps = [
         title: 'Service Details',
         fields: [
             {
-                key: 'service-interested',
-                label: 'Service Interested In',
+                key: 'selected-service',
+                label: 'Selected Service',
                 type: 'text',
                 readOnly: true,
                 className: 'input-text',
-                id: 'service-interested'
+                id: 'selected-service'
             },
             {
                 key: 'preferred-date',
