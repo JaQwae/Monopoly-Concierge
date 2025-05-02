@@ -16,6 +16,9 @@ export const useInputValidation = (label, type) => {
             case 'date':
                 validateDateInput(value, setError, setHelperText);
                 break;
+            case 'time':
+                validateTimeInput(value, setError, setHelperText);
+                break;
             default:
                 handleTextField(value, setError, setHelperText)
         }
@@ -74,3 +77,13 @@ const validateDateInput = (value, setError, setHelperText) => {
         clearErrorMessages(setError, setHelperText)
     }
 }
+
+const validateTimeInput = (value, setError, setHelperText) => {
+    const timeRegex = /^(0[1-9]|1[0-2]):[0-5][0-9]:(am|pm)$/i;
+    if (!timeRegex.test(value)) {
+        setError(true);
+        setHelperText('Please enter a valid time (e.g. 03:45:pm)');
+    } else {
+        clearErrorMessages(setError, setHelperText);
+    }
+};
