@@ -1,19 +1,10 @@
 import { useState } from 'react';
 
-export const useInputValidation = (label, value, type) => {
+export const useInputValidation = (label, type) => {
     const [error, setError] = useState(false);
     const [helperText, setHelperText] = useState('');
-    
-    // console.log(value)
-    
-    const validate = () => {
-        // if field is left empty
-        if (!value || value.trim() === '') {
-            setError(true);
-            setHelperText(`${label} is required`);
-            return;
-        }
 
+    const validate = (value) => {
         // Determines what validation should be run on a particular input
         switch (type) {
             case 'tel':
@@ -22,10 +13,11 @@ export const useInputValidation = (label, value, type) => {
             case 'email':
                 validateEmailInput(value, setError, setHelperText);
                 break;
+            case 'date':
+                validateDateInput(value, setError, setHelperText);
+                break;
             default:
-                if (value || value.trim() !== '') {
-                    clearErrorMessages(setError, setHelperText)
-                }
+                handleTextField(value, setError, setHelperText)
         }
     };
 
@@ -34,8 +26,18 @@ export const useInputValidation = (label, value, type) => {
 
 // Gets rid of error messages for inputs
 const clearErrorMessages = (setError, setHelperText) => {
-    setError(false) 
+    setError(false)
     setHelperText('')
+}
+
+// Check to see if the user left text input empty
+const handleTextField = (value, setError, setHelperText) => {
+    if (!value || value.trim() === '') {
+        setError(true);
+        setHelperText('This field is required');
+    } else {
+        clearErrorMessages(setError, setHelperText)
+    }
 }
 
 // Check to see if the user inputted a valid phone number
@@ -43,7 +45,7 @@ const validatePhoneInput = (value, setError, setHelperText) => {
     const phoneRegex = /^(\+?1\s?)?(\(?\d{3}\)?[\s.-]?)?\d{3}[\s.-]?\d{4}$/;
 
     if (!phoneRegex.test(value)) {
-        setError(true) 
+        setError(true)
         setHelperText('Please enter a valid phone number')
     } else {
         clearErrorMessages(setError, setHelperText)
@@ -55,8 +57,19 @@ const validateEmailInput = (value, setError, setHelperText) => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
     if (!emailRegex.test(value)) {
-        setError(true) 
+        setError(true)
         setHelperText('Please enter a valid email')
+    } else {
+        clearErrorMessages(setError, setHelperText)
+    }
+}
+
+// Check to see if the user inputted a valid date
+const validateDateInput = (value, setError, setHelperText) => {
+    const dateRegex = /^(0[1-9]|1[0-2])\/(0[1-9]|[12]\d|3[01])\/\d{4}$/;
+    if (!dateRegex.test(value)) {
+        setError(true)
+        setHelperText('Please enter a valid date')
     } else {
         clearErrorMessages(setError, setHelperText)
     }

@@ -19,7 +19,7 @@ const TextFieldInput = ({
     const [hasPrefillValue, setHasPrefillValue] = useState(false);
     const displayValue = hasPrefillValue ? preFilledValue : value;
 
-    const { error, helperText, validate } = useInputValidation(label, displayValue, type);
+    const { error, helperText, validate } = useInputValidation(label, type);
 
     // Input questions that are based on what the user selects
     useEffect(() => {
@@ -43,7 +43,7 @@ const TextFieldInput = ({
             type={type}
             value={displayValue}
             onChange={onChange}
-            onBlur={validate}
+            onBlur={() => validate(displayValue)}
             autoComplete={autoComplete}
             className={className}
             fullWidth={fullWidth}

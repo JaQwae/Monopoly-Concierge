@@ -7,6 +7,7 @@ const nonRequiredFields = [
 
 // Field validator for all form inputs
 export default function validateFormFields(formData, setErrorMessage, fields = []) {
+
     if (!Array.isArray(fields)) {
         setErrorMessage('An unexpected error occurred.');
         return false;

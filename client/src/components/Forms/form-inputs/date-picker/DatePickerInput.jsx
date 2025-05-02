@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { TextField } from '@mui/material';
 import { LocalizationProvider, DesktopDatePicker } from '@mui/x-date-pickers';
@@ -8,17 +8,31 @@ import { useInputValidation } from '../../../../hooks/useInputValidation';
 import './DatePickerInput.css';
 
 const DatePickerInput = ({ label, value, onChange, className }) => {
-    const { error, helperText, validate } = useInputValidation(label, value);
+    const [selectedDate, setSelectedDate] = useState(value ? dayjs(value) : null);
+    const latestDateRef = useRef(selectedDate);
+
+    const { error, helperText, validate } = useInputValidation(label, 'date');
 
     const handleDateChange = (newValue) => {
-        if (newValue?.isValid?.()) {
-            onChange(newValue.format("MM/DD/YYYY"));
+        setSelectedDate(newValue);
+        latestDateRef.current = newValue;
+
+        // Update value in parent component for form
+        if (onChange) {
+            const formatted = newValue ? newValue.format('MM/DD/YYYY') : '';
+            onChange(formatted);
         }
     };
 
+    const handleBlur = () => {
+        const formattedDate = selectedDate ? selectedDate.format('MM/DD/YYYY') : '';
+        validate(formattedDate);
+    };
+
     const handleClose = () => {
-        // Trigger validation when calendar closes
-        validate();
+        const current = latestDateRef.current;
+        const formattedDate = current ? current.format('MM/DD/YYYY') : '';
+        validate(formattedDate);
     };
 
     return (
@@ -26,26 +40,20 @@ const DatePickerInput = ({ label, value, onChange, className }) => {
             <DesktopDatePicker
                 label={label}
                 format="MM/DD/YYYY"
-                value={value ? dayjs(value) : null}
+                value={selectedDate}
                 onChange={handleDateChange}
-                onClose={handleClose} // Trigger validation when the calendar is closed
-                slots={{
-                    textField: TextField, // Directly assign TextField to the textField slot
-                }}
+                onClose={handleClose}
+                slots={{ textField: TextField }}
                 slotProps={{
                     textField: {
                         fullWidth: true,
                         margin: 'normal',
                         className: `all-form-inputs date-picker-input ${className}`,
-                        InputProps: {
-                            readOnly: false,
-                        },
-                        InputLabelProps: {
-                            shrink: true, // Label should shrink when the field has value
-                        },
-                        error: error, // Apply error styling when validation fails
-                        helperText: helperText, // Show helper text for error message
-                        onBlur: validate, // Attach the onBlur event for validation (optional)
+                        InputProps: { readOnly: false },
+                        InputLabelProps: { shrink: true },
+                        error: error,
+                        helperText: helperText,
+                        onBlur: handleBlur
                     }
                 }}
             />
@@ -53,10 +61,11 @@ const DatePickerInput = ({ label, value, onChange, className }) => {
     );
 };
 
+
 DatePickerInput.propTypes = {
     label: PropTypes.string.isRequired,
     value: PropTypes.string,
-    onChange: PropTypes.func.isRequired,
+    onChange: PropTypes.func,
     className: PropTypes.string,
 };
 
