@@ -1,10 +1,15 @@
 import { useState } from 'react';
+import { nonRequiredFields } from '../utils/validateFormFields';
 
 export const useInputValidation = (label, type) => {
     const [error, setError] = useState(false);
     const [helperText, setHelperText] = useState('');
 
     const validate = (value) => {
+        if (nonRequiredFields.includes(label)) {
+            setError(false);
+            return true;
+        }
         // Determines what validation should be run on a particular input
         switch (type) {
             case 'tel':
@@ -35,7 +40,7 @@ const clearErrorMessages = (setError, setHelperText) => {
 
 // Check to see if the user left text input empty
 const handleTextField = (value, setError, setHelperText) => {
-    if (!value || value.trim() === '') {
+    if (!value || value === '') {
         setError(true);
         setHelperText('This field is required');
     } else {
