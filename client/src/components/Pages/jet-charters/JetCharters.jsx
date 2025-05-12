@@ -1,18 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import TextFieldInput from '../../Forms/FormInputs/TextFieldInput';
+import TextFieldInput from '../../Forms/form-inputs/text-field/TextFieldInput';
 import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 import FlightLandIcon from '@mui/icons-material/FlightLand';
 import PersonIcon from '@mui/icons-material/Person';
-import Buttons from '../../Buttons/Button';
-import JetArticlesCarousel from './JetArticlesCarousel';
+import JetArticlesCarousel from './jet-articles-carousel/JetArticlesCarousel';
+import FormModal from '../../Forms/FormModal';
 import './JetCharters.css';
 
 const JetCharters = ({ navHeight }) => {
+  const [widgetFormData, setWidgetFormData] = useState({
+    departure: '',
+    arrival: '',
+    passengers: '',
+  });
+
+  const handleChange = (key, value) => {
+    setWidgetFormData(prev => ({ ...prev, [key]: value }));
+  };
+
   const fields = [
     {
       key: 'departure',
-      icon: <FlightTakeoffIcon className='widget-image' style={{ fontSize: '3em' }}/>,
+      icon: <FlightTakeoffIcon className='widget-image' style={{ fontSize: '3em' }} />,
       label: 'Departure City',
     },
     {
@@ -36,16 +46,21 @@ const JetCharters = ({ navHeight }) => {
               {field.icon}
               <TextFieldInput
                 label={field.label}
-                placeHolder={field.placeholder}
+                value={widgetFormData[field.key]}
+                onChange={(e) => handleChange(field.key, e.target.value)}
                 className='widget-input'
               />
             </div>
           ))}
-          <Buttons btnIdName='widget-button' displayName='REQUEST A JET' />
+          <FormModal
+            pageForm='charters'
+            displayName='REQUEST A JET'
+            widgetData={widgetFormData}
+          />
         </div>
       </section>
       <section id="jet-page-carousel-container">
-        <JetArticlesCarousel/>
+        <JetArticlesCarousel />
       </section>
     </div>
   );

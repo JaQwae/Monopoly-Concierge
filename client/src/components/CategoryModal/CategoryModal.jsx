@@ -14,7 +14,7 @@ const CategoryModal = ({ open, handleClose, children }) => {
             aria-describedby="modal-modal-description"
             sx={{
                 backgroundColor: "rgba(0, 0, 0, 0.7)", // Change backdrop color
-                backdropFilter: "blur(5px)" // Add blur effect
+                backdropFilter: "blur(15px)" // Add blur effect
             }}
         >
             <Box className="modal-box">

@@ -15,7 +15,6 @@ export const baseSteps = [
                 key: 'preferred-contact',
                 label: 'Preferred Contact Method',
                 type: 'radio',
-                defaultValue: 'email',
                 className: 'input-radio',
                 id: 'preferred-contact',
                 options: [
@@ -31,13 +30,13 @@ export const baseSteps = [
                 className: 'input-text',
                 id: 'email'
             },
-            { 
-                key: 'phoneNumber', 
-                label: 'Phone Number', 
-                type: 'text', 
-                autoComplete: 'tel', 
-                className: 'input-text', 
-                id: 'phoneNumber' 
+            {
+                key: 'phoneNumber',
+                label: 'Phone Number',
+                type: 'tel',
+                autoComplete: 'tel',
+                className: 'input-text',
+                id: 'phoneNumber'
             },
         ]
     },
@@ -69,7 +68,7 @@ export const baseSteps = [
         fields: [
             {
                 key: 'trip-description',
-                label: 'What best describes your trip?',
+                label: 'What best describes your trip',
                 type: 'checkbox',
                 className: 'input-checkbox',
                 id: 'trip-description',
@@ -87,7 +86,7 @@ export const baseSteps = [
                 label: 'If Other, please specify',
                 type: 'text',
                 condition: (formData) => formData['trip-description']?.includes('other'),
-                className: 'input-text',
+                className: 'input-text checkbox-text-input',
                 id: 'other-trip-description'
             },
         ]
@@ -98,9 +97,8 @@ export const baseSteps = [
         fields: [
             {
                 key: 'exclusivity-level',
-                label: 'What level of exclusivity do you prefer?',
+                label: 'What level of exclusivity do you prefer',
                 type: 'radio',
-                defaultValue: 'no-preference',
                 className: 'not-centered',
                 id: 'exclusivity-level',
                 options: [
@@ -118,7 +116,7 @@ export const baseSteps = [
         fields: [
             {
                 key: 'additional-services',
-                label: 'Would you like to include additional services?',
+                label: 'Would you like to include additional services',
                 type: 'checkbox',
                 className: 'input-checkbox',
                 id: 'additional-services',
@@ -131,12 +129,18 @@ export const baseSteps = [
                     { label: 'No Additional Services Needed', value: 'no-services' }
                 ]
             },
-            { key: 'special-requests', label: 'Any special requests or must-haves?', type: 'text', className: 'input-text', id: 'special-requests' },
+            {
+                key: 'special-requests',
+                label: 'Any special requests or must-haves',
+                type: 'text',
+                className: 'input-text checkbox-text-input',
+                id: 'special-requests'
+            },
         ]
     },
     {
         key: 'referral',
-        title: 'How Did You Hear About Us?',
+        title: 'Referral',
         fields: [
             {
                 key: 'referralSource',
@@ -153,4 +157,409 @@ export const baseSteps = [
             }
         ]
     }
+];
+
+export const serviceFormSteps = [
+    {
+        key: 'contactInfo',
+        title: 'Contact Info',
+        fields: [
+            {
+                key: 'full-name',
+                label: 'Full Name',
+                type: 'text',
+                autoComplete: 'name',
+                className: 'input-text',
+                id: 'full-name'
+            },
+            {
+                key: 'email',
+                label: 'Email',
+                type: 'email',
+                autoComplete: 'email',
+                required: true,
+                className: 'input-text',
+                id: 'email'
+            },
+            {
+                key: 'phoneNumber',
+                label: 'Phone Number',
+                type: 'tel',
+                autoComplete: 'tel',
+                className: 'input-text',
+                id: 'phone-number'
+            }
+        ]
+    },
+    {
+        key: 'serviceDetails',
+        title: 'Service Details',
+        fields: [
+            {
+                key: 'selected-service',
+                label: 'Selected Service',
+                type: 'text',
+                readOnly: true,
+                className: 'input-text',
+                id: 'selected-service'
+            },
+            {
+                key: 'preferred-date',
+                label: 'Preferred Date',
+                type: 'date',
+                required: true,
+                className: 'input-date',
+                id: 'preferred-date'
+            },
+            {
+                key: 'how-can-we-help',
+                label: 'How Can We Help',
+                type: 'textarea',
+                className: 'input-textarea',
+                id: 'how-can-we-help'
+            },
+        ]
+    },
+    {
+        key: 'serviceDetails',
+        title: 'Service Details',
+        fields: [
+            {
+                key: 'booking-status',
+                label: 'Booking Status',
+                type: 'radio',
+                className: 'input-radio',
+                id: 'booking-status',
+                options: [
+                    { label: 'I have a reservation.', value: 'have-reservation' },
+                    { label: 'I am planning to book.', value: 'planning-to-book' }
+                ]
+            },
+
+        ]
+    }
+];
+
+export const carReservationSteps = [
+    {
+        key: 'contactInfo',
+        title: 'Contact Info',
+        fields: [
+            {
+                key: 'full-name',
+                label: 'Full Name',
+                type: 'text',
+                autoComplete: 'name',
+                className: 'input-text',
+                id: 'full-name'
+            },
+            {
+                key: 'phoneNumber',
+                label: 'Phone Number',
+                type: 'tel',
+                autoComplete: 'tel',
+                className: 'input-text',
+                id: 'phone-number'
+            },
+            {
+                key: 'email',
+                label: 'Email',
+                type: 'email',
+                autoComplete: 'email',
+                className: 'input-text',
+                id: 'email'
+            }
+        ]
+    },
+    {
+        key: 'reservationDetails',
+        title: 'Reservation Details',
+        fields: [
+            {
+                key: 'pickup-date',
+                label: 'Pick-Up Date',
+                type: 'date',
+                className: 'input-date',
+                id: 'pickup-date'
+            },
+            {
+                key: 'dropOff-date',
+                label: 'Drop-Off Date',
+                type: 'date',
+                className: 'input-date',
+                id: 'dropOff-date'
+            },
+            {
+                key: 'service-type',
+                label: 'Select Service',
+                type: 'select',
+                className: 'input-select',
+                id: 'service-type',
+                options: [
+                    { label: 'Luxury Rentals', value: 'Luxury Rentals' },
+                    { label: 'Chauffeured Rentals', value: 'Chauffeured Rentals' }
+                ]
+            },
+            {
+                key: 'car-selection',
+                label: 'Choose Your Car',
+                type: 'text',
+                className: 'input-text',
+                id: 'car-selection',
+            }
+        ]
+    }
+];
+
+export const charterFormSteps = [
+    {
+        key: 'contactInfo',
+        title: 'Contact Info',
+        fields: [
+            {
+                key: 'full-name',
+                label: 'Full Name',
+                type: 'text',
+                autoComplete: 'name',
+                className: 'input-text',
+                id: 'full-name'
+            },
+            {
+                key: 'company-name',
+                label: 'Company Name',
+                type: 'text',
+                className: 'input-text',
+                id: 'company-name'
+            }
+        ]
+    },
+    {
+        key: 'contactInfo',
+        title: 'Contact Info',
+        fields: [
+            {
+                key: 'email',
+                label: 'Email',
+                type: 'email',
+                autoComplete: 'email',
+                className: 'input-text',
+                id: 'email'
+            },
+            {
+                key: 'phoneNumber',
+                label: 'Phone Number',
+                type: 'tel',
+                autoComplete: 'tel',
+                className: 'input-text',
+                id: 'phone-number'
+            },
+            {
+                key: 'preferred-contact',
+                label: 'Preferred Contact Method',
+                type: 'radio',
+                className: 'input-radio',
+                id: 'preferred-contact',
+                options: [
+                    { label: 'Email', value: 'email' },
+                    { label: 'Phone', value: 'phone' }
+                ]
+            },
+        ]
+    },
+    {
+        key: 'tripDetails',
+        title: 'Trip Details',
+        fields: [
+            {
+                key: 'departure-date',
+                label: 'Departure Date',
+                type: 'date',
+                className: 'input-date',
+                id: 'departure-date'
+            },
+            {
+                key: 'departure-time',
+                label: 'Departure Time',
+                type: 'time',
+                className: 'input-time',
+                id: 'departure-time'
+            },
+            {
+                key: 'return-date',
+                label: 'Return Date',
+                type: 'date',
+                className: 'input-date',
+                id: 'return-date'
+            },
+            {
+                key: 'return-time',
+                label: 'Return Time',
+                type: 'time',
+                className: 'input-time',
+                id: 'return-time'
+            },
+        ]
+    },
+    {
+        key: 'preferences',
+        title: 'Preferences & Requests',
+        fields: [
+            {
+                key: 'transportation-needed',
+                label: 'Do you need transportation services for departure and/or arrival',
+                type: 'radio',
+                className: 'input-radio two-question-screen',
+                id: 'transportation-needed',
+                options: [
+                    { label: 'Yes', value: 'yes' },
+                    { label: 'No', value: 'no' }
+                ]
+            },
+            {
+                key: 'wifi-needed',
+                label: 'Do you need Wi-Fi',
+                type: 'radio',
+                className: 'input-radio two-question-screen',
+                id: 'wifi-needed',
+                options: [
+                    { label: 'Yes', value: 'yes' },
+                    { label: 'No', value: 'no' }
+                ]
+            },
+        ]
+    },
+    {
+        key: 'preferences2',
+        title: 'Preferences & Requests',
+        fields: [
+            {
+                key: 'traveling-with-pets',
+                label: 'Are you traveling with pets',
+                type: 'radio',
+                className: 'input-radio two-question-screen',
+                id: 'traveling-with-pets',
+                options: [
+                    { label: 'Yes', value: 'yes' },
+                    { label: 'No', value: 'no' }
+                ]
+            },
+            {
+                key: 'catering-needed',
+                label: 'Do you need catering',
+                type: 'radio',
+                className: 'input-radio two-question-screen',
+                id: 'catering-needed',
+                options: [
+                    { label: 'Yes', value: 'yes' },
+                    { label: 'No', value: 'no' }
+                ]
+            }
+        ]
+    },
+    {
+        key: 'preferences',
+        title: 'Preferences & Requests',
+        fields: [
+            {
+                key: 'chartered-before',
+                label: 'Have you chartered before',
+                type: 'radio',
+                className: 'input-radio',
+                id: 'chartered-before',
+                options: [
+                    { label: 'Yes', value: 'yes' },
+                    { label: 'No', value: 'no' }
+                ]
+            },
+            {
+                key: 'budget',
+                label: 'charter info',
+                pTextValue: 'Charter flights start around $10,000 one way',
+                type: 'p',
+                className: 'form-p-text',
+            }
+        ]
+    },
+    {
+        key: 'preferences',
+        title: 'Preferences & Requests',
+        fields: [
+            {
+                key: 'preferred-aircraft',
+                label: 'Do you have a preferred aircraft',
+                type: 'text',
+                className: 'input-text',
+                id: 'preferred-aircraft'
+            },
+            {
+                key: 'additional-info',
+                label: 'Additional Information',
+                type: 'textarea',
+                className: 'input-textarea',
+                id: 'additional-info'
+            }
+        ]
+    },
+
+    {
+        key: 'concierge',
+        title: 'Concierge Chronicles',
+        fields: [
+            {
+                key: 'concierge-opt-in',
+                label: 'Opt-in to Concierge Chronicles Newsletter',
+                type: 'checkbox',
+                className: 'input-checkbox',
+                id: 'concierge-opt-in',
+                options: [
+                    { label: 'Yes, I want to receive exclusive travel inspiration and luxury experiences.', value: 'yes' }
+                ]
+            }
+        ]
+    }
+];
+
+export const footerFormSteps = [
+    {
+        key: 'contactUs',
+        title: 'Contact Us',
+        fields: [
+            {
+                key: 'full-name',
+                label: 'Full Name',
+                type: 'text',
+                autoComplete: 'name',
+                className: 'input-text',
+                id: 'full-name'
+            },
+            {
+                key: 'email',
+                label: 'Email',
+                type: 'email',
+                autoComplete: 'email',
+                className: 'input-text',
+                id: 'email'
+            },
+            {
+                key: 'service-type',
+                label: 'Select Category',
+                type: 'select',
+                className: 'input-select',
+                id: 'service-type',
+                options: [
+                    { label: 'Properties', value: 'properties' },
+                    { label: 'Jet Charters', value: 'jet-charter' },
+                    { label: 'Car Rental', value: 'car-rental' },
+                    { label: 'Concierge Services', value: 'concierge-services' }
+                ]
+            },
+            {
+                key: 'how-can-we-help',
+                label: 'How Can We Help?',
+                type: 'textarea',
+                className: 'input-textarea',
+                id: 'how-can-we-help'
+            },
+        ]
+    },
 ];

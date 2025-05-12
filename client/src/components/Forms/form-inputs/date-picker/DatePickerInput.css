@@ -1,0 +1,34 @@
+/* Ensure input text is visible */
+.date-picker-input-container input {
+    color: var(--primary-color);
+}
+
+/* Input Label */
+.date-picker-input-container .MuiInputLabel-root,
+.date-picker-input-container .MuiInputLabel-root.Mui-focused {
+    color: var(--primary-color);
+}
+
+/* Outlined border styling (also user clicks on element) */
+.date-picker-input-container .MuiOutlinedInput-notchedOutline,
+.date-picker-input-container .MuiOutlinedInput-root.Mui-focused fieldset {
+    border-color: var(--primary-color); 
+}
+
+/* Outlined border styling (when user hovers or focuses) */
+.date-picker-input-container .MuiOutlinedInput-root:hover fieldset,
+.date-picker-input-container .MuiOutlinedInput-root fieldset.Mui-focused {
+    border-color: var(--footer-text-color);
+}
+
+/* Calendar icon */
+.date-picker-input-container .MuiSvgIcon-root {
+    color: var(--primary-color);
+    cursor: pointer; 
+}
+
+/* On hover or focus, change color */
+.date-picker-input-container .MuiSvgIcon-root:hover,
+.date-picker-input-container .MuiSvgIcon-root.Mui-focused {
+    color: var(--footer-text-color);
+}

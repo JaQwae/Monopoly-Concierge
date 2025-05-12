@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import CarRentalsData from './CarRentalsData';
+import CarRentalsData from '../../../data/CarRentalsData';
 import Buttons from '../../Buttons/Button';
+import FormModal from '../../Forms/FormModal'
 import './CarRentals.css';
 
 const CarRentals = ({ navHeight }) => {
@@ -56,7 +57,7 @@ const CarRentals = ({ navHeight }) => {
         };
     }, []);
 
-    const mainCategories = ['Luxury Rentals', 'Chauffeur Rentals'];
+    const mainCategories = ['Luxury Rentals', 'Chauffeured Rentals'];
     const filteredRentals = selectedCategory === 'All'
         ? CarRentalsData
         : CarRentalsData.filter(article => article.category === selectedCategory);
@@ -137,9 +138,13 @@ const CarRentals = ({ navHeight }) => {
                                         <p className="price-label">Price Starting At:</p>
                                         <p className="price-value">{car.price}</p>
                                     </div>
-                                    <Buttons
-                                        displayName={'Reserve Now'}
-                                        btnClassName={"reserve-button"}
+                                    <FormModal
+                                        pageForm='rentals'
+                                        displayName='Reserve'
+                                        selectedCarData={{
+                                            rentalCategory: car.category,
+                                            carTitle: car.title,
+                                        }}
                                     />
                                 </div>
                             </div>

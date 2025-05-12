@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useState, useEffect } from 'react';
+import React, { lazy, Suspense, useState } from 'react';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import Loading from './components/Loading/Loading'
 import NavBar from './components/Navigation/NavBar'
@@ -6,20 +6,7 @@ import Footer from './components/Footer/footer';
 import './App.css'
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
   const [navHeight, setNavHeight] = useState(0);
-
-  useEffect(() => {
-    const handleLoad = () => setIsLoading(false);
-
-    window.addEventListener('load', handleLoad);
-
-    return () => window.removeEventListener('load', handleLoad);
-  }, []);
-
-  if (isLoading) {
-    return <Loading />;
-  }
 
   // Lazy-loaded components
   const Home = lazy(() => import('./components/Pages/home/Home.jsx'));
@@ -32,7 +19,7 @@ function App() {
   return (
         <BrowserRouter>
           <NavBar setNavHeight={setNavHeight} />
-            <Suspense fallback={<Loading/>}>
+            <Suspense fallback={<Loading />}>
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/properties" element={<Properties navHeight={navHeight} />} />

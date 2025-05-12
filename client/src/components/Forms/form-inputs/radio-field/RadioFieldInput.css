@@ -1,0 +1,115 @@
+/* Radio Input */
+.radio-group-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0em;
+}
+
+/* Radio title */
+.radio-group-input-container .radio-group-input-title {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1.3em;
+    padding-bottom: 0.3em;
+}
+
+/* Keeps the title original color when user tabs */
+.radio-group-input-container .radio-group-input-title.Mui-focused {
+    color: var(--primary-color);
+}
+
+/*Labels options text */
+.radio-group-input-options .MuiTypography-root {
+    color: var(--primary-color);
+    font-size: 1.1em;
+}
+
+/* Non selected options */
+.radio-group-input-options .MuiRadio-root {
+    color: var(--primary-color)
+}
+
+/* Selected option */
+.radio-group-input-options .MuiRadio-root.Mui-checked {
+    color: var(--tertiary-color);
+}
+
+/*Hover effect for radio buttons */
+.radio-group-input-options .MuiRadio-root:hover {
+    background-color: rgba(241, 199, 200, 0.1);
+}
+
+/* Radio Group with more than two choices */
+.radio-group-input-container.not-centered {
+    align-items: start;
+    text-align: start
+}
+
+.radio-group-input-container.not-centered .radio-group-input-title {
+    padding-bottom: 0.5em;
+}
+
+.radio-group-input-container.not-centered .MuiFormGroup-root {
+    margin-left: 1em;
+}
+
+/* Radio Group when screen only display this input */
+.input-radio.two-question-screen {
+    margin: 1.5em 0em;
+}
+
+.input-radio.two-question-screen .radio-group-input-title {
+    font-size: 1.6em;
+}
+
+.input-radio.two-question-screen .radio-group-input-options .MuiTypography-root {
+    font-size: 1.5em;
+}
+
+/* large tablet styling */
+@media screen and (max-width: 1024px) {
+    /* Radio Group when screen only display this input */
+    .input-radio.two-question-screen {
+        margin: 2em 0em;
+    }
+
+    .input-radio.two-question-screen .radio-group-input-title {
+        font-size: 1.5em;
+    }
+
+    .input-radio.two-question-screen .radio-group-input-options .MuiTypography-root {
+        font-size: 1.4em;
+    }
+}
+
+/* mobile styling */
+@media screen and (max-width: 767px) {
+    .radio-group-input-title {
+        font-size: 1.2em;
+    }
+
+    /* Radio Group with more than two choices */
+    .radio-group-input-container.not-centered .MuiFormGroup-root {
+        margin-left: 0em;
+    }
+
+    .radio-group-input-container.not-centered .MuiTypography-root {
+        font-size: 1em;
+        margin-bottom: 0.5em;
+    }
+
+    /* Radio Group when screen only display this input */
+    .input-radio.two-question-screen {
+        margin: 1em 0em;
+    }
+
+    .input-radio.two-question-screen .radio-group-input-title {
+        font-size: 1.3em;
+    }
+
+    .input-radio.two-question-screen .radio-group-input-options .MuiTypography-root {
+        font-size: 1.2em;
+    }
+}

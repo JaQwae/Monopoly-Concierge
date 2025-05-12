@@ -1,0 +1,38 @@
+.time-picker-input-container {
+    width: 100%;
+}
+
+/* Ensure input text is visible */
+.time-picker-input-container input {
+    color: var(--primary-color);
+}
+
+/* Input Label */
+.time-picker-input-container .MuiInputLabel-root,
+.time-picker-input-container .MuiInputLabel-root.Mui-focused {
+    color: var(--primary-color);
+}
+
+/* Outlined border styling (also user clicks on element) */
+.time-picker-input-container .MuiOutlinedInput-notchedOutline,
+.time-picker-input-container .MuiOutlinedInput-root.Mui-focused fieldset {
+    border-color: var(--primary-color); 
+}
+
+/* Outlined border styling (when user hovers or focuses) */
+.time-picker-input-container .MuiOutlinedInput-root:hover fieldset,
+.time-picker-input-container .MuiOutlinedInput-root fieldset.Mui-focused {
+    border-color: var(--footer-text-color);
+}
+
+/* Time icon */
+.time-picker-input-container .MuiSvgIcon-root {
+    color: var(--primary-color);
+    cursor: pointer; 
+}
+
+/* On hover or focus, change color */
+.time-picker-input-container .MuiSvgIcon-root:hover,
+.time-picker-input-container .MuiSvgIcon-root.Mui-focused {
+    color: var(--footer-text-color);
+}

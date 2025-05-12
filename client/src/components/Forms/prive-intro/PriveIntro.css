@@ -1,14 +1,42 @@
+#prive-close-btn {
+    border: none;
+    box-shadow: none;
+    background: none;
+    padding: 0em 0.0em 0em 0.4em;
+    line-height: 0em;
+    position: absolute;
+    top:2%;
+    right: 2%;
+}
+
+#prive-x-icon{
+    color: var(--primary-color);
+    font-size: 3em;
+}
+
 #prive-intro-container p {
     color: var(--primary-color);
     margin: 0;
-    padding: 0.5em 2.5em 0.5em;
-    font-family: 'Retrofunk', sans-serif;
-    font-size: 1.2em;
-    line-height: 2em;
+    padding: 0.5em 3em 0.5em;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 1.5em;
+    line-height: 1.7em;
     text-align: center;
 }
 
 #prive-intro-btn {
     background-color: var(--primary-color);
-    color: var(--secondary-color)
+    color: var(--secondary-color);
+    margin: 2em 1em;
+}
+
+/* mobile styling */
+@media screen and (max-width: 767px) {
+    #prive-intro-container p {
+        margin: 0;
+        padding: 0.5em 0.7em;
+        font-size: 1.3em;
+        line-height: 1.5em;
+    }
 }

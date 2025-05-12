@@ -1,11 +1,24 @@
 import express from 'express';
-const app = express();
-const port = 3000;
+import dotenv from 'dotenv';
+import propertiesRoute from './routes/properties.mjs';
+import charterRoute from './routes/charters.mjs';
+import rentalRoute from './routes/rentals.mjs';
+import serviceRoute from './routes/services.mjs';
+import cors from 'cors';
 
-app.get('/', (req, res) => {
-    res.send('Hello World')
-})
+const app = express();
+app.use(cors())
+app.use(express.json());
+dotenv.config();
+
+const port = process.env.PORT || 3000
+
+// Form routes
+app.use('/properties', propertiesRoute);
+app.use('/charters', charterRoute);
+app.use('/rentals', rentalRoute);
+app.use('/services', serviceRoute);
 
 app.listen(port, () => {
-    console.log(`Server listening on port ${3000}`)
+    console.log(`Server listening on port ${port}`)
 })

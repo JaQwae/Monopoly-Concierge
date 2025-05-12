@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import services from './ServicesData';
+import services from '../../../data/servicesData';
 import Buttons from '../../Buttons/Button';
 import Tooltip from '@mui/material/Tooltip';
 import CategoryModal from '../../CategoryModal/CategoryModal';
+import FormModal from '../../Forms/FormModal'
 import './Services.css';
 
 const ConciergeServices = ({ navHeight }) => {
@@ -52,7 +53,8 @@ const ConciergeServices = ({ navHeight }) => {
           <Buttons
             displayName={<i className="fa-solid fa-sliders"></i>}
             btnAction={handleOpen}
-            btnIdName={'filter-button-modal'}>Open modal</Buttons>
+            btnIdName={'filter-button-modal'}>Open modal
+          </Buttons>
         </div>
       </section>
 
@@ -74,9 +76,14 @@ const ConciergeServices = ({ navHeight }) => {
             <div className="service-content">
               <h3 className="service-title">{service.title}</h3>
               <p className="service-description">{service.description}</p>
-              <a href={service.link} target="_blank" rel="noopener noreferrer" className="service-link">
-                Book Now →
-              </a>
+              <FormModal
+                pageForm='services'
+                btnIdName='service-book-btn'
+                displayName='Book'
+                selectedServiceData={{
+                  serviceTitle: service.title
+              }}
+              />
             </div>
           </div>
         ))}

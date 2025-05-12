@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 import PropTypes from 'prop-types';
-import './Button.css'
+import './Button.css';
 
 const Button = (props) => {
     return (
@@ -11,14 +11,14 @@ const Button = (props) => {
         >
             {props.displayName}
         </button>
-    )
-}
+    );
+};
 
 Button.propTypes = {
-    displayName: PropTypes.string.isRequired,
+    displayName: PropTypes.node.isRequired,
     btnIdName: PropTypes.string,
     btnAction: PropTypes.func,
     btnClassName: PropTypes.string
-}
+};
 
-export default Button
+export default Button;

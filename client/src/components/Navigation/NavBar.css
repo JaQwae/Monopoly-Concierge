@@ -127,6 +127,7 @@ nav {
     padding: 1.5em 0em;
     border-bottom: 2px solid var(--primary-color);
     background-color: #000000cd;
+    color: var(--primary-color)
   }
 
   .nav-links {

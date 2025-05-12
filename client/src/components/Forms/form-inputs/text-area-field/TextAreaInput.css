@@ -1,0 +1,27 @@
+.text-area-container .MuiOutlinedInput-root {
+    color: var(--primary-color);
+}
+
+.text-area-container .MuiOutlinedInput-root fieldset{
+    border-color: var(--primary-color);
+}
+
+.text-area-container .MuiOutlinedInput-root:hover fieldset{
+    border-color: var(--footer-text-color);
+}
+
+.text-area-container .MuiOutlinedInput-root.Mui-focused fieldset{
+    border-color: var(--primary-color);
+}
+
+.text-area-container .MuiInputLabel-root{
+    color: var(--primary-color);
+}
+
+.text-area-container .MuiInputLabel-root.Mui-focused {
+    color: var(--primary-color);
+}
+
+.text-area-container textarea{
+    color: var(--primary-color);
+}

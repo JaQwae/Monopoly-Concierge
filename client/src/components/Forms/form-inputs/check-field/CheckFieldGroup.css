@@ -1,0 +1,64 @@
+.checkbox-input-container {
+    margin: 0em;
+    width: 100%;
+}
+
+/* Title */
+.checkbox-input-title.MuiFormLabel-root {
+    color: var(--primary-color);
+    font-size: 1.2em;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin: 1.3em 0em 0.2em;
+}
+
+.checkbox-input-title.MuiFormLabel-root.Mui-focused { /* Prevent Blue highlight when focused on  */
+    color: var(--primary-color);
+}
+
+/* Checkboxes */
+.checkbox-input-container .checkboxes {
+    color: var(--primary-color);
+    margin-left: 1.4em
+}
+
+.checkbox-input-container .checkboxes.Mui-checked { /* Select box color */
+    color: var(--tertiary-color);
+}
+
+/* Checkbox options labels */
+.checkbox-option-container .MuiTypography-root {
+    font-size: 1em ; 
+}
+
+
+/* large tablet styling */
+@media screen and (max-width: 1024px) {
+    .checkbox-input-title.MuiFormLabel-root {
+        margin: 0.6em 0em 0.3em;
+    }
+
+    .checkbox-input-container .checkboxes {
+        margin-left: 1em
+    }
+    
+    .checkbox-option-container .MuiTypography-root {
+        font-size: 1.1em ; 
+    }
+}
+
+/* mobile styling */
+@media screen and (max-width: 767px) {
+    .checkbox-input-container {
+        padding: 0em 0em 0.5em;
+    }
+
+    .checkbox-input-title.MuiFormLabel-root {
+        margin: 0em 0em 0.3em;
+        font-size: 1.2em;
+    }
+    
+    .checkbox-option-container .MuiTypography-root {
+        font-size: 0.8em ; 
+    }
+}
