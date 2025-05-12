@@ -63,6 +63,21 @@ const SingleFormContent = ({ pageForm, handleClose, prefillData, steps }) => {
         return <PriveIntro priveIntroVisible={nextStep} handleClose={handleClose} />;
     }
 
+    const handleFormSubmit = (formType, userData) => {
+        setShowFormContent(false);
+    
+        fetch(`http://localhost:5174/${formType}/form`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ data: userData }),
+        })
+            .then(response => response.json())
+            .then(data => console.log('Response from server:', data))
+            .catch(error => console.error('Error:', error));
+    };
+
     return (
         <section className='form-content-container'>
             {showFormContent ? (
@@ -202,8 +217,7 @@ const SingleFormContent = ({ pageForm, handleClose, prefillData, steps }) => {
                                 btnAction={(e) => {
                                     e.preventDefault();
                                     if (validateFields()) {
-                                        console.log('Form Submitted', formData);
-                                        setShowFormContent(false);
+                                        handleFormSubmit(pageForm, formData)
                                     }
                                 }}
                             />

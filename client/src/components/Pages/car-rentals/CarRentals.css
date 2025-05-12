@@ -1,10 +1,10 @@
 /* Hero Section */
 #car-rentals-hero-container {
-    background-image: url('../../../assets/car-rentals/carRentalTemp.jpg');
+    background-image: url('../../../assets/car-rentals/carRentalTemp.png');
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 50% 75%;
-    height: 28vh;
+    background-position: 50% 82%;
+    height: 30vh;
     width: 100%;
     position: relative;
     z-index: 99;
@@ -142,6 +142,11 @@
 
 /* large tablet styling */
 @media screen and (max-width: 1024px) {
+    #car-rentals-hero-container {
+        background-position: 50% 75%;
+        height: 25vh;
+    }
+
     .car-rentals-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -149,6 +154,11 @@
 
 /* mobile styling */
 @media screen and (max-width: 767px) {
+    #car-rentals-hero-container {
+        background-position: 80% 75%;
+        height: 32vh;
+    }
+    
     #car-rentals-title {
         font-size: 2em;
         letter-spacing: 0.1em;
