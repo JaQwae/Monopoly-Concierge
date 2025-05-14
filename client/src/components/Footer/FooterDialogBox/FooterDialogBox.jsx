@@ -5,8 +5,6 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-// import useMediaQuery from '@mui/material/useMediaQuery';
-// import { useTheme } from '@mui/material/styles';
 import CloseIcon from '@mui/icons-material/Close';
 import SuccessfulSubmission from '../../Forms/successful-submission/SuccessfulSubmission';
 import './FooterDialogBox.css'
@@ -16,9 +14,6 @@ import './FooterDialogBox.css'
 
 
 const FooterDialogBox = ({ isOpen, closeDialog, formCompleted }) => {
-    // const theme = useTheme();
-    // const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
-
     return (
         <Dialog
             // fullScreen={fullScreen}
