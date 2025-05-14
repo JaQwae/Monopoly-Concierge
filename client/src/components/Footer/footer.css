@@ -141,13 +141,13 @@ footer {
 }
 
 #footer-subscribe-btn {
-    height: 3em;
-    padding: 0.3em;
-    background-color: black;
-    color: white;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 0em;
 }
 
 #footer-subscribe-btn:hover,
@@ -197,6 +197,10 @@ footer {
     #footer-contact-container {
         margin-top: 1em;
         order: 1;
+    }
+
+    #footer-subscribe-btn {
+        font-size: 1em;
     }
 }
 
@@ -307,6 +311,11 @@ footer {
     
     #social-media-container {
         width: 90%;
+    }
+
+    #footer-subscribe-btn {
+        font-size: 0.8em;
+        min-height: 3em;
     }
 }
 

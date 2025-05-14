@@ -49,7 +49,7 @@ const CarRentalsData = [
     },
     {
         title: "Mercedes Benz S Class",
-        price: "$ 0,000",
+        price: "$ 500",
         imageUrl: "https://vehicle-images.dealerinspire.com/4eec-110011437/thumbnails/large/W1K6G8CB4SA312553/d40f2d706ef097b49cc7928f8c45e83e.jpg",
         category: 'Luxury Rentals'
     },

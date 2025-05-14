@@ -1,9 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '../Buttons/Button';
 import FormModal from '../Forms/FormModal';
+import { validateFooterInputs } from '../../utils/validateFooterInputs.mjs'
+import FooterDialogBox from './FooterDialogBox/FooterDialogBox.jsx';
 import './footer.css'
 
 const footer = () => {
+    const [openDialogBox, setOpenDialogBox] = useState(false);
+    const [successfulSubmission, setSuccessfulSubmission] = useState(false);
+
+    const subscriberObj = {};
+
+    const requiredFooterFields = [
+        document.getElementById('firstName'),
+        document.getElementById('lastName'),
+        document.getElementById('email')
+    ]
+
+    const handleFooterFormSubmit = (e) => {
+        e.preventDefault();
+        
+        const checkInputs = requiredFooterFields.map((footerInput) => {
+            return validateFooterInputs(subscriberObj, footerInput)
+        });
+        
+        if (checkInputs.includes(false)) {
+            
+            setSuccessfulSubmission(false);
+        } else {
+            console.log(subscriberObj);
+            setSuccessfulSubmission(true);
+        }
+        
+        setOpenDialogBox(true);
+    }
+
     return (
         <footer>
             <section id='footer-contact-container'>
@@ -45,36 +76,48 @@ const footer = () => {
                             name="firstName" id="firstName" type="text"
                             placeholder="First Name" autoComplete="given-name"
                             className='footer-input-field'
+                            onBlur={(e) => validateFooterInputs(subscriberObj, e.target)}
                         />
                         <input
                             name="lastName" id="lastName" type="text"
                             placeholder="Last Name" autoComplete="family-name"
                             className='footer-input-field'
+                            onBlur={(e) => validateFooterInputs(subscriberObj, e.target)}
                         />
                     </div>
                     <input
                         name="email" id="email" type="email"
                         placeholder="Email" autoComplete="on"
                         className='footer-input-field'
+                        onBlur={(e) => validateFooterInputs(subscriberObj, e.target)}
                     />
                     <div className="form-split-section">
                         <input
                             name="city" id="city" type="address-level2"
                             placeholder="City" autoComplete="on"
                             className='footer-input-field'
+                            onBlur={(e) => validateFooterInputs(subscriberObj, e.target)}
                         />
                         <input
                             name="state" id="state" type="address-level1"
                             placeholder="State" autoComplete="on"
                             className='footer-input-field'
+                            onBlur={(e) => validateFooterInputs(subscriberObj, e.target)}
                         />
-                        <input
-                            type="submit" value="SUBSCRIBE"
-                            id='footer-subscribe-btn' className='footer-input-field'
+                        <Button
+                            displayName='Subscribe'
+                            btnIdName='footer-subscribe-btn'
+                            btnAction={(e) => handleFooterFormSubmit(e)}
+                            btnClassName='footer-input-field'
                         />
                     </div>
                 </form>
             </section>
+            <FooterDialogBox 
+                isOpen={openDialogBox} 
+                closeDialog={() => setOpenDialogBox(false)} 
+                formCompleted={successfulSubmission}
+            />
         </footer>
     )
 }
