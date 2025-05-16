@@ -64,9 +64,30 @@ const SingleFormContent = ({ pageForm, handleClose, prefillData, steps }) => {
     }
 
     const handleFormSubmit = (formType, userData) => {
-        // console.log(formType)
         setShowFormContent(false);
+
+        if((formType === 'charters') && (userData['concierge-opt-in'].length === 1)) {
+            // Creating a subscriber object to hit the mailchimp endpoint 
+            const subscriberObj = {};
+            const nameArr = userData['full-name'].split(" ");
+            subscriberObj.firstName = nameArr[0];
+            subscriberObj.lastName = nameArr[nameArr.length -1];
+            subscriberObj.email= userData.email;
+
+            // API mailchimp endpoint call
+            fetch(`http://localhost:5174/subscriber`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ data: subscriberObj }),
+            })
+                .then(response => response.json())
+                .then(data => console.log('Response from server:', data))
+                .catch(error => console.error('Error:', error));
+        }
     
+        // API nodemailer endpoint call
         fetch(`http://localhost:5174/${formType}/form`, {
             method: "POST",
             headers: {
