@@ -5,7 +5,7 @@ import altLogo1Black from '../../../assets/logos/alt-logo-1-black.png';
 import altLogo1White from '../../../assets/logos/alt-logo-2-white.png';
 import './SuccessfulSubmission.css';
 
-const SuccessfulSubmission = ({handleClose}) => {
+const SuccessfulSubmission = ({handleClose, onFooter=false}) => {
     const [isTabletView, setIsTabletView] = useState(false);
 
     useEffect(() => {
@@ -40,13 +40,14 @@ const SuccessfulSubmission = ({handleClose}) => {
                 Thank you for submitting the inquiry form.
                 A team member will be contacting you in the next 24-48 hours with the next steps.
             </p>
-            <img src={isTabletView ? (altLogo1White) : (altLogo1Black)} alt='A circle with the words monopoly concierge and a top hat in the center' />
+            <img src={isTabletView && !onFooter ? (altLogo1White) : (altLogo1Black)} alt='A circle with the words monopoly concierge and a top hat in the center' />
         </section>
     )
 }
 
 SuccessfulSubmission.propTypes = {
-    handleClose: PropTypes.func.isRequired
+    handleClose: PropTypes.func.isRequired,
+    onFooter: PropTypes.bool
 }
 
 export default SuccessfulSubmission

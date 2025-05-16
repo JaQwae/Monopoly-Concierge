@@ -1,0 +1,24 @@
+#dialog-box-true .MuiDialog-paper{
+    height: 80%;
+    width: 70%;
+}
+
+#successful-submission-x-icon{
+    color: var(--secondary-color);
+}
+
+#successful-submission-container h2{
+    color: var(--secondary-color);
+}
+
+#successful-submission-container p{
+    color: var(--secondary-color);
+}
+
+/* mobile styling */
+@media screen and (max-width: 767px) {
+    #dialog-box-true .MuiDialog-paper{
+        height: 100%;
+        width: 100%;
+    }
+}

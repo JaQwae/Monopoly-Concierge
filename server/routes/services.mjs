@@ -1,8 +1,10 @@
 import express from 'express';
+import { sendEmail } from '../services/nodemailer.mjs';
 const router = express.Router();
 
-router.get('/form', (req, res) => {
-    res.json({ message: 'Properly linked service form route' });
-})
+router.post('/form', async (req, res) => {
+    const { data } = req.body;
+    sendEmail(data, res);
+});
 
 export default router;
