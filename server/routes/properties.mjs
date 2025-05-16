@@ -1,5 +1,5 @@
 import express from 'express';
-import { sendEmail } from '../nodemailer.mjs';
+import { sendEmail } from '../services/nodemailer.mjss';
 const router = express.Router();
 
 router.post('/form', async (req, res) => {

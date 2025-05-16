@@ -1,5 +1,5 @@
 import express from 'express';
-import { addEmailSubscriber } from '../mailchimp.mjs';
+import { addEmailSubscriber } from '../services/mailchimp.mjs';
 const router = express.Router();
 
 router.use(express.json());
