@@ -9,14 +9,9 @@ import CloseIcon from '@mui/icons-material/Close';
 import SuccessfulSubmission from '../../Forms/successful-submission/SuccessfulSubmission';
 import './FooterDialogBox.css'
 
-
-// Make it so that it load only when need in the parent component
-
-
 const FooterDialogBox = ({ isOpen, closeDialog, formCompleted }) => {
     return (
         <Dialog
-            // fullScreen={fullScreen}
             open={isOpen}
             onClose={closeDialog}
             aria-labelledby="responsive-dialog-title"

@@ -5,7 +5,7 @@ import { validateFooterInputs } from '../../utils/validateFooterInputs.mjs'
 import FooterDialogBox from './FooterDialogBox/FooterDialogBox.jsx';
 import './footer.css'
 
-const footer = () => {
+const Footer = () => {
     const [openDialogBox, setOpenDialogBox] = useState(false);
     const [successfulSubmission, setSuccessfulSubmission] = useState(false);
 
@@ -19,19 +19,34 @@ const footer = () => {
 
     const handleFooterFormSubmit = (e) => {
         e.preventDefault();
-        
+
+        subscriberObj.firstName = document.getElementById('firstName').value;
+        subscriberObj.lastName = document.getElementById('lastName').value;
+        subscriberObj.email = document.getElementById('email').value;
+        subscriberObj.city = document.getElementById('city').value;
+        subscriberObj.state = document.getElementById('state').value;
+
         const checkInputs = requiredFooterFields.map((footerInput) => {
             return validateFooterInputs(subscriberObj, footerInput)
         });
-        
+
         if (checkInputs.includes(false)) {
-            
             setSuccessfulSubmission(false);
+            
         } else {
-            console.log(subscriberObj);
+            fetch(`http://localhost:5174/subscriber`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ data: subscriberObj }),
+            })
+                .then(response => response.json())
+                .then(data => console.log('Response from server:', data))
+                .catch(error => console.error('Error:', error));
             setSuccessfulSubmission(true);
         }
-        
+
         setOpenDialogBox(true);
     }
 
@@ -113,13 +128,13 @@ const footer = () => {
                     </div>
                 </form>
             </section>
-            <FooterDialogBox 
-                isOpen={openDialogBox} 
-                closeDialog={() => setOpenDialogBox(false)} 
+            <FooterDialogBox
+                isOpen={openDialogBox}
+                closeDialog={() => setOpenDialogBox(false)}
                 formCompleted={successfulSubmission}
             />
         </footer>
     )
 }
 
-export default footer
+export default Footer

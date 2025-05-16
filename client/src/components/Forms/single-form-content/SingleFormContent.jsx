@@ -64,7 +64,7 @@ const SingleFormContent = ({ pageForm, handleClose, prefillData, steps }) => {
     }
 
     const handleFormSubmit = (formType, userData) => {
-        console.log(formType)
+        // console.log(formType)
         setShowFormContent(false);
     
         fetch(`http://localhost:5174/${formType}/form`, {

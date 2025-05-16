@@ -12,7 +12,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@mailchimp/mailchimp_marketing": "^3.0.80",
     "express": "^5.1.0",
+    "mailchimp-marketing": "^0.0.1-security",
     "nodemailer": "^7.0.3"
   },
   "devDependencies": {
