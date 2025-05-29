@@ -1,0 +1,60 @@
+:root {
+    --articleListSectionWidth: 90%;
+}
+
+#scroll-dialog-title{
+    font-size: 2rem;
+    font-weight: 900;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+#scroll-dialog-description{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--secondary-color);
+}
+
+#article-container {
+    margin: 0rem;
+}
+
+.article-subheading {
+    font-size: 1.6rem;
+    margin: 2.5rem 0rem 0.1em;
+    align-self: start;
+    font-weight: 600;
+}
+
+.article-paragraph {
+    font-size: 1.2rem;
+    margin: 1rem 0rem;
+    align-self: start;
+}
+
+.article-list-container {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-self: start;
+    width: 100%;
+    margin: 0rem;
+}
+
+.article-list-title {
+    width: var(--articleListSectionWidth);
+    font-size: 1.2rem;
+    margin: 0.2rem 0rem -0.8rem;
+    padding: 0rem;
+    align-self: start;
+    font-weight: 600;
+}
+
+.article-list-paragraph {
+    width: var(--articleListSectionWidth);
+    font-size: 1.1rem;
+    padding-left: 1rem;
+    font-style: italic;
+}
