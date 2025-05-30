@@ -1,5 +1,6 @@
-import React, { lazy, Suspense, useState } from 'react';
-import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import React, { lazy, Suspense, useState, useEffect } from 'react';
+import { initAnalytics } from './utils/initGoogleAnalytics.js';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Loading from './components/Loading/Loading'
 import NavBar from './components/Navigation/NavBar'
 import Footer from './components/Footer/footer';
@@ -7,6 +8,10 @@ import './App.css'
 
 function App() {
   const [navHeight, setNavHeight] = useState(0);
+
+  useEffect(() => {
+    initAnalytics();
+  }, []);
 
   // Lazy-loaded components
   const Home = lazy(() => import('./components/Pages/home/Home.jsx'));
@@ -17,20 +22,20 @@ function App() {
   const ConciergeChronicles = lazy(() => import('./components/Pages/concierge-chronicles/ConciergeChronicles.jsx'));
 
   return (
-        <BrowserRouter>
-          <NavBar setNavHeight={setNavHeight} />
-            <Suspense fallback={<Loading />}>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/properties" element={<Properties navHeight={navHeight} />} />
-                    <Route path="/charters" element={<JetCharters navHeight={navHeight}/>} />
-                    <Route path="/rentals" element={<CarRentals navHeight={navHeight}/>} />
-                    <Route path="/services" element={<Services navHeight={navHeight}/>} />
-                    <Route path="/chronicles" element={<ConciergeChronicles navHeight={navHeight}/>} />
-                </Routes>
-            </Suspense>
-            <Footer />
-        </BrowserRouter>
+    <BrowserRouter>
+      <NavBar setNavHeight={setNavHeight} />
+      <Suspense fallback={<Loading />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/properties" element={<Properties navHeight={navHeight} />} />
+          <Route path="/charters" element={<JetCharters navHeight={navHeight} />} />
+          <Route path="/rentals" element={<CarRentals navHeight={navHeight} />} />
+          <Route path="/services" element={<Services navHeight={navHeight} />} />
+          <Route path="/chronicles" element={<ConciergeChronicles navHeight={navHeight} />} />
+        </Routes>
+      </Suspense>
+      <Footer />
+    </BrowserRouter>
   )
 }
 

@@ -2,7 +2,8 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 
-// Api Routes
+// Routes
+import api from './routes/api.mjs'
 import propertiesRoute from './routes/properties.mjs';
 import charterRoute from './routes/charters.mjs';
 import rentalRoute from './routes/rentals.mjs';
@@ -17,7 +18,9 @@ app.use(cors())
 app.use(express.json());
 const port = process.env.PORT || 3000
 
+
 // Form routes
+app.use('/api', api)
 app.use('/properties', propertiesRoute);
 app.use('/charters', charterRoute);
 app.use('/rentals', rentalRoute);
