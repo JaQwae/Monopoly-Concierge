@@ -3,7 +3,7 @@ import { initAnalytics } from './utils/initGoogleAnalytics.js';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Loading from './components/Loading/Loading'
 import NavBar from './components/Navigation/NavBar'
-import Footer from './components/Footer/footer';
+const Footer = lazy(() => import('./components/Footer/footer.jsx'));
 import './App.css'
 
 function App() {
@@ -35,7 +35,10 @@ function App() {
           <Route path="/chronicles" element={<ConciergeChronicles navHeight={navHeight} />} />
         </Routes>
       </Suspense>
-      <Footer />
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
+
     </BrowserRouter>
   )
 }
