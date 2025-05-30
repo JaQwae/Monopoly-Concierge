@@ -1,0 +1,139 @@
+:root {
+    --articleListSectionWidth: 90%;
+}
+
+#scroll-dialog-title {
+    font-size: 2rem;
+    font-weight: 900;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    font-family: var(--heading-font);
+    text-shadow:
+        1px 1px 2px var(--secondary-color),
+        0 0 0.3em var(--tertiary-color),
+        0 0 0.05em var(--tertiary-color);
+}
+
+#scroll-dialog-description {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--secondary-color);
+}
+
+#article-container {
+    margin: 0rem;
+}
+
+.article-subheading {
+    font-size: 1.6rem;
+    margin: 2.5rem 0rem 0.1em;
+    align-self: start;
+    font-weight: 600;
+    font-family: var(--sub-heading-font);
+}
+
+.article-paragraph {
+    font-size: 1.2rem;
+    margin: 1rem 0rem;
+    align-self: start;
+}
+
+.article-list-container {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-self: start;
+    width: 100%;
+    margin: 0rem;
+}
+
+.article-list-title {
+    width: var(--articleListSectionWidth);
+    font-size: 1.2rem;
+    margin: 0.2rem 0rem -0.8rem;
+    padding: 0rem;
+    align-self: start;
+    font-weight: 500;
+    font-family: var(--sub-heading-font);
+}
+
+.article-list-paragraph {
+    width: var(--articleListSectionWidth);
+    font-size: 1.1rem;
+    padding-left: 1rem;
+    font-style: italic;
+}
+
+#article-box-btn-container {
+    background-color: var(--secondary-color);
+}
+
+.article-box-btns {
+    all: unset;
+    font-size: 1.5em;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+    color: var(--primary-color);
+    font-family: var(--sub-heading-font);
+    text-shadow:
+        1px 1px 2px var(--secondary-color),
+        0 0 0.2em var(--tertiary-color);
+    padding: 0.5rem 1rem;
+    letter-spacing: 0.1rem;
+    cursor: pointer;
+}
+
+.article-box-btns:hover,
+.article-box-btns:focus {
+    color: var(--tertiary-color);
+    text-shadow:
+        1px 1px 2px var(--secondary-color);
+}
+
+/* mobile styling */
+@media screen and (max-width: 767px) {
+    #scroll-dialog-title {
+        font-size: 1.5rem;
+        text-align: center;
+        text-shadow:
+            1px 1px 15px var(--secondary-color),
+            0 0 0.4em var(--tertiary-color),
+            0 0 0.7em var(--tertiary-color);
+    }
+
+    .article-subheading {
+        font-size: 1.2rem;
+        margin: 1.5rem 0rem 0.1em;
+    }
+
+    .article-paragraph {
+        font-size: 1rem;
+        margin: 0.4rem 0rem;
+    }
+
+    .article-list-container {
+        padding-left: 1rem;
+    }
+
+    .article-list-title {
+        font-size: 1rem;
+        margin: 0.5rem 0rem -0.5rem;
+    }
+
+    .article-list-paragraph {
+        font-size: 0.9rem;
+        padding-left: 0.5rem;
+    }
+
+    .article-box-btns {
+        font-size: 1.2em;
+        color: var(--primary-color);
+        text-shadow:
+            1px 1px 2px var(--secondary-color),
+            0 0 0.2em var(--tertiary-color);
+        padding: 0.5rem 1rem;
+        letter-spacing: 0.2rem;
+    }
+}
