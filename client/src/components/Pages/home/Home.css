@@ -44,7 +44,7 @@
 }
 
 #home-auto-scroll-container {
-    color: white;
+    color: var(--primary-color);
     font-size: 2em;
     z-index: 1;
     position: relative;
@@ -58,7 +58,7 @@
 }
 
 #video-control-container {
-    color: white;
+    color: var(--primary-color);
     font-size: 1.5em;
     z-index: 1;
     position: relative;
