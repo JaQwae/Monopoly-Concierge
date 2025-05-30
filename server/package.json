@@ -13,10 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "@mailchimp/mailchimp_marketing": "^3.0.80",
-    "debug": "^4.3.4",
     "express": "^5.1.0",
-    "mailchimp-marketing": "^0.0.1-security",
-    "mime-types": "^3.0.1",
     "mongodb": "^6.16.0",
     "nodemailer": "^7.0.3"
   },
