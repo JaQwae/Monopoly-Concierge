@@ -16,7 +16,7 @@ const app = express();
 dotenv.config();
 app.use(cors())
 app.use(express.json());
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 5174
 
 
 // Form routes
