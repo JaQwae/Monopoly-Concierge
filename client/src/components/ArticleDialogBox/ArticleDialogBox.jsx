@@ -77,8 +77,11 @@ export default function ArticleDialogBox({ isOpen, handleArticleView, article })
             ))}
         </DialogContentText>
       </DialogContent>
-      <DialogActions>
-        <Button onClick={() => handleArticleView(false)}>Close</Button>
+      <DialogActions id='article-box-btn-container'>
+        <button 
+          className='article-box-btns' 
+          onClick={() => handleArticleView(false)}
+        >Close</button> 
       </DialogActions>
     </Dialog>
   );

@@ -13,13 +13,17 @@
     src: url('./fonts/baskerville-regular-font.ttf') format('truetype');
 }
 
-
+:root {
+    --heading-font: 'Retrofunk', 'Monoton', 'cursive';
+    --sub-heading-font: 'Helvegen', 'Rock Salt', 'Comic Sans MS';
+    --general-font: 'Baskerville', 'Libre Baskerville', Georgia;
+}
 
 body {
     background-color: var(--primary-color);
     margin: 0;
     overflow-x: hidden;
-    font-family:'Baskerville', sans-serif;
+    font-family:var(--general-font);
 }
 
 a {
