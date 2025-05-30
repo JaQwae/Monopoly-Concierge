@@ -1,5 +1,5 @@
 import React, { useState, lazy, Suspense, useRef } from 'react';
-import hv2 from '../../../assets/home/act-place.mp4';
+import hv2 from '../../../assets/home/act-place.webm';
 import Button from "../../Buttons/Button";
 import './Home.css';
 
@@ -40,7 +40,7 @@ const Home = () => {
     <div id="home-page" className="pages">
       <section id="hero-section" className="page-sections">
         <video autoPlay loop muted playsInline id="homepage-hero-video">
-          <source src={hv2} type="video/mp4" />
+          <source src={hv2} type="video/webm" />
         </video>
         <div className="overlay-screen">
           <div id="homepage-hero-content">
