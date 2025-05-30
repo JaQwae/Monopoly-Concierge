@@ -9,6 +9,7 @@ import './App.css'
 function App() {
   const [navHeight, setNavHeight] = useState(0);
 
+  // Initiating Google Analytics Set Up
   useEffect(() => {
     initAnalytics();
   }, []);
