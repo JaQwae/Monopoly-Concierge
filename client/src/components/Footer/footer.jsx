@@ -11,14 +11,14 @@ const Footer = () => {
 
     const subscriberObj = {};
 
-    const requiredFooterFields = [
-        document.getElementById('firstName'),
-        document.getElementById('lastName'),
-        document.getElementById('email')
-    ]
-
     const handleFooterFormSubmit = (e) => {
         e.preventDefault();
+
+        const requiredFooterFields = [
+            document.getElementById('firstName'),
+            document.getElementById('lastName'),
+            document.getElementById('email')
+        ]
 
         subscriberObj.firstName = document.getElementById('firstName').value;
         subscriberObj.lastName = document.getElementById('lastName').value;
@@ -34,7 +34,7 @@ const Footer = () => {
             setSuccessfulSubmission(false);
             
         } else {
-            fetch(`http://localhost:5174/subscriber`, {
+            fetch(`https://monopoly-concierge-backend.onrender.com/subscriber`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

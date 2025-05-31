@@ -1,6 +1,6 @@
 export const initAnalytics = async () => {
     try {
-        const res = await fetch('http://localhost:5174/api/analytics-key');
+        const res = await fetch('https://monopoly-concierge-backend.onrender.com/api/analytics-key');
         const data = await res.json();
 
         if (window.gtag) {

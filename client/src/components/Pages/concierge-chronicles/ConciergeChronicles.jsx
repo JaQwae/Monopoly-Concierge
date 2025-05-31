@@ -46,7 +46,7 @@ const ConciergeChronicles = ({ navHeight }) => {
 
     // Displays the full content of a single article
     const displayFullArticle = async (articleID) => {
-        const url = `http://localhost:5174/chronicles/api/${articleID}`
+        const url = `https://monopoly-concierge-backend.onrender.com/chronicles/api/${articleID}`
         try {
             const response = await fetch(url);
             if (!response.ok) {
