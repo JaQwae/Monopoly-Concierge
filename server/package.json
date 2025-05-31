@@ -9,8 +9,11 @@
     "start": "node server.mjs"
   },
   "keywords": [],
-  "author": "",
+  "author": "JaQwae Ellison",
   "license": "ISC",
+  "engines": {
+    "node": "20.x"
+  },
   "dependencies": {
     "@mailchimp/mailchimp_marketing": "^3.0.80",
     "express": "^5.1.0",
