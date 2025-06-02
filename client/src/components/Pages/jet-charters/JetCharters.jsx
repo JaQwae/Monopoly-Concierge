@@ -40,6 +40,8 @@ const JetCharters = ({ navHeight }) => {
   return (
     <div style={{ marginTop: `${navHeight}px` }} className='pages'>
       <section id='charter-hero-container'>
+        <h1 id='jet-charter-title'>Jet Charters</h1>
+        {/* <h2 id='jet-charter-sub-title'>Your journey begins above the clouds. </h2> */}
         <div id='jet-form-widget'>
           {fields.map((field) => (
             <div key={field.key} className='widget-section'>
