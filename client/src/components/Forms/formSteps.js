@@ -68,7 +68,7 @@ export const baseSteps = [
         fields: [
             {
                 key: 'trip-description',
-                label: 'What best describes your trip',
+                label: 'What best describes your trip?',
                 type: 'checkbox',
                 className: 'input-checkbox',
                 id: 'trip-description',
@@ -97,7 +97,7 @@ export const baseSteps = [
         fields: [
             {
                 key: 'exclusivity-level',
-                label: 'What level of exclusivity do you prefer',
+                label: 'What level of exclusivity do you prefer?',
                 type: 'radio',
                 className: 'not-centered',
                 id: 'exclusivity-level',
@@ -116,7 +116,7 @@ export const baseSteps = [
         fields: [
             {
                 key: 'additional-services',
-                label: 'Would you like to include additional services',
+                label: 'Would you like to include additional services?',
                 type: 'checkbox',
                 className: 'input-checkbox',
                 id: 'additional-services',
@@ -131,7 +131,7 @@ export const baseSteps = [
             },
             {
                 key: 'special-requests',
-                label: 'Any special requests or must-haves',
+                label: 'Any special requests or must-haves?',
                 type: 'text',
                 className: 'input-text checkbox-text-input',
                 id: 'special-requests'
@@ -213,7 +213,7 @@ export const serviceFormSteps = [
             },
             {
                 key: 'how-can-we-help',
-                label: 'How Can We Help',
+                label: 'How Can We Help?',
                 type: 'textarea',
                 className: 'input-textarea',
                 id: 'how-can-we-help'
@@ -406,7 +406,7 @@ export const charterFormSteps = [
         fields: [
             {
                 key: 'transportation-needed',
-                label: 'Do you need transportation services for departure and/or arrival',
+                label: 'Do you need transportation services for departure and/or arrival?',
                 type: 'radio',
                 className: 'input-radio two-question-screen',
                 id: 'transportation-needed',
@@ -417,7 +417,7 @@ export const charterFormSteps = [
             },
             {
                 key: 'wifi-needed',
-                label: 'Do you need Wi-Fi',
+                label: 'Do you need Wi-Fi?',
                 type: 'radio',
                 className: 'input-radio two-question-screen',
                 id: 'wifi-needed',
@@ -434,7 +434,7 @@ export const charterFormSteps = [
         fields: [
             {
                 key: 'traveling-with-pets',
-                label: 'Are you traveling with pets',
+                label: 'Are you traveling with pets?',
                 type: 'radio',
                 className: 'input-radio two-question-screen',
                 id: 'traveling-with-pets',
@@ -445,7 +445,7 @@ export const charterFormSteps = [
             },
             {
                 key: 'catering-needed',
-                label: 'Do you need catering',
+                label: 'Do you need catering?',
                 type: 'radio',
                 className: 'input-radio two-question-screen',
                 id: 'catering-needed',
@@ -462,7 +462,7 @@ export const charterFormSteps = [
         fields: [
             {
                 key: 'chartered-before',
-                label: 'Have you chartered before',
+                label: 'Have you chartered before?',
                 type: 'radio',
                 className: 'input-radio',
                 id: 'chartered-before',
@@ -486,7 +486,7 @@ export const charterFormSteps = [
         fields: [
             {
                 key: 'preferred-aircraft',
-                label: 'Do you have a preferred aircraft',
+                label: 'Do you have a preferred aircraft?',
                 type: 'text',
                 className: 'input-text',
                 id: 'preferred-aircraft'
