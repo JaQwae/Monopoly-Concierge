@@ -109,10 +109,13 @@
     height: 10%;
     font-weight: bold;
     color: var(--footer-text-color);
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
 }
 
 .jet-article-link:hover {
-    color: var(--translucent-color)
+    color: var(--secondary-color);
+    scale: 1.1
 }
 
 /* Carousel Dots */

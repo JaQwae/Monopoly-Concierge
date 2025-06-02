@@ -126,11 +126,12 @@
     height: 33%;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .chronicle-link:hover {
     color: var(--secondary-color);
-    scale: 1.1
+    scale: 1.1;
 }
 
 /* large tablet styling */
