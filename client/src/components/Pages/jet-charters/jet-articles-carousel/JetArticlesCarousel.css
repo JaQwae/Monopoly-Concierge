@@ -43,7 +43,7 @@
 /* Card styling */
 .jet-article-card {
     width: 20em;
-    height: 26em;
+    height: 28em;
     background-color: var(--primary-color);
     border-radius: 2px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -83,20 +83,32 @@
 
     /* Title */
 .jet-article-title {
+    display: flex;
+    align-items: center;
     font-size: 1.2em;
     margin: 0em;
     text-align: center;
+    height: 33%;
+
 }
 
     /* Description */
 .jet-article-description {
+    display: flex;
+    align-items: center;
     text-align: center;
+    height: 33%;
 }
 
     /* Read More Link */
 .jet-article-link {
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    margin-top: 1em;
+    margin: 0em;
+    height: 10%;
+    font-weight: bold;
+    color: var(--footer-text-color);
 }
 
 .jet-article-link:hover {
@@ -178,7 +190,7 @@
 
     .jet-article-description {
         font-size: 1em;
-        margin: 0.5em 0em;
+        margin: 0.8em 0em;
     }
 
     .jet-article-link {

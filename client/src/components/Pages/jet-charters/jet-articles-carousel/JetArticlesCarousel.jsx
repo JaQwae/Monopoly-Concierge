@@ -10,7 +10,7 @@ import './JetArticlesCarousel.css';
 
 const JetArticlesCarousel = () => {
     const allowedCategories = ['JETS', 'TIPS'];
-    const [selectedCategory, setSelectedCategory] = useState('All');
+    const [selectedCategory, setSelectedCategory] = useState('ALL');
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -36,7 +36,7 @@ const JetArticlesCarousel = () => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    const allCategories = ['All', ...allowedCategories];
+    const allCategories = ['ALL', ...allowedCategories];
 
     // Only include articles with Jets or Tip category
     const validArticles = articles.filter(article =>
@@ -44,7 +44,7 @@ const JetArticlesCarousel = () => {
     );
 
     const filteredCards =
-        selectedCategory === 'All'
+        selectedCategory === 'ALL'
             ? validArticles
             : validArticles.filter((card) => card.category === selectedCategory);
 
