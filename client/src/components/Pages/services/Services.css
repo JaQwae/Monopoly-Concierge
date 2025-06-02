@@ -12,8 +12,8 @@
 #services-filter-btn-container h1 {
     font-size: 3.5em;
     font-family: var(--heading-font);
-    text-shadow: var(--primary-color) 2px 5px;
-    margin: 0em 1em;
+    text-shadow: var(--footer-text-color) 2px 5px;
+    margin: 0.2em 0.5em;
     color: var(--secondary-color)
 }
 
@@ -37,7 +37,6 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    /* display: inline-block;  */
     width: 100%;
     margin-bottom: 1.5em;
     break-inside: avoid;
