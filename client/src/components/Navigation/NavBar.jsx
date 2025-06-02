@@ -152,6 +152,13 @@ const NavBar = ({ setNavHeight }) => {
                     <li className="nav-tabs">Properties</li>
                 </NavLink>
                 <NavLink
+                    to="/services"
+                    onClick={() => closeMobileNav()}
+                    className={isHomePage ? "nav-links nav-links-home" : "nav-links nav-links-not-home"}
+                >
+                    <li className="nav-tabs">Concierge Services</li>
+                </NavLink>
+                <NavLink
                     to="/charters"
                     onClick={() => closeMobileNav()}
                     className={isHomePage ? "nav-links nav-links-home" : "nav-links nav-links-not-home"}
@@ -165,13 +172,7 @@ const NavBar = ({ setNavHeight }) => {
                 >
                     <li className="nav-tabs">Car Rentals</li>
                 </NavLink>
-                <NavLink
-                    to="/services"
-                    onClick={() => closeMobileNav()}
-                    className={isHomePage ? "nav-links nav-links-home" : "nav-links nav-links-not-home"}
-                >
-                    <li className="nav-tabs">Services</li>
-                </NavLink>
+                
                 <NavLink 
                     to="/chronicles" 
                     onClick={() => closeMobileNav()}
