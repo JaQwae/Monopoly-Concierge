@@ -8,7 +8,7 @@ import ArticleDialogBox from '../../ArticleDialogBox/ArticleDialogBox';
 import './ConciergeChronicles.css';
 
 const ConciergeChronicles = ({ navHeight }) => {
-    const [selectedCategory, setSelectedCategory] = useState('All');
+    const [selectedCategory, setSelectedCategory] = useState('ALL');
     const [filterHeight, setFilterHeight] = useState(0);
     const filterRef = useRef(null);
     const chroniclesRef = useRef(null);
@@ -33,9 +33,9 @@ const ConciergeChronicles = ({ navHeight }) => {
         return () => observer.disconnect();
     }, []);
 
-    const allCategories = ['All', ...new Set(ChroniclesData.map(article => article.category))].sort();
-    const mainCategories = ['All', 'TIPS', 'JOURNEYS', 'CULTURE'];
-    const filteredArticles = selectedCategory === 'All'
+    const allCategories = ['ALL', ...new Set(ChroniclesData.map(article => article.category))].sort();
+    const mainCategories = ['ALL', 'TIPS', 'JOURNEYS', 'CULTURE'];
+    const filteredArticles = selectedCategory === 'ALL'
         ? ChroniclesData
         : ChroniclesData.filter(article => article.category === selectedCategory);
 
