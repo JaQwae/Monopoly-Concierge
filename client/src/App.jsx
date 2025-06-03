@@ -7,6 +7,7 @@ const Footer = lazy(() => import('./components/Footer/footer.jsx'));
 import './App.css'
 
 function App() {
+  const [toggleDisplay, setToggleDisplay] = useState(false);
   const [navHeight, setNavHeight] = useState(0);
 
   // Initiating Google Analytics Set Up
@@ -24,7 +25,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar setNavHeight={setNavHeight} />
+      <NavBar setNavHeight={setNavHeight} setToggleDisplay={setToggleDisplay} toggleDisplay={toggleDisplay}/>
       <Suspense fallback={<Loading />}>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -38,7 +39,7 @@ function App() {
       <Suspense fallback={null}>
         <Footer />
       </Suspense>
-
+      <div id={toggleDisplay && window.innerWidth <= 1024 ? 'nav-overlay' : ''}/>
     </BrowserRouter>
   )
 }

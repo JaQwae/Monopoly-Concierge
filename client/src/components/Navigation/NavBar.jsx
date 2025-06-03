@@ -9,19 +9,19 @@ import './NavBar.css';
 const BookBtnSidebar = lazy(() => import('../BookBtnSidebar/BookBtnSidebar.jsx'));
 
 // NavBar Component
-const NavBar = ({ setNavHeight }) => {
-    const [toggleDisplay, setToggleDisplay] = useState(false); // Navbar toggle state
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth); // Track window width
+const NavBar = ({ setNavHeight, setToggleDisplay, toggleDisplay }) => {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const navRef = useRef(null);
     const location = useLocation();
     const [isHomePage, setIsHomePage] = useState(true);
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false); // State for BookBtnSidebar visibility
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
 
     // Effect to monitor window size and handle navbar display
     useEffect(() => {
         const handleResize = () => {
-            const currentWidth = window.innerWidth; // Use window.innerWidth directly
-            setWindowWidth(currentWidth); // Update window width state
+            const currentWidth = window.innerWidth;
+            setWindowWidth(currentWidth);
 
             // Dynamically determine if it's a mobile view
             if (currentWidth <= 1024) {
@@ -49,7 +49,7 @@ const NavBar = ({ setNavHeight }) => {
             const currentWidth = window.innerWidth;
 
             if (currentWidth <= 1024 && toggleDisplay && navRef.current && !navRef.current.contains(event.target)) {
-                setToggleDisplay(false); // Close the navbar
+                setToggleDisplay(false);
             }
         };
 
@@ -61,8 +61,23 @@ const NavBar = ({ setNavHeight }) => {
     useEffect(() => {
         closeMobileNav();
         verifyHomePage();
-        window.scrollTo(0, 0); // Scroll webpage to the top
+        window.scrollTo(0, 0);
     }, [location.pathname]);
+
+    // Add scroll lock when nav menu is open
+    useEffect(() => {
+        const isMobileView = window.innerWidth <= 1024;
+
+        if (isMobileView && toggleDisplay) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [toggleDisplay]);
 
     // Automatically closes nav bar when navigating to a new tab    
     const closeMobileNav = () => {
@@ -91,25 +106,45 @@ const NavBar = ({ setNavHeight }) => {
     useEffect(() => {
         const updateNavHeight = () => {
             if (navRef.current) {
-                setNavHeight(navRef.current.offsetHeight);
+                const isMobileView = window.innerWidth <= 1024;
+
+                // Only update navHeight when not in mobile open state
+                if (!(isMobileView && toggleDisplay)) {
+                    setNavHeight(navRef.current.offsetHeight);
+                }
             }
         };
-    
-        updateNavHeight(); // Set height immediately
+
+        updateNavHeight();
         window.addEventListener('resize', updateNavHeight);
-    
+
         return () => window.removeEventListener('resize', updateNavHeight);
     }, [toggleDisplay, windowWidth, setNavHeight]);
 
+    // Handles have the navbar styles when user scrolls on the page
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollY = window.scrollY;
+
+            // Custom threshold for homepage
+            const threshold = location.pathname === '/' ? 300 : 0;
+
+            setIsScrolled(scrollY > threshold);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [location.pathname]);
 
     return (
-        <nav 
+        <nav
             ref={navRef}
             id='nav-bar-container'
-            className={isHomePage ? "nav-bar-container-home" : "nav-bar-container-not-home"}
-            style={{
-                backgroundColor: isHomePage ? 'transparent' : '#FFFDF5'
-            }}
+            className={`
+                ${isHomePage && !isScrolled ? "nav-bar-container-home" : "nav-bar-container-not-home"} 
+                ${(windowWidth <= 1024 && toggleDisplay) ? 'mobile-open' : ''}
+                ${isScrolled ? 'nav-bar-container-scrolled' : ''}
+            `}
         >
             {/* Upper Navbar */}
             <div id="upper-nav-container">
@@ -122,7 +157,7 @@ const NavBar = ({ setNavHeight }) => {
                 <NavLink to="/" onClick={() => closeMobileNav()}>
                     <img
                         id="nav-logo"
-                        src={isHomePage ? primaryLogoWhite : primaryLogo}
+                        src={isHomePage && !isScrolled ? primaryLogoWhite : primaryLogo}
                         alt="The word Monopoly Concierge with a top over it"
                     />
                 </NavLink>
@@ -132,7 +167,7 @@ const NavBar = ({ setNavHeight }) => {
                     btnIdName={'nav-cta-btn'}
                     displayName='BOOK'
                     btnAction={toggleSidebar}
-                    btnClassName={isHomePage ? "cta-btn-home" : "cta-btn-not-home"}
+                    btnClassName={isHomePage && !isScrolled ? "cta-btn-home" : "cta-btn-not-home"}
                 />
             </div>
 
@@ -140,43 +175,43 @@ const NavBar = ({ setNavHeight }) => {
             <ul
                 id="nav-tab-container"
                 style={{
-                    display: toggleDisplay ? 'flex' : 'none', // Dynamic display based on screen size
+                    display: toggleDisplay ? 'flex' : 'none', 
                 }}
-                className={isHomePage ? "nav-tab-container-home" : "nav-tab-container-not-home"}
+                className={isHomePage && !isScrolled ? "nav-tab-container-home" : "nav-tab-container-not-home"}
             >
                 <NavLink
                     to="/properties"
                     onClick={() => closeMobileNav()}
-                    className={isHomePage ? "nav-links nav-links-home" : "nav-links nav-links-not-home"}
+                    className={isHomePage && !isScrolled ? "nav-links nav-links-home" : "nav-links nav-links-not-home"}
                 >
                     <li className="nav-tabs">Properties</li>
                 </NavLink>
                 <NavLink
                     to="/services"
                     onClick={() => closeMobileNav()}
-                    className={isHomePage ? "nav-links nav-links-home" : "nav-links nav-links-not-home"}
+                    className={isHomePage && !isScrolled ? "nav-links nav-links-home" : "nav-links nav-links-not-home"}
                 >
                     <li className="nav-tabs">Concierge Services</li>
                 </NavLink>
                 <NavLink
                     to="/charters"
                     onClick={() => closeMobileNav()}
-                    className={isHomePage ? "nav-links nav-links-home" : "nav-links nav-links-not-home"}
+                    className={isHomePage && !isScrolled ? "nav-links nav-links-home" : "nav-links nav-links-not-home"}
                 >
                     <li className="nav-tabs">Jet Charters</li>
                 </NavLink>
                 <NavLink
                     to="/rentals"
                     onClick={() => closeMobileNav()}
-                    className={isHomePage ? "nav-links nav-links-home" : "nav-links nav-links-not-home"}
+                    className={isHomePage && !isScrolled ? "nav-links nav-links-home" : "nav-links nav-links-not-home"}
                 >
                     <li className="nav-tabs">Car Rentals</li>
                 </NavLink>
-                
-                <NavLink 
-                    to="/chronicles" 
+
+                <NavLink
+                    to="/chronicles"
                     onClick={() => closeMobileNav()}
-                    className={isHomePage ? "nav-links nav-links-home" : "nav-links nav-links-not-home"}
+                    className={isHomePage && !isScrolled ? "nav-links nav-links-home" : "nav-links nav-links-not-home"}
                 >
                     <li className="nav-tabs">Concierge Chronicles</li>
                 </NavLink>
@@ -191,5 +226,7 @@ const NavBar = ({ setNavHeight }) => {
 export default NavBar;
 
 NavBar.propTypes = {
-    setNavHeight: PropTypes.func
+    setNavHeight: PropTypes.func,
+    setToggleDisplay: PropTypes.func,
+    toggleDisplay: PropTypes.bool
 } 

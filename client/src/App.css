@@ -19,11 +19,15 @@
     --general-font: 'Baskerville', 'Libre Baskerville', Georgia;
 }
 
+html{
+    background-color: var(--primary-color)
+}
+
 body {
     background-color: var(--primary-color);
     margin: 0;
     overflow-x: hidden;
-    font-family:var(--general-font);
+    font-family: var(--general-font);
 }
 
 a {
@@ -40,7 +44,7 @@ a {
     overflow-x: hidden;
 }
 
-.page-sections{
+.page-sections {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -49,32 +53,12 @@ a {
     align-items: center;
 }
 
-/* large tablet styling */
-/* @media screen and (max-width: 1024px) {
-
-} */
-
-/* small tablet styling */
-/* @media screen and (max-width: 910px) {    
-
-} */
-
-/* small tablet styling: landscape */
-/* @media (orientation: landscape) and (max-width: 1024px) {
-
-} */
-
-/* mobile styling */
-/* @media screen and (max-width: 767px) {
-
-} */
-
-/* large mobile styling: landscape devices*/
-/* @media (orientation: landscape) and (max-width: 950px) {
-
-} */
-
-/* small mobile styling: landscape devices*/
-/* @media (orientation: landscape) and (max-width: 719px) {
-
-} */
+#nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 98;
+}
