@@ -1,0 +1,98 @@
+#error-dialog-container .MuiDialog-paper {
+    height: 100vh;
+}
+
+#error-dialog-title {
+    font-size: 2rem;
+    font-weight: 400;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    font-family: var(--heading-font);
+    text-align: center;
+}
+
+#error-dialog-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-image: url('../../assets/form/monopolyGuyShrugging.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: var(--tertiary-color);
+}
+
+#error-dialog-message {
+    font-weight: 900;
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 1.5em;
+    text-shadow: var(--secondary-color) 1px 0 10px;
+    line-height: 1.75;
+}
+
+#error-dialog-btn-container {
+    background-color: var(--secondary-color);
+}
+
+.error-dialog-btns {
+    all: unset;
+    font-size: 1.5em;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+    color: var(--primary-color);
+    font-family: var(--sub-heading-font);
+    text-shadow:
+        1px 1px 2px var(--secondary-color),
+        0 0 0.2em var(--tertiary-color);
+    padding: 0.5rem 1rem;
+    letter-spacing: 0.1rem;
+    cursor: pointer;
+}
+
+.error-dialog-btns:hover,
+.error-dialog-btns:focus {
+    color: var(--tertiary-color);
+    text-shadow:
+        1px 1px 2px var(--secondary-color);
+}
+
+/* tablet styling */
+@media screen and (max-width: 1024px) {
+    #error-dialog-title {
+        font-size: 2.5rem;
+    }
+
+    #error-dialog-message {
+        color: var(--primary-color);
+        font-size: 2em;
+    }
+
+    .error-dialog-btns {
+        font-size: 2em;
+        padding: 1rem 1.5rem;
+    }
+}
+
+/* mobile styling */
+@media screen and (max-width: 767px) {
+    #error-dialog-content {
+        background-position: center 55%;
+    }
+
+    #error-dialog-title {
+        font-size: 1.5rem;
+    }
+
+    #error-dialog-message {
+        color: var(--primary-color);
+        font-size: 1.2em;
+        line-height: 1.5;
+    }
+
+    .error-dialog-btns {
+        font-size: 1.5em;
+        padding: 0.5rem 1rem;
+    }
+}

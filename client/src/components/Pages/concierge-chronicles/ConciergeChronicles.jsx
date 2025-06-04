@@ -5,6 +5,7 @@ import altLogo2 from '../../../assets/logos/alt-logo-1-black.png';
 import Buttons from '../../Buttons/Button';
 import CategoryModal from '../../CategoryModal/CategoryModal';
 import ArticleDialogBox from '../../ArticleDialogBox/ArticleDialogBox';
+import ErrorScreen from '../../ErrorScreen/ErrorScreen'
 import './ConciergeChronicles.css';
 
 const ConciergeChronicles = ({ navHeight }) => {
@@ -14,7 +15,8 @@ const ConciergeChronicles = ({ navHeight }) => {
     const chroniclesRef = useRef(null);
     const [open, setOpen] = useState(false); //Handles display for category modals
     const [isArticleOpen, setIsArticleOpen] = useState(false); //Handles display for articles
-    const [articleData, setArticleData] = useState(null)
+    const [articleData, setArticleData] = useState(null);
+    const [isErrorScreen, setIsErrorScreen] = useState(false);
 
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -52,87 +54,96 @@ const ConciergeChronicles = ({ navHeight }) => {
             if (!response.ok) {
                 throw new Error(`Response status: ${response.status}`);
             }
-
+            
             let data = await response.json();
             setArticleData(data);
             setIsArticleOpen(true)
-        } catch (error) {
-            console.error(error.message);
+            
+        } catch {
+            setIsErrorScreen(true)
         }
     }
 
-return (
-    <div style={{ marginTop: `${navHeight}px` }} className='pages'>
-        {/* Filter Buttons */}
-        <div ref={filterRef} id='chronicles-filter-btn-container' className="filter-buttons-container" style={{ position: 'fixed', top: `${navHeight}px` }}>
-            <div id="chronicles-filter-button-modal-container">
-                <Buttons
-                    displayName={<i className="fa-solid fa-sliders"></i>}
-                    btnAction={handleOpen}
-                    btnIdName={'chronicles-filter-button-modal'}
-                >
-                    Open modal
-                </Buttons>
-            </div>
-            <div id='chronicles-filter-buttons' className="filter-buttons">
-                {mainCategories.map(category => (
+    return (
+        <div style={{ marginTop: `${navHeight}px` }} className='pages'>
+            {/* Filter Buttons */}
+            <div ref={filterRef} id='chronicles-filter-btn-container' className="filter-buttons-container" style={{ position: 'fixed', top: `${navHeight}px` }}>
+                <div id="chronicles-filter-button-modal-container">
                     <Buttons
-                        key={category}
-                        displayName={category}
-                        btnClassName={selectedCategory === category ? 'active' : ''}
-                        btnAction={() => setSelectedCategory(category)}
-                    />
-                ))}
-            </div>
-        </div>
-
-        {/* Display Filtered Articles */}
-        <div ref={chroniclesRef} className="chronicles-container" style={{ paddingTop: `${filterHeight}px` }}>
-            {filteredArticles.map((article) => (
-                <div className="chronicle-card" key={article.title}>
-                    <div className='chronicle-image-container'>
-                        <img src={altLogo2} alt='Concierge Chronicles Logo' className='chronicle-logo' />
-                        <img src={article.image} alt={article.alt} className="chronicle-image" />
-                    </div>
-                    <div className="chronicle-content">
-                        <h3 className="chronicle-title">{article.title}</h3>
-                        <p className="chronicle-description">{article.description}</p>
-                        <button
-                            className="chronicle-link"
-                            onClick={() => displayFullArticle(article.id)}
-                        >Learn More &#10148;</button>
-                    </div>
+                        displayName={<i className="fa-solid fa-sliders"></i>}
+                        btnAction={handleOpen}
+                        btnIdName={'chronicles-filter-button-modal'}
+                    >
+                        Open modal
+                    </Buttons>
                 </div>
-            ))}
-        </div>
+                <div id='chronicles-filter-buttons' className="filter-buttons">
+                    {mainCategories.map(category => (
+                        <Buttons
+                            key={category}
+                            displayName={category}
+                            btnClassName={selectedCategory === category ? 'active' : ''}
+                            btnAction={() => setSelectedCategory(category)}
+                        />
+                    ))}
+                </div>
+            </div>
 
-        {/* Filter Button Modal */}
-        <CategoryModal open={open} handleClose={handleClose}>
-            <div className="modal-categories">
-                {allCategories.map(category => (
-                    <Buttons
-                        key={category}
-                        displayName={category}
-                        btnClassName={selectedCategory === category ? 'active' : ''}
-                        btnAction={() => {
-                            setSelectedCategory(category);
-                            handleClose();
-                        }}
-                    />
+            {/* Display Filtered Articles */}
+            <div ref={chroniclesRef} className="chronicles-container" style={{ paddingTop: `${filterHeight}px` }}>
+                {filteredArticles.map((article) => (
+                    <div className="chronicle-card" key={article.title}>
+                        <div className='chronicle-image-container'>
+                            <img src={altLogo2} alt='Concierge Chronicles Logo' className='chronicle-logo' />
+                            <img src={article.image} alt={article.alt} className="chronicle-image" />
+                        </div>
+                        <div className="chronicle-content">
+                            <h3 className="chronicle-title">{article.title}</h3>
+                            <p className="chronicle-description">{article.description}</p>
+                            <button
+                                className="chronicle-link"
+                                onClick={() => displayFullArticle(article.id)}
+                            >Learn More &#10148;</button>
+                        </div>
+                    </div>
                 ))}
             </div>
-        </CategoryModal>
 
-        {/* Article Display Box */}
-        {articleData && isArticleOpen && (
-        <ArticleDialogBox 
-            isOpen={isArticleOpen} 
-            handleArticleView={setIsArticleOpen} 
-            article={articleData}
-        />
-)}
-    </div>
-);
+            {/* Filter Button Modal */}
+            <CategoryModal open={open} handleClose={handleClose}>
+                <div className="modal-categories">
+                    {allCategories.map(category => (
+                        <Buttons
+                            key={category}
+                            displayName={category}
+                            btnClassName={selectedCategory === category ? 'active' : ''}
+                            btnAction={() => {
+                                setSelectedCategory(category);
+                                handleClose();
+                            }}
+                        />
+                    ))}
+                </div>
+            </CategoryModal>
+
+            {/* Article Display Box */}
+            {articleData && isArticleOpen && (
+                <ArticleDialogBox
+                    isOpen={isArticleOpen}
+                    handleArticleView={setIsArticleOpen}
+                    article={articleData}
+                />
+            )}
+
+            {/* Error Screen */}
+            {isErrorScreen && (
+                <ErrorScreen
+                    isOpen={isErrorScreen}
+                    handleClose={() => setIsErrorScreen(false)}
+                />
+            )}
+        </div>
+    );
 };
 
 ConciergeChronicles.propTypes = {
