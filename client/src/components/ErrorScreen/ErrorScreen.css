@@ -60,6 +60,10 @@
 
 /* tablet styling */
 @media screen and (max-width: 1024px) {
+    #error-dialog-container .MuiDialog-paper {
+        height: 80vh;
+    }
+
     #error-dialog-title {
         font-size: 2.5rem;
     }
