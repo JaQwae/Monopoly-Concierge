@@ -36,7 +36,7 @@ const ConciergeChronicles = ({ navHeight }) => {
     }, []);
 
     const allCategories = ['ALL', ...new Set(ChroniclesData.map(article => article.category))].sort();
-    const mainCategories = ['ALL', 'TIPS', 'JOURNEYS', 'CULTURE'];
+    const mainCategories = ['ALL', 'CAR RENTALS', 'CONCIERGE SERVICES', 'PRIVATE JET TRAVEL', 'PROPERTIES'];
     const filteredArticles = selectedCategory === 'ALL'
         ? ChroniclesData
         : ChroniclesData.filter(article => article.category === selectedCategory);
