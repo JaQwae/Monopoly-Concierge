@@ -25,6 +25,7 @@ const SingleFormContent = ({ pageForm, handleClose, prefillData, steps }) => {
     const [showFormContent, setShowFormContent] = useState(true);
     const [errorMessage, setErrorMessage] = useState(null);
     const isPriveForm = pageForm === 'properties';
+    const [isErrorScreen, setIsErrorScreen] = useState(false);
 
     useEffect(() => {
         if (prefillData) {
@@ -66,13 +67,13 @@ const SingleFormContent = ({ pageForm, handleClose, prefillData, steps }) => {
     const handleFormSubmit = (formType, userData) => {
         setShowFormContent(false);
 
-        if((formType === 'charters') && (userData['concierge-opt-in'].length === 1)) {
+        if ((formType === 'charters') && (userData['concierge-opt-in'].length === 1)) {
             // Creating a subscriber object to hit the mailchimp endpoint 
             const subscriberObj = {};
             const nameArr = userData['full-name'].split(" ");
             subscriberObj.firstName = nameArr[0];
-            subscriberObj.lastName = nameArr[nameArr.length -1];
-            subscriberObj.email= userData.email;
+            subscriberObj.lastName = nameArr[nameArr.length - 1];
+            subscriberObj.email = userData.email;
 
             // API mailchimp endpoint call
             fetch(`https://monopoly-concierge-backend.onrender.com/subscriber`, {
@@ -83,10 +84,9 @@ const SingleFormContent = ({ pageForm, handleClose, prefillData, steps }) => {
                 body: JSON.stringify({ data: subscriberObj }),
             })
                 .then(response => response.json())
-                .then(data => console.log('Response from server:', data))
                 .catch(error => console.error('Error:', error));
         }
-    
+
         // API nodemailer endpoint call
         fetch(`https://monopoly-concierge-backend.onrender.com/${formType}/form`, {
             method: "POST",
@@ -96,8 +96,10 @@ const SingleFormContent = ({ pageForm, handleClose, prefillData, steps }) => {
             body: JSON.stringify({ data: userData }),
         })
             .then(response => response.json())
-            .then(data => console.log('Response from server:', data))
-            .catch(error => console.error('Error:', error));
+            .catch((error) => {
+                console.error('Error:', error)
+                setIsErrorScreen(true)
+            });
     };
 
     return (
@@ -248,6 +250,13 @@ const SingleFormContent = ({ pageForm, handleClose, prefillData, steps }) => {
                 </>
             ) : (
                 <SuccessfulSubmission handleClose={handleClose} />
+            )}
+
+            {isErrorScreen && (
+                <ErrorScreen
+                    isOpen={isErrorScreen}
+                    handleClose={() => setIsErrorScreen(false)}
+                />
             )}
         </section>
     );
