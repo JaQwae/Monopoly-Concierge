@@ -31,7 +31,7 @@ const Properties = ({ navHeight }) => {
       </section>
       <section id='properties-partnership-container'>
         <p>
-          Ready to transform your Airbnb into a Monopoly Concierge-branded property?
+          Ready to transform your Airbnb into a Monopoly Concierge branded property?
         </p>
         <a 
             href='https://www.monopolyservices.com'
