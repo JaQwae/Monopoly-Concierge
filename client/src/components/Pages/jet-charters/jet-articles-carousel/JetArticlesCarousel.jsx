@@ -6,6 +6,8 @@ import articles from '../../../../data/ChroniclesData';
 import altLogo2 from '../../../../assets/logos/alt-logo-1-black.png';
 import CategoryModal from '../../../CategoryModal/CategoryModal';
 import Buttons from '../../../Buttons/Button';
+import ArticleDialogBox from '../../../ArticleDialogBox/ArticleDialogBox';
+import ErrorScreen from '../../../ErrorScreen/ErrorScreen';
 import './JetArticlesCarousel.css';
 
 const JetArticlesCarousel = () => {
@@ -19,6 +21,10 @@ const JetArticlesCarousel = () => {
     const [slideDirection, setSlideDirection] = useState('left');
     const [cardsPerPage, setCardsPerPage] = useState(getCardsPerPage());
     const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 767);
+
+    const [isArticleOpen, setIsArticleOpen] = useState(false); //Handles display for articles
+    const [articleData, setArticleData] = useState(null);
+    const [isErrorScreen, setIsErrorScreen] = useState(false);
 
     function getCardsPerPage() {
         const width = window.innerWidth;
@@ -62,6 +68,24 @@ const JetArticlesCarousel = () => {
 
     const startIndex = currentPage * cardsPerPage;
     const visibleCards = filteredCards.slice(startIndex, startIndex + cardsPerPage);
+
+        // Displays the full content of a single article
+    const displayFullArticle = async (articleID) => {
+        const url = `${import.meta.env.VITE_BACKEND_URL}/chronicles/api/${articleID}`
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`Response status: ${response.status}`);
+            }
+            
+            let data = await response.json();
+            setArticleData(data);
+            setIsArticleOpen(true)
+            
+        } catch {
+            setIsErrorScreen(true)
+        }
+    }
 
     return (
         <Box className="carousel-container">
@@ -128,6 +152,7 @@ const JetArticlesCarousel = () => {
                                     href={card.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
+                                    onClick={() => displayFullArticle(card.id)}
                                 >
                                     Read More →
                                 </a>
@@ -159,6 +184,23 @@ const JetArticlesCarousel = () => {
                     </Box>
                 )}
             </Box>
+
+                        {/* Article Display Box */}
+                        {articleData && isArticleOpen && (
+                            <ArticleDialogBox
+                                isOpen={isArticleOpen}
+                                handleArticleView={setIsArticleOpen}
+                                article={articleData}
+                            />
+                        )}
+            
+                        {/* Error Screen */}
+                        {isErrorScreen && (
+                            <ErrorScreen
+                                isOpen={isErrorScreen}
+                                handleClose={() => setIsErrorScreen(false)}
+                            />
+                        )}
         </Box>
     );
 };

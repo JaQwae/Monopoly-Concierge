@@ -5,7 +5,7 @@ import altLogo2 from '../../../assets/logos/alt-logo-1-black.png';
 import Buttons from '../../Buttons/Button';
 import CategoryModal from '../../CategoryModal/CategoryModal';
 import ArticleDialogBox from '../../ArticleDialogBox/ArticleDialogBox';
-import ErrorScreen from '../../ErrorScreen/ErrorScreen'
+import ErrorScreen from '../../ErrorScreen/ErrorScreen';
 import './ConciergeChronicles.css';
 
 const ConciergeChronicles = ({ navHeight }) => {
@@ -48,7 +48,7 @@ const ConciergeChronicles = ({ navHeight }) => {
 
     // Displays the full content of a single article
     const displayFullArticle = async (articleID) => {
-        const url = `https://monopoly-concierge-backend.onrender.com/chronicles/api/${articleID}`
+        const url = `${import.meta.env.VITE_BACKEND_URL}/chronicles/api/${articleID}`
         try {
             const response = await fetch(url);
             if (!response.ok) {
