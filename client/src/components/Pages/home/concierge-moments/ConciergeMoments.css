@@ -11,7 +11,7 @@
 
 #concierge-moments-title {
     position: absolute;
-    top: 30%;
+    top: 22%;
     left: 2%;
     font-family: "Retrofunk", sans-serif;
     font-size: 4em;
@@ -21,15 +21,15 @@
 
 #polaroid-track {
     position: absolute;
-    top: 48%;
+    top: 40%;
     display: flex;
     justify-content: center;
 }
 
 .polaroid {
-    width: 14em;
-    height: 17em;
-    padding: 0 1.9em;
+    width: 20em;
+    height: 25em;
+    padding: 0 2.5em;
     object-fit: cover;
     object-position: 50% 0%;
 }

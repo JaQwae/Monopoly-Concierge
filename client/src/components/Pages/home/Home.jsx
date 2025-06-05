@@ -1,26 +1,30 @@
-import React, { useState, lazy, Suspense, useRef } from 'react';
-import hv2 from '../../../assets/home/act-place.webm';
+import React, { useState, useEffect, useRef, lazy, Suspense } from 'react';
+import monopolyConciergeHeroVideo from '../../../assets/home/monopolyConciergeHeroVideo.webm';
+import monopolyConciergeHeroVideoMobile from '../../../assets/home/monopolyConciergeHeroVideoMobile.webm';
 import Button from "../../Buttons/Button";
+import { ConciergeMoments } from './concierge-moments/ConciergeMoments';
 import './Home.css';
 
-const ConciergeMoments = lazy(() => import('./concierge-moments/ConciergeMoments')
-  .then(module => ({ default: module.ConciergeMoments })));
 const BookBtnSidebar = lazy(() => import('../../BookBtnSidebar/BookBtnSidebar'));
 
 const Home = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768 && window.innerHeight > window.innerWidth);
   const conciergeMomentsSection = useRef(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768 && window.innerHeight > window.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const heroVideoControls = () => {
     const heroVideo = document.getElementById('homepage-hero-video');
     setIsVideoPlaying(!isVideoPlaying);
-
-    if (isVideoPlaying) {
-      heroVideo.pause();
-    } else {
-      heroVideo.play();
-    }
+    isVideoPlaying ? heroVideo.pause() : heroVideo.play();
   };
 
   const scrollToNextSection = () => {
@@ -39,8 +43,18 @@ const Home = () => {
   return (
     <div id="home-page" className="pages">
       <section id="hero-section" className="page-sections">
-        <video autoPlay loop muted playsInline id="homepage-hero-video">
-          <source src={hv2} type="video/webm" />
+        <video
+          key={isMobile ? 'mobile' : 'desktop'}
+          autoPlay
+          loop
+          muted
+          playsInline
+          id="homepage-hero-video"
+        >
+          <source
+            src={isMobile ? monopolyConciergeHeroVideoMobile : monopolyConciergeHeroVideo}
+            type="video/webm"
+          />
         </video>
         <div className="overlay-screen">
           <div id="homepage-hero-content">
@@ -56,9 +70,7 @@ const Home = () => {
         </div>
       </section>
 
-      <Suspense fallback={null}>
-        <ConciergeMoments ref={conciergeMomentsSection} />
-      </Suspense>
+      <ConciergeMoments ref={conciergeMomentsSection} />
 
       <Suspense fallback={null}>
         {isSidebarOpen && <BookBtnSidebar isOpen={isSidebarOpen} closeSidebar={toggleSidebar} />}

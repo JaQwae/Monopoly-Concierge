@@ -33,10 +33,19 @@ const SuccessfulSubmission = ({handleClose, onFooter=false}) => {
                     handleClose();
                 }}
             >
-                <CloseIcon id='successful-submission-x-icon' />
+                <CloseIcon 
+                    id={isTabletView && !onFooter ? 
+                        'successful-submission-x-icon-mobile': 'successful-submission-x-icon'
+                    }
+                />
             </button>
-            <h2>Submission Successful</h2>
-            <p>
+            <h2 
+                id={isTabletView && !onFooter ? 'successful-submission-heading': ''}
+                >Submission Successful
+            </h2>
+            <p
+                id={isTabletView && !onFooter ? 'successful-submission-message': ''}    
+            >
                 Thank you for submitting the inquiry form.
                 A team member will be contacting you in the next 24-48 hours with the next steps.
             </p>

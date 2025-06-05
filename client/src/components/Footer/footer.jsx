@@ -3,52 +3,72 @@ import Button from '../Buttons/Button';
 import FormModal from '../Forms/FormModal';
 import { validateFooterInputs } from '../../utils/validateFooterInputs.mjs'
 import FooterDialogBox from './FooterDialogBox/FooterDialogBox.jsx';
+import ErrorScreen from '../ErrorScreen/ErrorScreen.jsx';
 import './footer.css'
 
 const Footer = () => {
     const [openDialogBox, setOpenDialogBox] = useState(false);
     const [successfulSubmission, setSuccessfulSubmission] = useState(false);
+    const [isErrorScreen, setIsErrorScreen] = useState(false);
 
-    const subscriberObj = {};
-
-    const requiredFooterFields = [
-        document.getElementById('firstName'),
-        document.getElementById('lastName'),
-        document.getElementById('email')
-    ]
+    // Form inputs
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [city, setCity] = useState('');
+    const [stateVal, setStateVal] = useState('');
 
     const handleFooterFormSubmit = (e) => {
         e.preventDefault();
 
-        subscriberObj.firstName = document.getElementById('firstName').value;
-        subscriberObj.lastName = document.getElementById('lastName').value;
-        subscriberObj.email = document.getElementById('email').value;
-        subscriberObj.city = document.getElementById('city').value;
-        subscriberObj.state = document.getElementById('state').value;
+        const subscriberObj = {
+            firstName,
+            lastName,
+            email,
+            city,
+            state: stateVal
+        };
 
-        const checkInputs = requiredFooterFields.map((footerInput) => {
-            return validateFooterInputs(subscriberObj, footerInput)
+        const requiredIds = ['firstName', 'lastName', 'email'];
+
+        const checkInputs = requiredIds.map((id) => {
+            const field = document.getElementById(id);
+            return validateFooterInputs(field);
         });
 
         if (checkInputs.includes(false)) {
             setSuccessfulSubmission(false);
-            
+            setOpenDialogBox(true);
         } else {
-            fetch(`http://localhost:5174/subscriber`, {
+            callToMailchimp(subscriberObj)
+            .then(setSuccessfulSubmission(true))
+            .then(setOpenDialogBox(true))
+            .catch((error) => {
+                console.error('Submission error:', error);
+                setIsErrorScreen(true);
+            })
+        }
+    };
+
+    const callToMailchimp = async (subscriberObj) => {
+        try {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/subscriber`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({ data: subscriberObj }),
-            })
-                .then(response => response.json())
-                .then(data => console.log('Response from server:', data))
-                .catch(error => console.error('Error:', error));
-            setSuccessfulSubmission(true);
-        }
+            });
 
-        setOpenDialogBox(true);
-    }
+            if (!response.ok) {
+                throw new Error(`Server error: ${response.status}`);
+            }
+
+        } finally {
+            console.log(subscriberObj)
+        }
+    };
+
 
     return (
         <footer>
@@ -88,36 +108,56 @@ const Footer = () => {
                 <form id='footer-form-container'>
                     <div className="form-split-section">
                         <input
-                            name="firstName" id="firstName" type="text"
-                            placeholder="First Name" autoComplete="given-name"
-                            className='footer-input-field'
-                            onBlur={(e) => validateFooterInputs(subscriberObj, e.target)}
+                            id="firstName"
+                            className="footer-input-field"
+                            name="firstName"
+                            type="text"
+                            placeholder="First Name"
+                            value={firstName}
+                            onChange={(e) => setFirstName(e.target.value)}
+                            onBlur={(e) => validateFooterInputs(e.target)}
                         />
                         <input
-                            name="lastName" id="lastName" type="text"
-                            placeholder="Last Name" autoComplete="family-name"
-                            className='footer-input-field'
-                            onBlur={(e) => validateFooterInputs(subscriberObj, e.target)}
+                            id="lastName"
+                            className="footer-input-field"
+                            name="lastName"
+                            type="text"
+                            placeholder="Last Name"
+                            value={lastName}
+                            onChange={(e) => setLastName(e.target.value)}
+                            onBlur={(e) => validateFooterInputs(e.target)}
                         />
                     </div>
                     <input
-                        name="email" id="email" type="email"
-                        placeholder="Email" autoComplete="on"
-                        className='footer-input-field'
-                        onBlur={(e) => validateFooterInputs(subscriberObj, e.target)}
+                        id="email"
+                        className="footer-input-field"
+                        name="email"
+                        type="email"
+                        placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        onBlur={(e) => validateFooterInputs(e.target)}
                     />
                     <div className="form-split-section">
                         <input
-                            name="city" id="city" type="address-level2"
-                            placeholder="City" autoComplete="on"
-                            className='footer-input-field'
-                            onBlur={(e) => validateFooterInputs(subscriberObj, e.target)}
+                            id="city"
+                            className="footer-input-field"
+                            name="city"
+                            type="text"
+                            placeholder="City"
+                            value={city}
+                            onChange={(e) => setCity(e.target.value)}
+                            onBlur={(e) => validateFooterInputs(e.target)}
                         />
                         <input
-                            name="state" id="state" type="address-level1"
-                            placeholder="State" autoComplete="on"
-                            className='footer-input-field'
-                            onBlur={(e) => validateFooterInputs(subscriberObj, e.target)}
+                            id="state"
+                            className="footer-input-field"
+                            name="state"
+                            type="text"
+                            placeholder="State"
+                            value={stateVal}
+                            onChange={(e) => setStateVal(e.target.value)}
+                            onBlur={(e) => validateFooterInputs(e.target)}
                         />
                         <Button
                             displayName='Subscribe'
@@ -128,11 +168,22 @@ const Footer = () => {
                     </div>
                 </form>
             </section>
-            <FooterDialogBox
-                isOpen={openDialogBox}
-                closeDialog={() => setOpenDialogBox(false)}
-                formCompleted={successfulSubmission}
-            />
+
+            {openDialogBox && (
+                <FooterDialogBox 
+                    isOpen={openDialogBox}
+                    closeDialog={() => setOpenDialogBox(false)}
+                    formCompleted={successfulSubmission}
+                />
+            )}
+
+            {/* Error Screen */}
+            {isErrorScreen && (
+                <ErrorScreen
+                    isOpen={isErrorScreen}
+                    handleClose={() => setIsErrorScreen(false)}
+                />
+            )}
         </footer>
     )
 }

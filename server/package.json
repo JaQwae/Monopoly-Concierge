@@ -5,8 +5,8 @@
   "main": "server.mjs",
   "type": "module",
   "scripts": {
-    "dev": "nodemon server.mjs",
-    "start": "node server.mjs"
+    "dev": "cross-env NODE_ENV=development nodemon server.mjs",
+    "start": "cross-env NODE_ENV=production node server.mjs"
   },
   "keywords": [],
   "author": "JaQwae Ellison",
@@ -16,12 +16,14 @@
   },
   "dependencies": {
     "@mailchimp/mailchimp_marketing": "^3.0.80",
+    "cors": "^2.8.5",
     "debug": "^4.4.1",
     "express": "^5.1.0",
     "mongodb": "^6.16.0",
     "nodemailer": "^7.0.3"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "dotenv": "^16.5.0",
     "nodemon": "^3.1.10"
   }

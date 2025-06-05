@@ -1,16 +1,44 @@
 #charter-hero-container {
-    background-image: url('https://www.lemaitre.com/themes/custom/lemaitre_theme/images/bg/map.webp');
+    background-image: url('../../../assets/jet-charters/jetChartersHeroImage.webp');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 75%;
-    height: 75vh;
+    height: 80vh;
     width: 100%;
     position: relative;
-    background-color: black;
+    background-color: var(--secondary-color);
     display:flex;
     justify-content: center;
     align-items: center;
 }
+
+#jet-charter-title {
+    font-size: clamp(2.5rem, 4vw, 4.5rem);
+    font-family: var(--heading-font);
+    text-shadow:
+        1px 1px 2px var(--primary-color),
+        0 0 0.3em var(--primary-color),
+        0 0 0.05em var(--primary-color);
+    margin: 0.2em 0.5em;
+    color: var(--secondary-color);
+    position: absolute;
+    left: clamp(1%, 2vw, 5%);
+    top: clamp(1%, 2vw, 5%);
+}
+
+/* #jet-charter-sub-title {
+    width: 100%;
+    text-align: center;
+    color: var(--primary-color);
+    font-family: var(--sub-heading-font);
+    position: absolute;
+    top: clamp(10%, 18vh, 25%);
+    font-size: clamp(2.5rem, 3vw, 3rem);
+    text-shadow:
+        1px 1px 2px var(--secondary-color),
+        0 0 0.3em var(--secondary-color),
+        0 0 0.05em var(--secondary-color);
+} */
 
 #jet-form-widget {
     background-color: rgba(0, 0, 0, 0.88);
@@ -52,17 +80,6 @@
     margin-top: 0.5em;
 }
 
-/* #widget-button {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    width: 16%;
-    height: 100%;
-    padding: 0em 0.5em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} */
-
 #jet-page-carousel-container {
     width: 100%;
     background-color: var(--primary-color);
@@ -71,37 +88,31 @@
 /* large tablet styling */
 @media screen and (max-width: 1024px) {
     #charter-hero-container {
-        height: 55vh;
-        width: 100%;
+        height: 85vh;
     }
 
     #jet-form-widget {
-        width: 60%;
+        width: 80%;
         padding: 2.5em;
         flex-direction: column;
     }
 
     .widget-section{
-        width: 80%;
+        width: 90%;
         margin: 0em 0em 0.5em;
     }
 
     .widget-input {
-        margin-top: 0em;
+        margin-top: 0.2em;
     }
 
-    /* #widget-button {
-        margin-top: 0.8em;
-        width: 45%;
-        padding: 0em;
-    } */
 }
 
 /* mobile styling */
 @media screen and (max-width: 767px) {
     #charter-hero-container {
-        height: auto;
-        padding: 3em 0em;
+        height: 90vh;
+        width: 100%;
     }
 
     #jet-form-widget {
@@ -110,22 +121,21 @@
     }
 
     .widget-section{
-        width: 95%;
-        margin: 0em 0em 1em;
+        width: 100%;
+        margin: 0em 0em 1.5em;
     }
 
     .widget-input {
         margin-top: 0em;
     }
-
-    /* #widget-button {
-        margin-top: 0em;
-        width: 95%;
-    } */
 }
 
 /* large mobile styling: landscape devices*/
 @media (orientation: landscape) and (max-width: 950px) {
+    #jet-charter-title{
+        display: none;
+    }
+    
     #charter-hero-container {
         height: auto;
         padding: 3em 0em;

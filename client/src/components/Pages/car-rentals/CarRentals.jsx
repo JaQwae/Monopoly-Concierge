@@ -6,7 +6,7 @@ import FormModal from '../../Forms/FormModal'
 import './CarRentals.css';
 
 const CarRentals = ({ navHeight }) => {
-    const [selectedCategory, setSelectedCategory] = useState('All');
+    const [selectedCategory, setSelectedCategory] = useState('ALL');
     const [filterHeight, setFilterHeight] = useState(0);
     const [isMobile, setIsMobile] = useState(window.innerWidth < 767);
     const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -32,7 +32,7 @@ const CarRentals = ({ navHeight }) => {
     // Detect screen size changes (both portrait and landscape)
     useEffect(() => {
         const handleResize = () => {
-            const isPortraitMobile = window.innerWidth < 767;
+            const isPortraitMobile = window.innerWidth < 1024;
             const isLandscapeMobile = window.innerWidth < 950 && window.matchMedia("(orientation: landscape)").matches;
 
             setIsMobile(isPortraitMobile || isLandscapeMobile);
@@ -58,7 +58,7 @@ const CarRentals = ({ navHeight }) => {
     }, []);
 
     const mainCategories = ['Luxury Rentals', 'Chauffeured Rentals'];
-    const filteredRentals = selectedCategory === 'All'
+    const filteredRentals = selectedCategory === 'ALL'
         ? CarRentalsData
         : CarRentalsData.filter(article => article.category === selectedCategory);
 

@@ -1,26 +1,25 @@
 nav {
   position: fixed;
-  top:0;
+  top: 0;
   width: 100%;
   z-index: 100;
-  padding-top: 0.5em;
 }
 
-.nav-bar-container-not-home{
+.nav-bar-container-not-home {
   border-bottom: 0.2em var(--secondary-color) solid
 }
 
 #upper-nav-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    padding-bottom: 0.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding-bottom: 0.2em;
 }
 
 #nav-toggle-btn {
   display: none;
-  color: black;
+  color: var(--secondary-color);
   position: absolute;
   left: 3%;
   font-size: 2em;
@@ -30,20 +29,20 @@ nav {
   cursor: pointer;
 }
 
-#nav-logo{
+#nav-logo {
   height: 5em;
   width: 12em;
 }
 
-#nav-cta-btn{
+#nav-cta-btn {
   position: absolute;
   right: 3%;
 }
 
 #nav-cta-btn:hover,
 #nav-cta-btn:focus {
-    color: black;
-    background-color: white;
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
 }
 
 .cta-btn-home {
@@ -51,74 +50,81 @@ nav {
   color: var(--primary-color)
 }
 
-.cta-btn-not-home{
+.cta-btn-not-home {
   background-color: var(--secondary-color);
   color: var(--primary-color)
 }
 
-    #nav-tab-container{
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      
-      margin: 0;
-    }
+#nav-tab-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+  background-color: transparent;
+}
 
-    .nav-tab-container-home {
-      background-color: var(--translucent-color);
-    }
-    
-    .nav-tab-container-not-home {
-      background-color: var(--primary-color);
-      /* border-bottom: 0.01em var(--secondary-color) solid; */
-    }
-    
-    .nav-tabs {
-      list-style: none;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      font-weight: 600;
-      font-size: 1em;
-      padding: 1em;
-    }
+.nav-tab-container-home {
+  background-color: var(--translucent-color);
+}
 
-    .nav-links{
-        text-decoration: none;
-        color: var(--primary-color);
-    }
+.nav-tab-container-not-home {
+  background-color: var(--primary-color);
+}
 
-    .nav-links-home {
-      background-color: none;
-    }
+.nav-tabs {
+  list-style: none;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  font-size: 1em;
+  padding: 1em;
+}
 
-    .nav-links-not-home {
-      color: var(--secondary-color);
-    }
+.nav-links {
+  text-decoration: none;
+  color: var(--primary-color);
+}
 
-    
-    .nav-tabs:hover,
-    .nav-tabs:focus {
-      cursor: pointer;
-      scale: 1.03;
-    }
+.nav-links-home {
+  background-color: none;
+}
 
-    .nav-links:hover,
-    .nav-links:focus {
-      color: var(--footer-text-color)
-    }
+.nav-links-not-home {
+  color: var(--secondary-color);
+}
+
+.nav-tabs:hover,
+.nav-tabs:focus {
+  cursor: pointer;
+  scale: 1.03;
+}
+
+.nav-links:hover,
+.nav-links:focus {
+  color: var(--footer-text-color)
+}
+
+.nav-bar-container-scrolled {
+    background-color: var(--primary-color);
+}
 
 /* tablet styling */
 @media screen and (max-width: 1024px) {
-  #nav-logo{
+  #nav-logo {
     height: 7em;
     width: 16em;
   }
 
-  #nav-tab-container{
+  #nav-tab-container {
     padding: 0em;
-    flex-direction:column;
+    flex-direction: column;
     display: none;
   }
+
+  .nav-tab-container-not-home {
+  background-color: var(--translucent-color);
+}
+
   .nav-tabs {
     width: 100%;
     display: flex;
@@ -126,7 +132,7 @@ nav {
     align-items: center;
     padding: 1.5em 0em;
     border-bottom: 2px solid var(--primary-color);
-    background-color: #000000cd;
+    background-color: var(--secondary-color);
     color: var(--primary-color)
   }
 
@@ -137,7 +143,7 @@ nav {
 
   #nav-toggle-btn {
     display: flex;
-    color: black;
+    color: var(--secondary-color);
     position: absolute;
     left: 3%;
     font-size: 2em;
@@ -156,12 +162,12 @@ nav {
     font-size: 1.7em;
   }
 
-  #nav-logo{
+  #nav-logo {
     height: 4.5em;
     width: 9.5em;
   }
 
-  #nav-cta-btn{
+  #nav-cta-btn {
     right: 2%;
     font-size: 0.9em;
     min-height: 0rem;
@@ -173,12 +179,12 @@ nav {
   nav {
     padding-top: 0.5em;
   }
-  
+
   #upper-nav-container {
     padding-bottom: 0em;
   }
 
-  #nav-logo{
+  #nav-logo {
     height: 4.5em;
     width: 9.5em;
   }
@@ -186,7 +192,7 @@ nav {
   .nav-tabs {
     padding: 1em 0em;
   }
-  
+
   .nav-links {
     font-size: 1em;
 

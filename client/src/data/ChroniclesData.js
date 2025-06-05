@@ -12,7 +12,7 @@ const articles = [
         description: 'Escape to a lush, private oasis in Houston designed for unforgettable gatherings, comfort, and connection.',
         image: experienceTheIsabellaOasis,
         alt: 'A man giving a women a message in the backyard',
-        category: 'TIPS'
+        category: 'PROPERTIES'
     },
     {
         id: '6837dcc85207202388b6e7aa',
@@ -20,7 +20,7 @@ const articles = [
         description: 'House of Tunes blends bold design, music history, and luxury comforts into Houston’s most unforgettable creative retreat.',
         image: experienceHouseOfTunes,
         alt: 'The interior of House of Tunes living',
-        category: 'CULTURE'
+        category: 'PROPERTIES'
     },
     {
         id:'6837e0ca5207202388b6e7ab',
@@ -28,7 +28,7 @@ const articles = [
         description: 'Celebrate in style with a custom birthday experience delivered to your luxury rental.',
         image: yourBirthdayYourWay,
         alt: 'Business people working remotely',
-        category: 'TIPS'
+        category: 'CONCIERGE SERVICES'
     },
     {
         id:'6837e5195207202388b6e7ac',
@@ -36,7 +36,7 @@ const articles = [
         description: 'Discover how private jet travel saves time, enhances comfort, and redefines every journey with Monopoly Concierge.',
         image: whyPrivateJetTravelIsWorthIT,
         alt: 'Female software developer coding',
-        category: 'JOURNEYS'
+        category: 'PRIVATE JET TRAVEL'
     },
     {
         id: '6837eaff5207202388b6e7ad',
@@ -44,7 +44,7 @@ const articles = [
         description: 'Learn what really shapes private jet pricing, from hourly rates to hidden fees and flight logistics.',
         image: theRealCostOfFlyingPrivate,
         alt: 'Business colleagues meditating at work',
-        category: 'TIPS'
+        category: 'PRIVATE JET TRAVEL'
     },
     {
         id:'6837fa225207202388b6e7ae',
@@ -52,7 +52,7 @@ const articles = [
         description: 'Explore private aircraft options that fit your trip, group, and lifestyle for the ultimate flight experience.',
         image: theFlightYouDeserve,
         alt: 'Blockchain technology concept',
-        category: 'CULTURE'
+        category: 'PRIVATE JET TRAVEL'
     },
     {
         id: '6837feb55207202388b6e7af',
@@ -60,7 +60,7 @@ const articles = [
         description: 'Discover how smart refueling strategies can cut private jet costs without compromising comfort or performance.',
         image: fuelArbitrage,
         alt: 'Cybersecurity protection shield',
-        category: 'TIPS'
+        category: 'PRIVATE JET TRAVEL'
     },
     {
         id: '683802b25207202388b6e7b0',
@@ -68,7 +68,7 @@ const articles = [
         description: 'Elevate your short-term rental stay with luxury concierge services designed to surprise, delight, and personalize.',
         image: howToMakeYourNextStayUnforgettableWithConciergeServices,
         alt: 'Astronaut floating in space',
-        category: 'JOURNEYS'
+        category: 'CONCIERGE SERVICES'
     },
     {
         id: '683809cc5207202388b6e7b1',
@@ -76,7 +76,7 @@ const articles = [
         description: 'Enjoy luxury car rentals and private drivers that make every part of your journey seamless and stylish.',
         image: vehicleTravelRedefined,
         alt: 'Person jogging in the park',
-        category: 'TIPS'
+        category: 'CAR RENTALS'
     },
     {
         id: '68380cfd5207202388b6e7b2',
@@ -84,7 +84,7 @@ const articles = [
         description: 'Key differences between brokers and operators to help you make smarter, safer private jet decisions.',
         image: theDifferenceBetweenBrokersAndOperatorsInPrivateJetTravel,
         alt: 'Modern sustainable architecture',
-        category: 'ART'
+        category: 'PRIVATE JET TRAVEL'
     },
 ];
 
