@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Loading from './components/Loading/Loading'
 import NavBar from './components/Navigation/NavBar'
 const Footer = lazy(() => import('./components/Footer/footer.jsx'));
-import './App.css'
+import './App.css';
 
 function App() {
   const [toggleDisplay, setToggleDisplay] = useState(false);
@@ -36,9 +36,7 @@ function App() {
           <Route path="/chronicles" element={<ConciergeChronicles navHeight={navHeight} />} />
         </Routes>
       </Suspense>
-      <Suspense fallback={null}>
         <Footer />
-      </Suspense>
       <div id={toggleDisplay && window.innerWidth <= 1024 ? 'nav-overlay' : ''}/>
     </BrowserRouter>
   )

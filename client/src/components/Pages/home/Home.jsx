@@ -1,10 +1,9 @@
 import React, { useState, lazy, Suspense, useRef } from 'react';
 import monopolyConciergeHeroVideo from '../../../assets/home/monopolyConciergeHeroVideo.webm';
 import Button from "../../Buttons/Button";
+import { ConciergeMoments } from './concierge-moments/ConciergeMoments';
 import './Home.css';
 
-const ConciergeMoments = lazy(() => import('./concierge-moments/ConciergeMoments')
-  .then(module => ({ default: module.ConciergeMoments })));
 const BookBtnSidebar = lazy(() => import('../../BookBtnSidebar/BookBtnSidebar'));
 
 const Home = () => {
@@ -55,11 +54,7 @@ const Home = () => {
           </button>
         </div>
       </section>
-
-      <Suspense fallback={null}>
-        <ConciergeMoments ref={conciergeMomentsSection} />
-      </Suspense>
-
+      <ConciergeMoments ref={conciergeMomentsSection} />
       <Suspense fallback={null}>
         {isSidebarOpen && <BookBtnSidebar isOpen={isSidebarOpen} closeSidebar={toggleSidebar} />}
       </Suspense>
