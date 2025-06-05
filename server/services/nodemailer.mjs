@@ -5,8 +5,8 @@ export const sendEmail = async (data, res) => {
   const transporter = nodemailer.createTransport({
     service: "yahoo",
     auth: {
-      user: process.env.EMAILSENDER,
-      pass: process.env.PASSWORDSENDER,
+      user: process.env.EMAIL_SENDER,
+      pass: process.env.PASSWORD_SENDER,
     },
   });
 
@@ -20,8 +20,8 @@ export const sendEmail = async (data, res) => {
 
   try {
     const info = await transporter.sendMail({
-      from: process.env.EMAILSENDER,
-      to: process.env.EMAILRECIPIENT,
+      from: process.env.EMAIL_SENDER,
+      to: process.env.EMAIL_RECIPIENT,
       subject: `New Form Submission from Monopoly Concierge`,
       text: `Message:\n${formattedMessage}`,
       html: `<h3>New Form Submission:</h3>${formattedHTML}`,

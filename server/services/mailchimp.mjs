@@ -1,4 +1,6 @@
 import mailchimp from '@mailchimp/mailchimp_marketing';
+import dotenv from 'dotenv';
+dotenv.config();
 
 export const addEmailSubscriber = async (subscriberData) => {
 

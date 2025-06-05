@@ -52,7 +52,7 @@ const Footer = () => {
 
     const callToMailchimp = async (subscriberObj) => {
         try {
-            const response = await fetch(`https://monopoly-concierge-backend.onrender.com/subscriber`, {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/subscriber`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

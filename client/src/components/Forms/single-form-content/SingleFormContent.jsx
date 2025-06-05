@@ -76,7 +76,7 @@ const SingleFormContent = ({ pageForm, handleClose, prefillData, steps }) => {
             subscriberObj.email = userData.email;
 
             // API mailchimp endpoint call
-            fetch(`https://monopoly-concierge-backend.onrender.com/subscriber`, {
+            fetch(`${import.meta.env.VITE_BACKEND_URL}/${formType}/form`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -88,7 +88,7 @@ const SingleFormContent = ({ pageForm, handleClose, prefillData, steps }) => {
         }
 
         // API nodemailer endpoint call
-        fetch(`https://monopoly-concierge-backend.onrender.com/${formType}/form`, {
+        fetch(`${import.meta.env.VITE_BACKEND_URL}/${formType}/form`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
