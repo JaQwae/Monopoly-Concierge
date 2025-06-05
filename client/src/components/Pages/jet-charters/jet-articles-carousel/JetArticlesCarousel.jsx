@@ -9,7 +9,7 @@ import Buttons from '../../../Buttons/Button';
 import './JetArticlesCarousel.css';
 
 const JetArticlesCarousel = () => {
-    const allowedCategories = ['JETS', 'TIPS'];
+    const allowedCategories = ['PRIVATE JET TRAVEL'];
     const [selectedCategory, setSelectedCategory] = useState('ALL');
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);

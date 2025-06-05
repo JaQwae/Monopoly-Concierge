@@ -36,7 +36,7 @@ const articles = [
         description: 'Discover how private jet travel saves time, enhances comfort, and redefines every journey with Monopoly Concierge.',
         image: whyPrivateJetTravelIsWorthIT,
         alt: 'Female software developer coding',
-        category: 'JETS'
+        category: 'PRIVATE JET TRAVEL'
     },
     {
         id: '6837eaff5207202388b6e7ad',
@@ -44,7 +44,7 @@ const articles = [
         description: 'Learn what really shapes private jet pricing, from hourly rates to hidden fees and flight logistics.',
         image: theRealCostOfFlyingPrivate,
         alt: 'Business colleagues meditating at work',
-        category: 'JETS'
+        category: 'PRIVATE JET TRAVEL'
     },
     {
         id:'6837fa225207202388b6e7ae',
@@ -52,7 +52,7 @@ const articles = [
         description: 'Explore private aircraft options that fit your trip, group, and lifestyle for the ultimate flight experience.',
         image: theFlightYouDeserve,
         alt: 'Blockchain technology concept',
-        category: 'JETS'
+        category: 'PRIVATE JET TRAVEL'
     },
     {
         id: '6837feb55207202388b6e7af',
@@ -60,7 +60,7 @@ const articles = [
         description: 'Discover how smart refueling strategies can cut private jet costs without compromising comfort or performance.',
         image: fuelArbitrage,
         alt: 'Cybersecurity protection shield',
-        category: 'JETS'
+        category: 'PRIVATE JET TRAVEL'
     },
     {
         id: '683802b25207202388b6e7b0',
@@ -84,7 +84,7 @@ const articles = [
         description: 'Key differences between brokers and operators to help you make smarter, safer private jet decisions.',
         image: theDifferenceBetweenBrokersAndOperatorsInPrivateJetTravel,
         alt: 'Modern sustainable architecture',
-        category: 'JETS'
+        category: 'PRIVATE JET TRAVEL'
     },
 ];
 
