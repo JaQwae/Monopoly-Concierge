@@ -23,7 +23,7 @@ import {
 import {  
     indulgentMassages,
     skinCareTreatments,
-    yogaSessions,
+    servicesSideBarImage,
     candleMaking
 } from '../assets/services/wellness-and-relaxation/wellnessAndRelaxationImages.js';
 // Convenience Services Images
@@ -159,7 +159,7 @@ const servicesData = [
     {
         title: 'Yoga Sessions',
         description: 'Find your zen with private yoga sessions held at your property coordinated by Monsieur Concierge.',
-        image: yogaSessions,
+        image: servicesSideBarImage,
         alt: 'Private yoga session',
         requiresTwoWeekBooking: true,
         category: 'Wellness & Relaxation'

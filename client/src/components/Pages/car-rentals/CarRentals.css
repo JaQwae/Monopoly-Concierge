@@ -117,22 +117,9 @@
     font-family: 'Retrofunk', Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.reserve-button {
-    background-color: var(--primary-color);
+#rental-book-btn{
     color: var(--secondary-color);
-    font-size: 0.9em;
-    padding: 0.6em 0.4em;
-    line-height: 1.9;
-    border-radius: 6px;
-    box-shadow: rgba(110, 109, 109, 0.24) 0px 3px 8px;
 }
-
-.reserve-button:hover,
-.reserve-button:focus {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-}
-
 
 /* large tablet styling */
 @media screen and (max-width: 1024px) {
