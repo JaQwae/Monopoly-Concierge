@@ -160,6 +160,24 @@ export const baseSteps = [
 ];
 
 export const serviceFormSteps = [
+        {
+        key: 'serviceDetails',
+        title: 'Service Details',
+        fields: [
+            {
+                key: 'booking-status',
+                label: 'Booking Status',
+                type: 'radio',
+                className: 'input-radio',
+                id: 'booking-status',
+                options: [
+                    { label: 'I have a reservation.', value: 'have-reservation' },
+                    { label: 'I am planning to book.', value: 'planning-to-book' }
+                ]
+            },
+
+        ]
+    },
     {
         key: 'contactInfo',
         title: 'Contact Info',
@@ -218,24 +236,6 @@ export const serviceFormSteps = [
                 className: 'input-textarea',
                 id: 'how-can-we-help'
             },
-        ]
-    },
-    {
-        key: 'serviceDetails',
-        title: 'Service Details',
-        fields: [
-            {
-                key: 'booking-status',
-                label: 'Booking Status',
-                type: 'radio',
-                className: 'input-radio',
-                id: 'booking-status',
-                options: [
-                    { label: 'I have a reservation.', value: 'have-reservation' },
-                    { label: 'I am planning to book.', value: 'planning-to-book' }
-                ]
-            },
-
         ]
     }
 ];
