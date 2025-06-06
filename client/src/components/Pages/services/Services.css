@@ -119,18 +119,8 @@
     margin: 1.5em 1em;
 }
 
-.service-link {
-    display: inline-block;
-    color: var(--primary-color);
-    font-weight: bold;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.service-link:hover {
-    color: var(--tertiary-color);
-    scale: 1.1;
-    transition: ease-in-out 0.3s;
+#service-book-btn{
+    color:var(--secondary-color)
 }
 
 /* large tablet styling */
@@ -190,10 +180,6 @@
     .service-description {
         font-size: 1.1em;
     }
-
-    .service-link {
-        font-size: 0.8em;
-    }
 }
 
 /* large mobile styling: landscape devices*/
@@ -235,10 +221,5 @@
     .service-description {
         font-size: 1em;
         margin: 0.7em 1em;
-    }
-
-    .service-link {
-        font-size: 0.8em;
-        font-weight: 400;
     }
 }

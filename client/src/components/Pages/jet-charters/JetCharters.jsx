@@ -57,6 +57,7 @@ const JetCharters = ({ navHeight }) => {
           <FormModal
             pageForm='charters'
             displayName='REQUEST A JET'
+            btnIdName='jet-book-btn'
             widgetData={widgetFormData}
           />
         </div>

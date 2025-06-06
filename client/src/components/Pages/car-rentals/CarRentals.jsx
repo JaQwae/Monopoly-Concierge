@@ -141,6 +141,7 @@ const CarRentals = ({ navHeight }) => {
                                     <FormModal
                                         pageForm='rentals'
                                         displayName='Reserve'
+                                        btnIdName='rental-book-btn'
                                         selectedCarData={{
                                             rentalCategory: car.category,
                                             carTitle: car.title,

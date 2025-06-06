@@ -105,6 +105,7 @@
 
 .form-btn {
     margin: 0em 2em;
+    color: var(--secondary-color);
 }
 
 /* large tablet styling */
